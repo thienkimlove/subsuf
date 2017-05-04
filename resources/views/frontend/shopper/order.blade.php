@@ -127,8 +127,8 @@
                                           maxlength="200">{{isset($order["description"])?$order["description"]:""}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>{{trans("index.giasanpham")}} ({{$order['currency']}})</label>
-                                <input class="form-control spinner" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)||event.charCode==46' name="price" type="text" maxlength="7" step=any min="1"
+                                <label>{{trans("index.giasanpham")}} (<b id="currency_label">{{$order['currency']}}</b>)</label>
+                                <input class="form-control spinner" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)||event.charCode==46' name="price" type="text" id="price_value" maxlength="7" step=any min="1"
                                        data-error="{{trans("index.price_min")}}"
                                        value="{{isset($order["price"])?$order["price"]:""}}" required="">
                                 <div class="help-block with-errors"></div>
@@ -141,17 +141,16 @@
                                         <i class="fa fa-question-circle"></i> {{trans("index.tigiaquydoi")}}
                                        </a>--}}
 
-                                        Quy doi sang <select name="exchange">
-
-                                            @foreach($exchangeArr as $item)
-                                                @if (($order['currency'] == '£' && $item->from_currency == 'EUR') || ($order['currency'] == '$' && $item->from_currency == 'USD' ))
-                                                <option>{{ $item->to_currency }} Rate : {{number_format($item->money)}}</option>
-                                                @endif
-
+                                        @if (isset($order['currency']))
+                                            <input type="hidden" id="amount" value="{{$order['amount']}}" />
+                                        {{trans("index.quydoisang")}}
+                                        <select name="exchange" id="exchange">
+                                            <option value="">{{trans("index.chontigia")}}</option>
+                                            @foreach($exchangeArr->where('from_currency', $order['currency']) as $item)
+                                                <option value="{{$item->money}}|{{ $item->to_currency }}">{{ $item->to_currency }} Rate : {{$item->money}}</option>
                                             @endforeach
-
                                         </select>
-
+                                        @endif
                                     </small>
                                 </p>
                             </div>
@@ -306,5 +305,13 @@
             var url = "{{URL::action('Frontend\ShopperController@order')}}";
             window.location.href = url + "?start=1&url=" + encodeURIComponent(url_value);
         })
+        $("#exchange").change(function(){
+            var info = $("#exchange").val().split('|');
+            var exchange_value = parseFloat(info[0]);
+            var exchange_currency = info[1];
+            var true_amount = parseFloat($("#amount").val());
+            $('#price_value').val(exchange_currency + exchange_value*true_amount)
+            $('#currency_label').html(exchange_currency);
+        });
     </script>
 @endsection

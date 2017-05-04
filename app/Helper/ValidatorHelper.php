@@ -146,7 +146,8 @@ function change_password_validator($request)
 function category_validator($request)
 {
     $validator = Validator::make($request->all(), [
-        'name' => "required",
+        'name_vi' => "required",
+        'name_en' => "required",
         'category_type' => 'required'
     ], [
         'required' => "Vui lòng nhập đầy đủ dữ liệu",

@@ -111,6 +111,7 @@ class CategoryController extends Controller
 
                         return \Redirect::action('Admin\CategoryController@index')->withSuccess(message_update());
                     } catch (\Exception $exception) {
+                        dd($exception->getMessage());
                         return \Redirect::back()->withError(message_internal_error());
                     }
                 }

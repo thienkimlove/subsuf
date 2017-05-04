@@ -32,7 +32,7 @@ class CategoryRepository
 
     public function getLimit($limit, $query = [])
     {
-        return $this->select($query)->paginate($limit);
+        return $this->select($query)->with('translations')->paginate($limit);
     }
 
     public function find($category_id)
@@ -44,12 +44,34 @@ class CategoryRepository
 
     public function insert($data)
     {
-        $this->category->insert($data);
+
+        $nameVi = $data['name_vi'];
+        $nameEn = $data['name_en'];
+        unset($data['name_vi']);
+        unset($data['name_en']);
+
+
+        $category = $this->category->insert($data);
+
+        $category->translateOrNew('vi')->name = $nameVi;
+        $category->save();
+        $category->translateOrNew('en')->name = $nameEn;
+        $category->save();
+
     }
 
     public function update($category_id, $data)
     {
+        $category = Category::find($category_id);
+        $category->translateOrNew('vi')->name = $data['name_vi'];
+        $category->save();
+        $category->translateOrNew('en')->name = $data['name_en'];
+        $category->save();
+        unset($data['name_vi']);
+        unset($data['name_en']);
         $this->category->where('category_id', $category_id)->update($data);
+
+
     }
 
     public function delete($category_id)

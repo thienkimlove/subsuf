@@ -309,4 +309,6 @@ return [
     'note' => 'Note',
     'sotiennhapvaoqualon' => 'Amount of money not suitable.',
     'soluongnhapvaoqualon' => 'Quantity of product oversized.',
+    'qudoisang' => 'Exchange to',
+    'chontigia' => 'Choose Currency',
 ];
