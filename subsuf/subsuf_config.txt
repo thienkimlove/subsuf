@@ -1,0 +1,43 @@
+1. Hosting
+	ip:			116.193.77.83:2222 
+	username:	bee55764
+	password: 	subsuf1234
+	
+2. DB MySQL
+	Database:	bee55764_subsuf
+	Host:		localhost
+	Username:	bee55764_subsuf
+	Password:	subsuf1234
+	
+3. FTP
+	username:	bee55764
+	password: 	subsuf1234
+	
+4. PHP MyAdmin
+	username:	bee55764
+	password: 	subsuf1234
+	
+5. Tên miền
+Đây là thông tin quản lý tên miền của quý khách:
+
+Voi account cua ban: subsuf.com 
+va password cua ban: LkJs7iDKNS 
+Tên miền: subsuf.com
+Mật khẩu Domain: EMBB0ElPNEZCvE6Q
+Liên kết đăng nhập: http://zonedns.vn
+
+Để sử dụng được dịch vụ Zonedns, quý khách vui lòng trỏ tên miền về DNS như sau:
+
+ns1.zonedns.vn (Bắt buộc)
+ns2.zonedns.vn (Bắt buộc)
+ns3.zonedns.vn
+ns4.zonedns.vn
+
+6. Beehost
+- Email: hoangminhta14@gmail.com
+- Mật mã: m01633233153
+
+http://o7planning.org/vi/10267/huong-dan-su-dung-svn-repository-mien-phi-xp-dev#a40850
+
+7. Email support
+support@subsuf.com/123abc45

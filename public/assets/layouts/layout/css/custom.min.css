@@ -1,0 +1,325 @@
+.table th {
+    text-align: center !important;
+}
+
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    .table {
+        font-size: 12px !important;
+    }
+
+    .table td, .table th {
+        font-size: 12px;
+    }
+
+    .table thead tr th {
+        font-size: 12px;
+        font-weight: 600;
+    }
+}
+
+.table td, .table th {
+    font-size: 12px;
+    vertical-align: middle !important;
+}
+
+.table thead tr th {
+    font-size: 12px;
+    font-weight: 800;
+    vertical-align: middle !important;
+}
+
+.stt {
+    text-align: center;
+    width: 50px;
+}
+
+.action {
+    text-align: center;
+    width: 150px;
+}
+
+.number {
+    text-align: right;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.font-13 {
+    font-size: 13px !important;
+}
+
+.font-14 {
+    font-size: 14px !important;
+}
+
+.font-15 {
+    font-size: 15px !important;
+}
+
+.font-16 {
+    font-size: 16px !important;
+}
+
+/* clearable input css */
+.clearable {
+    background: #fff url(http://i.stack.imgur.com/mJotv.gif) no-repeat right -10px center;
+    /*border: 1px solid #999;*/
+    padding: 3px 18px 3px 4px; /* Use the same right padding (18) in jQ! */
+    border-radius: 3px;
+    transition: background 0.4s;
+}
+
+.clearable.x {
+    background-position: right 5px center;
+}
+
+/* (jQ) Show icon */
+.clearable.onX {
+    cursor: pointer;
+}
+
+/* (jQ) hover cursor style */
+.clearable::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Remove IE default X */
+
+/* Start Profile Custom */
+.profile-usermenu {
+    margin-top: 30px;
+    padding-bottom: 0px;
+}
+
+.profile-usermenu ul li.active a {
+    color: #5b9bd1;
+    font-weight: 700;
+    background-color: #f6f9fb;
+    border-left: 5px solid #5b9bd1;
+    margin-left: 0px;
+}
+
+.profile-usertitle-name .full-name {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.profile-usertitle-name .request {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.profile-usermenu ul li a {
+    color: #a2a2a2;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* End Profile Custom */
+
+.table td.text-top {
+    vertical-align: top !important;
+}
+
+.dashboard-stat2 .display .number small {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.panel {
+    margin-bottom: 1px;
+    background-color: #fff;
+}
+
+.text-break-word {
+    overflow-wrap: break-word;
+    font-family: Circe, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: inherit;
+}
+
+.p-0 {
+    padding: 0px !important;
+}
+
+.p-5 {
+    padding: 5px !important;
+}
+
+.p-10 {
+    padding: 10px !important;
+}
+
+.p-20 {
+    padding: 20px !important;
+}
+
+.p-30 {
+    padding: 30px !important;
+}
+
+.p-l-0 {
+    padding-left: 0px !important;
+}
+
+.p-r-0 {
+    padding-right: 0px !important;
+}
+
+.p-t-0 {
+    padding-top: 0px !important;
+}
+
+.p-t-5 {
+    padding-top: 5px !important;
+}
+
+.p-t-10 {
+    padding-top: 10px !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0 !important;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.p-b-10 {
+    padding-bottom: 10px !important;
+}
+
+.p-l-r-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.m-0 {
+    margin: 0px !important;
+}
+
+.m-r-0 {
+    margin-right: 0 !important;
+}
+
+.m-r-5 {
+    margin-right: 5px !important;
+}
+
+.m-r-10 {
+    margin-right: 10px !important;
+}
+
+.m-r-15 {
+    margin-right: 15px !important;
+}
+
+.m-r-20 {
+    margin-right: 20px !important;
+}
+
+.m-r-25 {
+    margin-right: 25px !important;
+}
+
+.m-r-30 {
+    margin-right: 30px !important;
+}
+
+.m-l-5 {
+    margin-left: 5px !important;
+}
+
+.m-l-10 {
+    margin-left: 10px !important;
+}
+
+.m-l-15 {
+    margin-left: 15px !important;
+}
+
+.m-l-20 {
+    margin-left: 20px !important;
+}
+
+.m-l-25 {
+    margin-left: 25px !important;
+}
+
+.m-l-30 {
+    margin-left: 30px !important;
+}
+
+.m-l-40 {
+    margin-left: 40px !important;
+}
+
+.m-t-5 {
+    margin-top: 5px !important;
+}
+
+.m-t-0 {
+    margin-top: 0px !important;
+}
+
+.m-t-10 {
+    margin-top: 10px !important;
+}
+
+.m-t-15 {
+    margin-top: 15px !important;
+}
+
+.m-t-20 {
+    margin-top: 20px !important;
+}
+
+.m-t-30 {
+    margin-top: 30px !important;
+}
+
+.m-t-40 {
+    margin-top: 40px !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0px !important;
+}
+
+.m-b-5 {
+    margin-bottom: 5px !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px !important;
+}
+
+.m-b-15 {
+    margin-bottom: 15px !important;
+}
+
+.m-b-20 {
+    margin-bottom: 20px !important;
+}
+
+.m-b-30 {
+    margin-bottom: 30px !important;
+}
