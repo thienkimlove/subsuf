@@ -314,5 +314,7 @@ return [
     'note' => 'Ghi chú',
     'sotiennhapvaoqualon' => 'Số tiền nhập vào quá lớn',
     'soluongnhapvaoqualon' => 'Số lượng sản phẩm nhập vào quá lớn',
+    'qudoisang' => 'Quy đổi sang',
+    'chontigia' => 'Chọn loại tiền',
 
 ];

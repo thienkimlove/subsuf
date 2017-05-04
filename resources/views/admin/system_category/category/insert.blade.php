@@ -62,10 +62,20 @@
 
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
-                                        Tên
+                                        Tên tiếng Việt
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
-                                    <input required type="text" name="name" id="name" class="form-control">
+                                    <input required type="text" name="name_vi" id="name_vi" value=""
+                                           class="form-control">
+                                </div>
+
+                                <div class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        Tên tiếng Anh
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <input required type="text" name="name_en" id="name_en" value=""
+                                           class="form-control">
                                 </div>
 
                                 <div class="form-group form-group-sm">

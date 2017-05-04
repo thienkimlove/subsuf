@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.45 on 2017-03-23.
+ * Generated for Laravel 5.2.45 on 2017-05-04.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1773,6 +1773,18 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if the current user is authenticated.
          *
+         * @return \App\User 
+         * @throws \Illuminate\Auth\AuthenticationException
+         * @static 
+         */
+        public static function authenticate()
+        {
+            return \Illuminate\Auth\SessionGuard::authenticate();
+        }
+        
+        /**
+         * Determine if the current user is authenticated.
+         *
          * @return bool 
          * @static 
          */
@@ -1790,18 +1802,6 @@ namespace Illuminate\Support\Facades {
         public static function guest()
         {
             return \Illuminate\Auth\SessionGuard::guest();
-        }
-        
-        /**
-         * Determine if the current user is authenticated.
-         *
-         * @return \App\User 
-         * @throws \Illuminate\Auth\AuthenticationException
-         * @static 
-         */
-        public static function authenticate()
-        {
-            return \Illuminate\Auth\SessionGuard::authenticate();
         }
         
     }         
@@ -2729,6 +2729,49 @@ namespace Illuminate\Support\Facades {
         public static function getQueuedCookies()
         {
             return \Illuminate\Cookie\CookieJar::getQueuedCookies();
+        }
+        
+    }         
+
+    class Crypt {
+        
+        /**
+         * Determine if the given key and cipher combination is valid.
+         *
+         * @param string $key
+         * @param string $cipher
+         * @return bool 
+         * @static 
+         */
+        public static function supported($key, $cipher)
+        {
+            return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
+        }
+        
+        /**
+         * Encrypt the given value.
+         *
+         * @param string $value
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\EncryptException
+         * @static 
+         */
+        public static function encrypt($value)
+        {
+            return \Illuminate\Encryption\Encrypter::encrypt($value);
+        }
+        
+        /**
+         * Decrypt the given value.
+         *
+         * @param string $payload
+         * @return string 
+         * @throws \Illuminate\Contracts\Encryption\DecryptException
+         * @static 
+         */
+        public static function decrypt($payload)
+        {
+            return \Illuminate\Encryption\Encrypter::decrypt($payload);
         }
         
     }         
@@ -5357,6 +5400,134 @@ namespace Illuminate\Support\Facades {
         public static function isDownForMaintenance()
         {
             return \Illuminate\Queue\QueueManager::isDownForMaintenance();
+        }
+        
+        /**
+         * Push a new job onto the queue.
+         *
+         * @param string $job
+         * @param mixed $data
+         * @param string $queue
+         * @return mixed 
+         * @throws \Exception|\Throwable
+         * @static 
+         */
+        public static function push($job, $data = '', $queue = null)
+        {
+            return \Illuminate\Queue\SyncQueue::push($job, $data, $queue);
+        }
+        
+        /**
+         * Push a raw payload onto the queue.
+         *
+         * @param string $payload
+         * @param string $queue
+         * @param array $options
+         * @return mixed 
+         * @static 
+         */
+        public static function pushRaw($payload, $queue = null, $options = array())
+        {
+            return \Illuminate\Queue\SyncQueue::pushRaw($payload, $queue, $options);
+        }
+        
+        /**
+         * Push a new job onto the queue after a delay.
+         *
+         * @param \DateTime|int $delay
+         * @param string $job
+         * @param mixed $data
+         * @param string $queue
+         * @return mixed 
+         * @static 
+         */
+        public static function later($delay, $job, $data = '', $queue = null)
+        {
+            return \Illuminate\Queue\SyncQueue::later($delay, $job, $data, $queue);
+        }
+        
+        /**
+         * Pop the next job off of the queue.
+         *
+         * @param string $queue
+         * @return \Illuminate\Contracts\Queue\Job|null 
+         * @static 
+         */
+        public static function pop($queue = null)
+        {
+            return \Illuminate\Queue\SyncQueue::pop($queue);
+        }
+        
+        /**
+         * Push a new job onto the queue.
+         *
+         * @param string $queue
+         * @param string $job
+         * @param mixed $data
+         * @return mixed 
+         * @static 
+         */
+        public static function pushOn($queue, $job, $data = '')
+        {
+            //Method inherited from \Illuminate\Queue\Queue            
+            return \Illuminate\Queue\SyncQueue::pushOn($queue, $job, $data);
+        }
+        
+        /**
+         * Push a new job onto the queue after a delay.
+         *
+         * @param string $queue
+         * @param \DateTime|int $delay
+         * @param string $job
+         * @param mixed $data
+         * @return mixed 
+         * @static 
+         */
+        public static function laterOn($queue, $delay, $job, $data = '')
+        {
+            //Method inherited from \Illuminate\Queue\Queue            
+            return \Illuminate\Queue\SyncQueue::laterOn($queue, $delay, $job, $data);
+        }
+        
+        /**
+         * Push an array of jobs onto the queue.
+         *
+         * @param array $jobs
+         * @param mixed $data
+         * @param string $queue
+         * @return mixed 
+         * @static 
+         */
+        public static function bulk($jobs, $data = '', $queue = null)
+        {
+            //Method inherited from \Illuminate\Queue\Queue            
+            return \Illuminate\Queue\SyncQueue::bulk($jobs, $data, $queue);
+        }
+        
+        /**
+         * Set the IoC container instance.
+         *
+         * @param \Illuminate\Container\Container $container
+         * @return void 
+         * @static 
+         */
+        public static function setContainer($container)
+        {
+            //Method inherited from \Illuminate\Queue\Queue            
+            \Illuminate\Queue\SyncQueue::setContainer($container);
+        }
+        
+        /**
+         * Set the encrypter implementation.
+         *
+         * @param \Illuminate\Contracts\Encryption\Encrypter $encrypter
+         * @return void 
+         * @static 
+         */
+        public static function setEncrypter($encrypter)
+        {
+            //Method inherited from \Illuminate\Queue\Queue            
+            \Illuminate\Queue\SyncQueue::setEncrypter($encrypter);
         }
         
     }         
@@ -11434,6 +11605,433 @@ namespace Ixudra\Curl\Facades {
     }         
 }
     
+namespace SammyK\LaravelFacebookSdk {
+
+    class FacebookFacade {
+        
+        /**
+         * 
+         *
+         * @param array $config
+         * @return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk 
+         * @static 
+         */
+        public static function newInstance($config)
+        {
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::newInstance($config);
+        }
+        
+        /**
+         * Generate an OAuth 2.0 authorization URL for authentication.
+         *
+         * @param array $scope
+         * @param string $callback_url
+         * @return string 
+         * @static 
+         */
+        public static function getLoginUrl($scope = array(), $callback_url = '')
+        {
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getLoginUrl($scope, $callback_url);
+        }
+        
+        /**
+         * Generate a re-request authorization URL.
+         *
+         * @param array $scope
+         * @param string $callback_url
+         * @return string 
+         * @static 
+         */
+        public static function getReRequestUrl($scope, $callback_url = '')
+        {
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getReRequestUrl($scope, $callback_url);
+        }
+        
+        /**
+         * Generate a re-authentication authorization URL.
+         *
+         * @param array $scope
+         * @param string $callback_url
+         * @return string 
+         * @static 
+         */
+        public static function getReAuthenticationUrl($scope = array(), $callback_url = '')
+        {
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getReAuthenticationUrl($scope, $callback_url);
+        }
+        
+        /**
+         * Get an access token from a redirect.
+         *
+         * @param string $callback_url
+         * @return \Facebook\Authentication\AccessToken|null 
+         * @static 
+         */
+        public static function getAccessTokenFromRedirect($callback_url = '')
+        {
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getAccessTokenFromRedirect($callback_url);
+        }
+        
+        /**
+         * Returns the FacebookApp entity.
+         *
+         * @return \Facebook\FacebookApp 
+         * @static 
+         */
+        public static function getApp()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getApp();
+        }
+        
+        /**
+         * Returns the FacebookClient service.
+         *
+         * @return \Facebook\FacebookClient 
+         * @static 
+         */
+        public static function getClient()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getClient();
+        }
+        
+        /**
+         * Returns the OAuth 2.0 client service.
+         *
+         * @return \Facebook\OAuth2Client 
+         * @static 
+         */
+        public static function getOAuth2Client()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getOAuth2Client();
+        }
+        
+        /**
+         * Returns the last response returned from Graph.
+         *
+         * @return \Facebook\FacebookResponse|\Facebook\FacebookBatchResponse|null 
+         * @static 
+         */
+        public static function getLastResponse()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getLastResponse();
+        }
+        
+        /**
+         * Returns the URL detection handler.
+         *
+         * @return \Facebook\UrlDetectionInterface 
+         * @static 
+         */
+        public static function getUrlDetectionHandler()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getUrlDetectionHandler();
+        }
+        
+        /**
+         * Returns the default AccessToken entity.
+         *
+         * @return \Facebook\AccessToken|null 
+         * @static 
+         */
+        public static function getDefaultAccessToken()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getDefaultAccessToken();
+        }
+        
+        /**
+         * Sets the default access token to use with requests.
+         *
+         * @param \Facebook\AccessToken|string $accessToken The access token to save.
+         * @throws \InvalidArgumentException
+         * @static 
+         */
+        public static function setDefaultAccessToken($accessToken)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::setDefaultAccessToken($accessToken);
+        }
+        
+        /**
+         * Returns the default Graph version.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultGraphVersion()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getDefaultGraphVersion();
+        }
+        
+        /**
+         * Returns the redirect login helper.
+         *
+         * @return \Facebook\FacebookRedirectLoginHelper 
+         * @static 
+         */
+        public static function getRedirectLoginHelper()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getRedirectLoginHelper();
+        }
+        
+        /**
+         * Returns the JavaScript helper.
+         *
+         * @return \Facebook\FacebookJavaScriptHelper 
+         * @static 
+         */
+        public static function getJavaScriptHelper()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getJavaScriptHelper();
+        }
+        
+        /**
+         * Returns the canvas helper.
+         *
+         * @return \Facebook\FacebookCanvasHelper 
+         * @static 
+         */
+        public static function getCanvasHelper()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getCanvasHelper();
+        }
+        
+        /**
+         * Returns the page tab helper.
+         *
+         * @return \Facebook\FacebookPageTabHelper 
+         * @static 
+         */
+        public static function getPageTabHelper()
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getPageTabHelper();
+        }
+        
+        /**
+         * Sends a GET request to Graph and returns the result.
+         *
+         * @param string $endpoint
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function get($endpoint, $accessToken = null, $eTag = null, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::get($endpoint, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a POST request to Graph and returns the result.
+         *
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function post($endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::post($endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a DELETE request to Graph and returns the result.
+         *
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function delete($endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::delete($endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a request to Graph for the next page of results.
+         *
+         * @param \Facebook\GraphEdge $graphEdge The GraphEdge to paginate over.
+         * @return \Facebook\GraphEdge|null 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function next($graphEdge)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::next($graphEdge);
+        }
+        
+        /**
+         * Sends a request to Graph for the previous page of results.
+         *
+         * @param \Facebook\GraphEdge $graphEdge The GraphEdge to paginate over.
+         * @return \Facebook\GraphEdge|null 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function previous($graphEdge)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::previous($graphEdge);
+        }
+        
+        /**
+         * Sends a request to Graph for the next page of results.
+         *
+         * @param \Facebook\GraphEdge $graphEdge The GraphEdge to paginate over.
+         * @param string $direction The direction of the pagination: next|previous.
+         * @return \Facebook\GraphEdge|null 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function getPaginationResults($graphEdge, $direction)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::getPaginationResults($graphEdge, $direction);
+        }
+        
+        /**
+         * Sends a request to Graph and returns the result.
+         *
+         * @param string $method
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function sendRequest($method, $endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::sendRequest($method, $endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Sends a batched request to Graph and returns the result.
+         *
+         * @param array $requests
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookBatchResponse 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function sendBatchRequest($requests, $accessToken = null, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::sendBatchRequest($requests, $accessToken, $graphVersion);
+        }
+        
+        /**
+         * Instantiates an empty FacebookBatchRequest entity.
+         *
+         * @param \Facebook\AccessToken|string|null $accessToken The top-level access token. Requests with no access token
+         *                                               will fallback to this.
+         * @param string|null $graphVersion The Graph API version to use.
+         * @return \Facebook\FacebookBatchRequest 
+         * @static 
+         */
+        public static function newBatchRequest($accessToken = null, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::newBatchRequest($accessToken, $graphVersion);
+        }
+        
+        /**
+         * Instantiates a new FacebookRequest entity.
+         *
+         * @param string $method
+         * @param string $endpoint
+         * @param array $params
+         * @param \Facebook\AccessToken|string|null $accessToken
+         * @param string|null $eTag
+         * @param string|null $graphVersion
+         * @return \Facebook\FacebookRequest 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function request($method, $endpoint, $params = array(), $accessToken = null, $eTag = null, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::request($method, $endpoint, $params, $accessToken, $eTag, $graphVersion);
+        }
+        
+        /**
+         * Factory to create FacebookFile's.
+         *
+         * @param string $pathToFile
+         * @return \Facebook\FacebookFile 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function fileToUpload($pathToFile)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::fileToUpload($pathToFile);
+        }
+        
+        /**
+         * Factory to create FacebookVideo's.
+         *
+         * @param string $pathToFile
+         * @return \Facebook\FacebookVideo 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function videoToUpload($pathToFile)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::videoToUpload($pathToFile);
+        }
+        
+        /**
+         * Upload a video in chunks.
+         *
+         * @param int $target The id of the target node before the /videos edge.
+         * @param string $pathToFile The full path to the file.
+         * @param array $metadata The metadata associated with the video file.
+         * @param string|null $accessToken The access token.
+         * @param int $maxTransferTries The max times to retry a failed upload chunk.
+         * @param string|null $graphVersion The Graph API version to use.
+         * @return array 
+         * @throws FacebookSDKException
+         * @static 
+         */
+        public static function uploadVideo($target, $pathToFile, $metadata = array(), $accessToken = null, $maxTransferTries = 5, $graphVersion = null)
+        {
+            //Method inherited from \Facebook\Facebook            
+            return \SammyK\LaravelFacebookSdk\LaravelFacebookSdk::uploadVideo($target, $pathToFile, $metadata, $accessToken, $maxTransferTries, $graphVersion);
+        }
+        
+    }         
+}
+    
 namespace Mews\Captcha\Facades {
 
     class Captcha {
@@ -11505,6 +12103,8 @@ namespace {
     class Config extends \Illuminate\Support\Facades\Config {}
     
     class Cookie extends \Illuminate\Support\Facades\Cookie {}
+    
+    class Crypt extends \Illuminate\Support\Facades\Crypt {}
     
     class DB extends \Illuminate\Support\Facades\DB {}
     
@@ -13404,6 +14004,8 @@ namespace {
     class Socialite extends \Laravel\Socialite\Facades\Socialite {}
     
     class Curl extends \Ixudra\Curl\Facades\Curl {}
+    
+    class Facebook extends \SammyK\LaravelFacebookSdk\FacebookFacade {}
     
     class Captcha extends \Mews\Captcha\Facades\Captcha {}
     

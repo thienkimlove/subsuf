@@ -164,7 +164,8 @@ function get_change_password_form($request)
 function get_category_form($request)
 {
     $data = [
-        'name' => mb_ucfirst(trim($request->input('name', ''))),
+        'name_vi' => mb_ucfirst(trim($request->input('name_vi', ''))),
+        'name_en' => mb_ucfirst(trim($request->input('name_en', ''))),
         'category_type' => (int)trim($request->input('category_type', 1)),
         'category_order' => (int)trim($request->input('category_order', 1)),
         'is_showed' => (int)trim($request->input('is_showed', 0)),

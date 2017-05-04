@@ -87,7 +87,8 @@
                                 <tr>
                                     <th class="stt">STT</th>
                                     <th class="stt">Ảnh</th>
-                                    <th>Nhóm hàng</th>
+                                    <th>Nhóm hàng (Vi)</th>
+                                    <th>Nhóm hàng (En)</th>
                                     <th width="100px">Thuộc nhóm</th>
                                     <th width="100px">Ưu tiên</th>
                                     <th width="100px">Hiển thị</th>
@@ -108,9 +109,16 @@
                                         </td>
                                         <td>
                                             <a href="{{URL::action('Admin\CategoryController@update', $category->category_id)}}">
-                                                {{$category->name}}
+                                                {{($category->translate('vi'))? $category->translate('vi')->name : ''}}
                                             </a>
                                         </td>
+
+                                        <td>
+                                            <a href="{{URL::action('Admin\CategoryController@update', $category->category_id)}}">
+                                                {{($category->translate('en'))? $category->translate('en')->name : ''}}
+                                            </a>
+                                        </td>
+
                                         <td>{{$category_types[$category->category_type]}}</td>
                                         <td align="center">{{$category->category_order}}</td>
                                         <td>

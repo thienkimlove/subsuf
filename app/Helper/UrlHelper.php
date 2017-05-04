@@ -4,26 +4,119 @@ namespace App\Helper;
 
 use Ixudra\Curl\Facades\Curl;
 
-class UrlHelper
+class AwsRequest
 {
-    private static function curl($url)
-    {
-        return Curl::to($url)->withOption('SSL_VERIFYPEER', false)->get();
-    }
 
-    private static function currency($string)
-    {
-        $currencySymbols = [
-            '£',
-            '$'
-        ];
-        foreach ($currencySymbols as $currencySymbol) {
-            if (strpos($string, $currencySymbol) !== false) {
-                return $currencySymbol;
-            }
+    protected static function awsQuery($extraParams, $host = "webservices.amazon.co.uk") {
+        $private_key = env('AW_SECRET');
+
+        $method = "GET";
+        $uri = "/onca/xml";
+
+        $params = array(
+            "Service" => "AWSECommerceService",
+            "AWSAccessKeyId" => env('AW_ID'),
+            "Timestamp" => gmdate("Y-m-d\TH:i:s\Z"),
+            "SignatureMethod" => "HmacSHA256",
+            "SignatureVersion" => "2",
+            "Version" => "2013-08-01"
+        );
+
+        foreach ($extraParams as $param => $value) {
+            $params[$param] = $value;
         }
 
-        return "$";
+        ksort($params);
+
+        // sort the parameters
+        // create the canonicalized query
+        $canonicalized_query = array();
+        foreach ($params as $param => $value) {
+            $param = str_replace("%7E", "~", rawurlencode($param));
+            $value = str_replace("%7E", "~", rawurlencode($value));
+            $canonicalized_query[] = $param . "=" . $value;
+        }
+        $canonicalized_query = implode("&", $canonicalized_query);
+
+        // create the string to sign
+        $string_to_sign =
+            $method . "\n" .
+            $host . "\n" .
+            $uri . "\n" .
+            $canonicalized_query;
+
+        // calculate HMAC with SHA256 and base64-encoding
+        $signature = base64_encode(
+            hash_hmac("sha256", $string_to_sign, $private_key, True));
+
+        // encode the signature for the equest
+        $signature = str_replace("%7E", "~", rawurlencode($signature));
+
+        // Put the signature into the parameters
+        $params["Signature"] = $signature;
+        uksort($params, "strnatcasecmp");
+
+        // TODO: the timestamp colons get urlencoded by http_build_query
+        //       and then need to be urldecoded to keep AWS happy. Spaces
+        //       get reencoded as %20, as the + encoding doesn't work with
+        //       AWS
+        $query = urldecode(http_build_query($params));
+        $query = str_replace(' ', '%20', $query);
+
+        $string_to_send = "https://" . $host . $uri . "?" . $query;
+
+        return $string_to_send;
+    }
+
+    public static function awsItemLookup($itemId, $host) {
+
+
+        $items = [
+            'name' => '',
+            'price' => '0',
+            'currency' => '',
+            'description' => '',
+            'images' => []
+        ];
+
+        $documentUrl = self::awsQuery(array (
+            "AssociateTag" => env('AW_TAG'),
+            "Operation" => "ItemLookup",
+            "IdType" => "ISBN",
+            "ItemId" => $itemId,
+            "SearchIndex" => "All",
+            "ResponseGroup" => "Large"
+        ), $host);
+
+        try  {
+            $xml = simplexml_load_file($documentUrl);
+
+            $items['name'] = $xml->Items->Item->ItemAttributes->Title[0]->__toString();
+            $items['price'] = $xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice->__toString();
+            $items['currency'] = $xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode->__toString();
+            $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount/100;
+            foreach ($xml->Items->Item->ImageSets->ImageSet as $feature) {
+                $items['images'][] = $feature->HiResImage->URL->__toString();
+            }
+            foreach ($xml->Items->Item->ItemAttributes->Feature as $feature) {
+                $items['description'] .= $feature->__toString()."\n";
+
+            }
+
+        } catch (\Exception $e) {
+
+        }
+
+        return $items;
+
+    }
+}
+
+class UrlHelper
+{
+    public static function curl($url)
+    {
+        return Curl::to($url)->withOption('SSL_VERIFYPEER', false)->get();
     }
 
     public static function crawl_amazon_us($url)
@@ -38,7 +131,6 @@ class UrlHelper
 
         $html = self::curl($url);
 
-        dd($html);
 
         if ($html) {
             $html = preg_replace("/(\\n|\\r|\\t)/", "", $html);
@@ -48,10 +140,10 @@ class UrlHelper
 
             if (preg_match("/<span id=\"priceblock_ourprice\".*?>(.*?)<\/span>/", $html, $m)) {
                 $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-               // $post["currency"] = self::currency(trim($m[1]));
+                // $post["currency"] = self::currency(trim($m[1]));
             } elseif (preg_match("/<span id=\"priceblock_saleprice\".*?>(.*?)<\/span>/", $html, $m)) {
                 $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-               // $post["currency"] = self::currency(trim($m[1]));
+                // $post["currency"] = self::currency(trim($m[1]));
             }
 
             if (preg_match("/<div id=\"productDescription\".*?>.*?<p.*?>(.*?)<\/p>.*?<\/div>/", $html, $m)) {
@@ -72,6 +164,29 @@ class UrlHelper
 
 
         return json_encode($post);
+    }
+
+    public static function crawl_amazon($url)
+    {
+
+        $host = null;
+
+        if (strpos($url, 'amazon.co.uk') !== false) {
+            $host = "webservices.amazon.co.uk";
+        }
+
+        if (strpos($url, 'amazon.com') !== false) {
+            $host = "webservices.amazon.com";
+        }
+
+        $re = '/\/dp\/(.*)\//';
+        $response = null;
+        if (preg_match($re, $url, $matches)) {
+            $response = AwsRequest::awsItemLookup($matches[1], $host);
+        }
+
+        return json_encode($response, true);
+
     }
 
     public static function crawl_amazon_uk($url)
@@ -208,7 +323,7 @@ class UrlHelper
     public static function crawl($url)
     {
         if (strpos($url, 'amazon.co.uk') !== false) {
-            return self::crawl_amazon_uk($url);
+            return self::crawl_amazon($url);
         } elseif (strpos($url, 'ebay.com') !== false) {
             return self::crawl_ebay($url);
         } elseif (strpos($url, 'overstock.com') !== false) {
