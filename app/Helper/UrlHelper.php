@@ -139,6 +139,15 @@ class UrlHelper
     public static function awsItemLookup($url, $site)
     {
 
+        $items = [
+            'name' => '',
+            'price' => '0',
+            'amount' => '0',
+            'currency' => '',
+            'description' => '',
+            'images' => []
+        ];
+
         if ($site == 'UK') {
             $host = "webservices.amazon.co.uk";
             $tag  = env('AW_UK_TAG');
@@ -150,17 +159,8 @@ class UrlHelper
             $secret  = env('AW_US_SECRET');
             $key  = env('AW_US_KEY');
         }
-        $response = null;
-        if (preg_match('/\\/([A-Z0-9]{10})($|\/)/', $url, $matches)) {
 
-            $items = [
-                'name' => '',
-                'price' => '0',
-                'amount' => '0',
-                'currency' => '',
-                'description' => '',
-                'images' => []
-            ];
+        if (preg_match('/\\/([A-Z0-9]{10})($|\/)/', $url, $matches)) {
 
             $extraParams = [
                 "AssociateTag" => $tag,
@@ -257,14 +257,12 @@ class UrlHelper
                     }
                 }
 
-                $response = json_encode($items, true);
-
             } catch (\Exception $e) {
 
             }
         }
 
-        return $response;
+        return json_encode($items, true);;
     }
 
     //old code
