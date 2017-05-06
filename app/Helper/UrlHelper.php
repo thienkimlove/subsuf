@@ -46,7 +46,14 @@ class UrlHelper
     public static function ebayItemLookup($url)
     {
 
-        $item = [];
+        $items = [
+            'name' => '',
+            'price' => '0',
+            'amount' => '0',
+            'currency' => '',
+            'description' => '',
+            'images' => []
+        ];
 
 
         $config = [
@@ -108,7 +115,7 @@ class UrlHelper
                 $description .= 'Global Shipping : '. $shipping;
 
 
-                $item = [
+                $items = [
                     'name' => $responseItem->Title,
                     'price' => $responseItem->CurrentPrice->value,
                     'amount' => $responseItem->CurrentPrice->value,
@@ -119,11 +126,7 @@ class UrlHelper
             }
 
         }
-        if ($item) {
-            return json_encode($item);
-        } else {
-            return self::crawl_ebay($url);
-        }
+        return json_encode($items);
     }
 
     /**
@@ -261,11 +264,7 @@ class UrlHelper
             }
         }
 
-        if ($response) {
-            return $response;
-        } else {
-            return ($site == 'UK')? self::crawl_amazon_uk($url) : self::crawl_amazon_us($url);
-        }
+        return $response;
     }
 
     //old code
