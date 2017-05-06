@@ -14,7 +14,8 @@
         "google/recaptcha": "~1.1",
         "bonecms/laravel-captcha": "1.*",
         "mews/captcha": "~2.0",
-        "dimsav/laravel-translatable": "^6.0"
+        "dimsav/laravel-translatable": "^6.0",
+        "dts/ebay-sdk-php": "^11.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

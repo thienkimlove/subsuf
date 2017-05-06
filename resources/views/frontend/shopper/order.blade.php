@@ -305,12 +305,28 @@
             var url = "{{URL::action('Frontend\ShopperController@order')}}";
             window.location.href = url + "?start=1&url=" + encodeURIComponent(url_value);
         })
+
+        /**
+         * Number.prototype.format(n, x, s, c)
+         *
+         * @param integer n: length of decimal
+         * @param integer x: length of whole part
+         * @param mixed   s: sections delimiter
+         * @param mixed   c: decimal delimiter
+         */
+        Number.prototype.format = function(n, x, s, c) {
+            var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+                num = this.toFixed(Math.max(0, ~~n));
+
+            return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
+        };
+
         $("#exchange").change(function(){
             var info = $("#exchange").val().split('|');
             var exchange_value = parseFloat(info[0]);
             var exchange_currency = info[1];
             var true_amount = parseFloat($("#amount").val());
-            $('#price_value').val(exchange_currency + exchange_value*true_amount)
+            $('#price_value').val( Math.round(exchange_value*true_amount).format(2, 3, '.', ','))
             $('#currency_label').html(exchange_currency);
         });
     </script>
