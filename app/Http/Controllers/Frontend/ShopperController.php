@@ -471,9 +471,10 @@ class ShopperController extends Controller
 
                 $coupon = Coupon::whereIn("account_id", [$account_id, 0])
                     ->where("amount", ">", 0)
-                    ->where("coupon_id", $coupon_id)->where("status", 1)->first();
+                    ->where("coupon_id", $coupon_id)->where("status", 1)->get();
 
-                if ($coupon) {
+                if ($coupon->count() > 0) {
+                    $coupon = $coupon->first();
                     $transaction->coupon_id = $coupon_id;
                     $coupon->amount = (int)$coupon->amount - 1;
                     if (!$coupon->amount) {

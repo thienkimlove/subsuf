@@ -48,7 +48,7 @@ class PaymentController extends Controller
 
             $coupon = Coupon::whereIn("account_id", [$account_id, 0])
                 ->where("amount", ">", 0)
-                ->where("coupon_id", $coupon_id)->where("status", 1)->first();
+                ->where("coupon_id", $coupon_id)->where("status", 1)->get();
 
             if ($coupon->count() > 0) {
                 $coupon = $coupon->first();
