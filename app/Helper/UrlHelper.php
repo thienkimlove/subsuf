@@ -225,10 +225,27 @@ class UrlHelper
             try  {
                 $xml = simplexml_load_file($documentUrl);
 
-                $items['name'] = $xml->Items->Item->ItemAttributes->Title[0]->__toString();
-                $items['price'] = $xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice->__toString();
-                $items['currency'] = $xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode->__toString();
-                $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount/100;
+                if (isset($xml->Items->Item->ItemAttributes->Title[0])) {
+                    $items['name'] = $xml->Items->Item->ItemAttributes->Title[0]->__toString();
+                }
+
+                if (isset($xml->Items->Item->ItemAttributes->Title)) {
+                    $items['name'] = $xml->Items->Item->ItemAttributes->Title->__toString();
+                }
+
+
+                if (isset($xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice)) {
+                    $items['price'] = $xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice->__toString();
+                }
+
+                if (isset($xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode)) {
+                    $items['currency'] = $xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode->__toString();
+                }
+
+                if (isset($xml->Items->Item->ItemAttributes->ListPrice->Amount)) {
+                    $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount/100;
+                }
+
 
                 if (isset($xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL)) {
                     $items['images'][] = $xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL->__toString();
@@ -258,7 +275,7 @@ class UrlHelper
                 }
 
             } catch (\Exception $e) {
-
+                \Log::info($e->getMessage());
             }
         }
 
