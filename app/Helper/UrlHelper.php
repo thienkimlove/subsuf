@@ -130,15 +130,25 @@ class UrlHelper
      * Author : QuanDM
      * Get Amazon UK item using itemId
      * @param $url
+     * @param $site
      * @return null|string
      */
-    public static function awsItemLookup($url)
+    public static function awsItemLookup($url, $site)
     {
 
-        $host = "webservices.amazon.co.uk";
-        $re = '/\/dp\/(.*)\//';
+        if ($site == 'UK') {
+            $host = "webservices.amazon.co.uk";
+            $tag  = env('AW_UK_TAG');
+            $secret  = env('AW_UK_SECRET');
+            $key  = env('AW_UK_KEY');
+        }  else {
+            $host = "webservices.amazon.com";
+            $tag  = env('AW_US_TAG');
+            $secret  = env('AW_US_SECRET');
+            $key  = env('AW_US_KEY');
+        }
         $response = null;
-        if (preg_match($re, $url, $matches)) {
+        if (preg_match('/\\/([A-Z0-9]{10})($|\/)/', $url, $matches)) {
 
             $items = [
                 'name' => '',
@@ -150,7 +160,7 @@ class UrlHelper
             ];
 
             $extraParams = [
-                "AssociateTag" => env('AW_TAG'),
+                "AssociateTag" => $tag,
                 "Operation" => "ItemLookup",
                 "IdType" => "ISBN",
                 "ItemId" => $matches[1],
@@ -158,12 +168,12 @@ class UrlHelper
                 "ResponseGroup" => "Large"
             ];
 
-            $private_key = env('AW_SECRET');
+            $private_key = $secret;
             $method = "GET";
             $uri = "/onca/xml";
             $params = array(
                 "Service" => "AWSECommerceService",
-                "AWSAccessKeyId" => env('AW_ID'),
+                "AWSAccessKeyId" => $key,
                 "Timestamp" => gmdate("Y-m-d\TH:i:s\Z"),
                 "SignatureMethod" => "HmacSHA256",
                 "SignatureVersion" => "2",
@@ -232,7 +242,7 @@ class UrlHelper
         if ($response) {
             return $response;
         } else {
-            return self::crawl_amazon_uk($url);
+            return ($site == 'UK')? self::crawl_amazon_uk($url) : self::crawl_amazon_us($url);
         }
     }
 
@@ -418,13 +428,13 @@ class UrlHelper
     public static function crawl($url)
     {
         if (strpos($url, 'amazon.co.uk') !== false) {
-            return self::awsItemLookup($url);
+            return self::awsItemLookup($url, 'UK');
         } elseif (strpos($url, 'ebay.com') !== false) {
             return self::ebayItemLookup($url);
         } elseif (strpos($url, 'overstock.com') !== false) {
             return self::crawl_overstock($url);
         } elseif (strpos($url, 'amazon.com') !== false) {
-            return self::crawl_amazon_us($url);
+            return self::awsItemLookup($url, 'US');
         } else {
             return json_encode([
                 'name' => '',
