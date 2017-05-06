@@ -36,6 +36,18 @@
                         <span class="caption-subject font-green bold uppercase">
                             Coupon: {{$coupon->name}} ({{$coupon->coupon_code}})
                         </span>
+
+                        <span class="caption-subject font-green bold uppercase">
+                            Loại :      @if ($coupon->type == 1)
+                                Giảm theo <b>{{$coupon->primary_percent}}</b>nhưng không vượt quá {{$coupon->money}}
+                            @elseif ($coupon->type == 2)
+                                Giảm theo <b>{{$coupon->primary_percent}}</b> nếu tổng tiền (đơn hàng, dịch vụ..) nhỏ hơn hoặc bằng {{$coupon->money}}<br/>
+                                Giảm theo <b>{{$coupon->secondary_percent}}</b> nếu tổng tiền (đơn hàng, dịch vụ..) lớn hơn {{$coupon->money}}
+                            @else
+                                Giảm theo số tiền {{$coupon->money}}
+                            @endif
+                        </span>
+
                     </div>
                     <div class="actions">
                         <a type="button" class="btn btn-xs default tooltips m-r-0" title="Về trang Coupon"

@@ -7,6 +7,7 @@ use App\Helper\NL_Checkout;
 use App\Http\Controllers\Controller;
 use App\Offer;
 use App\Repositories\ExchangeRepository;
+use CouponHelper;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentController extends Controller
@@ -48,10 +49,20 @@ class PaymentController extends Controller
             $coupon = Coupon::whereIn("account_id", [$account_id, 0])
                 ->where("amount", ">", 0)
                 ->where("coupon_id", $coupon_id)->where("status", 1)->first();
-            $discount = ($coupon) ? $coupon->money : 0;
+
+            if ($coupon->count() > 0) {
+                $coupon = $coupon->first();
+            } else {
+                $coupon = null;
+            }
+
 
             $total_order = (float)$order->price * $order->quantity +
                 $offer->shipping_fee + $offer->tax + $offer->others_fee;
+
+            $absoluteTotal = $total_order * (1 + get_service_percent());
+
+            $discount = ($coupon) ?  CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon->money, $coupon->type, $coupon->primary_percent, $coupon->secondary_percent) : 0;
 
             $total = round($total_order * (1 + get_service_percent()) - $discount, 2);
 

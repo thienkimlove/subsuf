@@ -300,6 +300,7 @@ function get_coupon_form($request)
         'money' => (float)trim($request->input('money')),
         'total' => (int)trim($request->input('total')),
         'status' => (int)trim($request->input('status')),
+        'type' => (int)trim($request->input('type')),
     ];
     if ($request->has('amount')) {
         $data['amount'] = (int)trim($request->input('amount'));
@@ -311,6 +312,17 @@ function get_coupon_form($request)
         $data['used_at'] = date('Y-m-d H:i:s');
     } else {
         $data['used_at'] = '';
+    }
+
+    // more type for coupon
+    if ($data['type'] == 1) {
+        $data['primary_percent'] = ($request->input('primary_percent'))? (int)trim($request->input('primary_percent')) : 0;
+        $data['secondary_percent'] = 0;
+    }
+
+    if ($data['type'] == 2) {
+        $data['primary_percent'] = ($request->input('primary_percent'))? (int)trim($request->input('primary_percent')) : 0;
+        $data['secondary_percent'] = ($request->input('secondary_percent'))? (int)trim($request->input('secondary_percent')) : 0;
     }
 
     return $data;

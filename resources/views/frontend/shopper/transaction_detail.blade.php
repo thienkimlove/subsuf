@@ -117,7 +117,7 @@
                                             <h2 class="invoice-title uppercase">{{trans("index.giamgia")}}
                                                 <span class="content-right font-red">
                                                 <p>
-                                                     -$@if($transaction->coupon){{$transaction->coupon->money}} @else
+                                                     -$@if($transaction->coupon){{$transaction->coupon->real_money}} @else
                                                         0 @endif
                                                 </p>
                                             </span>

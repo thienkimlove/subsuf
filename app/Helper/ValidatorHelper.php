@@ -202,6 +202,8 @@ function coupon_validator($request)
         'money' => "required",
         'status' => "required",
         'total' => "required",
+        'primary_percent' => "max:99",
+        'secondary_percent' => "max:99",
     ], [
         'required' => "Vui lòng nhập đầy đủ dữ liệu",
     ]);

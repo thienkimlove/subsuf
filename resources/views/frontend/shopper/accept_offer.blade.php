@@ -103,8 +103,10 @@
                                                             <p>
                                                                 <button type="button" data-dismiss="modal"
                                                                         class="btn red btn-block btn-lg text-left"
-                                                                        onclick="addCoupon({{(int)$item->money}},{{$item->coupon_id}})">
-                                                                    <span style="float: left">   ${{$item->money}}</span>
+                                                                        onclick="addCoupon({{(int)$item->amount_be_coupon}},{{$item->coupon_id}})">
+                                                                    <span style="float: left">
+                                                                       ${{$item->amount_be_coupon}}
+                                                                    </span>
                                                                     <span style="float: right">{{$item->coupon_code}}</span>
                                                                 </button>
                                                             </p>
@@ -254,6 +256,7 @@
             $("#couponAdded").show();
             $(".discount-col").show();
             $("#addCoupon").hide();
+
             $("#couponAdded .couponValue").html(
                     "$" + counpon +
                     '<input type="hidden" name="coupon" value="' + id + '">'
@@ -273,7 +276,7 @@
                         target: "GET",
                         data: {
                             coupon: $("#couponCodeNew").val(),
-                            total: parseFloat("{{$total}}"),
+                            total: totalMoney,
                         },
                     }
             ).done(function (msg) {
@@ -281,7 +284,7 @@
                     $("#couponModal .alert").html(msg.message);
                     $("#couponModal .alert").show();
                 } else {
-                    addCoupon(msg.data.money, msg.data.coupon_id);
+                    addCoupon(msg.data.amount_be_coupon, msg.data.coupon_id);
                     $("#couponModal").modal('hide');
                 }
             });

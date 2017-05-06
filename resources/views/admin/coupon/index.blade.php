@@ -96,8 +96,8 @@
                                 <tr>
                                     <th class="stt">STT</th>
                                     <th>Mã</th>
+                                    <th>Mô Tả</th>
                                     <th>Người dùng</th>
-                                    <th width="100px">Giá trị ($)</th>
                                     <th width="100px">Số lượng</th>
                                     <th width="100px">Còn lại</th>
                                     {{--<th width="100px">Ngày dùng</th>--}}
@@ -109,13 +109,24 @@
                                 @foreach($coupons as $key => $coupon)
                                     <tr>
                                         <td class="stt">{{$key + 1}}</td>
+
                                         <td>
                                             <a href="{{URL::action('Admin\CouponController@update', $coupon->coupon_id)}}">
                                                 {{$coupon->coupon_code}}
                                             </a>
                                         </td>
+                                        <td>
+                                            @if ($coupon->type == 1)
+                                                Giảm theo <b>{{$coupon->primary_percent}}%</b> nhưng không vượt quá <b>${{$coupon->money}}</b>
+                                            @elseif ($coupon->type == 2)
+                                                Giảm theo <b>{{$coupon->primary_percent}}%</b> nếu tổng tiền (đơn hàng, dịch vụ..) nhỏ hơn hoặc bằng <b>${{$coupon->money}}</b><br/>
+                                                Giảm theo <b>{{$coupon->secondary_percent}}%</b> nếu tổng tiền (đơn hàng, dịch vụ..) lớn hơn <b>${{$coupon->money}}</b>
+                                            @else
+                                                Giảm theo số tiền <b>${{$coupon->money}}</b>
+                                            @endif
+                                        </td>
                                         <td>{{isset($coupon->account) ? $coupon->account->email : ''}}</td>
-                                        <td class="text-right bold">${{$coupon->money}}</td>
+
                                         <td class="text-right">{{$coupon->total}}</td>
                                         <td class="text-right">{{$coupon->amount}}</td>
                                         {{--<td class="text-right">--}}

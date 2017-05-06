@@ -22,6 +22,7 @@ use App\Repositories\NotificationRepository;
 use App\Repositories\OfferRepository;
 use App\Repositories\OrderRepository;
 use App\Transaction;
+use CouponHelper;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
@@ -356,13 +357,28 @@ class ShopperController extends Controller
         if ($offer->offer_status > 1)
             return Redirect::action("Frontend\ShopperController@orderDetail", $order->order_id);
         $total = round((float)$order->price * $order->quantity + $offer->shipping_fee + $offer->tax + $offer->others_fee, 2);
+        $fee = round($total * get_service_percent($total), 2);
+
+
+        $coupons = Coupon::where("account_id", Session::get("userFrontend")["account_id"])
+            ->where("money", "<=", $total)
+            ->where("status", 1)
+            ->get();
+
+        $absoluteTotal = $total+$fee;
+
+        foreach ($coupons as &$coupon) {
+            $coupon->amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon->money, $coupon->type, $coupon->primary_percent, $coupon->secondary_percent);
+        }
+
+
         $response = [
             "offer" => $offer,
             "order" => $order,
             "total" => $total,
             "exchange" => $this->exchange->change("USD", "VND"),
-            "fee" => round($total * get_service_percent($total), 2),
-            "coupon" => Coupon::where("account_id", Session::get("userFrontend")["account_id"])->where("money", "<=", $total)->where("status", 1)->get() // các coupon của user
+            "fee" => $fee,
+            "coupon" => $coupons // các coupon của user
         ];
         return view('frontend.shopper.accept_offer', $response);
     }
@@ -439,19 +455,6 @@ class ShopperController extends Controller
                 $transaction->offer_id = $offer->offer_id;
                 $transaction->coupon_id = 0;
 
-                $coupon = Coupon::whereIn("account_id", [$account_id, 0])
-                    ->where("amount", ">", 0)
-                    ->where("coupon_id", $coupon_id)->where("status", 1)->first();
-                $coupon_money = 0;
-                if ($coupon) {
-                    $transaction->coupon_id = $coupon_id;
-                    $coupon->amount = (int)$coupon->amount - 1;
-                    if (!$coupon->amount)
-                        $coupon->status = -1; // đã dùng
-                    $coupon->used_at = $date;
-                    $coupon->save();
-                    $coupon_money = $coupon->money;
-                }
                 if ($offer->payment_type == "bank")
                     $payment_id = $offer->payment_info_id;
                 else {
@@ -461,7 +464,34 @@ class ShopperController extends Controller
                     $offer->shipping_fee + $offer->tax + $offer->others_fee;
 
                 $transaction->service_fee = round($total_order * get_service_percent($total_order), 2);
-                $transaction->total = round($total_order * (1 + get_service_percent($total_order)) - $coupon_money, 2);
+
+                //new way to process with coupon.
+                $amount_be_coupon = 0;
+                $absoluteTotal = $total_order * (1 + get_service_percent($total_order));
+
+                $coupon = Coupon::whereIn("account_id", [$account_id, 0])
+                    ->where("amount", ">", 0)
+                    ->where("coupon_id", $coupon_id)->where("status", 1)->first();
+
+                if ($coupon) {
+                    $transaction->coupon_id = $coupon_id;
+                    $coupon->amount = (int)$coupon->amount - 1;
+                    if (!$coupon->amount) {
+                        $coupon->status = -1; // đã dùng
+                    } else {
+                        $coupon->used_at = $date;
+                        $coupon_money = $coupon->money;
+                        $coupon_type = $coupon->type;
+                        $coupon_primary_percent = $coupon->primary_percent;
+                        $coupon_secondary_percent = $coupon->secondary_percent;
+
+                        $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon_money, $coupon_type, $coupon_primary_percent, $coupon_secondary_percent);
+                        $coupon->real_money = $amount_be_coupon;
+                    }
+                    $coupon->save();
+                }
+
+                $transaction->total = round($absoluteTotal - $amount_be_coupon, 2);
                 $transaction->transaction_time = $date;
                 $transaction->transaction_date = $date;
                 $transaction->transaction_date = $date;
@@ -716,13 +746,19 @@ class ShopperController extends Controller
         $total = (float)$this->request->input("total");
         $code = Coupon::where("coupon_code", $couponCode)->where("account_id", 0)->where("amount", ">", 0)->where("status", 1)->first();
         if ($code) {
+
             if ($code->money <= $total) {
 //                $code->account_id = Session::get("userFrontend")["account_id"];
 //                $code->amount = (int)$code->amount - 1;
 //                $code->save();
+
+                $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($total, $code->money, $code->type, $code->primary_percent, $code->secondary_percent);
+                $responseData = $code->toArray();
+                $responseData['amount_be_coupon'] = $amount_be_coupon;
+
                 $data = [
                     "status" => 1,
-                    "data" => $code->toArray(),
+                    "data" => $responseData,
                 ];
             } else {
                 $data = [

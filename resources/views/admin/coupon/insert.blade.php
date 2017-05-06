@@ -58,6 +58,7 @@
                                     </select>
                                 </div>
 
+
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
                                         Mã Coupon
@@ -71,11 +72,43 @@
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
-                                        Giá trị ($)
+                                        Loại
+                                    </label>
+                                    <select name="type" id="coupon_type" class="form-control input-sm select2-auto">
+                                        @foreach (config('coupon') as $k=>$v)
+                                            <option value="{{$k}}" {{($k==0)? 'selected' : ''}}>{{$v}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        <span id="money_message"></span>
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
                                     <input required type="number" name="money" id="money" class="form-control">
                                 </div>
+
+                                <div id="primary_percent_div" style="display:none" class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        <span id="primary_message"></span>
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <input required type="number" name="primary_percent" id="primary_percent" class="form-control">
+                                </div>
+
+                                <div id="secondary_percent_div" style="display:none" class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        <span id="secondary_message"></span>
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <input required type="number" name="secondary_percent" id="secondary_percent" class="form-control">
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
                                         Số lượng
@@ -122,4 +155,55 @@
 @section('script')
     {{Html::script('assets/pages/scripts/validator.min.js')}}
     {{Html::script('assets/global/plugins/select2/js/select2.full.min.js')}}
+    <script>
+
+        function couponByType(coupon_type) {
+            if (coupon_type === '0') {
+                $('#primary_message').text('');
+                $('#secondary_message').text('');
+
+                $('#primary_percent').val(0);
+                $('#secondary_percent').val(0);
+
+                $('#primary_percent_div').hide();
+                $('#secondary_percent_div').hide();
+
+                $('#money_message').text('Giảm một số tiền');
+            } else if (coupon_type === '1') {
+                $('#primary_message').text('Phần trăm được giảm');
+                $('#secondary_message').text('');
+
+                $('#primary_percent').val(0);
+                $('#secondary_percent').val(0);
+
+                $('#primary_percent_div').show();
+                $('#secondary_percent_div').hide();
+
+                $('#money_message').text('Nếu số tiền được giảm không quá');
+            } else {
+                $('#primary_message').text('Phần trăm được giảm khi số tiền nhỏ hơn hoặc bằng');
+                $('#secondary_message').text('Phần trăm được giảm khi số tiền lớn hơn');
+
+                $('#primary_percent').val(0);
+                $('#secondary_percent').val(0);
+
+                $('#primary_percent_div').show();
+                $('#secondary_percent_div').show();
+
+                $('#money_message').text('Số tiền');
+            }
+        }
+
+        $(function () {
+
+            $('#money_message').text('Giảm một số tiền');
+
+            $('#coupon_type').on('change', function(){
+                var coupon_type = $(this).find("option:selected").val().toString();
+                couponByType(coupon_type);
+                return false;
+            });
+
+        })
+    </script>
 @endsection
