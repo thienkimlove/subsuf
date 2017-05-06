@@ -228,29 +228,32 @@ class UrlHelper
                 $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount/100;
 
                 if (isset($xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL)) {
-                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL->__toString();
+                    $items['images'][] = $xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL->__toString();
                 }
 
                 if (isset($xml->Items->Item->ImageSets->ImageSet->SmallImage->URL)) {
-                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->SmallImage->URL->__toString();
+                    $items['images'][] = $xml->Items->Item->ImageSets->ImageSet->SmallImage->URL->__toString();
                 }
 
                 if (isset($xml->Items->Item->ImageSets->ImageSet->ThumbnailImage->URL)) {
-                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->ThumbnailImage->URL->__toString();
+                    $items['images'][] = $xml->Items->Item->ImageSets->ImageSet->ThumbnailImage->URL->__toString();
                 }
 
                 if (isset($xml->Items->Item->ImageSets->ImageSet->TinyImage->URL)) {
-                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->TinyImage->URL->__toString();
+                    $items['images'][] = $xml->Items->Item->ImageSets->ImageSet->TinyImage->URL->__toString();
                 }
 
                 foreach ($xml->Items->Item->ImageSets->ImageSet as $feature) {
                     if (isset($feature->HiResImage->URL)) {
                         $items['images'][] = $feature->HiResImage->URL->__toString();
-                    }                   
+                    }
                 }
-                foreach ($xml->Items->Item->ItemAttributes->Feature as $feature) {
-                    $items['description'] .= $feature->__toString()."\n";
+                if (isset($xml->Items->Item->ItemAttributes->Feature)) {
+                    foreach ($xml->Items->Item->ItemAttributes->Feature as $feature) {
+                        $items['description'] .= $feature->__toString()."\n";
+                    }
                 }
+
                 $response = json_encode($items, true);
 
             } catch (\Exception $e) {
