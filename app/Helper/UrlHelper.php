@@ -226,8 +226,27 @@ class UrlHelper
                 $items['price'] = $xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice->__toString();
                 $items['currency'] = $xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode->__toString();
                 $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount/100;
+
+                if (isset($xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL)) {
+                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL->__toString();
+                }
+
+                if (isset($xml->Items->Item->ImageSets->ImageSet->SmallImage->URL)) {
+                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->SmallImage->URL->__toString();
+                }
+
+                if (isset($xml->Items->Item->ImageSets->ImageSet->ThumbnailImage->URL)) {
+                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->ThumbnailImage->URL->__toString();
+                }
+
+                if (isset($xml->Items->Item->ImageSets->ImageSet->TinyImage->URL)) {
+                    $data['images'][] = $xml->Items->Item->ImageSets->ImageSet->TinyImage->URL->__toString();
+                }
+
                 foreach ($xml->Items->Item->ImageSets->ImageSet as $feature) {
-                    $items['images'][] = $feature->HiResImage->URL->__toString();
+                    if (isset($feature->HiResImage->URL)) {
+                        $items['images'][] = $feature->HiResImage->URL->__toString();
+                    }                   
                 }
                 foreach ($xml->Items->Item->ItemAttributes->Feature as $feature) {
                     $items['description'] .= $feature->__toString()."\n";
@@ -252,7 +271,8 @@ class UrlHelper
         $post = [
             'name' => '',
             'price' => '0',
-            'currency' => 'USD',
+            'amount' => '0',
+            'currency' => '',
             'description' => '',
             'images' => []
         ];
@@ -299,7 +319,8 @@ class UrlHelper
         $post = [
             'name' => '',
             'price' => '0',
-            'currency' => '$',
+            'amount' => '0',
+            'currency' => '',
             'description' => '',
             'images' => []
         ];
@@ -314,6 +335,7 @@ class UrlHelper
 
             if (preg_match("/<span id=\"priceblock_ourprice\".*?>(.*?)<\/span>/", $html, $m)) {
                 $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
+                $post["amount"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
                 $post["currency"] = self::currency(trim($m[1]));
             } elseif (preg_match("/<span id=\"priceblock_saleprice\".*?>(.*?)<\/span>/", $html, $m)) {
                 $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
@@ -390,7 +412,8 @@ class UrlHelper
         $post = [
             'name' => '',
             'price' => '0',
-            'currency' => '$',
+            'amount' => '0',
+            'currency' => '',
             'description' => '',
             'images' => []
         ];
@@ -399,15 +422,15 @@ class UrlHelper
 
         if ($html) {
             $html = preg_replace("/(\\n|\\r|\\t)/", "", $html);
-            if (preg_match("/<div itemprop=\"name\".*?>.*?<h1>(.*?)<\/h1>/", $html, $m)) {
+            if (preg_match("/<div class=\"product-title\".*?>.*?<h1>(.*?)<\/h1>/", $html, $m)) {
                 $post["name"] = trim($m[1]);
             }
 
-            /**
-             * if (preg_match("/<span class=\"monetary-price.*?>(.*?)<\/span>/", $html, $m)) {
-             * $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-             * }
-             * **/
+
+           if (preg_match("/<span class=\"monetary-price.*?>(.*?)<\/span>/", $html, $m)) {
+             $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
+           }
+
 
             if (preg_match("/<span itemprop=\"description\".*?>(.*?)<\/span>/", $html, $m)) {
                 $post["description"] = trim(preg_replace(["/<li.*?>/", "/<\/li>/", "/<ul.*?>/", "/<\/ul>/", "/<br.*?>/", "/<\/br>/"], "", $m[1]));
@@ -439,7 +462,8 @@ class UrlHelper
             return json_encode([
                 'name' => '',
                 'price' => '0',
-                'currency' => '$',
+                'amount' => '0',
+                'currency' => '',
                 'description' => '',
                 'images' => []
             ]);
