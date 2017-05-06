@@ -103,7 +103,7 @@
                                                             <p>
                                                                 <button type="button" data-dismiss="modal"
                                                                         class="btn red btn-block btn-lg text-left"
-                                                                        onclick="addCoupon({{(int)$item->amount_be_coupon}},{{$item->coupon_id}})">
+                                                                        onclick="addCoupon({{(float)$item->amount_be_coupon}},{{$item->coupon_id}})">
                                                                     <span style="float: left">
                                                                        ${{$item->amount_be_coupon}}
                                                                     </span>
