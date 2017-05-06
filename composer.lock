@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e2ebb33e450260c7bbe0fe13372426b8",
-    "content-hash": "62204be06d0aa30cece6a8fea442ad1f",
+    "hash": "a077895c592c8928f56acfb8af529811",
+    "content-hash": "dc8a4a014c59a04a341aa522f9e8e967",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -372,6 +372,59 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "dts/ebay-sdk-php",
+            "version": "11.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davidtsadler/ebay-sdk-php.git",
+                "reference": "3f730148d5caa639eb1407c0c4a4c5e356a1b752"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidtsadler/ebay-sdk-php/zipball/3f730148d5caa639eb1407c0c4a4c5e356a1b752",
+                "reference": "3f730148d5caa639eb1407c0c4a4c5e356a1b752",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "guzzlehttp/promises": "^1.1",
+                "guzzlehttp/psr7": "~1.0",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DTS\\eBaySDK\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(Apache-2.0 and MIT)"
+            ],
+            "authors": [
+                {
+                    "name": "David T. Sadler",
+                    "email": "davidtsadler@googlemail.com",
+                    "homepage": "http://davidtsadler.com"
+                }
+            ],
+            "description": "An eBay SDK for PHP. Use the eBay API in your PHP projects.",
+            "homepage": "http://devbay.net/",
+            "keywords": [
+                "api",
+                "ebay",
+                "sdk"
+            ],
+            "time": "2017-03-20 16:23:39"
         },
         {
             "name": "facebook/graph-sdk",
