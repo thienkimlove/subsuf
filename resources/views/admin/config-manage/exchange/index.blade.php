@@ -73,7 +73,7 @@
                                             </a>
                                         </td>
                                         <td align="right" class="bold">
-                                            {{number_format($exchange->money)}}
+                                            {{number_format($exchange->money, 2)}}
                                         </td>
                                         <td class="action">
                                             <a type="button" class="btn btn-xs yellow-gold tooltips m-r-0" title="Sửa"

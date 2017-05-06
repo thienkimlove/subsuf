@@ -85,7 +85,7 @@
                                         Giá trị quy đổi
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
-                                    <input required type="number" name="money" id="money" class="form-control">
+                                    <input required type="number" step=0.01 name="money" id="money" class="form-control">
                                 </div>
                             </div>
                         </div>

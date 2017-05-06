@@ -411,7 +411,7 @@ function get_exchange_form($request)
     $data = [
         'from_currency' => trim($request->input('from_currency')),
         'to_currency' => trim($request->input('to_currency')),
-        'money' => (int)trim($request->input('money'))
+        'money' => (float)trim($request->input('money'))
     ];
 
     return $data;
