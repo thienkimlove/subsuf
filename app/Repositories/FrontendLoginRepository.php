@@ -73,7 +73,7 @@ class FrontendLoginRepository
             if ($userShare) {
                 $coupon = new Coupon();
                 $coupon->coupon_code = $userShare["share_code"];
-                $coupon->accoun_id = $account->account_id;
+                $coupon->account_id = $account->account_id;
                 $coupon->money = Config::getCouponRegister();
                 $coupon->status = 1;
                 $coupon->used_at = "";

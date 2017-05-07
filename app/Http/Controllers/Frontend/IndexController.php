@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Coupon;
 use App\Http\Controllers\Controller;
 use App\Repositories\LocationRepository;
 use App\Transaction;
+use Carbon\Carbon;
+use DB;
+use Mail;
 use Symfony\Component\HttpFoundation\Request;
 
 class IndexController extends Controller
@@ -76,5 +80,56 @@ class IndexController extends Controller
         }
 
         return \Redirect::action('Frontend\IndexController@index');
+    }
+
+    public function promotion_coupon(\Illuminate\Http\Request $request)
+    {
+
+        $code = null;
+        $responseMsg = null;
+        $email = $request->input('email');
+
+        $countHaveCoupon = DB::table('coupon_logs')->where('email', $email)->count();
+
+        if ($countHaveCoupon == 0) {
+            DB::beginTransaction();
+
+            $code = 'PROMO-'.substr(uniqid(), 0, 4);
+
+            try {
+                $coupon = new Coupon();
+                $coupon->coupon_code = $code;
+                $coupon->money = env('PROMOTION_COUPON_AMOUNT');
+                $coupon->status = 1;
+                $coupon->used_at = "";
+                $coupon->save();
+
+                DB::table('coupon_logs')->insert([
+                    'email' => $email,
+                    'coupon_id' => $coupon->coupon_id,
+                    'created_at' => Carbon::now()->toDateTimeString(),
+                    'updated_at' => Carbon::now()->toDateTimeString()
+                ]);
+
+                DB::commit();
+                $responseMsg = trans('index.chucmungnhanduoccopon'). ' '.$code;
+
+                Mail::send('frontend.email.promotion_coupon',
+                    ['code' => $code],
+                    function ($message) use($email) {
+                        $message->to($email);
+                        $message->subject("Subsuf.com Notifications");
+                    });
+
+            } catch (\Exception $e) {
+                DB::rollback();
+                $responseMsg = trans('index.loikhitaocode');
+            }
+
+        }  else {
+            $responseMsg = trans('index.dacomacode');
+        }
+        return response()->json(['msg' => $responseMsg]);
+
     }
 }

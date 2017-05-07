@@ -431,3 +431,4 @@ Route::get('bonecms_captcha/html', 'LaravelCaptcha\Controllers\CaptchaController
 
 
 Route::get('/testchucnang', 'Frontend\TestController@index');
+Route::get('/promotion_coupon', 'Frontend\IndexController@promotion_coupon');

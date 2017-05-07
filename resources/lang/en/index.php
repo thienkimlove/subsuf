@@ -311,4 +311,10 @@ return [
     'soluongnhapvaoqualon' => 'Quantity of product oversized.',
     'qudoisang' => 'Exchange to',
     'chontigia' => 'Choose Currency',
+    'welcomepopuptitle' => 'Welcome!',
+    'getprmotioncoupon' => 'Get coupon by enter email',
+    'enteremailtoget' => 'Your Email',
+    'chucmungnhanduoccopon' => 'Congratulations! Please check your email for coupon code!',
+    'loikhitaocode' => 'Error when generate code! Please try again!',
+    'dacomacode' => 'You already get the code!',
 ];

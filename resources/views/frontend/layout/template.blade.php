@@ -484,6 +484,7 @@
         </div>
     </div>
 </div>
+@include('frontend.coupon_get')
 {{Html::script('assets/global/plugins/respond.min.js')}}
 {{Html::script('assets/global/plugins/excanvas.min.js')}}
 {{Html::script('assets/global/plugins/jquery.min.js')}}
@@ -496,6 +497,7 @@
 {{Html::script('assets/layouts/layout3/scripts/layout.js')}}
 {{Html::script('assets/layouts/layout3/scripts/demo.min.js')}}
 {{Html::script('assets/layouts/global/scripts/quick-sidebar.min.js')}}
+{{Html::script('assets/apps/scripts/cookie.js')}}
 <!--[if lt IE 9]>
 
 <![endif]-->
@@ -516,7 +518,35 @@
         }
     })();
 </script>
+<script>
+    var url = '{{ url('/') }}';
 
+    function couponSubmit() {
+        var email = $('#coupon_email').val();
+        $.get(url +'/promotion_coupon',{ email : email },function(response){
+              $('#coupon_message').show().text(response.msg);
+        });
+    }
+
+   $(function(){
+
+       var isShowing = Cookies.get('is_show_popup');
+
+       if (!isShowing || isShowing === '0') {
+           $('#coupon_popup').modal();
+           Cookies.set('is_show_popup', '1', { expires: 7 });
+       }
+
+
+       $('#coupon_submit').click(function(){
+           couponSubmit();
+           return false;
+       });
+
+
+
+   });
+</script>
 </body>
 
 </html>

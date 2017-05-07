@@ -316,5 +316,10 @@ return [
     'soluongnhapvaoqualon' => 'Số lượng sản phẩm nhập vào quá lớn',
     'qudoisang' => 'Quy đổi sang',
     'chontigia' => 'Chọn loại tiền',
-
+    'welcomepopuptitle' => 'Xin chào!',
+    'getprmotioncoupon' => 'Điền vào email để nhận mã khuyến mại',
+    'enteremailtoget' => 'Email của bạn',
+    'chucmungnhanduoccopon' => 'Xin chúc mừng! Xin kiểm tra email để nhận mã khuyến mại!',
+    'loikhitaocode' => 'Có lỗi xảy ra khi tạo mã Khuyến mại! Xin thử lại sau!',
+    'dacomacode' => 'Bạn đã nhận được mã code rồi!',
 ];
