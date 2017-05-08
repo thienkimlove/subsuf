@@ -530,11 +530,11 @@
 
    $(function(){
 
-       var isShowing = Cookies.get('is_show_popup_secure');
+       var isShowing = Cookies.get('show_popup_secure');
 
        if (!isShowing || isShowing === '0') {
            $('#coupon_popup').modal();
-           Cookies.set('is_show_popup_secure', '1', { expires: 7, domain: document.domain });
+           Cookies.set('show_popup_secure', '1', { expires: 7, domain: document.domain });
 
        }
 

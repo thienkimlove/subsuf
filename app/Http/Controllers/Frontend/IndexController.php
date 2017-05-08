@@ -93,11 +93,7 @@ class IndexController extends Controller
 
         if ($countHaveCoupon == 0) {
             DB::beginTransaction();
-
-            $code = 'PROMO-'.substr(uniqid(), 0, 4);
-
-           // DB::enableQueryLog();
-
+            $code = 'PROMO-'.substr(uniqid(time()), 0, 8);
             try {
 
                $couponId = DB::table('coupon')->insertGetId([
@@ -126,8 +122,6 @@ class IndexController extends Controller
 
             } catch (\Exception $e) {
                 DB::rollback();
-                \Log::info($e->getMessage());
-                //\Log::info(DB::getQueryLog());
                 $responseMsg = trans('index.loikhitaocode');
             }
 
