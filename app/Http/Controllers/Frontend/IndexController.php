@@ -123,6 +123,7 @@ class IndexController extends Controller
 
             } catch (\Exception $e) {
                 DB::rollback();
+                \Log::info($e->getTraceAsString());
                 $responseMsg = trans('index.loikhitaocode');
             }
 
