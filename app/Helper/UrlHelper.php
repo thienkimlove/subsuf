@@ -2,6 +2,7 @@
 
 namespace App\Helper;
 
+use App\Exchange;
 use Ixudra\Curl\Facades\Curl;
 use DTS\eBaySDK\Shopping\Services;
 use DTS\eBaySDK\Shopping\Types;
@@ -41,7 +42,7 @@ class UrlHelper
      * Create get item for Ebay using Ebay SDK
      * In case failed we using old version of Crawling
      * @param $url
-     * @return string
+     * @return array
      */
     public static function ebayItemLookup($url)
     {
@@ -109,24 +110,18 @@ class UrlHelper
                     $images[] = $img;
                 }
 
-                $description = null;
-                $shipping = ($responseItem->GlobalShipping) ? 'Yes' : 'No';
-                $description .= 'Location : '.$responseItem->Location."\n";
-                $description .= 'Global Shipping : '. $shipping;
-
-
                 $items = [
                     'name' => $responseItem->Title,
                     'price' => $responseItem->CurrentPrice->value,
                     'amount' => $responseItem->CurrentPrice->value,
                     'currency' => $responseItem->CurrentPrice->currencyID,
-                    'description' => $description,
+                    'description' => $responseItem->Title,
                     'images' => $images
                 ];
             }
 
         }
-        return json_encode($items);
+        return $items;
     }
 
     /**
@@ -134,7 +129,7 @@ class UrlHelper
      * Get Amazon UK item using itemId
      * @param $url
      * @param $site
-     * @return null|string
+     * @return array
      */
     public static function awsItemLookup($url, $site)
     {
@@ -279,8 +274,34 @@ class UrlHelper
             }
         }
 
-        return json_encode($items, true);;
+        return $items;
     }
+
+    private static function getMetaTags($str)
+    {
+        $pattern = '
+          ~<\s*meta\s
+        
+          # using lookahead to capture type to $1
+            (?=[^>]*?
+            \b(?:name|property|http-equiv)\s*=\s*
+            (?|"\s*([^"]*?)\s*"|\'\s*([^\']*?)\s*\'|
+            ([^"\'>]*?)(?=\s*/?\s*>|\s\w+\s*=))
+          )
+        
+          # capture content to $2
+          [^>]*?\bcontent\s*=\s*
+            (?|"\s*([^"]*?)\s*"|\'\s*([^\']*?)\s*\'|
+            ([^"\'>]*?)(?=\s*/?\s*>|\s\w+\s*=))
+          [^>]*>
+        
+          ~ix';
+
+        if(preg_match_all($pattern, $str, $out))
+            return array_combine($out[1], $out[2]);
+        return array();
+    }
+
 
     //old code
     public static function crawl_amazon_us($url)
@@ -465,25 +486,61 @@ class UrlHelper
         return json_encode($post);
     }
 
+    /**
+     * We only accept three currencies : GBP, JPY and USD
+     * @param $url
+     * @return string
+     */
     public static function crawl($url)
     {
         if (strpos($url, 'amazon.co.uk') !== false) {
-            return self::awsItemLookup($url, 'UK');
+            $trueResponse = self::awsItemLookup($url, 'UK');
         } elseif (strpos($url, 'ebay.com') !== false) {
-            return self::ebayItemLookup($url);
-        } elseif (strpos($url, 'overstock.com') !== false) {
-            return self::crawl_overstock($url);
-        } elseif (strpos($url, 'amazon.com') !== false) {
-            return self::awsItemLookup($url, 'US');
+            $trueResponse = self::ebayItemLookup($url);
+        }  elseif (strpos($url, 'amazon.com') !== false) {
+            $trueResponse = self::awsItemLookup($url, 'US');
         } else {
-            return json_encode([
+            $items = [
                 'name' => '',
                 'price' => '0',
                 'amount' => '0',
                 'currency' => '',
                 'description' => '',
                 'images' => []
-            ]);
+            ];
+            $html = self::curl($url);
+            $metaTags = self::getMetaTags($html);
+
+            if (isset($metaTags['og:image'])) {
+                $items['images'][] = $metaTags['og:image'];
+            }
+
+            if (isset($metaTags['og:title'])) {
+                $items['name'] = htmlspecialchars_decode($metaTags['og:title']);
+            }
+
+            if (isset($metaTags['og:description'])) {
+                $items['description'] = htmlspecialchars_decode($metaTags['og:description']);
+            } elseif (isset($metaTags['description'])) {
+                $items['description'] = $metaTags['description'];
+            }
+            $trueResponse = $items;
         }
+
+        if ($trueResponse['currency']) {
+            if (!in_array($trueResponse['currency'], ['GBP', 'JPY', 'USD'])) {
+                $trueResponse['currency'] = '';
+                $trueResponse['price'] = 0;
+                $trueResponse['amount'] = 0;
+            } elseif ($trueResponse['currency'] != 'USD') {
+                $exchange = Exchange::where('from_currency', $trueResponse['currency'])->where('to_currency', 'USD')->get();
+                if ($exchange->count() > 0) {
+                    $trueResponse['exchange'] = round($trueResponse['amount']*$exchange->money, 2).' USD';
+                }
+            }
+        }
+
+
+        return json_encode($trueResponse, true);
     }
 }

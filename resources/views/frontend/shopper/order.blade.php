@@ -133,26 +133,13 @@
                                        value="{{isset($order["price"])?$order["price"]:""}}" required="">
                                 <div class="help-block with-errors"></div>
 
+                                @if (isset($order['exchange']))
                                 <p style="margin-top: 15px">
                                     <small>
-                                        {{--<i>{!!  trans("index.neugiasanphankophaiusd")!!}</i>--}}
-                                      {{--  <a class="font-blue"
-                                       data-toggle="modal" href="#basic">
-                                        <i class="fa fa-question-circle"></i> {{trans("index.tigiaquydoi")}}
-                                       </a>--}}
-
-                                        @if (isset($order['currency']))
-                                            <input type="hidden" id="amount" value="{{$order['amount']}}" />
-                                        {{trans("index.quydoisang")}}
-                                        <select name="exchange" id="exchange">
-                                            <option value="">{{trans("index.chontigia")}}</option>
-                                            @foreach($exchangeArr->where('from_currency', $order['currency']) as $item)
-                                                <option value="{{$item->money}}|{{ $item->to_currency }}">{{ $item->to_currency }} Rate : {{$item->money}}</option>
-                                            @endforeach
-                                        </select>
-                                        @endif
+                                        {{trans("index.quydoisang")}}  {{$order['exchange']}}
                                     </small>
                                 </p>
+                                @endif
                             </div>
 
                             <div class="form-group">
@@ -184,44 +171,6 @@
     </div>
     </div>
 
-
-    <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">{{trans("index.tigiaquydoi")}}</h4>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-striper table-bordered">
-                        <tr>
-                            <th>
-                                {{trans("index.loaitien")}}
-                            </th>
-                            <th>{{trans("index.quydoisang")}}</th>
-                            <th>{{trans("index.tigia")}}</th>
-                        </tr>
-                        @foreach($exchangeArr as $item)
-                            <tr>
-                                <td>{{$item->from_currency}}</td>
-                                <td>{{$item->to_currency}}</td>
-                                <td>{{number_format($item->money)}}</td>
-                            </tr>
-                        @endforeach
-                    </table>
-
-                    <div class="form-group">
-                        <i>{!!  trans("index.neugiasanphankophaiusd")!!}</i>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 @endsection
 
 @section('script')
@@ -306,28 +255,5 @@
             window.location.href = url + "?start=1&url=" + encodeURIComponent(url_value);
         })
 
-        /**
-         * Number.prototype.format(n, x, s, c)
-         *
-         * @param integer n: length of decimal
-         * @param integer x: length of whole part
-         * @param mixed   s: sections delimiter
-         * @param mixed   c: decimal delimiter
-         */
-        Number.prototype.format = function(n, x, s, c) {
-            var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
-                num = this.toFixed(Math.max(0, ~~n));
-
-            return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
-        };
-
-        $("#exchange").change(function(){
-            var info = $("#exchange").val().split('|');
-            var exchange_value = parseFloat(info[0]);
-            var exchange_currency = info[1];
-            var true_amount = parseFloat($("#amount").val());
-            $('#price_value').val( Math.round(exchange_value*true_amount).format(2, 3, '.', ','))
-            $('#currency_label').html(exchange_currency);
-        });
     </script>
 @endsection

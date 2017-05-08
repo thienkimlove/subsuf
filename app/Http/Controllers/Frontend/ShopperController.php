@@ -149,7 +149,6 @@ class ShopperController extends Controller
         }
 
         $response = ["order" => $order];
-        $response["exchangeArr"] = Exchange::all();
         return view('frontend.shopper.order', $response);
     }
 
