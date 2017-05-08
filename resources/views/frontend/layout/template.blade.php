@@ -530,7 +530,7 @@
 
    $(function(){
 
-       var isShowing = Cookies.get('show_popup_secure');
+       var isShowing = Cookies.get('show_popup_secure', { domain : document.domain });
 
        if (!isShowing || isShowing === '0') {
            $('#coupon_popup').modal();
