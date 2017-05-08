@@ -96,6 +96,8 @@ class IndexController extends Controller
 
             $code = 'PROMO-'.substr(uniqid(), 0, 4);
 
+            DB::enableQueryLog();
+
             try {
 
                $couponId = DB::table('coupon')->insertGetId([
@@ -126,7 +128,8 @@ class IndexController extends Controller
 
             } catch (\Exception $e) {
                 DB::rollback();
-                \Log::info($e->getTraceAsString());
+                \Log::info($e->getMessage());
+                \Log::info(DB::getQueryLog());
                 $responseMsg = trans('index.loikhitaocode');
             }
 
