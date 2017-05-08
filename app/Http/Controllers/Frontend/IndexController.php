@@ -96,7 +96,7 @@ class IndexController extends Controller
 
             $code = 'PROMO-'.substr(uniqid(), 0, 4);
 
-            DB::enableQueryLog();
+           // DB::enableQueryLog();
 
             try {
 
@@ -104,9 +104,7 @@ class IndexController extends Controller
                     'coupon_code' => $code,
                     'money' => env('PROMOTION_COUPON_AMOUNT'),
                     'status' => 1,
-                    'used_at' => '',
-                    'created_at' => Carbon::now()->toDateTimeString(),
-                    'updated_at' => Carbon::now()->toDateTimeString()
+                    'used_at' => ''
                 ]);
 
                 DB::table('coupon_logs')->insert([
@@ -129,7 +127,7 @@ class IndexController extends Controller
             } catch (\Exception $e) {
                 DB::rollback();
                 \Log::info($e->getMessage());
-                \Log::info(DB::getQueryLog());
+                //\Log::info(DB::getQueryLog());
                 $responseMsg = trans('index.loikhitaocode');
             }
 
