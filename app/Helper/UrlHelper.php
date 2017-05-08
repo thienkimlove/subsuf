@@ -104,7 +104,6 @@ class UrlHelper
 
             if ($response->Ack !== 'Failure') {
                 $responseItem = $response->Item;
-
                 $images  = [];
                 foreach ($responseItem->PictureURL as $img) {
                     $images[] = $img;
@@ -113,8 +112,8 @@ class UrlHelper
                 $items = [
                     'name' => $responseItem->Title,
                     'price' => $responseItem->CurrentPrice->value,
-                    'amount' => $responseItem->CurrentPrice->value,
-                    'currency' => $responseItem->CurrentPrice->currencyID,
+                    'amount' => isset($responseItem->ConvertedCurrentPrice) ? $responseItem->ConvertedCurrentPrice->value : $responseItem->CurrentPrice->value,
+                    'currency' => isset($responseItem->ConvertedCurrentPrice)? $responseItem->ConvertedCurrentPrice->currencyID :  $responseItem->CurrentPrice->currencyID,
                     'description' => $responseItem->Title,
                     'images' => $images
                 ];
