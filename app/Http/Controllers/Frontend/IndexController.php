@@ -97,16 +97,19 @@ class IndexController extends Controller
             $code = 'PROMO-'.substr(uniqid(), 0, 4);
 
             try {
-                $coupon = new Coupon();
-                $coupon->coupon_code = $code;
-                $coupon->money = env('PROMOTION_COUPON_AMOUNT');
-                $coupon->status = 1;
-                $coupon->used_at = "";
-                $coupon->save();
+
+               $couponId = DB::table('coupon')->insertGetId([
+                    'coupon_code' => $code,
+                    'money' => env('PROMOTION_COUPON_AMOUNT'),
+                    'status' => 1,
+                    'used_at' => '',
+                    'created_at' => Carbon::now()->toDateTimeString(),
+                    'updated_at' => Carbon::now()->toDateTimeString()
+                ]);
 
                 DB::table('coupon_logs')->insert([
                     'email' => $email,
-                    'coupon_id' => $coupon->coupon_id,
+                    'coupon_id' => $couponId,
                     'created_at' => Carbon::now()->toDateTimeString(),
                     'updated_at' => Carbon::now()->toDateTimeString()
                 ]);
