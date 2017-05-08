@@ -523,8 +523,10 @@
 
     function couponSubmit() {
         var email = $('#coupon_email').val();
+        $('#coupon_submit').hide();
+        $('#coupon_message').show().text('Loading..');
         $.get(url +'/promotion_coupon',{ email : email },function(response){
-              $('#coupon_message').show().text(response.msg);
+              $('#coupon_message').text(response.msg);
         });
     }
 
