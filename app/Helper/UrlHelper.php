@@ -535,7 +535,7 @@ class UrlHelper
             } elseif ($trueResponse['currency'] != 'USD') {
                 $exchange = Exchange::where('from_currency', $trueResponse['currency'])->where('to_currency', 'USD')->get();
                 if ($exchange->count() > 0) {
-                    $trueResponse['exchange'] = round($trueResponse['amount']*$exchange->money, 2).' USD';
+                    $trueResponse['exchange'] = round($trueResponse['amount']*$exchange->first()->money, 2).' USD';
                 }
             }
         }
