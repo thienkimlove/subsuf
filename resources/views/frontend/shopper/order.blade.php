@@ -136,7 +136,7 @@
                                 @if (isset($order['exchange']))
                                 <p style="margin-top: 15px">
                                     <small>
-                                        {{trans("index.quydoisang")}}  {{$order['exchange']}}
+                                       {{$order['exchange']}}
                                     </small>
                                 </p>
                                 @endif
