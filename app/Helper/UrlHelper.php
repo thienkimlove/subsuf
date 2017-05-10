@@ -227,19 +227,19 @@ class UrlHelper
                     $items['name'] = $xml->Items->Item->ItemAttributes->Title->__toString();
                 }
 
-
-                if (isset($xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice)) {
+                if (isset($xml->Items->Item->Offers->Offer->OfferListing->SalePrice)) {
+                    $items['price'] = $xml->Items->Item->Offers->Offer->OfferListing->SalePrice->FormattedPrice->__toString();
+                    $items['currency'] = $xml->Items->Item->Offers->Offer->OfferListing->SalePrice->CurrencyCode->__toString();
+                    $items['amount'] = $xml->Items->Item->Offers->Offer->OfferListing->SalePrice->Amount / 100;
+                } elseif (isset($xml->Items->Item->Offers->Offer->OfferListing->Price)) {
+                    $items['price'] = $xml->Items->Item->Offers->Offer->OfferListing->Price->FormattedPrice->__toString();
+                    $items['currency'] = $xml->Items->Item->Offers->Offer->OfferListing->Price->CurrencyCode->__toString();
+                    $items['amount'] = $xml->Items->Item->Offers->Offer->OfferListing->Price->Amount / 100;
+                } elseif (isset($xml->Items->Item->ItemAttributes->ListPrice)) {
                     $items['price'] = $xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice->__toString();
-                }
-
-                if (isset($xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode)) {
                     $items['currency'] = $xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode->__toString();
+                    $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount / 100;
                 }
-
-                if (isset($xml->Items->Item->ItemAttributes->ListPrice->Amount)) {
-                    $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount/100;
-                }
-
 
                 if (isset($xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL)) {
                     $items['images'][] = $xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL->__toString();
