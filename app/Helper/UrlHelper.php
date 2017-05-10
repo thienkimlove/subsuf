@@ -219,6 +219,7 @@ class UrlHelper
             try  {
                 $xml = simplexml_load_file($documentUrl);
 
+
                 if (isset($xml->Items->Item->ItemAttributes->Title[0])) {
                     $items['name'] = $xml->Items->Item->ItemAttributes->Title[0]->__toString();
                 }
@@ -241,6 +242,14 @@ class UrlHelper
                     $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount / 100;
                 }
 
+                if (isset($xml->Items->Item->ImageSets->ImageSet)) {
+                    foreach ($xml->Items->Item->ImageSets->ImageSet as $feature) {
+                        if (isset($feature->HiResImage->URL)) {
+                            $items['images'][] = $feature->HiResImage->URL->__toString();
+                        }
+                    }
+                }
+
                 if (isset($xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL)) {
                     $items['images'][] = $xml->Items->Item->ImageSets->ImageSet->SwatchImage->URL->__toString();
                 }
@@ -260,8 +269,21 @@ class UrlHelper
                 foreach ($xml->Items->Item->ImageSets->ImageSet as $feature) {
                     if (isset($feature->HiResImage->URL)) {
                         $items['images'][] = $feature->HiResImage->URL->__toString();
+                    } else if (isset($feature->ThumbnailImage->URL)) {
+                        $items['images'][] = $feature->ThumbnailImage->URL->__toString();
+                    } else if (isset($feature->SmallImage->URL)) {
+                        $items['images'][] = $feature->SmallImage->URL->__toString();
+                    } else if (isset($feature->TinyImage->URL)) {
+                        $items['images'][] = $feature->TinyImage->URL->__toString();
+                    } else if (isset($feature->SwatchImage->URL)) {
+                        $items['images'][] = $feature->SwatchImage->URL->__toString();
                     }
                 }
+
+                if (isset($xml->Items->Item->MediumImage->URL)) {
+                    $items['images'][] = $xml->Items->Item->MediumImage->URL->__toString();
+                }
+
                 if (isset($xml->Items->Item->ItemAttributes->Feature)) {
                     foreach ($xml->Items->Item->ItemAttributes->Feature as $feature) {
                         $items['description'] .= $feature->__toString()."\n";
