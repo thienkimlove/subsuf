@@ -107,15 +107,15 @@ class ShopperController extends Controller
     {
         if ($this->request->has("start")) {
             $order = [];
-            Session::forget("order");
-            Session::forget("order2");
+            session()->forget("order");
+            session()->forget("order2");
             if ($this->request->has("url")) {
                 $url = $this->request->input("url");
-                $base_url = parse_url($url);
                 $data_json = UrlHelper::crawl($url);
                 $order = json_decode($data_json, true);
-            $order["link"] = $url;
-        }
+                dd($order);
+                $order["link"] = $url;
+            }
         } else {
             $data = [];
             if ($this->request->has("item")) {
@@ -126,19 +126,19 @@ class ShopperController extends Controller
                         "link" => $item->link,
                         "price" => ($item->is_sale) ? $item->price_sale : $item->price,
                         "description" => $item->description,
-                        "quantity" => $this->request->input("quantity", 1),
-//                        "url"=>$this->request->input("url",""),
+                        "quantity" => $this->request->input("quantity", 1)
                     ];
                     $data['images'] = [];
-                    if ($item->image)
+                    if ($item->image) {
                         array_push($data['images'], $item->image);
+                    }
                     foreach ($item->item_images as $item) {
                         array_push($data['images'], $item->image);
                     }
-                    Session::set("order", $data);
+                    session()->put("order", $data);
                 }
             } else {
-                $data = Session::get("order");
+                $data = session()->get("order");
             }
             $order = $data;
         }
@@ -154,7 +154,7 @@ class ShopperController extends Controller
 
     public function order2()
     {
-//        var_dump($this->request->input("url"));die;
+
         $validator = Validator::make($this->request->all(), [
             'price' => 'numeric|max:9999999',
             'quantity' => 'numeric|max:999',

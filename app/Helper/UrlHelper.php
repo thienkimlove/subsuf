@@ -6,7 +6,6 @@ use App\Exchange;
 use Ixudra\Curl\Facades\Curl;
 use DTS\eBaySDK\Shopping\Services;
 use DTS\eBaySDK\Shopping\Types;
-use DTS\eBaySDK\Shopping\Enums;
 
 
 class UrlHelper
@@ -49,8 +48,7 @@ class UrlHelper
 
         $items = [
             'name' => '',
-            'price' => '0',
-            'amount' => '0',
+            'price' => 0,
             'currency' => '',
             'description' => '',
             'images' => []
@@ -111,8 +109,7 @@ class UrlHelper
 
                 $items = [
                     'name' => $responseItem->Title,
-                    'price' => $responseItem->CurrentPrice->value,
-                    'amount' => isset($responseItem->ConvertedCurrentPrice) ? $responseItem->ConvertedCurrentPrice->value : $responseItem->CurrentPrice->value,
+                    'price' => isset($responseItem->ConvertedCurrentPrice) ? $responseItem->ConvertedCurrentPrice->value : $responseItem->CurrentPrice->value,
                     'currency' => isset($responseItem->ConvertedCurrentPrice)? $responseItem->ConvertedCurrentPrice->currencyID :  $responseItem->CurrentPrice->currencyID,
                     'description' => $responseItem->Title,
                     'images' => $images
@@ -135,8 +132,7 @@ class UrlHelper
 
         $items = [
             'name' => '',
-            'price' => '0',
-            'amount' => '0',
+            'price' => 0,
             'currency' => '',
             'description' => '',
             'images' => []
@@ -229,17 +225,14 @@ class UrlHelper
                 }
 
                 if (isset($xml->Items->Item->Offers->Offer->OfferListing->SalePrice)) {
-                    $items['price'] = $xml->Items->Item->Offers->Offer->OfferListing->SalePrice->FormattedPrice->__toString();
                     $items['currency'] = $xml->Items->Item->Offers->Offer->OfferListing->SalePrice->CurrencyCode->__toString();
-                    $items['amount'] = $xml->Items->Item->Offers->Offer->OfferListing->SalePrice->Amount / 100;
+                    $items['price'] = $xml->Items->Item->Offers->Offer->OfferListing->SalePrice->Amount / 100;
                 } elseif (isset($xml->Items->Item->Offers->Offer->OfferListing->Price)) {
-                    $items['price'] = $xml->Items->Item->Offers->Offer->OfferListing->Price->FormattedPrice->__toString();
                     $items['currency'] = $xml->Items->Item->Offers->Offer->OfferListing->Price->CurrencyCode->__toString();
-                    $items['amount'] = $xml->Items->Item->Offers->Offer->OfferListing->Price->Amount / 100;
+                    $items['price'] = $xml->Items->Item->Offers->Offer->OfferListing->Price->Amount / 100;
                 } elseif (isset($xml->Items->Item->ItemAttributes->ListPrice)) {
-                    $items['price'] = $xml->Items->Item->ItemAttributes->ListPrice->FormattedPrice->__toString();
                     $items['currency'] = $xml->Items->Item->ItemAttributes->ListPrice->CurrencyCode->__toString();
-                    $items['amount'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount / 100;
+                    $items['price'] = $xml->Items->Item->ItemAttributes->ListPrice->Amount / 100;
                 }
 
                 if (isset($xml->Items->Item->ImageSets->ImageSet)) {
@@ -323,190 +316,6 @@ class UrlHelper
         return array();
     }
 
-
-    //old code
-    public static function crawl_amazon_us($url)
-    {
-        $post = [
-            'name' => '',
-            'price' => '0',
-            'amount' => '0',
-            'currency' => '',
-            'description' => '',
-            'images' => []
-        ];
-
-        $html = self::curl($url);
-
-
-        if ($html) {
-            $html = preg_replace("/(\\n|\\r|\\t)/", "", $html);
-            if (preg_match("/<span id=\"productTitle.*?>(.*?)<\/span>/", $html, $m)) {
-                $post["name"] = trim($m[1]);
-            }
-
-            if (preg_match("/<span id=\"priceblock_ourprice\".*?>(.*?)<\/span>/", $html, $m)) {
-                $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-                // $post["currency"] = self::currency(trim($m[1]));
-            } elseif (preg_match("/<span id=\"priceblock_saleprice\".*?>(.*?)<\/span>/", $html, $m)) {
-                $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-                // $post["currency"] = self::currency(trim($m[1]));
-            }
-
-            if (preg_match("/<div id=\"productDescription\".*?>.*?<p.*?>(.*?)<\/p>.*?<\/div>/", $html, $m)) {
-                $post["description"] = trim($m[1]);
-            } elseif (preg_match("/<ul class=\"a-vertical a-spacing-none\">.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>/", $html, $m)) {
-                $post["description"] = trim($m[1]) . trim($m[2]) . trim($m[3]) . trim($m[4]) . trim($m[5]);
-            }
-
-            if (preg_match_all("/<li class=\"a-spacing-small item\".*?>.*?<img.*?src=\"(.*?)\">/", $html, $m)) {
-                for ($i = 0; $i < 5; $i++) {
-                    if (isset($m[1][$i])) {
-//                        array_push($post["images"], preg_replace(["/._SX38_SY50_CR,0,0,38,50_/", "/._SS40_/", "/._SR38,50_/"], "", $m[1][$i]));
-                        array_push($post["images"], preg_replace(["/\._(.*?)_\./"], ".", $m[1][$i]));
-                    }
-                }
-            }
-        }
-
-
-        return json_encode($post);
-    }
-
-    public static function crawl_amazon_uk($url)
-    {
-        $post = [
-            'name' => '',
-            'price' => '0',
-            'amount' => '0',
-            'currency' => '',
-            'description' => '',
-            'images' => []
-        ];
-
-        $html = self::curl($url);
-
-        if ($html) {
-            $html = preg_replace("/(\\n|\\r|\\t)/", "", $html);
-            if (preg_match("/<span id=\"productTitle.*?>(.*?)<\/span>/", $html, $m)) {
-                $post["name"] = trim($m[1]);
-            }
-
-            if (preg_match("/<span id=\"priceblock_ourprice\".*?>(.*?)<\/span>/", $html, $m)) {
-                $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-                $post["amount"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-                $post["currency"] = self::currency(trim($m[1]));
-            } elseif (preg_match("/<span id=\"priceblock_saleprice\".*?>(.*?)<\/span>/", $html, $m)) {
-                $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-                $post["currency"] = self::currency(trim($m[1]));
-            }
-
-
-            if (preg_match("/<div id=\"productDescription\".*?>.*?<p.*?>(.*?)<\/p>.*?<\/div>/", $html, $m)) {
-                $post["description"] = strip_tags(trim($m[1]));
-            } elseif (preg_match("/<ul class=\"a-vertical a-spacing-none\">.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>.*?<span class=\"a-list-item\">(.*?)<\/span>/", $html, $m)) {
-                $post["description"] = trim($m[1]) . trim($m[2]) . trim($m[3]) . trim($m[4]) . trim($m[5]);
-            }
-
-            if (preg_match_all("/<li class=\"a-spacing-small item\".*?>.*?<img.*?src=\"(.*?)\">/", $html, $m)) {
-                for ($i = 0; $i < 5; $i++) {
-                    if (isset($m[1][$i])) {
-//                            array_push($post["images"], preg_replace(["/._SX38_SY50_CR,0,0,38,50_/", "/._SS40_/", "/._SR38,50_/"], "", $m[1][$i]));
-                        array_push($post["images"], preg_replace(["/\._(.*?)_\./"], ".", $m[1][$i]));
-                    }
-                }
-            }
-
-            return json_encode($post);
-        }
-    }
-
-    public static function crawl_ebay($url)
-    {
-        $post = [
-            'name' => '',
-            'price' => '0',
-            'currency' => '$',
-            'description' => '',
-            'images' => []
-        ];
-
-        $html = self::curl($url);
-
-        if ($html) {
-            $html = preg_replace("/(\\n|\\r|\\t)/", "", $html);
-            if (preg_match("/<h1 class=\"it-ttl\".*?>.*?<\/span>(.*?)<\/h1>/", $html, $m)) {
-                $post["name"] = trim($m[1]);
-            }
-
-            if (preg_match("/<span class=\"notranslate\".*?>(.*?)<\/span>/", $html, $m)) {
-                $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-                $post["currency"] = self::currency(trim($m[1]));
-            }
-
-            if (preg_match("/<h1 class=\"it-ttl\".*?>.*?<\/span>(.*?)<\/h1>/", $html, $m)) {
-                $post["description"] = trim($m[1]);
-            }
-
-            if (preg_match_all("/<table class=\"img\">.*?<img.*?src=\"(.*?)\" .*?>.*?<\/table>/", $html, $m)) {
-                for ($i = 0; $i < 5; $i++) {
-                    if (isset($m[1][$i])) {
-                        array_push($post["images"], preg_replace(["/s-l64/"], "s-l500", $m[1][$i]));
-                    }
-                }
-            } elseif (preg_match_all("/<img id=\"icThrImg\".*?>.*?<img id=\"icImg\" class=\"img img300\".*?src=\"(.*?)\".*?>/", $html, $m)) {
-                for ($i = 0; $i < 5; $i++) {
-                    if (isset($m[1][$i])) {
-                        array_push($post["images"], preg_replace("/._SR38,50_/", "", $m[1][$i]));
-                    }
-                }
-            }
-        }
-
-        return json_encode($post);
-    }
-
-    public static function crawl_overstock($url)
-    {
-        $post = [
-            'name' => '',
-            'price' => '0',
-            'amount' => '0',
-            'currency' => '',
-            'description' => '',
-            'images' => []
-        ];
-
-        $html = self::curl($url);
-
-        if ($html) {
-            $html = preg_replace("/(\\n|\\r|\\t)/", "", $html);
-            if (preg_match("/<div class=\"product-title\".*?>.*?<h1>(.*?)<\/h1>/", $html, $m)) {
-                $post["name"] = trim($m[1]);
-            }
-
-
-           if (preg_match("/<span class=\"monetary-price.*?>(.*?)<\/span>/", $html, $m)) {
-             $post["price"] = preg_replace("/[^0-9.]/", "", trim($m[1]));
-           }
-
-
-            if (preg_match("/<span itemprop=\"description\".*?>(.*?)<\/span>/", $html, $m)) {
-                $post["description"] = trim(preg_replace(["/<li.*?>/", "/<\/li>/", "/<ul.*?>/", "/<\/ul>/", "/<br.*?>/", "/<\/br>/"], "", $m[1]));
-            }
-            
-            if (preg_match_all("/<li class=\"\" data-image-id.*?>.*?<img.*?src=\"(.*?)\".*?>/", $html, $m)) {
-                for ($i = 0; $i < 5; $i++) {
-                    if (isset($m[1][$i])) {
-                        array_push($post['images'], preg_replace("/_80/", "", $m[1][$i]));
-                    }
-                }
-            }
-        }
-
-        return json_encode($post);
-    }
-
     /**
      * We only accept three currencies : GBP, JPY and USD
      * @param $url
@@ -523,8 +332,7 @@ class UrlHelper
         } else {
             $items = [
                 'name' => '',
-                'price' => '0',
-                'amount' => '0',
+                'price' => 0,
                 'currency' => '',
                 'description' => '',
                 'images' => []
@@ -552,11 +360,10 @@ class UrlHelper
             if (!in_array($trueResponse['currency'], ['GBP', 'JPY', 'USD'])) {
                 $trueResponse['currency'] = '';
                 $trueResponse['price'] = 0;
-                $trueResponse['amount'] = 0;
             } elseif ($trueResponse['currency'] != 'USD') {
                 $exchange = Exchange::where('from_currency', $trueResponse['currency'])->where('to_currency', 'USD')->get();
                 if ($exchange->count() > 0) {
-                    $trueResponse['exchange'] = round($trueResponse['amount']*$exchange->first()->money, 2).' USD';
+                    $trueResponse['exchange'] = round($trueResponse['price']*$exchange->first()->money, 2).' USD';
                 }
             }
         }

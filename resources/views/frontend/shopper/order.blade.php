@@ -9,18 +9,7 @@
     {{Html::style('assets/pages/css/search.min.css')}}
 @endsection
 @section('breadcrumb')
-    {{--<div class="container">--}}
-    {{--<!-- BEGIN PAGE BREADCRUMBS -->--}}
-    {{--<ul class="page-breadcrumb breadcrumb">--}}
-    {{--<li>--}}
-    {{--<a href="index.html">Home</a>--}}
-    {{--<i class="fa fa-circle"></i>--}}
-    {{--</li>--}}
-    {{--<li>--}}
-    {{--<span>Layouts</span>--}}
-    {{--</li>--}}
-    {{--</ul>--}}
-    {{--</div>--}}
+
 @endsection
 
 @section('content')
@@ -60,10 +49,6 @@
                     <div class="row">
                         <div class="col-lg-offset-2 col-lg-8 text-center">
                             <hr>
-                            {{--<h4> Provide us a few details about your item</h4>--}}
-                            {{--<p>If you found your item online, paste the link to it below. To create a custom grab, type--}}
-                            {{--out its--}}
-                            {{--details below.</p>--}}
                         </div>
                     </div>
                     <div class="row">
@@ -87,9 +72,7 @@
                                 <div class="image-block">
                                     @if(isset($order["images"]))
                                         @foreach($order["images"] as $key=>$image)
-                                            <?php if ($key >= 5) {
-                                                break;
-                                            }  ?>
+                                            @if ($key < 5)
                                             <div class="fileinput-new images-input">
                                                 <div class="close-image" onclick="removeImg(this)"><i
                                                             class="glyphicon glyphicon-remove"></i></div>
@@ -98,6 +81,7 @@
 
                                                 <input type="hidden" name="images-link[]" value="{{$image}}">
                                             </div>
+                                            @endif
                                         @endforeach
                                     @endif
                                     <div class="fileinput-new images-input"
@@ -128,9 +112,16 @@
                             </div>
                             <div class="form-group">
                                 <label>{{trans("index.giasanpham")}} (<b id="currency_label">{{$order['currency']}}</b>)</label>
-                                <input class="form-control spinner" onkeypress='return (event.charCode >= 48 && event.charCode <= 57)||event.charCode==46' name="price" type="text" id="price_value" maxlength="7" step=any min="1"
+                                <input class="form-control spinner"
+                                       onkeypress='return (event.charCode >= 48 && event.charCode <= 57)||event.charCode===46'
+                                       name="price"
+                                       type="text"
+                                       id="price_value"
+                                       maxlength="7"
+                                       step=any
+                                       min="1"
                                        data-error="{{trans("index.price_min")}}"
-                                       value="{{isset($order["price"])?$order["price"]:""}}" required="">
+                                       value="{{isset($order["price"])? $order["price"]:""}}" required="">
                                 <div class="help-block with-errors"></div>
 
                                 @if (isset($order['exchange']))
