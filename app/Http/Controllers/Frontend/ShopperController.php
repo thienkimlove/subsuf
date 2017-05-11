@@ -112,8 +112,7 @@ class ShopperController extends Controller
             if ($this->request->has("url")) {
                 $url = $this->request->input("url");
                 $data_json = UrlHelper::crawl($url);
-                $order = json_decode($data_json, true);
-                dd($order);
+                $order = json_decode($data_json, true);               
                 $order["link"] = $url;
             }
         } else {
@@ -166,13 +165,11 @@ class ShopperController extends Controller
             ]
         );
         if ($validator->fails()) {
-            return Redirect::back()->withError($validator->errors()->first());
+            return redirect()->back()->withError($validator->errors()->first());
         }
         $data = $this->request->all();
         if (!empty($data)) {
-            $files = $this->request->file('images', []);
-            $file_count = count($files);
-            $uploadcount = 0;
+            $files = $this->request->file('images', []);           
             $images_url = [];
             if ($this->request->has("images-link"))
                 $images_url = $this->request->get("images-link");
@@ -184,23 +181,20 @@ class ShopperController extends Controller
             }
             $data['images'] = $images_url;
             if (count($data['images']) < 1) {
-                return Redirect::back()->withError(trans('index.image_error'));
+                return  redirect()->back()->withError(trans('index.image_error'));
             }
-            $orderKey = str_random(5);
-            if (isset($data["name"])) {
-            }
-
+            
             $data['link'] = $data['url'];
 
-            Session::set("order", $data);
+            session()->put("order", $data);
         }
-        if (!Session::has("userFrontend")) {
-            Session::set("url_callback", URL::action("Frontend\ShopperController@order"));
-            return Redirect::action("Frontend\LoginController@login");
+        if (!session()->has("userFrontend")) {
+            session()->put("url_callback", URL::action("Frontend\ShopperController@order"));
+            return redirect()->action("Frontend\LoginController@login");
         }
 
-        $order = Session::get("order");
-        $order2 = Session::get("order2");
+        $order = session()->get("order");
+        $order2 = session()->get("order2");
 
         $this->request->flash();
         $reward1 = (int)$order["price"] * $order["quantity"] * 0.05;
@@ -234,9 +228,9 @@ class ShopperController extends Controller
     public function order3()
     {
         $data = $this->request->all();
-        Session::set("order2", $data);
-        $order = Session::get("order");
-        $order2 = Session::get("order2");
+        session()->put("order2", $data);
+        $order = session()->get("order");
+        $order2 = session()->get("order2");
         $response["order"] = $order;
         $response["order2"] = $order2;
         $response["deliver_from"] = null;
@@ -253,13 +247,13 @@ class ShopperController extends Controller
 
     public function saveOrder()
     {
-        $order = Session::get("order");
-        $order2 = Session::get("order2");
+        $order = session()->get("order");
+        $order2 = session()->get("order2");
         $order3 = $this->request->all();
-        $order_id = $this->order->saveOrder(Session::get("userFrontend")["account_id"], $order, $order2, $order3);
-        Session::forget("order1");
-        Session::forget("order2");
-        return Redirect::action('Frontend\ShopperController@orderDetail', $order_id)->withSuccess(trans("index.taoorderthanhcong"));
+        $order_id = $this->order->saveOrder(session()->get("userFrontend")["account_id"], $order, $order2, $order3);
+        session()->forget("order1");
+        session()->forget("order2");
+        return redirect()->action('Frontend\ShopperController@orderDetail', $order_id)->withSuccess(trans("index.taoorderthanhcong"));
     }
 
     // chi tiết order
@@ -275,8 +269,8 @@ class ShopperController extends Controller
         }
         if ($order->order_status == 2 || $order->order_status == 3) {
             $offer = Offer::where("order_id", $id)->where("offer_status", ">", 1)->first();
-            if (Session::has("userFrontend")) {
-                $account_id = Session::get("userFrontend")["account_id"];
+            if (session()->has("userFrontend")) {
+                $account_id = session()->get("userFrontend")["account_id"];
                 $isShopper = false;
                 $isTraveler = false;
                 if ($account_id == $order->shopper_id)
@@ -284,10 +278,10 @@ class ShopperController extends Controller
                 else if (isset($offer) && $account_id == $offer->traveler_id)
                     $isTraveler = true;
                 else {
-                    return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+                    return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
                 }
             } else {
-                return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+                return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
             }
             $transaction = Transaction::where("offer_id", $offer->offer_id)->first();
             $response = [
@@ -304,7 +298,7 @@ class ShopperController extends Controller
             "order" => $order,
             "exchange" => $this->exchange->change("USD", "VND"),
             "offer" => Offer::where("order_id", $id)->where("offer_status", 1)->get(),
-            "isOffer" => (Session::has("userFrontend")) ? Offer::where("order_id", $id)->where("traveler_id", Session::get("userFrontend")["account_id"])->count() : false
+            "isOffer" => (session()->has("userFrontend")) ? Offer::where("order_id", $id)->where("traveler_id", session()->get("userFrontend")["account_id"])->count() : false
         ];
 
         return view('frontend.shopper.order_detail', $response);
@@ -315,15 +309,15 @@ class ShopperController extends Controller
     {
         $order = Order::where("order_id", $order_id)->where("order_status", 1)->first();
         if (!$order) {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
-        if ($order->shopper_id != Session::get("userFrontend")["account_id"]) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
+        if ($order->shopper_id != session()->get("userFrontend")["account_id"]) {
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
         }
         $order->order_status = -1;
         $order->save();
-        $offer = Offer::where("order_id", $order_id)->delete();
-        return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.datatorder"));
+        Offer::where("order_id", $order_id)->delete();
+        return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.datatorder"));
     }
 
     public function activeOrder($order_id)
@@ -334,15 +328,15 @@ class ShopperController extends Controller
         }
         $order = Order::where("order_id", $order_id)->where("order_status", -1)->first();
         if (!$order) {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
-        if ($order->shopper_id != Session::get("userFrontend")["account_id"]) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
+        if ($order->shopper_id != session()->get("userFrontend")["account_id"]) {
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
         }
         $order->order_status = 1;
         $order->save();
-        $offer = Offer::where("order_id", $order_id)->delete();
-        return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.dabatorder"));
+        Offer::where("order_id", $order_id)->delete();
+        return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.dabatorder"));
     }
 
     public function acceptOffer($offer_id)
@@ -350,16 +344,16 @@ class ShopperController extends Controller
 
         $offer = Offer::find($offer_id);
         if (!$offer) {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
         $order = Order::find($offer->order_id);
         if ($offer->offer_status > 1)
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order->order_id);
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order->order_id);
         $total = round((float)$order->price * $order->quantity + $offer->shipping_fee + $offer->tax + $offer->others_fee, 2);
         $fee = round($total * get_service_percent($total), 2);
 
 
-        $coupons = Coupon::where("account_id", Session::get("userFrontend")["account_id"])
+        $coupons = Coupon::where("account_id", session()->get("userFrontend")["account_id"])
             ->where("money", "<=", $total)
             ->where("status", 1)
             ->get();
@@ -396,7 +390,7 @@ class ShopperController extends Controller
             $secure_code = $this->request->input('secure_code');
             $exchange = $this->exchange->change("USD", "VND");
 //            if ($exchange == 0) {
-//                return Redirect::back()->withError(trans("index.khongquydoiduoctigia"));
+//                return redirect()->back()->withError(trans("index.khongquydoiduoctigia"));
 //            }
 //            $exchangePrice = $exchange * $price;
             // kiểm tra xem có phải đang test ko
@@ -427,19 +421,19 @@ class ShopperController extends Controller
             }
 
             if ($checkpay) {
-//                $account_id = Session::get("userFrontend")["account_id"];
+//                $account_id = session()->get("userFrontend")["account_id"];
                 $date = date("Y-m-d H:i:s");
                 $offer = Offer::find($offer_id);
                 if (!$offer) {
-                    return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinoffer"));
+                    return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinoffer"));
                 }
                 if ($offer->offer_status != 1) {
-                    return Redirect::action("Frontend\ShopperController@orderDetail", $offer->order_id);
-//                    return Redirect::action("Frontend\IndexController@error")->withError(trans("index.offerdahethan"));
+                    return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id);
+//                    return redirect()->action("Frontend\IndexController@error")->withError(trans("index.offerdahethan"));
                 }
                 $order = $offer->order;
                 if ($order->shopper_id != $account_id) {
-                    return Redirect::action("Frontend\ShopperController@orderDetail", $offer->order_id)->withError("Lỗi");
+                    return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id)->withError("Lỗi");
                 }
                 Offer::where("order_id", $order->order_id)->update(["offer_status" => -1]);
                 $offer->offer_status = 2;
@@ -525,13 +519,13 @@ class ShopperController extends Controller
                 } catch (\Exception $e) {
                 }
 
-                return Redirect::action("Frontend\ShopperController@orderDetail", $offer->order_id)->withSuccess(trans("index.nhanbofferthanhcong"));
+                return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id)->withSuccess(trans("index.nhanbofferthanhcong"));
             } else {
-                return \Redirect::action('Frontend\ShopperController@acceptOffer', $offer_id)
+                return redirect()->action('Frontend\ShopperController@acceptOffer', $offer_id)
                     ->withError(trans("index.thanhtoanthatbai"));
             }
         } else {
-            return \Redirect::action('Frontend\ShopperController@acceptOffer', $offer_id)
+            return redirect()->action('Frontend\ShopperController@acceptOffer', $offer_id)
                 ->withError(trans("index.khongcothongtinthanhtoan"));
         }
     }
@@ -540,26 +534,26 @@ class ShopperController extends Controller
     {
         $order = Order::where("order_id", $order_id)->first();
         if (!$order) {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinoffer"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinoffer"));
         }
         if ($order->order_status == 3) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.daxacnhannhanhang"));
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.daxacnhannhanhang"));
         }
         if ($order->order_status != 2) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.banchuaxacnhanoffernao"));
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.banchuaxacnhanoffernao"));
         }
 
         $offer = Offer::where("order_id", $order_id)->first();
-        if (Session::has("userFrontend")) {
-            $account_id = Session::get("userFrontend")["account_id"];
+        if (session()->has("userFrontend")) {
+            $account_id = session()->get("userFrontend")["account_id"];
 //            if (!($account_id == $order->shopper_id || $account_id == $offer->traveler_id)) {
             if (!($account_id == $offer->traveler_id)) {
                 abort(404);
-                return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+                return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
             }
         } else {
             abort(404);
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
         $order->order_status = 1;
         $order->save();
@@ -582,7 +576,7 @@ class ShopperController extends Controller
         } catch (\Exception $e) {
         }
 
-        return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.daxoagg"));
+        return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.daxoagg"));
     }
 
     public function finishOrder($order_id)
@@ -601,37 +595,37 @@ class ShopperController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return Redirect::back()->withError($validator->errors()->first());
+            return redirect()->back()->withError($validator->errors()->first());
         }
 
 //        $code = $this->request->input('captcha');
 //
 //        // Validation failed
 //        if (!(new Captcha)->validate($code)) {
-//            return Redirect::back()->withError(trans('index.captcha_failed'));
+//            return redirect()->back()->withError(trans('index.captcha_failed'));
 //        }
-        $order = Order::where("shopper_id", Session::get("userFrontend")["account_id"])->where("order_id", $order_id)->first();
+        $order = Order::where("shopper_id", session()->get("userFrontend")["account_id"])->where("order_id", $order_id)->first();
         if (!$order) {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
         if ($order->order_status == 3) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.daxacnhannhanhang"));
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.daxacnhannhanhang"));
         }
         if ($order->order_status != 2) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.banchuaxacnhanoffernao"));
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.banchuaxacnhanoffernao"));
         }
         if(Offer::where("order_id", $order_id)->where("offer_status",2)->count()>1){
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError("System Error!!! Please contact us now!");
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError("System Error!!! Please contact us now!");
         }
 
         $offer = Offer::where("order_id", $order_id)->where("offer_status",2)->first();
-        if (Session::has("userFrontend")) {
-            $account_id = Session::get("userFrontend")["account_id"];
+        if (session()->has("userFrontend")) {
+            $account_id = session()->get("userFrontend")["account_id"];
             if (!($account_id == $order->shopper_id || $account_id == $offer->traveler_id)) {
-                return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+                return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
             }
         } else {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
         $order->order_status = 3;
         $order->received_time = date("Y-m-d H:i:s");
@@ -669,20 +663,20 @@ class ShopperController extends Controller
         } catch (\Exception $e) {
         }
 
-        return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.daxacnhannhanhang"));
+        return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.daxacnhannhanhang"));
     }
 
     public function editOrder($order_id)
     {
         $order = Order::find($order_id);
         if (!$order) {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
-        if ($order->shopper_id != Session::get("userFrontend")["account_id"]) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
+        if ($order->shopper_id != session()->get("userFrontend")["account_id"]) {
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
         }
         if ($order->order_status > 1) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.orderdangduocggkhongthesua"));
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.orderdangduocggkhongthesua"));
         }
 
         $response = ["order" => $order];
@@ -718,18 +712,18 @@ class ShopperController extends Controller
     {
         $order = Order::find($order_id);
         if (!$order) {
-            return Redirect::action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
+            return redirect()->action("Frontend\IndexController@error")->withError(trans("index.khongtimthaythongtinorder"));
         }
-        if ($order->shopper_id != Session::get("userFrontend")["account_id"]) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
+        if ($order->shopper_id != session()->get("userFrontend")["account_id"]) {
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.bankhongphaichumonhang"));
         }
         if ($order->order_status > 1) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.orderdangduocggkhongthesua"));
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withError(trans("index.orderdangduocggkhongthesua"));
         }
         if ($this->order->editOrder($order_id, $this->request)) {
-            return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.suathanhcong"));
+            return redirect()->action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.suathanhcong"));
         } else {
-            return Redirect::back()->withError(trans('index.image_error'));
+            return redirect()->back()->withError(trans('index.image_error'));
         }
     }
 
@@ -739,7 +733,7 @@ class ShopperController extends Controller
             "status" => 0,
             "message" => "Mã coupon không đúng",
         ];
-        if (!Session::has("userFrontend")) {
+        if (!session()->has("userFrontend")) {
             return response($data);
         }
         $couponCode = $this->request->input("coupon");
@@ -748,7 +742,7 @@ class ShopperController extends Controller
         if ($code) {
 
             if ($code->money <= $total) {
-//                $code->account_id = Session::get("userFrontend")["account_id"];
+//                $code->account_id = session()->get("userFrontend")["account_id"];
 //                $code->amount = (int)$code->amount - 1;
 //                $code->save();
 
