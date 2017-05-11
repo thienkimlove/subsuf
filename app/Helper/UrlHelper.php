@@ -358,13 +358,23 @@ class UrlHelper
 
         if ($trueResponse['currency']) {
             if (!in_array($trueResponse['currency'], ['GBP', 'JPY', 'USD'])) {
-                $trueResponse['currency'] = '';
                 $trueResponse['price'] = 0;
+                $trueResponse['display_price'] = 0;
+                $trueResponse['display_currency'] = 'USD';
             } elseif ($trueResponse['currency'] != 'USD') {
                 $exchange = Exchange::where('from_currency', $trueResponse['currency'])->where('to_currency', 'USD')->get();
                 if ($exchange->count() > 0) {
-                    $trueResponse['exchange'] = round($trueResponse['price']*$exchange->first()->money, 2).' USD';
+                    $trueResponse['display_price'] = $trueResponse['price'];
+                    $trueResponse['price'] = round($trueResponse['price']*$exchange->first()->money, 2);
+                    $trueResponse['display_currency'] = $trueResponse['currency'];
+                } else {
+                    $trueResponse['price'] = 0;
+                    $trueResponse['display_price'] = 0;
+                    $trueResponse['display_currency'] = 'USD';
                 }
+            } else {
+                $trueResponse['display_price'] = $trueResponse['price'];
+                $trueResponse['display_currency'] = 'USD';
             }
         }
 

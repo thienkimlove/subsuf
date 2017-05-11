@@ -255,3 +255,15 @@ function exchange_validator($request)
 
     return $validator;
 }
+
+function deal_validator($request)
+{
+    $validator = Validator::make($request->all(), [
+        'title_vi' => "required",
+        'title_en' => "required",
+    ], [
+        'required' => "Vui lòng nhập đầy đủ dữ liệu",
+    ]);
+
+    return $validator;
+}

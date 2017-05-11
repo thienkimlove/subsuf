@@ -346,6 +346,15 @@
                     </li>
                 @endif
 
+                    @if(havePermission('config-manage', 'deal'))
+                        <li class="nav-item {{Request::is('admin/config-manage/deal*') ? 'active' : ''}}">
+                            <a href="{{URL::action('Admin\DealController@index')}}" class="nav-link ">
+                                <i class="fa fa-exchange"></i>
+                                <span class="title">Popup Khuyến mãi</span>
+                            </a>
+                        </li>
+                    @endif
+
             </ul>
         </li>
     @endif

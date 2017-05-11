@@ -172,6 +172,10 @@ function get_blog_image_folder()
 {
     return 'upload/blog/';
 }
+function get_deal_image_folder()
+{
+    return 'upload/deal/';
+}
 
 function get_image_name($image_path)
 {

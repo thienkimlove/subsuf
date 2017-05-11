@@ -51,7 +51,7 @@ class CategoryRepository
         unset($data['name_en']);
 
 
-        $category = $this->category->insert($data);
+        $category = $this->category->create($data);
 
         $category->translateOrNew('vi')->name = $nameVi;
         $category->save();

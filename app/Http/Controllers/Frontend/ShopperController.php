@@ -70,10 +70,7 @@ class ShopperController extends Controller
     public function index()
     {
         $buy_where = $this->category->getWithWebsites()->toArray();
-//        usort($buy_where, function ($a, $b) {
-//            if (count($a['websites']) === count($b['websites'])) return 0;
-//            return (count($a['websites']) < count($b['websites'])) ? 1 : -1;
-//        });
+
 
         $where_buy = $this->location->getWithWebsites()->toArray();
         usort($where_buy, function ($a, $b) {
@@ -81,11 +78,6 @@ class ShopperController extends Controller
             return (count($a['websites']) < count($b['websites'])) ? 1 : -1;
         });
 
-//        $brands = $this->brand->getAll()->toArray();
-//        usort($brands, function ($a, $b) {
-//            if (count($a['items']) === count($b['items'])) return 0;
-//            return (count($a['items']) < count($b['items'])) ? 1 : -1;
-//        });
 
         $query['featured'] = "featured = 1";
         $items = $this->item->getAll($query);
@@ -96,7 +88,6 @@ class ShopperController extends Controller
             'title' => 'Shop',
             'buy_where' => $buy_where,
             'where_buy' => $where_buy,
-//            'brands' => $brands,
             'items' => $items,
             'items_sale' => $items_sale
         ];
@@ -212,15 +203,15 @@ class ShopperController extends Controller
         $response["order"] = $order;
         $location = $this->location->getAll();
         $countrySelect = [null => "Điểm xuất phát"];
-        $proviceSelect = [null => "Điểm đến"];
+        $provinceSelect = [null => "Điểm đến"];
         foreach ($location as $item) {
             if ($item->type == 1)
-                $proviceSelect[$item->location_id] = $item->name;
+                $provinceSelect[$item->location_id] = $item->name;
             else
-                $countrySelect[$item->location_id] = $item->name;
+                $provinceSelect[$item->location_id] = $item->name;
         }
         $response["country"] = $countrySelect;
-        $response["province"] = $proviceSelect;
+        $response["province"] = $provinceSelect;
 
         return view('frontend.shopper.order2', $response);
     }
@@ -738,13 +729,18 @@ class ShopperController extends Controller
         }
         $couponCode = $this->request->input("coupon");
         $total = (float)$this->request->input("total");
-        $code = Coupon::where("coupon_code", $couponCode)->where("account_id", 0)->where("amount", ">", 0)->where("status", 1)->first();
+        $code = Coupon::where("coupon_code", $couponCode)
+            ->where("account_id", 0)
+            ->where("amount", ">", 0)
+            ->where("status", 1)
+            ->first();
         if ($code) {
-
-            if ($code->money <= $total) {
-//                $code->account_id = session()->get("userFrontend")["account_id"];
-//                $code->amount = (int)$code->amount - 1;
-//                $code->save();
+            if ($code->promotion_email && session()->get("userFrontend")["email"] != $code->promotion_email) {
+                $data = [
+                    "status" => 0,
+                    "message" => "Mã coupon không đúng email!",
+                ];
+            } else if ($code->money <= $total) {
 
                 $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($total, $code->money, $code->type, $code->primary_percent, $code->secondary_percent);
                 $responseData = $code->toArray();

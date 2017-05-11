@@ -46,7 +46,21 @@
                 <div class="portlet-body">
                     {{Form::open(['action' => 'Admin\CouponController@index', 'method' => 'GET', 'id' => 'search-coupon-form'])}}
                     <div class="row">
-                        <div class="col-md-4">
+
+                        <div class="col-md-3">
+                            <div class="form-group form-group-sm" style="margin-bottom: 0">
+                                <select name="promotion" id="promotion" class="form-control input-sm select2-auto">
+                                    <option value="" selected>--- Loại Coupon ---</option>
+                                    @foreach([0 => 'Loại thông thường', 1 => 'Loại khuyến mãi'] as $k => $promo)
+                                        <option value="{{$k}}"
+                                                @if(old('promotion') == $k) selected @endif>{{$promo}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
                             <div class="form-group form-group-sm" style="margin-bottom: 0">
                                 <select name="account_id" id="account_id" class="form-control input-sm select2-auto">
                                     <option value="" selected>--- Người dùng ---</option>
@@ -58,7 +72,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group form-group-sm" style="margin-bottom: 0">
                                 <select name="status" id="status" class="form-control input-sm select2-auto">
                                     <option value="" selected>--- Trạng thái ---</option>
@@ -70,7 +84,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="input-group">
                                 <div class="input-icon">
                                     <i class="fa fa-search" style="margin-top: 8px"></i>
@@ -98,6 +112,7 @@
                                     <th>Mã</th>
                                     <th>Mô Tả</th>
                                     <th>Người dùng</th>
+                                    <th>Promotion Email</th>
                                     <th width="100px">Số lượng</th>
                                     <th width="100px">Còn lại</th>
                                     {{--<th width="100px">Ngày dùng</th>--}}
@@ -126,6 +141,8 @@
                                             @endif
                                         </td>
                                         <td>{{isset($coupon->account) ? $coupon->account->email : ''}}</td>
+
+                                        <td>{{isset($coupon->promotion_email) ? $coupon->promotion_email : ''}}</td>
 
                                         <td class="text-right">{{$coupon->total}}</td>
                                         <td class="text-right">{{$coupon->amount}}</td>

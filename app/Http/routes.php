@@ -269,6 +269,15 @@ Route::group(['middleware' => 'admin.login'], function () {
             });
 
 
+            //MENU POPUP
+            Route::group(['middleware' => 'function:deal', 'prefix' => 'deal'], function () {
+                Route::get('/', 'Admin\DealController@index')->middleware('right:is_read');
+                Route::get('insert', 'Admin\DealController@insert')->middleware('right:is_inserted');
+                Route::post('insert', 'Admin\DealController@insert')->middleware('right:is_inserted');
+                Route::get('update/{deal_id}', 'Admin\DealController@update')->middleware('right:is_updated');
+                Route::post('update/{deal_id}', 'Admin\DealController@update')->middleware('right:is_updated');
+                Route::get('delete/{deal_id}', 'Admin\DealController@delete')->middleware('right:is_deleted');
+            });
 
         });
     });
@@ -432,3 +441,4 @@ Route::get('bonecms_captcha/html', 'LaravelCaptcha\Controllers\CaptchaController
 
 Route::get('/testchucnang', 'Frontend\TestController@index');
 Route::get('/promotion_coupon', 'Frontend\IndexController@promotion_coupon');
+Route::get('/real_price', 'Frontend\IndexController@real_price');

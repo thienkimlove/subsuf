@@ -25,6 +25,7 @@ class CouponController extends Controller
     public function index()
     {
         $query = [];
+        $promotion = 0;
         if ($this->request->has('coupon_code')) {
             $coupon_code = trim($this->request->input('coupon_code'));
             $query['coupon_code'] = "coupon_code LIKE '%$coupon_code%'";
@@ -40,6 +41,16 @@ class CouponController extends Controller
             $query['account_id'] = "account_id = $account_id";
         }
 
+        if ($this->request->has('promotion')) {
+            $promotion = (int)trim($this->request->input('promotion'));
+            if ($promotion == 1) {
+                $query['promotion_email'] = "promotion_email is not null";
+            } else {
+                $query['promotion_email'] = "promotion_email is null";
+            }
+
+        }
+
         $coupons = $this->couponRepository->getLimit(30, $query);
         $accounts = $this->accountRepository->getAll();
         $coupon_status = StatusHelper::coupon();
@@ -48,7 +59,8 @@ class CouponController extends Controller
             'title' => $this->title,
             'coupons' => $coupons,
             'accounts' => $accounts,
-            'coupon_status' => $coupon_status
+            'coupon_status' => $coupon_status,
+            'promotion' => $promotion
         ];
 
         $this->request->flash();

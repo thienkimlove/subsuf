@@ -111,26 +111,30 @@
                                           maxlength="200">{{isset($order["description"])?$order["description"]:""}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>{{trans("index.giasanpham")}} (<b id="currency_label">{{$order['currency']}}</b>)</label>
+                                <label>{{trans("index.giasanpham")}} (<select id="currency_select">
+                                            @foreach (['GBP', 'USD', 'JPY'] as $currency)
+                                                <option value="{{$currency}}" {{(isset($order['display_currency']) && $order['display_currency'] == $currency)? "selected" : "" }}>{{$currency}}</option>
+                                            @endforeach
+                                        </select>)</label>
                                 <input class="form-control spinner"
                                        onkeypress='return (event.charCode >= 48 && event.charCode <= 57)||event.charCode===46'
-                                       name="price"
+                                       name="display_price"
                                        type="text"
                                        id="price_value"
                                        maxlength="7"
                                        step=any
                                        min="1"
                                        data-error="{{trans("index.price_min")}}"
-                                       value="{{isset($order["price"])? $order["price"]:""}}" required="">
+                                       value="{{isset($order["display_price"])? $order["display_price"]: 0}}" required="">
                                 <div class="help-block with-errors"></div>
 
-                                @if (isset($order['exchange']))
-                                <p style="margin-top: 15px">
-                                    <small>
-                                       {{$order['exchange']}}
-                                    </small>
+
+                                <p style="display: none;margin-top: 15px;" id="real_price">
+                                    <small id="display_price">
+                                    </small> <b>USD</b>
+                                    <input type="hidden" id="real_price_value" name="price" value="{{isset($order["price"])? $order["price"]: 0}}" />
                                 </p>
-                                @endif
+
                             </div>
 
                             <div class="form-group">
@@ -245,6 +249,37 @@
             var url = "{{URL::action('Frontend\ShopperController@order')}}";
             window.location.href = url + "?start=1&url=" + encodeURIComponent(url_value);
         })
+
+        function updateRealPrice() {
+            var currency = $('#currency_select').val();
+            var inputPrice = $('#price_value').val();
+
+            if (currency !== 'USD') {
+                $.get(url +'/real_price',{ currency : currency, price : inputPrice },function(res){
+                    if (res.response) {
+                        $('#real_price_value').val(res.response);
+                        $('#real_price').show();
+                        $('#display_price').text(res.response);
+                    }
+                });
+            } else {
+                $('#real_price').show();
+                $('#display_price').text('');
+                $('#real_price_value').val(inputPrice);
+            }
+        }
+
+        updateRealPrice();
+
+        $('#currency_select').change(function(){
+            updateRealPrice();
+            return false;
+        });
+
+        $('#price_value').change(function(){
+            updateRealPrice();
+            return false;
+        });
 
     </script>
 @endsection

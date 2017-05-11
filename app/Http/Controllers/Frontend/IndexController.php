@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Config;
 use App\Coupon;
+use App\Exchange;
 use App\Http\Controllers\Controller;
 use App\Repositories\LocationRepository;
 use App\Transaction;
@@ -89,25 +91,20 @@ class IndexController extends Controller
         $responseMsg = null;
         $email = $request->input('email');
 
-        $countHaveCoupon = DB::table('coupon_logs')->where('email', $email)->count();
+        $countHaveCoupon = DB::table('coupon')->where('promotion_email', $email)->count();
 
         if ($countHaveCoupon == 0) {
             DB::beginTransaction();
             $code = 'PROMO-'.substr(uniqid(time()), 0, 8);
+            $promotionMoney = DB::table('config')->pluck('config_value', 'config_key');
             try {
 
-               $couponId = DB::table('coupon')->insertGetId([
+               DB::table('coupon')->insertGetId([
                     'coupon_code' => $code,
-                    'money' => env('PROMOTION_COUPON_AMOUNT'),
+                    'money' => (float) $promotionMoney['coupon_promotion'],
+                    'promotion_email' => $email,
                     'status' => 1,
                     'used_at' => ''
-                ]);
-
-                DB::table('coupon_logs')->insert([
-                    'email' => $email,
-                    'coupon_id' => $couponId,
-                    'created_at' => Carbon::now()->toDateTimeString(),
-                    'updated_at' => Carbon::now()->toDateTimeString()
                 ]);
 
                 DB::commit();
@@ -130,5 +127,20 @@ class IndexController extends Controller
         }
         return response()->json(['msg' => $responseMsg]);
 
+    }
+
+    public function real_price(\Illuminate\Http\Request $request)
+    {
+        $responseMsg = null;
+        $currency = $request->input('currency');
+        $price = $request->input('price');
+
+        if ($currency && $price) {
+            $exchange = Exchange::where('from_currency', $currency)->where('to_currency', 'USD')->get();
+            if ($exchange->count() > 0) {
+                $responseMsg = round((float) $price* $exchange->first()->money, 2);
+            }
+        }
+        return response()->json(['response' => $responseMsg]);
     }
 }
