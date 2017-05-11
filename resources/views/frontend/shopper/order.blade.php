@@ -251,11 +251,12 @@
         })
 
         function updateRealPrice() {
+            var baseUrl = '{{ url('/') }}';
             var currency = $('#currency_select').val();
             var inputPrice = $('#price_value').val();
 
             if (currency !== 'USD') {
-                $.get(url +'/real_price',{ currency : currency, price : inputPrice },function(res){
+                $.get(baseUrl +'/real_price',{ currency : currency, price : inputPrice },function(res){
                     if (res.response) {
                         $('#real_price_value').val(res.response);
                         $('#real_price').show();
