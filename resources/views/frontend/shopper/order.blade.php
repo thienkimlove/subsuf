@@ -131,7 +131,7 @@
 
                                 <p style="display: none;margin-top: 15px;" id="real_price">
                                     <small id="display_price">
-                                    </small> <b>USD</b>
+                                    </small> <b id="hide_this_b" style="display: none">USD</b>
                                     <input type="hidden" id="real_price_value" name="price" value="{{isset($order["price"])? $order["price"]: 0}}" />
                                 </p>
 
@@ -260,12 +260,14 @@
                     if (res.response) {
                         $('#real_price_value').val(res.response);
                         $('#real_price').show();
+                        $('#hide_this_b').show();
                         $('#display_price').text(res.response);
                     }
                 });
             } else {
                 $('#real_price').show();
                 $('#display_price').text('');
+                $('#hide_this_b').hide();
                 $('#real_price_value').val(inputPrice);
             }
         }
