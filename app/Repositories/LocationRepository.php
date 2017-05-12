@@ -49,11 +49,28 @@ class LocationRepository
 
     public function insert($data)
     {
-        $this->location->insert($data);
+        $nameVi = $data['name_vi'];
+        $nameEn = $data['name_en'];
+        unset($data['name_vi']);
+        unset($data['name_en']);
+
+        $content = $this->location->create($data);
+
+        $content->translateOrNew('vi')->name = $nameVi;
+        $content->save();
+        $content->translateOrNew('en')->name = $nameEn;
+        $content->save();
     }
 
     public function update($location_id, $data)
     {
+        $content = Location::find($location_id);
+        $content->translateOrNew('vi')->name = $data['name_vi'];
+        $content->save();
+        $content->translateOrNew('en')->name = $data['name_en'];
+        $content->save();
+        unset($data['name_vi']);
+        unset($data['name_en']);
         $this->location->where('location_id', $location_id)->update($data);
     }
 

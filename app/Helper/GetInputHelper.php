@@ -73,7 +73,8 @@ function get_country_form($request)
 function get_location_form($request)
 {
     $data = [
-        'name' => ucwords(trim($request->input('name', ''))),
+        'name_vi' => ucwords(trim($request->input('name_vi', ''))),
+        'name_en' => ucwords(trim($request->input('name_en', ''))),
         'type' => (int)trim($request->input('type', 1)),
         'location_order' => (int)trim($request->input('location_order', 1)),
         'is_showed' => (int)trim($request->input('is_showed', 0)),
@@ -196,11 +197,13 @@ function get_category_form($request)
 function get_website_form($request)
 {
     $data = [
-        'name' => mb_ucfirst(trim($request->input('name', ''))),
+        'name_vi' => mb_ucfirst(trim($request->input('name_vi', ''))),
+        'name_en' => mb_ucfirst(trim($request->input('name_en', ''))),
         'link' => trim($request->input('link')),
         'location_id' => (int)trim($request->input('location_id')),
         'category_id' => (int)trim($request->input('category_id')),
-        'description' => trim($request->input('description')),
+        'description_vi' => trim($request->input('description_vi')),
+        'description_en' => trim($request->input('description_en')),
         'website_order' => (int)trim($request->input('website_order', 1)),
         'is_showed' => (int)trim($request->input('is_showed', 0)),
     ];
@@ -230,14 +233,16 @@ function get_website_form($request)
 function get_item_form($request)
 {
     $data = [
-        'name' => mb_ucfirst(trim($request->input('name', ''))),
+        'name_vi' => mb_ucfirst(trim($request->input('name_vi', ''))),
+        'name_en' => mb_ucfirst(trim($request->input('name_en', ''))),
         'label' => mb_ucfirst(trim($request->input('label', ''))),
         'price' => (round(trim($request->input('price', 0)), 2)),
         'link' => trim($request->input('link')),
         'category_id' => (int)trim($request->input('category_id')),
         'brand_id' => (int)trim($request->input('brand_id')),
         'featured' => (int)trim($request->input('featured', 0)),
-        'description' => trim($request->input('description')),
+        'description_vi' => trim($request->input('description_vi')),
+        'description_en' => trim($request->input('description_en')),
         'item_order' => (int)trim($request->input('item_order', 1)),
         'is_showed' => (int)trim($request->input('is_showed', 0)),
         'is_sale' => (int)trim($request->input('is_sale', 0)),

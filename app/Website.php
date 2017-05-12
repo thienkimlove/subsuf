@@ -8,10 +8,16 @@
 
 namespace App;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Website extends Model
 {
+
+    use Translatable;
+    public $translatedAttributes = ['name', 'description'];
+    public $translationModel = 'App\WebsiteTranslation';
+
     protected $connection = 'mysql';
     protected $table = 'website';
     protected $primaryKey = 'website_id';

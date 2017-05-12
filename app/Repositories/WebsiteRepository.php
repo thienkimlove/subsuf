@@ -44,11 +44,49 @@ class WebsiteRepository
 
     public function insert($data)
     {
-        $this->website->insert($data);
+
+        $titleVi = $data['name_vi'];
+        $titleEn = $data['name_en'];
+        $descVi = $data['description_vi'];
+        $descEn = $data['description_en'];
+
+        unset($data['name_vi']);
+        unset($data['name_en']);
+        unset($data['description_vi']);
+        unset($data['description_en']);
+
+
+
+        $content = $this->website->create($data);
+
+        $content->translateOrNew('vi')->name = $titleVi;
+        $content->translateOrNew('en')->name = $titleEn;
+
+        $content->translateOrNew('vi')->description = $descVi;
+        $content->translateOrNew('en')->description = $descEn;
+
+        $content->save();
     }
 
     public function update($website_id, $data)
     {
+
+        $content = Website::find($website_id);
+
+
+        $content->translateOrNew('vi')->name = $data['name_vi'];
+        $content->translateOrNew('en')->name = $data['name_en'];
+
+        $content->translateOrNew('vi')->description = $data['description_vi'];
+        $content->translateOrNew('en')->description = $data['description_en'];
+
+        $content->save();
+
+        unset($data['name_vi']);
+        unset($data['name_en']);
+        unset($data['description_vi']);
+        unset($data['description_en']);
+
         $this->website->where('website_id', $website_id)->update($data);
     }
 

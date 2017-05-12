@@ -83,11 +83,21 @@
 
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
-                                        Tên Sản phẩm
+                                        Tên Sản phẩm Tiếng Việt
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
-                                    <input required type="text" name="name" id="name" class="form-control">
+                                    <input required type="text" name="name_vi" id="name_vi" class="form-control">
                                 </div>
+
+                                <div class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        Tên Sản phẩm Tiếng Anh
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <input required type="text" name="name_en" id="name_en" class="form-control">
+                                </div>
+
+
 
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
@@ -194,9 +204,16 @@
 
                                 <div class="form-group">
                                     <label class="control-label">
-                                        Mô tả
+                                        Mô tả Tiếng Việt
                                     </label>
-                                    <textarea class="form-control summernote" rows="5" name="description"></textarea>
+                                    <textarea class="form-control summernote" rows="5" name="description_vi"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        Mô tả Tiếng Anh
+                                    </label>
+                                    <textarea class="form-control summernote" rows="5" name="description_en"></textarea>
                                 </div>
                             </div>
                         </div>

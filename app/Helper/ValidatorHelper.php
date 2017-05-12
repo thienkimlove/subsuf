@@ -66,10 +66,12 @@ function country_validator($request)
 function location_validator($request)
 {
     $validator = Validator::make($request->all(), [
-        'name' => "required",
+        'name_vi' => "required",
+        'name_en' => "required",
         'type' => "required"
     ], [
-        'name.required' => "Chưa nhập tên Địa điểm",
+        'name_vi.required' => "Chưa nhập tên Địa điểm Tiếng Việt",
+        'name_en.required' => "Chưa nhập tên Địa điểm Tiếng Anh",
         'type.required' => "Chưa phân loại Địa điểm",
     ]);
 
@@ -159,7 +161,8 @@ function category_validator($request)
 function website_validator($request)
 {
     $validator = Validator::make($request->all(), [
-        'name' => "required",
+        'name_vi' => "required",
+        'name_en' => "required",
         'link' => 'required',
         'location_id' => 'required',
         'category_id' => 'required',
@@ -174,7 +177,8 @@ function item_validator($request)
 {
     $validator = Validator::make($request->all(), [
         'category_id' => 'required',
-        'name' => "required",
+        'name_vi' => "required",
+        'name_en' => "required",
         'price' => "required",
     ], [
         'required' => "Vui lòng nhập đầy đủ dữ liệu",

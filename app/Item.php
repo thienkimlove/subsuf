@@ -8,10 +8,16 @@
 
 namespace App;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+
+    use Translatable;
+    public $translatedAttributes = ['name'];
+    public $translationModel = 'App\ItemTranslation';
+
     protected $connection = 'mysql';
     protected $table = 'item';
     protected $primaryKey = 'item_id';

@@ -8,10 +8,15 @@
 
 namespace App;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
 {
+    use Translatable;
+    public $translatedAttributes = ['name'];
+    public $translationModel = 'App\LocationTranslation';
+
     protected $connection = 'mysql';
     protected $table = 'location';
     protected $primaryKey = 'location_id';

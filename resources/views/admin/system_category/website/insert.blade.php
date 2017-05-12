@@ -53,10 +53,19 @@
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
-                                        Tên trang web
+                                        Tên trang web Tiếng Việt
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
-                                    <input required type="text" name="name" id="name" class="form-control">
+                                    <input required type="text" name="name_vi" id="name_vi" class="form-control">
+                                </div>
+
+
+                                <div class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        Tên trang web Tiếng Anh
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <input required type="text" name="name_en" id="name_en" class="form-control">
                                 </div>
 
                                 <div class="form-group form-group-sm">
@@ -125,9 +134,18 @@
                             <div class="col-md-6">
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
-                                        Mô tả ngắn
+                                        Mô tả ngắn Tiếng Việt
                                     </label>
-                                    <textarea class="form-control" rows="3" name="description"
+                                    <textarea class="form-control" rows="3" name="description_vi"
+                                              maxlength="250"></textarea>
+                                </div>
+
+
+                                <div class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        Mô tả ngắn Tiếng Anh
+                                    </label>
+                                    <textarea class="form-control" rows="3" name="description_en"
                                               maxlength="250"></textarea>
                                 </div>
 

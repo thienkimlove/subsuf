@@ -342,10 +342,22 @@ class UrlHelper
 
             if (isset($metaTags['og:image'])) {
                 $items['images'][] = $metaTags['og:image'];
+            } else {
+                preg_match_all('/\bhttps?:\/\/\S+(?:png|jpg)\b/', $html, $matches);
+                if (isset($matches[0])) {
+                    $imgList = $matches[0];
+                    foreach ($imgList as $k => $img) {
+                        if ($k < 5) {
+                            $items['images'][] = $img;
+                        }
+                    }
+                }
             }
 
             if (isset($metaTags['og:title'])) {
                 $items['name'] = htmlspecialchars_decode($metaTags['og:title']);
+            } elseif (isset($metaTags['title'])) {
+                $items['name'] = htmlspecialchars_decode($metaTags['title']);
             }
 
             if (isset($metaTags['og:description'])) {

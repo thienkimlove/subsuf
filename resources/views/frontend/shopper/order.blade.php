@@ -111,11 +111,11 @@
                                           maxlength="200">{{isset($order["description"])?$order["description"]:""}}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>{{trans("index.giasanpham")}} (<select id="currency_select">
-                                            @foreach (['GBP', 'USD', 'JPY'] as $currency)
+                                <label>{{trans("index.giasanpham")}} <select id="currency_select">
+                                            @foreach (['USD', 'GBP', 'JPY'] as $currency)
                                                 <option value="{{$currency}}" {{(isset($order['display_currency']) && $order['display_currency'] == $currency)? "selected" : "" }}>{{$currency}}</option>
                                             @endforeach
-                                        </select>)</label>
+                                        </select></label>
                                 <input class="form-control spinner"
                                        onkeypress='return (event.charCode >= 48 && event.charCode <= 57)||event.charCode===46'
                                        name="display_price"
