@@ -343,7 +343,7 @@ class UrlHelper
             if (isset($metaTags['og:image'])) {
                 $items['images'][] = $metaTags['og:image'];
             } else {
-                preg_match_all('/\bhttps?:\/\/\S+(?:png|jpg)\b/', $html, $matches);
+                preg_match_all('/\bhttps?:\/\/\S+(?:jpg)\b/', $html, $matches);
                 if (isset($matches[0])) {
                     $imgList = $matches[0];
                     foreach ($imgList as $k => $img) {
