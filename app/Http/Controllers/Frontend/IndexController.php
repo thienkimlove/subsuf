@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Category;
 use App\Config;
 use App\Coupon;
 use App\Exchange;
 use App\Http\Controllers\Controller;
+use App\Item;
 use App\Repositories\LocationRepository;
 use App\Transaction;
 use Carbon\Carbon;
@@ -38,9 +40,12 @@ class IndexController extends Controller
         $data = [
             "country" => $countrySelect,
             "province" => $proviceSelect,
-            "listOrderFinish" => Transaction::where("transaction_status", 3)->limit(6)->orderBy("received_time","DESC")->get()
+            "categories" => Category::orderBy("category_id", "ASC")->get(),
+            "saleItems" => Item::where('is_sale', 1)->limit(4)->get(),
+            "featureItems" => Item::where('featured', 1)->limit(4)->get(),
+            "finishOrders" => Transaction::where("transaction_status", 3)->limit(4)->orderBy("received_time","DESC")->get()
         ];
-        return view('frontend.index', $data);
+        return view('v2.index', $data);
     }
 
     public function error()

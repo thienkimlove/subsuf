@@ -1,0 +1,75 @@
+.btn-registration {
+  color: #ffffff;
+  background-color: #7fc142;
+  border-radius: 45px;
+  display: inline-block;
+  line-height: 63px;
+  padding: 0 35px;
+  outline: none;
+  -webkit-transition: all 150ms ease;
+  -moz-transition: all 150ms ease;
+  transition: all 150ms ease;
+  -webkit-transition-property: background-color border-color color;
+  -moz-transition-property: background-color border-color color;
+  transition-property: background-color border-color color;
+  -webkit-user-select: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  white-space: nowrap;
+  font-size: 16px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-registration:before {
+  content: "";
+  border-radius: 45px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #7fc142;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.btn-registration:hover, .btn-registration:focus, .btn-registration:active {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-registration:hover:before, .btn-registration:focus:before, .btn-registration:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.btn-registration:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.landing-kd-small {
+  overflow: hidden;
+}
+
+
+

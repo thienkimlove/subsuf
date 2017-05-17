@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Subsuf Home</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic,300italic&subset=vietnamese' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='http://l-lin.github.io/font-awesome-animation/dist/font-awesome-animation.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/themify-icons.css">
+     
+<!--
+    <link rel="stylesheet" href="css/dropdowns-hover.css">
+    <link rel="stylesheet" href="css/dropdowns-menu.css">
+-->
+
+    <link rel="stylesheet" href="css/Multi-Step-Indicator.css">
+    
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.css">
+    
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+</head>
+
+<body>
+    
+    
+    <header class="header">
+        <div class="container">
+            <div class="Dwrap_Unavbar_C">
+                <div class="Dnavbar_Uwrap_C">
+
+                    <div class="logo_btn_nhanmuaho">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <img src="images/icon-menu-mobile.png" alt="icon-menu">
+                        </button>
+                        <a class="logo" href="#"><img src="images/logo.png" alt="logo Biz plus"></a>
+                        <a class="btn_link active" href="#">
+                            <i class="fa fa-plane" aria-hidden="true"></i> 
+                            <span>Nhận mua hộ</span>
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse Dnavbar_Ucollapse_C" id="bs-example-navbar-collapse-1">
+                        <nav class="wrap-nav">
+                            <ul id="nav" class="nav navbar-nav navigation">
+                                <li class="active">
+                                    <a href="#">Trở thành người mua hộ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Thông báo</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="image">
+                                            <img src="images/banner2.jpg" alt="">
+                                        </span>
+                                        Yen do
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="wrap_container">
+        
+        <div class="wrap_QuyTrinhDatMuaHang">
+            <section>
+                <nav>
+                    <ol class="cd-multi-steps text-bottom count">
+                        <li class="visited"><a href="#0">Thông tin sản phẩm</a></li>
+                        <li class="current"><em>Chi tiết giao hàng</em></li>
+                        <li><em>Tạo đề nghị</em></li>
+                    </ol>
+                </nav>
+            </section>
+            <div class="wrap_form color_bg_sub">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-10 col-md-offset-1">
+                            <form>
+                                <div class="row">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="diemXuanPhat">Điểm xuất phát</label>
+                                        <select class="form-control">
+                                            <option value="" disabled selected hidden>Điểm xuất phát ( Có thể bỏ trống )</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="diemDen">Điểm đến</label>
+                                        <select class="form-control">
+                                            <option value="" disabled selected hidden>Điểm đến ( Thành Phố )</option>
+                                            <option>2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tenSanPham">Tên sản phẩm</label>
+                                    <input type="text" class="form-control" id="tenSanPham" placeholder="Tên sản phẩm">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ngayGiaoHang">Ngày giao hàng<br><small>(Bỏ trống để nhận nhiều đề nghị mua hộ hơn)</small></label>
+                                    <input type="text" class="form-control" id="ngayGiaoHang" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tienCong">Nhập tiền công cho người mua hộ <br><small>Tiền công sẽ bao gồm các loại thuế, phí cho sản phẩm (nếu có)</small></label>
+                                    <div class="wrap_tiencong text-right" data-toggle="buttons">
+                                        <span class="pull-left">Gợi ý tiền công</span>
+                                        <label class="btn btn-default">
+                                            <input type="radio" name="q1" value="0">
+                                            $5
+                                        </label>
+                                        <label class="btn btn-default">     <input type="radio" name="q1" value="1">
+                                            $10
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <input type="radio" name="q1" value="2">
+                                            $15
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <footer class="footer">
+        <div class="main_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <a href="#" class="logo_text">Subsuf</a>
+                        <p>Mua bất cứ thứ gì, từ bất kỳ đâu</p>
+                        <p>Dễ dàng kiếm thêm thu nhập bằng cách chuyển vài món đồ đến nơi bạn đang đi tới.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-2">
+                        <ul class="list_menu_ft">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-2">
+                        <ul class="list_menu_ft">
+                            <li><a href="#"><i class="fa fa-commenting" aria-hidden="true"></i> Liện hệ</a></li>
+                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i>
+     Youtube</a></li>
+                            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Email</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-2">
+                        <ul class="list_menu_ft ngonngu">
+                            <li><a href="#"><img src="images/icon-lg-vn.png" alt="">Tiếng Việt</a></li>
+                            <li><a href="#"><img src="images/icon-lg-anh.png" alt="">Tiếng Anh</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <ul class="list_menu_ft thanhtoan">
+                            <li>
+                                <a href="#"><img src="images/icon-thanhtoan1.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="images/icon-thanhtoan2.png" alt=""></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="images/icon-thanhtoan3.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub_footer">
+            <div class="container">
+                <p>Copyright © 2016 - Bản quyền thuộc về Công ty CP SubSuf Việt Nam</p>
+            </div>
+        </div>
+    </footer>
+    
+   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+   
+    <script src="js/dropdownhover.min.js"></script>
+    <script src="js/dropdowns-menu.js"></script>
+    
+    
+    <script src="js/owl.carousel.min.js"></script>
+
+    
+    <script>
+    $('.owl-sliderBanner').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items:1,
+        margin:30,
+        stagePadding: 0,
+        smartSpeed:450
+    });
+        
+    $('.owl-slider_image_chitietdonhang').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items:1,
+        margin:0,
+        stagePadding: 0,
+        smartSpeed:450,
+        nav:true,
+        navText: ["<i class='fa fa-angle-double-left' aria-hidden='true'></i>","<i class='fa fa-angle-double-right' aria-hidden='true'></i>"]
+    });
+        
+    $('.owl_slider_product').owlCarousel({
+        margin:30,
+        dots:false,
+        nav:true,
+        navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+        responsive:{
+            0:{
+                items:1,
+                margin:15
+            },
+            576:{
+                items:2,
+                margin:15
+            },
+            768:{
+                items:3,
+                margin:20
+            },
+            992:{
+                items:3
+            }
+        }
+    })
+    
+    $('.owl_exhibition_2u').owlCarousel({
+        margin:30,
+        dots:false,
+        nav:true,
+        navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+        responsive:{
+            0:{
+                items:1,
+                margin:15
+            },
+            576:{
+                items:2,
+                margin:15
+            },
+            768:{
+                items:3,
+                margin:20
+            },
+            992:{
+                items:3
+            }
+        }
+    })
+    </script>
+
+    
+</body>
+
+</html>
