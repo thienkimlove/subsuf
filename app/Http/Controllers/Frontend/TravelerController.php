@@ -50,7 +50,9 @@ class TravelerController extends Controller
         $response["province"] = $proviceSelect;
 //        $response['orderList'] = Order::where("order_status", 1)->where("request_time", ">=", date("Y-m-d H:i:s", strtotime("-30 days")))->orderBy("request_time", "DESC")->paginate(30);
         $response['orderList'] = Order::where("order_status", 1)->orderBy("request_time", "DESC")->paginate(30);
-        return view('frontend.traveler.index', $response);
+        //return view('frontend.traveler.index', $response);
+
+        return view('v2.frontend.traveler.index', $response);
     }
 
     public function find()

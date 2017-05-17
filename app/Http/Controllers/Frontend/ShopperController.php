@@ -292,7 +292,9 @@ class ShopperController extends Controller
             "isOffer" => (session()->has("userFrontend")) ? Offer::where("order_id", $id)->where("traveler_id", session()->get("userFrontend")["account_id"])->count() : false
         ];
 
-        return view('frontend.shopper.order_detail', $response);
+        //return view('frontend.shopper.order_detail', $response);
+
+        return view('v2.shopper.order_detail', $response);
     }
 
 
