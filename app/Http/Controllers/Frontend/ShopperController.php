@@ -139,7 +139,9 @@ class ShopperController extends Controller
         }
 
         $response = ["order" => $order];
-        return view('frontend.shopper.order', $response);
+       // return view('frontend.shopper.order', $response);
+
+        return view('v2.shopper.order', $response);
     }
 
     public function order2()
@@ -232,7 +234,9 @@ class ShopperController extends Controller
         $total = round((float)$order["price"] * (int)$order["quantity"] + (float)$order2["input-reward"], 2);
         $response["fee"] = round($total * get_service_percent($total), 2);
         $response["total"] = $total + $response["fee"];
-        return view('frontend.shopper.order3', $response);
+        //return view('frontend.shopper.order3', $response);
+
+        return view('v2.shopper.order3', $response);
 
     }
 

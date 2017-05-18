@@ -61,7 +61,8 @@
                                     <li class="dropdown dropdown-user">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
                                            data-hover="dropdown" data-close-others="true">
-                                            <img alt="" class="img-circle"
+
+                                            <img style="max-height: 40px" alt="" class="img-circle"
                                                  src="{{url(session()->get('userFrontend')->avatar)}}">
                                             <span class="username font-dark username-hide-mobile">
                                                 <b>{{session()->get("userFrontend")->first_name." ".session()->get("userFrontend")->last_name}}</b>

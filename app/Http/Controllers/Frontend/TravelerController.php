@@ -39,6 +39,8 @@ class TravelerController extends Controller
         ];
         $country = $this->location->getAll();
         $countrySelect = [];
+
+        $countrySelect[0] = 'Chọn điểm xuất phát';
         $proviceSelect = [];
         foreach ($country as $item) {
             if ($item->type == 1)
@@ -46,13 +48,13 @@ class TravelerController extends Controller
             else
                 $countrySelect[$item->location_id] = $item->name;
         }
+        $proviceSelect[0] = 'Chọn điểm đến';
         $response["country"] = $countrySelect;
         $response["province"] = $proviceSelect;
 //        $response['orderList'] = Order::where("order_status", 1)->where("request_time", ">=", date("Y-m-d H:i:s", strtotime("-30 days")))->orderBy("request_time", "DESC")->paginate(30);
         $response['orderList'] = Order::where("order_status", 1)->orderBy("request_time", "DESC")->paginate(30);
         //return view('frontend.traveler.index', $response);
-
-        return view('v2.frontend.traveler.index', $response);
+        return view('v2.traveler.index', $response);
     }
 
     public function find()

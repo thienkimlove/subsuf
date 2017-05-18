@@ -23,6 +23,9 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{url('v2/css/bootstrap.min.css')}}" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.css">
+
+
     <!-- Optional theme -->
     <link rel="stylesheet" href="{{url('v2/css/bootstrap-theme.min.css')}}" />
 
@@ -36,6 +39,9 @@
     <link rel="stylesheet" href="{{url('v2/css/animate.css')}}">
     <link rel="stylesheet" href="{{url('v2/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('v2/css/owl.theme.default.css')}}">
+
+    <link rel="stylesheet" href="/v2/css/Multi-Step-Indicator.css">
+
 
     <link rel="stylesheet" href="{{url('v2/css/stylesheet.css')}}">
 
@@ -57,10 +63,15 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- Latest compiled and minified JavaScript -->
 <script src="{{url('v2/js/bootstrap.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.js"></script>
 <script src="{{url('v2/js/dropdownhover.min.js')}}"></script>
 <script src="{{url('v2/js/dropdowns-menu.js')}}"></script>
 <script src="{{url('v2/js/owl.carousel.min.js')}}"></script>
+
 <script src="{{url('v2/js/custom.js')}}"></script>
+
+
+
 @yield('frontend_script')
 
 </body>

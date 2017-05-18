@@ -34,6 +34,18 @@ $(function(){
         smartSpeed:450
     });
 
+
+    $('.owl-slider_image_chitietdonhang').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items:1,
+        margin:0,
+        stagePadding: 0,
+        smartSpeed:450,
+        nav:true,
+        navText: ["<i class='fa fa-angle-double-left' aria-hidden='true'></i>","<i class='fa fa-angle-double-right' aria-hidden='true'></i>"]
+    });
+
     $('.owl_slider_product').owlCarousel({
         margin:30,
         dots:false,

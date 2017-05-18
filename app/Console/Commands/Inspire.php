@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Helper\EncryptHelper;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
 
@@ -28,6 +29,8 @@ class Inspire extends Command
      */
     public function handle()
     {
-        $this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
+        //$this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
+
+        echo(EncryptHelper::password('123456'));
     }
 }
