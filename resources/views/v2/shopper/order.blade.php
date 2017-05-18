@@ -15,21 +15,65 @@
         </section>
         <div class="wrap_form color_bg_sub">
             <div class="container">
+
                 <div class="row">
+
                     <div class="col-xs-12 col-md-10 col-md-offset-1">
-                        <form>
+                        @include("frontend.message")
+                        {!! Form::open(['action' => 'Frontend\ShopperController@order2', 'method' => 'POST','id'=>'addPlanDetail', 'files' => true,"data-toggle"=>"validator"]) !!}
                             <div class="form-group">
                                 <label for="nhapLinkSanPham">{{trans('index.nhaplinksp')}}</label>
-                                <input type="text" class="form-control" id="nhapLinkSanPham" placeholder="{{trans('index.nhaplinksp')}}">
+                                <input type="text" class="form-control" id="nhapLinkSanPham" name="url" placeholder="{{trans('index.nhaplinksp')}}">
                             </div>
                             <div class="form-group">
                                 <label for="tenSanPham">{{trans("index.tensanpham")}}</label>
-                                <input type="text" class="form-control" id="tenSanPham" placeholder="Tên sản phẩm" value="{{isset($order["name"])?$order["name"]:""}}">
+                                <input type="text" class="form-control" id="tenSanPham" name="name" placeholder="Tên sản phẩm" value="{{isset($order["name"])?$order["name"]:""}}">
                             </div>
                             <div class="form-group">
                                 <label for="moTaSanPham">{{trans("index.motasanpham")}}</label>
-                                <input type="text" class="form-control" id="moTaSanPham" placeholder="{{trans("index.mausackichco")}}" value="{{isset($order["description"])?$order["description"]:""}}">
+                                <input type="text" class="form-control" id="moTaSanPham" name="description" placeholder="{{trans("index.mausackichco")}}" value="{{isset($order["description"])?$order["description"]:""}}">
                             </div>
+                        <div class="form-group">
+                            <label>{{trans("index.giasanpham")}} <select id="currency_select">
+                                    @foreach (['USD', 'GBP', 'JPY'] as $currency)
+                                        <option value="{{$currency}}" {{(isset($order['display_currency']) && $order['display_currency'] == $currency)? "selected" : "" }}>{{$currency}}</option>
+                                    @endforeach
+                                </select></label>
+                            <input class="form-control spinner"
+                                   onkeypress='return (event.charCode >= 48 && event.charCode <= 57)||event.charCode===46'
+                                   name="display_price"
+                                   type="text"
+                                   id="price_value"
+                                   maxlength="7"
+                                   step=any
+                                   min="1"
+                                   data-error="{{trans("index.price_min")}}"
+                                   value="{{isset($order["display_price"])? $order["display_price"]: 0}}" required="">
+                            <div class="help-block with-errors"></div>
+
+
+                            <p style="display: none;margin-top: 15px;" id="real_price">
+                                <small id="display_price">
+                                </small> <b id="hide_this_b" style="display: none">USD</b>
+                                <input type="hidden" id="real_price_value" name="price" value="{{isset($order["price"])? $order["price"]: 0}}" />
+                            </p>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>{{trans("index.soluong")}}</label>
+                            <br>
+                            <div class="btn-group" id="quantityItem">
+                                <button type="button" class="btn btn-outline red bold" id="quantityMinus"
+                                        style="min-width: 34px">-
+                                </button>
+
+                                <input type="text" name="quantity" maxlength="3" id="quantity" class="btn  border-red"
+                                       value="{{isset($order["quantity"])?$order["quantity"]:"1"}}"
+                                       style="width: 40px">
+                                <button type="button" class="btn btn-outline red bold" id="quantityPlus">+</button>
+                            </div>
+                        </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Ảnh sản phẩm <br><small>(Chọn ít nhất 1 ảnh)</small></label>
                                 <div class="wrap_image_upload">
@@ -39,7 +83,9 @@
                                                 <div class="image fileinput-new images-input">
                                                     <div class="close-image" onclick="removeImg(this)"><i
                                                                 class="glyphicon glyphicon-remove"></i></div>
+                                                    <a href="#">
                                                         <img src="{{URL::to($image)}}" alt="">
+                                                    </a>
                                                     <input type="hidden" name="images-link[]" value="{{$image}}">
                                                 </div>
                                             @endif
@@ -69,7 +115,12 @@
                                     {{--</div>--}}
                                 </div>
                             </div>
-                        </form>
+                        <div class="form-actions text-right">
+                            <button type="submit" name="isorder" value="1"
+                                    class="btn btn-circle green btn-lg">{{trans("index.tieptuc")}}
+                                <i
+                                        class="fa fa-arrow-right"></i></button></div>
+                       {!! Form::close() !!}
                     </div>
                 </div>
             </div>
@@ -110,7 +161,7 @@
             var imageShow = $(obj).parent().find("img");
             var imageParent = $(obj).parent();
             var files = $(obj).prop('files');
-            old_src = "/images/add-image.jpg";
+            old_src = "http://goo.gl/pB9rpQ";
             if (files.length) {
                 var regex = /^(image\/jpeg|image\/png)$/;
                 $.each(files, function (key, file) {
@@ -119,7 +170,7 @@
                             var fr = new FileReader();
                             fr.readAsDataURL(file);
                             fr.onload = function (event) {
-                                $("#imageAdd .image-block").append(
+                                $(".wrap_image_upload").append(
                                     '<div class="image fileinput-new images-input">' +
                                     '<img class="product-image-1" src="' + old_src + '" onclick="setImageFile(this)">' +
                                     '<input type="file" name="images[]" class="" class="product-file-1" onchange="updateFileImage(this)">' +

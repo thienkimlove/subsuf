@@ -74,6 +74,33 @@
                         </table>
                     </div>
                 </div>
+                <div class="col-lg-12">
+                    <div class="form">
+                    <div class="form-group">
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a href="{{URL::action("Frontend\ShopperController@order")}}"
+                                       class="btn btn-default btn-circle btn"> <i
+                                                class="fa fa-arrow-left"></i> {{trans("index.quaylai")}}
+                                    </a>
+                                </div>
+                                <div class="col-xs-6  text-right">
+                                    <button type="submit"
+                                            class="btn btn-circle green btn">{{trans("index.tieptuc")}} <i
+                                                class="fa fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div></form>
+                </div>
+                <div class="col-lg-12">
+                    <div class="alert alert-info">
+                        {{trans("index.dambaoantoanchonguoimuaho")}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

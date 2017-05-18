@@ -215,7 +215,9 @@ class ShopperController extends Controller
         $response["country"] = $countrySelect;
         $response["province"] = $provinceSelect;
 
-        return view('frontend.shopper.order2', $response);
+        //return view('frontend.shopper.order2', $response);
+
+        return view('v2.shopper.order2', $response);
     }
 
     public function order3()
