@@ -66,10 +66,10 @@
                                 <td><small>{{trans("index.ngaygiaohang")}}</small></td>
                                 <td>{{date("d-m-Y", strtotime($order2["deliver_date"]))}}</td>
                             </tr>
-                            <tr>
-                                <td><small>Mua từ</small></td>
-                                <td>www.amazon.com</td>
-                            </tr>
+                            {{--<tr>--}}
+                                {{--<td><small>Mua từ</small></td>--}}
+                                {{--<td>www.amazon.com</td>--}}
+                            {{--</tr>--}}
                             </tbody>
                         </table>
                     </div>
