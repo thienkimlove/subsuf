@@ -168,7 +168,7 @@
                         @endforeach
                 </div>
                 <nav class="text-center" aria-label="Page navigation">
-                    {{ $orderList->links() }}
+                    @include('pagination.default', ['paginator' => $orderList])
                 </nav>
             </div>
         </div>
