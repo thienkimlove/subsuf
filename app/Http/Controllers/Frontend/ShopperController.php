@@ -208,7 +208,7 @@ class ShopperController extends Controller
         $provinceSelect = [null => "Điểm đến"];
         foreach ($location as $item) {
             if ($item->type == 1)
-                $provinceSelect[$item->location_id] = $item->name;
+                $countrySelect[$item->location_id] = $item->name;
             else
                 $provinceSelect[$item->location_id] = $item->name;
         }
