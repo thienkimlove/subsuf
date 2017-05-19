@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Helper\EncryptHelper;
+use App\Helper\MessageHelper;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
 
@@ -31,6 +32,6 @@ class Inspire extends Command
     {
         //$this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
 
-        echo(EncryptHelper::password('123456'));
+        dump(MessageHelper::send_sms('016792636157878', 'Test'));
     }
 }

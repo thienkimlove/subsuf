@@ -2,6 +2,8 @@
 
 namespace App\Helper;
 
+use Monolog\Logger;
+
 class MessageHelper
 {
     public static function made_new_offer($locale = 'vi')
@@ -15,7 +17,7 @@ class MessageHelper
 
     public static function send_sms($to_phone, $message, $locale = 'vi')
     {
-        $url = 'http://rest.esms.vn/MainService.svc/json/';
+        $url = 'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get';
         $fields = array(
             'Phone' => $to_phone,
             'Content' => $message,
@@ -25,18 +27,29 @@ class MessageHelper
             'IsUnicode' => 1,
         );
 
-        $fields_string='';
+        $fields_string = '';
 
         foreach ($fields as $key => $value) {
             $fields_string .= $key . '=' . $value . '&';
         }
-        rtrim($fields_string, '&');
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, count($fields));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-        curl_exec($ch);
-        curl_close($ch);
+
+        $result_json = file_get_contents($url . '?' . $fields_string);
+
+        $result = json_decode($result_json, true);
+
+        $code_result = '';
+
+        $error_message = '';
+
+        if (isset($result_json['CodeResult'])) {
+            $code_result = $result_json['CodeResult'];
+        }
+
+        if (isset($result_json['ErrorMessage'])) {
+            $error_message = $result_json['ErrorMessage'];
+        }
+
+        \Log::info('Send message to ' . $to_phone . ', code: ' . $code_result . 'error: ' . $error_message);
     }
 
     public static function cancel_offer($locale = 'vi')
