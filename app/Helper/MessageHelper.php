@@ -20,7 +20,7 @@ class MessageHelper
         $url = 'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get';
         $fields = array(
             'Phone' => $to_phone,
-            'Content' => $message,
+            'Content' => urlencode($message),
             'APIKey' => env('SMS_APIKEY'),
             'SecretKey' => env('SMS_SECRETKEY'),
             'SmsType' => 4,
@@ -41,12 +41,12 @@ class MessageHelper
 
         $error_message = '';
 
-        if (isset($result_json['CodeResult'])) {
-            $code_result = $result_json['CodeResult'];
+        if (isset($result['CodeResult'])) {
+            $code_result = $result['CodeResult'];
         }
 
-        if (isset($result_json['ErrorMessage'])) {
-            $error_message = $result_json['ErrorMessage'];
+        if (isset($result['ErrorMessage'])) {
+            $error_message = $result['ErrorMessage'];
         }
 
         \Log::info('Send message to ' . $to_phone . ', code: ' . $code_result . 'error: ' . $error_message);
