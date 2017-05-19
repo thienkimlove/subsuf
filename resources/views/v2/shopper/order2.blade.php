@@ -39,14 +39,14 @@
                                 <div class="wrap_tiencong text-right" data-toggle="buttons">
                                     <span class="pull-left">{{trans("index.goiytiencong")}}</span>
                                     <label class="btn btn-default">
-                                        <input type="radio" name="q1" value="0">
+                                        <input type="radio" name="input-reward" value="{{$reward[0]}}">
                                         ${{$reward[0]}}
                                     </label>
-                                    <label class="btn btn-default">     <input type="radio" name="q1" value="1">
+                                    <label class="btn btn-default">     <input type="radio" name="input-reward" value="{{$reward[1]}}">
                                         ${{$reward[1]}}
                                     </label>
                                     <label class="btn btn-default">
-                                        <input type="radio" name="q1" value="2">
+                                        <input type="radio" name="input-reward" value="{{$reward[2]}}">
                                         ${{$reward[2]}}
                                     </label>
                                 </div>
