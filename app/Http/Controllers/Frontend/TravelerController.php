@@ -42,13 +42,14 @@ class TravelerController extends Controller
 
         $countrySelect[0] = 'Chọn điểm xuất phát';
         $proviceSelect = [];
+        $proviceSelect[0] = 'Chọn điểm đến';
         foreach ($country as $item) {
             if ($item->type == 1)
                 $proviceSelect[$item->location_id] = $item->name;
             else
                 $countrySelect[$item->location_id] = $item->name;
         }
-        $proviceSelect[0] = 'Chọn điểm đến';
+
         $response["country"] = $countrySelect;
         $response["province"] = $proviceSelect;
 //        $response['orderList'] = Order::where("order_status", 1)->where("request_time", ">=", date("Y-m-d H:i:s", strtotime("-30 days")))->orderBy("request_time", "DESC")->paginate(30);

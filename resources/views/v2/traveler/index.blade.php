@@ -14,8 +14,8 @@
                 {{Form::open(['action' => 'Frontend\TravelerController@find', 'method' => 'GET', 'class' => 'form_select'])}}
 
 
-                {{Form::select("deliver_from",$country,"",["data-live-search"=> "true","id"=>"deliverFrom","class"=>"selectpicker select", "placeholder"=>""])}}
-                {{Form::select("deliver_to",$province,"",["data-live-search"=> "true", "id"=>"deliverFrom","class"=>"selectpicker select", "placeholder"=>""])}}
+                {{Form::select("deliver_from",$country,'0',["data-live-search"=> "true","id"=>"deliverFrom","class"=>"selectpicker select", "placeholder"=>""])}}
+                {{Form::select("deliver_to",$province,'0',["data-live-search"=> "true", "id"=>"deliverFrom","class"=>"selectpicker select", "placeholder"=>""])}}
 
 
                     <button type="submit" class="btn btn_dathang">{{trans("index.timkiemdonhang")}}</button>
