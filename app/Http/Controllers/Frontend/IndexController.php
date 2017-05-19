@@ -76,6 +76,7 @@ class IndexController extends Controller
         $response = [
 
         ];
+       // return view('frontend.select_language', $response);
         return view('v2.language', $response);
     }
 
