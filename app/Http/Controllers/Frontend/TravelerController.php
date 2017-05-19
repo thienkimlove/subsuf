@@ -186,6 +186,18 @@ class TravelerController extends Controller
             $notification = $this->notification->find($notification_id);
             //send mail
             send_mail($notification);
+
+            $notification_inserted = $this->notification->find($notification_id);
+
+            $to_phone = $notification_inserted->to_user->phone_number;
+            $to_first_name = $notification_inserted->to_user->first_name;
+            $to_last_name = $notification_inserted->to_user->last_name;
+
+            $message = 'Chao '.$to_first_name.' '.$to_last_name. ', don hang cua ban da duoc de nghi mua ho voi muc tien cong '.$offer->others_fee.'$ ( so tien cong )
+             Vui long truy cap Subsuf.com de thanh toan va dat hang. 
+             Subsuf xin cam on!';
+            MessageHelper::send_sms($to_phone, $message);
+
         } catch (\Exception $e) {
         }
 

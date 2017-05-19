@@ -52,7 +52,9 @@
 
                                         <b> {{trim($notification->from_user->first_name . " " . $notification->from_user->last_name)}}</b>
                                         {{$notification["content_" . App::getLocale()]}}
+                                        @if($notification->order)
                                         <b> {{$notification->order->name}}</b>
+                                            @endif
                                     </p>
                                     <p class="datetime">{{reltativeDate(date("H:i d-m-Y", strtotime($notification->sent_at)))}}</p>
                                 </div>

@@ -13,6 +13,32 @@ class MessageHelper
         }
     }
 
+    public static function send_sms($to_phone, $message, $locale = 'vi')
+    {
+        $url = 'http://rest.esms.vn/MainService.svc/json/';
+        $fields = array(
+            'Phone' => $to_phone,
+            'Content' => $message,
+            'APIKey' => env('SMS_APIKEY'),
+            'SecretKey' => env('SMS_SECRETKEY'),
+            'SmsType' => 4,
+            'IsUnicode' => 1,
+        );
+
+        $fields_string='';
+
+        foreach ($fields as $key => $value) {
+            $fields_string .= $key . '=' . $value . '&';
+        }
+        rtrim($fields_string, '&');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, count($fields));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+        curl_exec($ch);
+        curl_close($ch);
+    }
+
     public static function cancel_offer($locale = 'vi')
     {
         if ($locale == 'vi') {

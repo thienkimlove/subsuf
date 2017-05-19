@@ -428,9 +428,12 @@ function get_payment_success_message($notification, $locale = "vi")
 {
     $message = '';
     if ($notification) {
-        $message = str_replace("{{payment_success}}", "", $notification["content_" . $locale]);
-        $message = str_replace("{{order_name}}", $notification->order->name, $message);
-        $message = str_replace("{{traveler}}", trim($notification->from_user->first_name . " " . $notification->from_user->last_name), $message);
+            $message = str_replace("{{payment_success}}", "", $notification["content_" . $locale]);
+            if($notification->order) {
+                $message = str_replace("{{order_name}}", $notification->order->name, $message);
+            }
+            $message = str_replace("{{traveler}}", trim($notification->from_user->first_name . " " . $notification->from_user->last_name), $message);
+
     }
 
     return $message;
