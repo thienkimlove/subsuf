@@ -94,7 +94,8 @@
 
                         </div>
                     </div>
-                    </div>{!! Form::close() !!}
+                    {!! Form::close() !!}
+                    </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="alert alert-info">
