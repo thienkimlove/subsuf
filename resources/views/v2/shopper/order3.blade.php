@@ -96,12 +96,13 @@
                     </div>
                     {!! Form::close() !!}
                     </div>
-                </div>
                 <div class="col-lg-12">
                     <div class="alert alert-info">
                         {{trans("index.dambaoantoanchonguoimuaho")}}
                     </div>
                 </div>
+                </div>
+
             </div>
         </div>
     </div>
