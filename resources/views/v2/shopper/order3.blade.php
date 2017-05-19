@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="form">
+                    {!! Form::open(['action' => 'Frontend\ShopperController@saveOrder', 'method' => 'POST','id'=>'addPlanDetail', 'files' => true,"data-toggle"=>"validator"]) !!}
                     <div class="form-group">
                         <div class="form-actions">
                             <div class="row">
@@ -94,7 +94,7 @@
 
                         </div>
                     </div>
-                    </div></form>
+                    </div>{!! Form::close() !!}
                 </div>
                 <div class="col-lg-12">
                     <div class="alert alert-info">
