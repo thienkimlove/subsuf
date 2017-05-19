@@ -13,9 +13,20 @@
                 <p>{{trans("index.traveler_slogan2")}}</p>
                 {{Form::open(['action' => 'Frontend\TravelerController@find', 'method' => 'GET', 'class' => 'form_select'])}}
 
+                <select class="selectpicker select" data-live-search="true" name="deliver_from" >
+                    @foreach($country as $key => $value)
+                    <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
+                </select>
+                <select class="selectpicker select select2" data-live-search="true" name="deliver_to">
+                    @foreach($province as $key1 => $value1)
+                        <option value="{{ $key1 }}">{{ $value1 }}</option>
+                    @endforeach
+                </select>
 
-                {{Form::select("deliver_from",$country,'0',["data-live-search"=> "true","id"=>"deliverFrom","class"=>"selectpicker select", "placeholder"=>""])}}
-                {{Form::select("deliver_to",$province,'0',["data-live-search"=> "true", "id"=>"deliverFrom","class"=>"selectpicker select", "placeholder"=>""])}}
+
+                {{--{{Form::select("deliver_from",$country,null,["data-live-search"=> "true","class"=>"selectpicker select", "placeholder"=>""])}}--}}
+                {{--{{Form::select("deliver_to",$province,null,["data-live-search"=> "true","class"=>"selectpicker select", "placeholder"=>""])}}--}}
 
 
                     <button type="submit" class="btn btn_dathang">{{trans("index.timkiemdonhang")}}</button>

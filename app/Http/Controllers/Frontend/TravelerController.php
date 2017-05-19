@@ -40,15 +40,16 @@ class TravelerController extends Controller
         $country = $this->location->getAll();
         $countrySelect = [];
 
-        $countrySelect[0] = 'Chọn điểm xuất phát';
+        $countrySelect[null] = 'Chọn điểm xuất phát';
         $proviceSelect = [];
-        $proviceSelect[0] = 'Chọn điểm đến';
+        $proviceSelect[null] = 'Chọn điểm đến';
         foreach ($country as $item) {
             if ($item->type == 1)
                 $proviceSelect[$item->location_id] = $item->name;
             else
                 $countrySelect[$item->location_id] = $item->name;
         }
+
 
         $response["country"] = $countrySelect;
         $response["province"] = $proviceSelect;
