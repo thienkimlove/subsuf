@@ -187,5 +187,33 @@
 
 </div>
 
+<div class="modal fade" id="md_dathang">
+    <div class="modalinner">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">⛌</a>
+
+        </div>
+        <div class="modal-body text-center">
+            <h4 class="text-center">  {{trans("index.shopper_slogan")}}
+            </h4>
+            <h5>{{trans("index.shopper_slogan2")}}</h5>
+            <div class="form-dathang">
+                {{Form::open(['action' => 'Frontend\ShopperController@order', 'method' => 'GET'])}}
+                <span class="input-ndv"><input size="50" name="url" type="text" placeholder="{{trans("index.nhaplinksp")}}" /> </span>
+                <span><button class="btn_dathang" type="submit">{{trans("index.batdaudathang")}}</button></span>
+                {{Form::close()}}
+            </div>
+        </div>
+        <div class="modal-footer text-center">
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+<div class="datmuahang text-center">
+    <div class="datmuabtn"><img src="/v2/images/btn-datmua.png"/> </div>
+    <div>Đặt mua hàng ngay</div>
+</div>
+
 
 @endsection

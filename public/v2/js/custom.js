@@ -109,4 +109,9 @@ $(function(){
         return false;
     });
 
+    $('.datmuahang').click(function () {
+        $('#md_dathang').modal('show');
+    })
+
+
 });
