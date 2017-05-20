@@ -72,7 +72,8 @@ class LoginController extends Controller
         if (Session::has("userFrontend"))
             return Redirect::action("Frontend\IndexController@index");
 
-        return view('frontend.user.register');
+       // return view('frontend.user.register');
+        return view('v2.user.register');
     }
 
     public function doRegister()
