@@ -632,7 +632,10 @@ footer.footer {
           margin-right: 0; }
   footer.footer .sub_footer {
     color: #666;
-    padding: 20px 0px 10px 0px; }
+    padding: 20px 0px 10px 0px;
+    border-top: 1px solid #f1f1f1;
+    text-align: center;
+  }
 
 .wrap_dathang_NhanMuaHo {
   background-size: cover;
@@ -1085,3 +1088,91 @@ footer.footer {
       .wrap_QuyTrinhDatMuaHang .wrap_form .wrap_tiencong label.btn.active {
         background-color: #b5a161;
         color: #FFF; }
+      .nhanngay{background: #B5A161; color: #FFF; font-size: 16px; padding: 6px 15px; border: none;
+        margin-top:5px;}
+      .input_nhanngay{padding: 6px; outline-color: white}
+      .nhanngay_title{color: #000; font-weight: bold; font-size: 16px}
+      .mb15{margin-bottom: 15px}
+      .icontext{font-size: 16px; padding-left: 15px}
+.list_menu_connect{padding-left: 0}
+.list_menu_connect li{list-style: none; float: left;overflow: hidden; padding: 0 5px}
+.tticon{margin-left: 30px}
+.modalinner{width: 600px;margin: 0 auto; margin-top: 15%; background: #2C2F3E; border: none; border-radius: 0}
+.modalinner h5{color: #2EE7BE}
+.modal-header{border-bottom: none}
+.modal-footer{border-top: none}
+.modal-body h3{
+  font-size: 30px;
+  color: #FFF;
+  text-transform: uppercase;
+}
+.input-ndv input{padding: 7px; border-radius: 6px; border: none}
+.nhanhuudai{background: #2EE7BE; color: #2C2F3E}
+.modal-footer p{color: #4F527B; text-align: center}
+.sayno{text-decoration: underline; cursor: pointer}
+.modal-footer .note{color: #4B4E5D}
+.close{color: #4B4E5D; border: none}
+.datmuahang{
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+}
+.datmuabtn img{width: 60px}
+#md_dathang .modalinner{background: rgba(230,231,230,0.9);}
+#md_dathang h4{font-size: 26px; line-height: 36px}
+#md_dathang h5{color: #000}
+.btn_dathang{background: #B5A161; border-radius: 0; color: #FFF; border: none; padding: 8px 12px}
+.form-dathang .input-ndv input{border-radius: 0}
+.page-content .content{
+  background-color: #fff;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  width: 400px;
+  margin: 40px auto 10px;
+  padding: 10px 30px 30px;
+  overflow: hidden;
+  position: relative;
+}
+.btn.blue-steel:not(.btn-outline) {
+  color: #FFF;
+  background-color: #4B77BE;
+  border-color: #4B77BE;
+}
+.btn.red:not(.btn-outline) {
+  color: #fff;
+  background-color: #e7505a;
+  border-color: #e7505a;
+}
+.btn.default:not(.btn-outline) {
+  color: #666;
+  background-color: #e1e5ec;
+  border-color: #e1e5ec;
+}
+.btn {
+  outline: 0!important;
+  border-radius: 0;
+}
+.control-label {
+  margin-top: 1px;
+  font-weight: 400;
+}
+.visible-ie9 {
+  display: none;
+}
+.input-lg {
+  border-radius: 0
+}
+.btn.green:not(.btn-outline) {
+  color: #FFF;
+  background-color: #32c5d2;
+  border-color: #32c5d2;
+}
+.font-red {
+  color: #B5A161 !important;
+}
+li.external{ padding: 10px; width: 300px}
+li.external p{float: left; margin-right: 15px}
+li.external a{display: inline-block}

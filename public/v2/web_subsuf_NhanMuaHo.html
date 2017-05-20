@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Subsuf Home</title>
+    <title>Subsuf nhận mua hộ</title>
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic,300italic&subset=vietnamese' rel='stylesheet' type='text/css'>
 
@@ -421,7 +421,10 @@
         
     </div>
     
-    
+    <div class="datmuahang text-center">
+        <div class="datmuabtn"><img src="images/btn-datmua.png"/> </div>
+        <div>Đặt mua hàng ngay</div>
+    </div>
     <footer class="footer">
         <div class="main_footer">
             <div class="container">
@@ -478,6 +481,28 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal fade" id="md_dathang">
+        <div class="modalinner">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">⛌</a>
+
+            </div>
+            <div class="modal-body text-center">
+                <h4 class="text-center"> Chia sẻ va li còn trống, mua đồ từ nước ngoài chưa bao giờ
+                    dễ dàng và tiết kiệm đến vậy
+                </h4>
+                <h5>Món đồ của bạn sẽ được mua và chuyển đến bởi những người sắp tới Việt Nam </h5>
+                <div class="form-dathang">
+                    <span class="input-ndv"><input size="50" type="text" placeholder="Nhập link sản phẩm" /> </span>
+                    <span><button class="btn_dathang">Bắt đầu đặt hàng</button></span>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+              &nbsp;
+            </div>
+        </div>
+    </div>
     
    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -528,7 +553,7 @@
                 items:3
             }
         }
-    })
+    });
     
     $('.owl_exhibition_2u').owlCarousel({
         margin:30,
@@ -552,6 +577,9 @@
                 items:3
             }
         }
+    });
+    $('.datmuahang').click(function () {
+        $('#md_dathang').modal('show');
     })
     </script>
 

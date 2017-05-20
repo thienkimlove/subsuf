@@ -33,30 +33,33 @@
                                     $notifications = session()->get("userFrontend")->notifications()->unread()->get();
                                     $unread = count($notifications);
                                     ?>
-                                    <li class="dropdown dropdown-extended dropdown-notification "
-                                        id="header_notification_bar">
-                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
-                                           data-hover="dropdown" data-close-others="true">
-                                            <i class="icon-bell"></i>
+                                    <li class="dropdown dropdown-extended dropdown-notification " id="header_notification_bar">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="ti-bell"></i>
                                             @if($unread > 0)
                                                 <span class="badge badge-default">
                                                     {{$unread}}
                                                 </span>
                                             @endif
+
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li class="external">
                                                 @if((int)$unread>1)
-                                                    <h3>{!! trans('index.bancotinnhan_n', ['number' => $unread]) !!}</h3>
+                                                    <p>{!! trans('index.bancotinnhan_n', ['number' => $unread]) !!}</p>
                                                 @else
-                                                    <h3>{!! trans('index.bancotinnhan', ['number' => $unread]) !!}</h3>
+                                                    <p>{!! trans('index.bancotinnhan', ['number' => $unread]) !!}</p>
                                                 @endif
-                                                <a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">
-                                                    {{trans("index.xemtatca")}}
-                                                </a>
+                                                &nbsp;&nbsp;
+                                                <p> <a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">
+                                                        {{trans("index.xemtatca")}}
+                                                    </a>
+                                                </p>
                                             </li>
+
                                         </ul>
                                     </li>
+                                
 
                                     <li class="dropdown dropdown-user">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"

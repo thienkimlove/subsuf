@@ -31,7 +31,8 @@ class LoginController extends Controller
     {
         if (Session::has("userFrontend"))
             return Redirect::action("Frontend\IndexController@index");
-        return view('frontend.user.login', []);
+       // return view('frontend.user.login', []);
+        return view('v2.user.login', []);
     }
 
     public function doLogin()

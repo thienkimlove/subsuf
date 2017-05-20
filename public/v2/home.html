@@ -59,11 +59,27 @@
                                 <li class="active">
                                     <a href="#">Trở thành người mua hộ</a>
                                 </li>
-                                <li>
-                                    <a href="#">Đăng ký</a>
+                                <li class="dropdown dropdown-extended dropdown-notification " id="header_notification_bar">
+                                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <i class="ti-bell"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="external">
+                                            <p>Bạn có <strong>0 tin nhắn chưa đọc </strong></p>
+                                            &nbsp;&nbsp;
+                                            <p> <a href="web_subsuf_ThongBao.html">
+                                                Xem tất cả
+                                            </a>
+                                            </p>
+                                        </li>
+
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="#">Đăng nhập</a>
+                                    <a href="DangKy.html">Đăng ký</a>
+                                </li>
+                                <li>
+                                    <a href="DangNhap.html">Đăng nhập</a>
                                 </li>
                             </ul>
                         </nav>
@@ -663,10 +679,19 @@
         <div class="main_footer">
             <div class="container">
                 <div class="row">
+                    <div class="col-xs-12 col-md-12 mb15">
+                        <span class="nhanngay_title ">Đăng Ký Để Nhận Ngay Ưu Đãi 50k Khi Thanh Toán Với Subsuf &nbsp;</span>
+                        <span><input type="text" class="input_nhanngay" size="30" placeholder="Địa chỉ email"/></span>
+                        <span><button class="nhanngay">Nhận Ngay!</button></span>
+
+                        <span class="tticon hidden-xs"><a href="#"><img src="images/icon-thanhtoan1.png" alt=""></a></span>
+                        <span class="hidden-xs"><a href="#"><img src="images/icon-thanhtoan2.png" alt=""></a></span>
+                        <span class="hidden-xs"><a href="#"><img src="images/icon-thanhtoan3.png" alt=""></a></span>
+                    </div>
                     <div class="col-xs-12 col-md-3">
-                        <a href="#" class="logo_text">Subsuf</a>
-                        <p>Mua bất cứ thứ gì, từ bất kỳ đâu</p>
-                        <p>Dễ dàng kiếm thêm thu nhập bằng cách chuyển vài món đồ đến nơi bạn đang đi tới.</p>
+
+                        <p><span class="icon"><img src="images/icon_phone.png"/></span><span class="icontext">096 9412702</span></p>
+                        <p><span class="icon"><img src="images/icon_mail.png"/></span><span class="icontext">support@subsuf.com</span></p>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-2">
                         <ul class="list_menu_ft">
@@ -677,35 +702,22 @@
                             <li><a href="#">Chính sách bảo mật</a></li>
                         </ul>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <ul class="list_menu_ft">
-                            <li><a href="#"><i class="fa fa-commenting" aria-hidden="true"></i> Liện hệ</a></li>
-                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
-                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i>
-     Youtube</a></li>
-                            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Email</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <ul class="list_menu_ft ngonngu">
-                            <li><a href="#"><img src="images/icon-lg-vn.png" alt="">Tiếng Việt</a></li>
-                            <li><a href="#"><img src="images/icon-lg-anh.png" alt="">Tiếng Anh</a></li>
-                        </ul>
-                    </div>
                     <div class="col-xs-12 col-sm-6 col-md-3">
-                        <ul class="list_menu_ft thanhtoan">
-                            <li>
-                                <a href="#"><img src="images/icon-thanhtoan1.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/icon-thanhtoan2.png" alt=""></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="images/icon-thanhtoan3.png" alt=""></a>
-                            </li>
+                        <p>Kết nối với chúng tôi</p>
+                        <ul class="list_menu_connect">
+                            <li><a href="#"><img src="images/fb.png"/> </a> </li>
+                            <li><a href="#"><img src="images/ln.png"/> </a> </li>
+                            <li><a href="#"><img src="images/yt.png"/> </a> </li>
                         </ul>
                     </div>
+                    <div class="col-xs-12 col-sm-6 col-md-2">
+                        <p>Ngôn ngữ</p>
+                        <ul class="list_menu_connect">
+                            <li><a href="#"><img src="images/icon-lg-vn.png" alt=""></a></li>
+                            <li><a href="#"><img src="images/icon-lg-anh.png" alt=""></a></li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -715,7 +727,29 @@
             </div>
         </div>
     </footer>
-    
+
+    <div class="modal fade in" id="md_nhapemail">
+       <div class="modalinner">
+           <div class="modal-header">
+               <a class="close" data-dismiss="modal">⛌</a>
+
+           </div>
+           <div class="modal-body text-center">
+               <h5 class="text-center"> Nhập Email của bạn và nhận ngay</h5>
+               <h3>50K ưu đãi phí dịch vụ</h3>
+               <div class="form-nhandichvu">
+                   <span class="input-ndv"><input size="40" type="text" placeholder="Nhập Email Của Bạn Tại Đây" /> </span>
+                   <span><button class="btn nhanhuudai">Nhận ưu đãi 50K</button></span>
+               </div>
+           </div>
+           <div class="modal-footer text-center">
+               <p data-dismiss="modal" class="sayno">Không mình cảm ơn</p>
+               <p class="note">Áp Dụng Cho Giao Dịch Thành Công Đầu Tiên</p>
+           </div>
+       </div>
+    </div>
+
+
    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -787,7 +821,13 @@
                 items:3
             }
         }
-    })
+    });
+
+
+        $(window).on('load',function(){
+            $('#md_nhapemail').modal('show');
+        });
+
     </script>
 
     
