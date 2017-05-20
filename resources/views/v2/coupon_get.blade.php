@@ -8,11 +8,11 @@
 
             </div>
             <div class="modal-body text-center">
-                <h5 class="text-center"> {!!  trans("index.welcomepopuptitle")!!}</h5>
-                <h3>{{$deal->first()->title}}</h3>
+                <h5 class="text-center"> {!!  trans("index.welcomepopuptitle")!!} {{$deal->first()->title}}</h5>
+                <h3>{{$deal->first()->desc}}</h3>
                 <div class="form-nhandichvu">
                     <span class="input-ndv"><input size="40" type="text" name="email" id="coupon_email" placeholder="Nhập Email Của Bạn Tại Đây" /> </span>
-                    <span><button id="coupon_submit" class="btn nhanhuudai">Nhận ưu đãi 50K</button></span>
+                    <span><button id="coupon_submit" class="btn nhanhuudai">Nhận ưu đãi</button></span>
                 </div>
             </div>
             <div class="modal-footer text-center">
