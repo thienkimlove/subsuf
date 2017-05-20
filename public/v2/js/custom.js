@@ -12,10 +12,17 @@
     }
 })();
 
-var url = '{{ url('/') }}';
+
 
 function couponSubmit() {
     var email = $('#coupon_email').val();
+
+    if (email == '')
+    {
+        alert('Bạn không được bỏ trống email');
+        return false;
+    }
+
     $('#coupon_submit').hide();
     $('#coupon_message').show().text('Loading..');
     $.get(url +'/promotion_coupon',{ email : email },function(response){

@@ -14,8 +14,10 @@
                     <span class="input-ndv"><input size="40" type="text" name="email" id="coupon_email" placeholder="Nhập Email Của Bạn Tại Đây" /> </span>
                     <span><button id="coupon_submit" class="btn nhanhuudai">Nhận ưu đãi</button></span>
                 </div>
+
             </div>
             <div class="modal-footer text-center">
+                <p class="note" style="display: none; color: white" id="coupon_message"></p>
                 <p data-dismiss="modal" class="sayno">Không mình cảm ơn</p>
                 <p class="note">Áp Dụng Cho Giao Dịch Thành Công Đầu Tiên</p>
             </div>

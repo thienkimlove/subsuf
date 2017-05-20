@@ -57,7 +57,9 @@
 @include('v2.coupon_get')
 @include('v2.footer')
 
-
+<script>
+    var url = '{{ url('/') }}';
+</script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{url('v2/js/jquery.min.js')}}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
