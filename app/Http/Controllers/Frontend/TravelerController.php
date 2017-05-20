@@ -206,7 +206,7 @@ class TravelerController extends Controller
             }
 
         } catch (\Exception $e) {
-            dd($e->getMessage());
+          //  dd($e->getMessage());
         }
 
         return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.taoofferthanhcong"));
