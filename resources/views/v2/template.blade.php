@@ -67,7 +67,7 @@
 <script src="{{url('v2/js/dropdownhover.min.js')}}"></script>
 {{--<script src="{{url('v2/js/dropdowns-menu.js')}}"></script>--}}
 <script src="{{url('v2/js/owl.carousel.min.js')}}"></script>
-
+{{Html::script('assets/apps/scripts/cookie.js')}}
 <script src="{{url('v2/js/custom.js')}}"></script>
 
 
