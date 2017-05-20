@@ -54,7 +54,7 @@
 
 @yield('content')
 
-
+@include('v2.coupon_get')
 @include('v2.footer')
 
 
