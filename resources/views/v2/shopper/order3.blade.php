@@ -46,7 +46,7 @@
                             </tr>
                             <tr>
                                 <td>{{trans("index.giasanpham")}}:</td>
-                                <td><span>${{$order["quantity"]}} x ${{number_format($order["price"],2)}}</span></td>
+                                <td><span>{{$order["quantity"]}} x ${{number_format($order["price"],2)}}</span></td>
                             </tr>
                             <tr>
                                 <td>{{trans("index.phidichvu")}} : </td>
