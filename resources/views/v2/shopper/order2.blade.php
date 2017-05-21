@@ -39,7 +39,7 @@
                                 <div class="wrap_tiencong text-right" data-toggle="buttons">
                                     <span class="pull-left">{{trans("index.goiytiencong")}}</span>
                                     <label class="btn btn-default">
-                                        <input type="radio" name="input-reward" value="{{$reward[0]}}">
+                                        <input type="radio" checked="checked" name="input-reward" value="{{$reward[0]}}">
                                         ${{$reward[0]}}
                                     </label>
                                     <label class="btn btn-default">     <input type="radio" name="input-reward" value="{{$reward[1]}}">
