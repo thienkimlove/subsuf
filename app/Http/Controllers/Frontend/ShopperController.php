@@ -226,6 +226,12 @@ class ShopperController extends Controller
         session()->put("order2", $data);
         $order = session()->get("order");
         $order2 = session()->get("order2");
+
+        if(!isset($order2['input-reward']))
+        {
+            return redirect()->back()->withError('Bạn không được bỏ trống tiền công');
+        }
+
         $response["order"] = $order;
         $response["order2"] = $order2;
         $response["deliver_from"] = null;
