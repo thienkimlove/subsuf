@@ -174,7 +174,9 @@ class CollectionsController extends Controller
             'items' => $items
         ];
 
-        return view('frontend.collections.featured_items', $response);
+       // return view('frontend.collections.featured_items', $response);
+
+        return view('v2.collections.featured_items', $response);
     }
 
     public function sale_items()
@@ -202,6 +204,8 @@ class CollectionsController extends Controller
             'items' => $items
         ];
 
-        return view('frontend.collections.featured_items', $response);
+        //return view('frontend.collections.featured_items', $response);
+
+        return view('v2.collections.featured_items', $response);
     }
 }

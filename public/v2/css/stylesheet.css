@@ -1176,3 +1176,14 @@ footer.footer {
 li.external{ padding: 10px; width: 300px}
 li.external p{float: left; margin-right: 15px}
 li.external a{display: inline-block}
+
+.item_pr{    margin-bottom: 30px;
+  background: #FFF;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;}
+.item_pr .image img{width: 100%}
+.item_pr .summary{padding-left: 15px;}
+.item_pr h3.title a{ text-decoration: none; font-size: 18px; color: #3d3d58}
+.main-price{font-size: 28px; color: #B5A161}
+.old-price{font-size: 20px; color: gray; text-decoration: line-through}
