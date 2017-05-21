@@ -59,12 +59,12 @@
                             </a>
                         </div>
                         <h3 class="title">
-                            <a href="#">{{trans('index.v2_chiphivanchuyenthap')}}</a>
+                            <a href="#">{{trans('index.chiphivanchuyenthap')}}</a>
                         </h3>
                         <p class="summary">
-                            {{trans('index.v2_chiphitietkiem')}}
+                            {{trans("index.chiphivanchuyenthap_detail")}}
                         </p>
-                        <a class="btn_link" href="#">{{trans('index.v2_xemthem')}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        {{--<a class="btn_link" href="#">{{trans('index.v2_xemthem')}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>--}}
                     </div>
                     <div class="item col-xs-12 col-sm-6 col-md-4">
                         <div class="image">
@@ -73,12 +73,12 @@
                             </a>
                         </div>
                         <h3 class="title">
-                            <a href="#">{{trans('index.v2_nguongocminhbach')}}</a>
+                            <a href="#">{{trans('index.nguongocminhbach')}}</a>
                         </h3>
                         <p class="summary">
-                            {{trans('index.v2_duakemhoadon')}}
+                            {{trans('index.nguongocminhbach_detail')}}
                         </p>
-                        <a class="btn_link" href="#">{{trans('index.v2_xemthem')}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        {{--<a class="btn_link" href="#">{{trans('index.v2_xemthem')}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>--}}
                     </div>
                     <div class="item col-xs-12 col-sm-12 col-md-4">
                         <div class="image">
@@ -87,12 +87,12 @@
                             </a>
                         </div>
                         <h3 class="title">
-                            <a href="#">{{trans('index.v2_boihoandaydu')}}</a>
+                            <a href="#">{{trans("index.boihoandaydu")}}</a>
                         </h3>
                         <p class="summary">
-                            {{trans('index.v2_giutienbanchuyen')}}
+                            {{trans("index.boihoandaydu_detail")}}
                         </p>
-                        <a class="btn_link" href="#">{{trans('index.v2_xemthem')}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        {{--<a class="btn_link" href="#">{{trans('index.v2_xemthem')}} <i class="fa fa-angle-right" aria-hidden="true"></i></a>--}}
                     </div>
                 </div>
             </div>
