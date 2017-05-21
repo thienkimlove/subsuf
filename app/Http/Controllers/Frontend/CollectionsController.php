@@ -181,6 +181,7 @@ class CollectionsController extends Controller
 
     public function sale_items()
     {
+
         $items = $this->item->getAll(["is_sale = 1"]);
         $category_item = $this->item->distinctSale();
         $product_type = category_item();

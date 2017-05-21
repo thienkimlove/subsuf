@@ -58,6 +58,9 @@
             </h2>
             <div class="list_products row">
                 @foreach($items as $key => $item)
+                    @if(!empty($arr_category) && !in_array($item['category_id'], $arr_category))
+                        @continue
+                    @endif
                 <div class="col-xs-12 col-sm-6 col-md-4" style="height: 496px">
                     <div class="item_pr item">
                         <div class="image_title">
