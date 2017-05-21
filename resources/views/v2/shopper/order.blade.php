@@ -23,7 +23,7 @@
                         {!! Form::open(['action' => 'Frontend\ShopperController@order2', 'method' => 'POST','id'=>'addPlanDetail', 'files' => true,"data-toggle"=>"validator"]) !!}
                             <div class="form-group">
                                 <label for="nhapLinkSanPham">{{trans('index.nhaplinksp')}}</label>
-                                <input type="text" class="form-control" id="nhapLinkSanPham" name="url" placeholder="{{trans('index.nhaplinksp')}}">
+                                <input type="text" class="form-control" id="nhapLinkSanPham" name="url" value="@if(old("url")) {{old("url")}} @elseif(isset($order["link"])) {{$order['link']}} @endif" placeholder="{{trans('index.nhaplinksp')}}">
                             </div>
                             <div class="form-group">
                                 <label for="tenSanPham">{{trans("index.tensanpham")}}</label>
