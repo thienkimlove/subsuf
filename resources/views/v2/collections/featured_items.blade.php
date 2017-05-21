@@ -78,7 +78,7 @@
                             </h3>
                             <p class="site">{{get_host($item['link'])}}</p>
 
-                            <div><span class="main-price">${{number_format($item['price'])}}</span> &nbsp;  @if($item->is_sale)<span class="old-price">${{number_format($item['price_sale'])}}</span> </div>@endif
+                            <div><span class="main-price">${{number_format($item['price'])}}</span> &nbsp;  @if($item->is_sale)<span class="old-price">${{number_format($item['price_sale'])}}</span>@endif </div>
                         </div>
                     </div>
                 </div>
