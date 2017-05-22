@@ -2,6 +2,7 @@
 
 return [
 
+
     'muagiodau' => 'Mua gì ở đâu',
     'dathang' => 'Đặt hàng',
     'dathang2' => 'Đặt hàng',
@@ -350,4 +351,6 @@ return [
     'v2_dangnhap' => 'Đăng nhập',
     'v2_dedangmua' => 'Dễ dàng kiếm thêm thu nhập bằng cách chuyển vài món đồ đến nơi bạn đang đi tới.',
     'v2_lienhe' => 'Liên hệ',
+
+    'dathangngay' => 'Đặt hàng ngay'
 ];

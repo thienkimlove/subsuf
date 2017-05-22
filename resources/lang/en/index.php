@@ -345,4 +345,6 @@ return [
     'v2_dangnhap' => 'Sign in',
     'v2_dedangmua' => 'Dễ dàng kiếm thêm thu nhập bằng cách chuyển vài món đồ đến nơi bạn đang đi tới.',
     'v2_lienhe' => 'Contact',
+
+    'dathangngay' => 'Order now'
 ];

@@ -30,6 +30,22 @@ function couponSubmit() {
     });
 }
 
+
+function couponSubmitFooter() {
+    var email = $('.input_nhanngay').val();
+
+    if (email == '')
+    {
+        alert('Bạn không được bỏ trống email');
+        return false;
+    }
+    $('.nhanngay').text('Loading..');
+    $.get(url +'/promotion_coupon',{ email : email },function(response){
+        $('#footer_mess').html('<h4>'+response.msg+'</h4>');
+        $('.nhanngay').text('Nhận Ngay!');
+    });
+}
+
 $(function(){
 
     $('.owl-sliderBanner').owlCarousel({
@@ -102,6 +118,10 @@ $(function(){
     })
 
 
+    $('.nhanngay').click(function(){
+        couponSubmitFooter();
+        return false;
+    });
 
     $('#coupon_submit').click(function(){
         couponSubmit();

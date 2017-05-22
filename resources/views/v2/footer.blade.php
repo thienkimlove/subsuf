@@ -68,6 +68,9 @@
                     <span class="hidden-xs"><a href="#"><img src="/v2/images/icon-thanhtoan2.png" alt=""></a></span>
                     <span class="hidden-xs"><a href="#"><img src="/v2/images/icon-thanhtoan3.png" alt=""></a></span>
                 </div>
+                <div class="col-xs-12 col-md-12 mb15" id="footer_mess">
+
+                </div>
                 <div class="col-xs-12 col-md-3">
 
                     <p><span class="icon"><img src="/v2/images/icon_phone.png"/></span><span class="icontext">096 9412702</span></p>
