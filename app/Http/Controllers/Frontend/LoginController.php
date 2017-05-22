@@ -284,7 +284,7 @@ class LoginController extends Controller
             Session::forget("url_callback");
             return Redirect::to($url)->withSuccess(trans("index.dangnhapthanhcong"));
         }
-        return Redirect::action("Frontend\ShopperController@index")->withSuccess(trans("index.dangnhapthanhcong"));
+        return Redirect::action("Frontend\IndexController@index")->withSuccess(trans("index.dangnhapthanhcong"));
 //        try {
 //            die;
 //        } catch (\Exception $e) {

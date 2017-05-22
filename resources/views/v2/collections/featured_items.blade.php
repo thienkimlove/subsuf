@@ -8,6 +8,9 @@
             <div class="menuVertical sidebar-nav">
                 <ul class="nav">
                     @foreach ($categories as $category)
+                        @if($category->name == 'Trung tâm mua sắm lớn')
+                            @continue
+                        @endif
                         <li>
                             <a href="{{URL::current().'?category='. $category->category_id}}">
                                 <img class="icon" src="{{url($category->image)}}" height="41" width="33" alt="">

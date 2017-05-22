@@ -11,19 +11,19 @@
             <h1>SELECT YOUR LANGUAGE</h1>
 
             <div class="item_language">
-                <a class="image" href="" >
+                <a class="image eng_lang" href="#" >
                     <img src="/v2/images/image_language_anh.png" alt="">
                 </a>
-                <a class="icon_name" href="#" id="eng_lang">
+                <a class="icon_name eng_lang" href="#">
                     <img src="/v2/images/icon-lg-anh.png" alt="">
                     <span>English</span>
                 </a>
             </div>
             <div class="item_language">
-                <a class="image" href="" >
+                <a class="image vi_lang" href="" class="vi_lang" >
                     <img src="/v2/images/image_language_vietnam.png" alt="">
                 </a>
-                <a class="icon_name" href="#" id="vi_lang">
+                <a class="icon_name vi_lang" href="#">
                     <img src="/v2/images/icon-lg-vn.png" alt="">
                     <span>Tiếng việt</span>
                 </a>
@@ -37,7 +37,7 @@
     <script>
 
         $(document).ready(function () {
-            $('#eng_lang').click(function (e) {
+            $('.eng_lang').click(function (e) {
                 e.preventDefault();
                 $.ajax({
                     'url': '{{ action('Frontend\IndexController@select_language') }}',
@@ -53,7 +53,7 @@
                 })
             });
 
-            $('#vi_lang').click(function (e) {
+            $('.vi_lang').click(function (e) {
                 e.preventDefault();
                 $.ajax({
                     'url': '{{ action('Frontend\IndexController@select_language') }}',
