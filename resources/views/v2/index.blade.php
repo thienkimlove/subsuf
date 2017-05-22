@@ -25,23 +25,23 @@
                     <div class="owl-carousel owl-theme owl-sliderBanner">
                         <div class="item">
                             <div class="image">
-                                <a href="#">
+
                                     <img src="{{url('v2/images/banner1.jpg')}}" alt="">
-                                </a>
+
                             </div>
                         </div>
                         <div class="item">
                             <div class="image">
-                                <a href="#">
+
                                     <img src="{{url('v2/images/banner3.jpg')}}" alt="">
-                                </a>
+
                             </div>
                         </div>
                         <div class="item">
                             <div class="image">
-                                <a href="#">
+
                                     <img src="{{url('v2/images/banner2.jpg')}}" alt="">
-                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -57,12 +57,12 @@
                 <div class="list_service row">
                     <div class="item col-xs-12 col-sm-6 col-md-4">
                         <div class="image">
-                            <a href="#">
+
                                 <img src="{{url('v2/images/icon1_blook_3service.png')}}" alt="">
-                            </a>
+
                         </div>
                         <h3 class="title">
-                            <a href="#">{{trans('index.chiphivanchuyenthap')}}</a>
+                            {{trans('index.chiphivanchuyenthap')}}
                         </h3>
                         <p class="summary">
                             {{trans("index.chiphivanchuyenthap_detail")}}
@@ -71,12 +71,12 @@
                     </div>
                     <div class="item col-xs-12 col-sm-6 col-md-4">
                         <div class="image">
-                            <a href="#">
+
                                 <img src="{{url('v2/images/icon2_blook_3service.png')}}" alt="">
-                            </a>
+
                         </div>
                         <h3 class="title">
-                            <a href="#">{{trans('index.nguongocminhbach')}}</a>
+                            {{trans('index.nguongocminhbach')}}
                         </h3>
                         <p class="summary">
                             {{trans('index.nguongocminhbach_detail')}}
@@ -85,12 +85,12 @@
                     </div>
                     <div class="item col-xs-12 col-sm-12 col-md-4">
                         <div class="image">
-                            <a href="#">
+
                                 <img src="{{url('v2/images/icon3_blook_3service.png')}}" alt="">
-                            </a>
+
                         </div>
                         <h3 class="title">
-                            <a href="#">{{trans("index.boihoandaydu")}}</a>
+                            {{trans("index.boihoandaydu")}}
                         </h3>
                         <p class="summary">
                             {{trans("index.boihoandaydu_detail")}}
@@ -206,9 +206,9 @@
         <div class="wrap_produc_home color_bg_sub">
             <div class="container">
                 <h2 class="title_block">
-                    <a href="#">
+
                         {{trans('index.sanphamdanghot')}}
-                    </a>
+
                 </h2>
                 <div class="slider_product">
                     <div class="owl-carousel owl-theme owl_slider_product">
@@ -257,9 +257,9 @@
         <div class="wrap_exhibition_home">
             <div class="container">
                 <h2 class="title_block">
-                    <a href="#">
+
                         {{trans('index.donhangdahoanthanh')}}
-                    </a>
+                    
                 </h2>
                 <div class="slider_exhibition_2u">
                     <div class="owl-carousel owl-theme owl_exhibition_2u">
