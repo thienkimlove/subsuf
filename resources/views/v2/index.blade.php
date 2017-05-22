@@ -52,7 +52,7 @@
         <div class="wrap_service_home">
             <div class="container text-center">
                 <h2 class="title_block">
-                    "{{trans('index.v2_muabatcuthugi')}}"
+                    " {{trans("index.muabatcuthugi")}}"
                 </h2>
                 <div class="list_service row">
                     <div class="item col-xs-12 col-sm-6 col-md-4">
@@ -105,7 +105,7 @@
             <div class="container">
                 <h2 class="title_block">
                     <a href="#">
-                        {{trans('index.v2_quytrinhnhanhang')}}
+                        {{trans("index.quytrinhdathang")}}
                     </a>
                 </h2>
                 <div class="list_post_blog row">
@@ -162,7 +162,7 @@
             <div class="container">
                 <h2 class="title_block">
                     <a href="#">
-                        {{trans('index.v2_hanghotgiamgia')}}
+                        {{trans('index.sanphamgiamgiamoingay')}}
                     </a>
                 </h2>
                 <div class="slider_product">
@@ -198,7 +198,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <a href="{{url('collections/sale-items')}}" class="btn_style">{{trans('index.v2_xemtatca')}}</a>
+                    <a href="{{url('collections/sale-items')}}" class="btn_style">{{trans('index.xemtatca')}}</a>
                 </div>
             </div>
         </div>
@@ -207,7 +207,7 @@
             <div class="container">
                 <h2 class="title_block">
                     <a href="#">
-                        {{trans('index.v2_sanphamnoibat')}}
+                        {{trans('index.sanphamdanghot')}}
                     </a>
                 </h2>
                 <div class="slider_product">
@@ -249,7 +249,7 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <a href="{{url('collections/featured-items')}}" class="btn_style">{{trans('index.v2_xemtatca')}}</a>
+                    <a href="{{url('collections/featured-items')}}" class="btn_style">{{trans('index.xemtatca')}}</a>
                 </div>
             </div>
         </div>
@@ -258,7 +258,7 @@
             <div class="container">
                 <h2 class="title_block">
                     <a href="#">
-                        {{trans('index.v2_donhangthanhcong')}}
+                        {{trans('index.donhangdahoanthanh')}}
                     </a>
                 </h2>
                 <div class="slider_exhibition_2u">
@@ -303,7 +303,7 @@
                                                     {{date("d-m-Y",strtotime($offer->deliver_date))}}
                                                 </div>
                                                 <div class="wage">
-                                                    {{trans('index.v2_tiencong')}}:
+                                                    {{trans('index.tiencong')}}:
                                                     <span>${{$offer->others_fee+$offer->shipping_fee+$offer->tax}}</span>
                                                 </div>
                                             </div>
