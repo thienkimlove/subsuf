@@ -116,11 +116,11 @@
                                     <img src="{{url('v2/images/banner1.jpg')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    <a href="#">{{trans('index.v2_taodenghi')}}</a>
+                                    <a href="#">{{trans("index.taoyeucau")}}</a>
                                 </h3>
                             </div>
                             <div class="summary">
-                                <p>{{trans('index.v2_nguoimuahoduaradenghi')}}</p>
+                                <p>{{trans("index.taoyeucau_detail")}}</p>
                             </div>
                         </div>
                     </div>
@@ -131,11 +131,11 @@
                                     <img src="{{url('v2/images/banner3.jpg')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    <a href="#">{{trans('index.v2_chondenghivathanhtoan')}}</a>
+                                    <a href="#">{{trans("index.chondenghiphuhop")}}</a>
                                 </h3>
                             </div>
                             <div class="summary">
-                                <p>{{trans('index.v2_thuongluongvoinguoimuaho')}}</p>
+                                <p>{{trans("index.chondenghiphuhop_detail")}}</p>
                             </div>
                         </div>
                     </div>
@@ -146,11 +146,11 @@
                                     <img src="{{url('v2/images/banner2.jpg')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    <a href="#">{{trans('index.v2_gapvanhanhang')}}</a>
+                                    <a href="#">{{trans("index.gapnguoimuahodenhanhang")}}</a>
                                 </h3>
                             </div>
                             <div class="summary">
-                                <p>{{trans('index.v2_xacnhantratien')}}</p>
+                                <p>{{trans("index.gapnguoimuahodenhanhang_detail")}}</p>
                             </div>
                         </div>
                     </div>
