@@ -1,25 +1,4 @@
-@extends('frontend.layout.template')
-@section('style')
-    {{Html::style('assets/pages/css/about.min.css')}}
-    {{Html::style('assets/pages/css/blog.min.css')}}
-    {{Html::style('assets/global/plugins/select2/css/select2.min.css')}}
-    {{Html::style('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}
-
-    <style>
-        .about-header h2, .stories-header h2 {
-            letter-spacing: 1px;
-            text-transform: none;
-        }
-
-        video {
-            width: 100% !important;
-            height: auto !important;
-        }
-    </style>
-@endsection
-@section('breadcrumb')
-
-@endsection
+@extends('v2.template')
 
 @section('content')
     <div class="container">
@@ -41,9 +20,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('script')
-
-
 @endsection
