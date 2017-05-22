@@ -1,11 +1,4 @@
-@extends('frontend.layout.template')
-@section('style')
-    {{Html::style('assets/pages/css/about.min.css')}}
-    {{Html::style('assets/pages/css/blog.min.css')}}
-@endsection
-@section('breadcrumb')
-
-@endsection
+@extends('v2.template')
 
 @section('content')
     <div class="container">
@@ -23,7 +16,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('script')
 @endsection

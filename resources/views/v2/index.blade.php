@@ -146,7 +146,7 @@
                                     <img src="{{url('v2/images/quytrinh3.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    <a href="#">{{trans("index.gapnguoimuahodenhanhang")}}</a>
+                                    {{trans("index.gapnguoimuahodenhanhang")}}
                                 </h3>
                             </div>
                             <div class="summary">
@@ -161,9 +161,9 @@
         <div class="wrap_produc_home">
             <div class="container">
                 <h2 class="title_block">
-                    <a href="#">
+
                         {{trans('index.sanphamgiamgiamoingay')}}
-                    </a>
+
                 </h2>
                 <div class="slider_product">
                     <div class="owl-carousel owl-theme owl_slider_product">
@@ -259,7 +259,7 @@
                 <h2 class="title_block">
 
                         {{trans('index.donhangdahoanthanh')}}
-                    
+
                 </h2>
                 <div class="slider_exhibition_2u">
                     <div class="owl-carousel owl-theme owl_exhibition_2u">

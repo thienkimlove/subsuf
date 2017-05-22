@@ -346,5 +346,11 @@ return [
     'v2_dedangmua' => 'Dễ dàng kiếm thêm thu nhập bằng cách chuyển vài món đồ đến nơi bạn đang đi tới.',
     'v2_lienhe' => 'Contact',
 
-    'dathangngay' => 'Order now'
+    'dathangngay' => 'Order now',
+        'ketnoichungtoi' => 'Contact us',
+
+    'nhanuudai' => 'Get deals',
+    'khongcamon' => 'No, Thanks',
+    'apdunglandautien' => 'Apply for first success trading',
+    'entermail' => 'Enter your email here'
 ];

@@ -26,23 +26,23 @@
                 <div class="owl-carousel owl-theme owl-sliderBanner">
                     <div class="item">
                         <div class="image">
-                            <a href="#">
+
                                 <img src="{{url('v2/images/banner1.jpg')}}" alt="">
-                            </a>
+
                         </div>
                     </div>
                     <div class="item">
                         <div class="image">
-                            <a href="#">
+
                                 <img src="{{url('v2/images/banner3.jpg')}}" alt="">
-                            </a>
+
                         </div>
                     </div>
                     <div class="item">
                         <div class="image">
-                            <a href="#">
+
                                 <img src="{{url('v2/images/banner2.jpg')}}" alt="">
-                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -55,9 +55,9 @@
     <div class="wrap_blog_home">
         <div class="container">
             <h2 class="title_block">
-                <a href="#">
+
                     {{$title}}
-                </a>
+
             </h2>
             <div class="list_products row">
                 @foreach($items as $key => $item)
@@ -77,7 +77,7 @@
                         </div>
                         <div class="summary">
                             <h3 class="title">
-                                <a href="#">{{\Illuminate\Support\Str::words($item['name'], 8)}}</a>
+                                {{\Illuminate\Support\Str::words($item['name'], 8)}}
                             </h3>
                             <p class="site">{{get_host($item['link'])}}</p>
 

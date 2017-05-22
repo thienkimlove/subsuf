@@ -11,15 +11,15 @@
                 <h5 class="text-center"> {!!  trans("index.welcomepopuptitle")!!} {{$deal->first()->title}}</h5>
                 <h3>{{$deal->first()->desc}}</h3>
                 <div class="form-nhandichvu">
-                    <span class="input-ndv"><input size="40" type="text" name="email" id="coupon_email" placeholder="Nhập Email Của Bạn Tại Đây" /> </span>
-                    <span><button id="coupon_submit" class="btn nhanhuudai">Nhận ưu đãi</button></span>
+                    <span class="input-ndv"><input size="40" type="text" name="email" id="coupon_email" placeholder="{{ trans('index.entermail') }}" /> </span>
+                    <span><button id="coupon_submit" class="btn nhanhuudai">{{ trans('index.nhanuudai') }}</button></span>
                 </div>
 
             </div>
             <div class="modal-footer text-center">
                 <p class="note" style="display: none; color: white" id="coupon_message"></p>
-                <p data-dismiss="modal" class="sayno">Không mình cảm ơn</p>
-                <p class="note">Áp Dụng Cho Giao Dịch Thành Công Đầu Tiên</p>
+                <p data-dismiss="modal" class="sayno">{{ trans('index.khongcamon') }}</p>
+                <p class="note">{{ trans('apdunglandautien') }}</p>
             </div>
         </div>
 

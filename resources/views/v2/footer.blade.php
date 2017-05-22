@@ -59,10 +59,12 @@
     <div class="main_footer">
         <div class="container">
             <div class="row">
+                @if ($deal = \App\Deal::latest('created_at')->get())
+
                 <div class="col-xs-12 col-md-12 mb15">
-                    <span class="nhanngay_title ">Đăng Ký Để Nhận Ngay Ưu Đãi 50k Khi Thanh Toán Với Subsuf &nbsp;</span>
-                    <span><input type="text" class="input_nhanngay" size="30" placeholder="Địa chỉ email"/></span>
-                    <span><button class="nhanngay">Nhận Ngay!</button></span>
+                    <span class="nhanngay_title "> {{$deal->first()->desc}} </span>
+                    <span><input type="text" class="input_nhanngay" size="30" placeholder="{{trans('index.entermail')}}"/></span>
+                    <span><button class="nhanngay">{{trans('index.nhanuudai')}}</button></span>
 
                     <span class="tticon hidden-xs"><a href="#"><img src="/v2/images/icon-thanhtoan1.png" alt=""></a></span>
                     <span class="hidden-xs"><a href="#"><img src="/v2/images/icon-thanhtoan2.png" alt=""></a></span>
@@ -71,9 +73,11 @@
                 <div class="col-xs-12 col-md-12 mb15" id="footer_mess">
 
                 </div>
+                @endif
                 <div class="col-xs-12 col-md-3">
 
-                    <p><span class="icon"><img src="/v2/images/icon_phone.png"/></span><span class="icontext">096 9412702</span></p>
+                    <p><span class="icon"><img src="/v2/images/icon_phone.png"/></span><span class="icontext">{{trans("index.dienthoai")}}
+                            : {{trans("index.number_phone")}}</span></p>
                     <p><span class="icon"><img src="/v2/images/icon_mail.png"/></span><span class="icontext">support@subsuf.com</span></p>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-2">
@@ -86,7 +90,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
-                    <p>Kết nối với chúng tôi</p>
+                    <p>{{ trans('index.ketnoichungtoi') }}</p>
                     <ul class="list_menu_connect">
                         <li><a href="https://www.facebook.com/Subsuf.global/?ref=aymt_homepage_panel"><img src="/v2/images/fb.png"/> </a> </li>
                         <li><a href="#"><img src="/v2/images/ln.png"/> </a> </li>
@@ -94,7 +98,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                    <p>Ngôn ngữ</p>
+                    <p>{{ trans('index.ngonngu') }}</p>
                     <ul class="list_menu_connect">
                         <li><a href="{{url('change-language?language=vi')}}"><img src="/v2/images/icon-lg-vn.png" alt=""></a></li>
                         <li><a href="{{url('change-language?language=en')}}"><img src="/v2/images/icon-lg-anh.png" alt=""></a></li>

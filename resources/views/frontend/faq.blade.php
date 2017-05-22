@@ -1,18 +1,4 @@
-@extends('frontend.layout.template')
-@section('style')
-    {{Html::style('assets/pages/css/faq.min.css')}}
-
-    <style>
-        .faq-content-1 .faq-section {
-            background-color: #fff;
-            padding: 0 !important;
-            margin-bottom: 0 !important;
-        }
-    </style>
-@endsection
-@section('breadcrumb')
-
-@endsection
+@extends('v2.template')
 
 @section('content')
     <div class="container">
@@ -101,7 +87,4 @@
         </div>
     </div>
 
-@endsection
-
-@section('script')
 @endsection
