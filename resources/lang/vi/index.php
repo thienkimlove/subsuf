@@ -358,5 +358,7 @@ return [
     'nhanuudai' => 'Nhận ưu đãi',
     'khongcamon' => 'Không, mình cám ơn',
     'apdunglandautien' => 'Áp Dụng Cho Giao Dịch Thành Công Đầu Tiên',
-    'entermail' => 'Nhập email của bạn tại đây'
+    'entermail' => 'Nhập email của bạn tại đây',
+
+    'uudai50k' => 'Đăng Ký Để Nhận Ngay Ưu Đãi 50k Khi Thanh Toán Với Subsuf'
 ];

@@ -59,10 +59,10 @@
     <div class="main_footer">
         <div class="container">
             <div class="row">
-                @if ($deal = \App\Deal::latest('created_at')->get())
+
 
                 <div class="col-xs-12 col-md-12 mb15">
-                    <span class="nhanngay_title "> {{$deal->first()->desc}} </span>
+                    <span class="nhanngay_title "> {{ trans('index.uudai50k') }}</span>
                     <span><input type="text" class="input_nhanngay" size="30" placeholder="{{trans('index.entermail')}}"/></span>
                     <span><button class="nhanngay">{{trans('index.nhanuudai')}}</button></span>
 
@@ -73,7 +73,7 @@
                 <div class="col-xs-12 col-md-12 mb15" id="footer_mess">
 
                 </div>
-                @endif
+
                 <div class="col-xs-12 col-md-3">
 
                     <p><span class="icon"><img src="/v2/images/icon_phone.png"/></span><span class="icontext">{{trans("index.dienthoai")}}
