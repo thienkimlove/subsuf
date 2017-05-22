@@ -1116,7 +1116,6 @@ footer.footer {
   position: fixed;
   bottom: 10%;
   right: 5%;
-  z-index: 10000;
 }
 .datmuabtn img{width: 60px}
 #md_dathang .modalinner{background: rgba(230,231,230,0.9);}

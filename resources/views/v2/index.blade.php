@@ -104,16 +104,16 @@
         <div class="wrap_blog_home color_bg_sub">
             <div class="container">
                 <h2 class="title_block">
-                    <a href="#">
+
                         {{trans("index.quytrinhdathang")}}
-                    </a>
+
                 </h2>
                 <div class="list_post_blog row">
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="item_post">
                             <div class="image_title">
                                 <a class="image" href="#">
-                                    <img src="{{url('v2/images/banner1.jpg')}}" alt="">
+                                    <img src="{{url('v2/images/quytrinh1.jpg')}}" alt="">
                                 </a>
                                 <h3 class="title">
                                     <a href="#">{{trans("index.taoyeucau")}}</a>
@@ -128,7 +128,7 @@
                         <div class="item_post">
                             <div class="image_title">
                                 <a class="image" href="#">
-                                    <img src="{{url('v2/images/banner3.jpg')}}" alt="">
+                                    <img src="{{url('v2/images/quytrinh2.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
                                     <a href="#">{{trans("index.chondenghiphuhop")}}</a>
@@ -143,7 +143,7 @@
                         <div class="item_post">
                             <div class="image_title">
                                 <a class="image" href="#">
-                                    <img src="{{url('v2/images/banner2.jpg')}}" alt="">
+                                    <img src="{{url('v2/images/quytrinh3.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
                                     <a href="#">{{trans("index.gapnguoimuahodenhanhang")}}</a>
