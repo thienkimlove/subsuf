@@ -294,7 +294,7 @@ return [
     'shopper_faq' => 'Shopper Questions',
     'traveler_faq' => 'Traveler Questions',
     'other_faq' => 'Other Questions',
-    'number_phone' => '+840969412702',
+    'number_phone' => '+84969412702',
 
     'danhgiathanhvien' => 'Review',
     'shopper' => 'Shopper',

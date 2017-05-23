@@ -146,7 +146,7 @@
                                     <img src="{{url('v2/images/quytrinh3.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    {{trans("index.gapnguoimuahodenhanhang")}}
+                                    <a href="#">{{trans("index.gapnguoimuahodenhanhang")}}</a>
                                 </h3>
                             </div>
                             <div class="summary">
