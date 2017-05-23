@@ -41,9 +41,9 @@
     <div class="wrap_blog_home">
         <div class="container">
             <h2 class="title_block">
-                <a href="#">
-                    Kiếm thêm thu nhập với chuyến bay
-                </a>
+
+                    {{ trans('index.kiemthemthunhapvoichuyenbay') }}
+
             </h2>
             <div class="list_post_blog row">
                 <div class="col-xs-12 col-sm-6 col-md-4">
@@ -53,11 +53,11 @@
                                 <img src="/v2/images/kiemthem1.png" alt="">
                             </span>
                             <h3 class="title">
-                                <a href="#">Tìm yêu cầu đặt hàng</a>
+                                {{ trans('index.timycdathang') }}
                             </h3>
                         </div>
                         <div class="summary">
-                            <p>Nhập và tìm các yêu cầu đặt hàng theo điểm đến của bạn</p>
+                            <p>{{ trans('index.timycdathang_detail') }}</p>
                         </div>
                     </div>
                 </div>
@@ -68,11 +68,11 @@
                                 <img src="/v2/images/kiemthem2.png" alt="">
                             </span>
                             <h3 class="title">
-                                <a href="#">Đề nghị mua hộ</a>
+                                {{ trans('index.denghimuaho') }}
                             </h3>
                         </div>
                         <div class="summary">
-                            <p>Tiền công sẽ bao gồm cả các loại thuế, phí cho sản phẩm ( nếu có )</p>
+                            <p>{{ trans('index.denghimuaho_detail') }}</p>
                         </div>
                     </div>
                 </div>
@@ -83,11 +83,11 @@
                                 <img src="/v2/images/kiemthem3.png" alt="">
                             </span>
                             <h3 class="title">
-                                <a href="#">Vận chuyển và nhận tiền</a>
+                                {{ trans('index.vanchuyenvanhantien') }}
                             </h3>
                         </div>
                         <div class="summary">
-                            <p>Sau khi người mua nhận được đồ, chúng tôi sẽ tiến hành chuyển tiền</p>
+                            <p>{{ trans('index.vanchuyenvanhantien_detail') }}</p>
                         </div>
                     </div>
                 </div>
