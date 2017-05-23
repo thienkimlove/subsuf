@@ -306,7 +306,7 @@ return [
     'shopperreview' => 'Đánh giá mua hàng',
     'travelerreview' => 'Đánh giá mua hộ',
     'chuacoreviewnao' => 'Chưa có đánh giá',
-    'number_phone' => '0904645593 - 0904534902',
+    'number_phone' => '096 9412702',
 
     'price_min' => 'Giá sản phẩm > 0',
     'reward_min' => 'Tiền công > 5',

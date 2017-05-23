@@ -1095,8 +1095,9 @@ footer.footer {
       .mb15{margin-bottom: 15px}
       .icontext{font-size: 14px; padding-left: 15px}
 .list_menu_connect{padding-left: 0}
-.list_menu_connect li{list-style: none; float: left;overflow: hidden; padding: 0 5px}
-.list_menu_connect li:first-child{padding: 0}
+.list_menu_connect li{list-style: none; float: left;overflow: hidden; padding: 0 6px}
+.list_menu_connect li:first-child{  padding-left: 0}
+.pdl25{padding-left: 25px}
 .tticon{margin-left: 30px}
 .modalinner{width: 600px;margin: 0 auto; margin-top: 15%; background: #2C2F3E; border: none; border-radius: 0}
 .modalinner h5{color: #2EE7BE}
@@ -1107,6 +1108,7 @@ footer.footer {
   color: #FFF;
   text-transform: uppercase;
 }
+.pt2{padding-top: 2px}
 .input-ndv input{padding: 7px; border-radius: 6px; border: none}
 .nhanhuudai{background: #2EE7BE; color: #2C2F3E}
 .modal-footer p{color: #4F527B; text-align: center}

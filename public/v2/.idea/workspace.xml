@@ -18,8 +18,8 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="693" column="124" lean-forward="true" selection-start-line="693" selection-start-column="124" selection-end-line="693" selection-end-column="124" />
+            <state relative-caret-position="369">
+              <caret line="718" column="61" lean-forward="false" selection-start-line="718" selection-start-column="61" selection-end-line="718" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -28,8 +28,8 @@
       <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="1095" column="29" lean-forward="false" selection-start-line="1095" selection-start-column="29" selection-end-line="1095" selection-end-column="29" />
+            <state relative-caret-position="530">
+              <caret line="1110" column="21" lean-forward="false" selection-start-line="1110" selection-start-column="21" selection-end-line="1110" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -112,8 +112,10 @@
       <find>banner</find>
       <find>.nhanngay_title</find>
       <find>.nhanngay</find>
-      <find>.list_menu_connect li</find>
       <find>footer</find>
+      <find>.list_menu_connect li</find>
+      <find>list_menu_connect</find>
+      <find>ngôn n</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -220,12 +222,12 @@
       <option name="presentableId" value="Default" />
       <updated>1495465705398</updated>
       <workItem from="1495465709499" duration="2955000" />
-      <workItem from="1495510490639" duration="333000" />
+      <workItem from="1495510490639" duration="2661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3288000" />
+    <option name="totallyTimeSpent" value="5616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1932" height="1045" extended-state="0" />
@@ -383,16 +385,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="693" column="124" lean-forward="true" selection-start-line="693" selection-start-column="124" selection-end-line="693" selection-end-column="124" />
+        <state relative-caret-position="369">
+          <caret line="718" column="61" lean-forward="false" selection-start-line="718" selection-start-column="61" selection-end-line="718" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="1095" column="29" lean-forward="false" selection-start-line="1095" selection-start-column="29" selection-end-line="1095" selection-end-column="29" />
+        <state relative-caret-position="530">
+          <caret line="1110" column="21" lean-forward="false" selection-start-line="1110" selection-start-column="21" selection-end-line="1110" selection-end-column="21" />
           <folding />
         </state>
       </provider>

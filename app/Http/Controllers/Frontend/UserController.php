@@ -622,6 +622,7 @@ class UserController extends Controller
             "orderList" => Order::where("shopper_id", $this->account_id)->orderBy("request_time", "DESC")->get()
         ];
         return view('frontend.user.offered', $response);
+       // return view('frontend.user.offered', $response);
     }
 
     public function ordered()

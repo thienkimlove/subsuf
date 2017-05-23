@@ -45,6 +45,12 @@
 
     <link rel="stylesheet" href="{{url('v2/css/stylesheet.css')}}">
 
+    <style>
+        .datmuahang {
+            z-index: 99999 !important;
+        }
+    </style>
+
 </head>
 
 <body>
