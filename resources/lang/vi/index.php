@@ -75,7 +75,7 @@ return [
     'tigia' => ' Tỉ giá',
     'hinhanhvuotqua1Mb' => ' Hình ảnh vượt quá dung lượng 1Mb cho phép',
     'chonanhdinhdangjpg' => ' Hãy chọn ảnh có định dạng .jpg hoặc .png',
-    'diemxuatphat_select' => ' Điểm xuất phát \(có thể bỏ trống)',
+    'diemxuatphat_select' => ' Điểm xuất phát (có thể bỏ trống)',
     'diemden_select' => 'Điểm đến (Thành phố)',
     'shopper_slogan' => 'Chia sẻ va li còn trống, mua đồ từ nước ngoài chưa bao giờ dễ dàng và tiết kiệm đến vậy',
     'shopper_slogan2' => 'Món đồ của bạn sẽ được mua và chuyển đến bởi những người sắp tới Việt Nam',
