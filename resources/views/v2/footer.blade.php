@@ -76,8 +76,7 @@
 
                 <div class="col-xs-12 col-md-3">
 
-                    <p><span class="icon"><img src="/v2/images/icon_phone.png"/></span><span class="icontext">{{trans("index.dienthoai")}}
-                            : {{trans("index.number_phone")}}</span></p>
+                    <p><span class="icon"><img src="/v2/images/icon_phone.png"/></span><span class="icontext">{{trans("index.number_phone")}}</span></p>
                     <p><span class="icon"><img src="/v2/images/icon_mail.png"/></span><span class="icontext">support@subsuf.com</span></p>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-2">
