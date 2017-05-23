@@ -171,7 +171,7 @@
                             <div class="item">
                                 <div class="box_product">
                                     <div class="image_product">
-                                        <a href="{{$saleItem->link}}">
+                                        <a href="{{url('item', $saleItem->item_id)}}">
                                             <img src="{{url($saleItem->image)}}" height="236" width="354" alt="">
                                         </a>
                                     </div>
