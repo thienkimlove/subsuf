@@ -259,7 +259,7 @@ header.header {
     position: relative; }
     @media (min-width: 992px) {
       .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image {
-        height: 570px; }
+        height: 440px; }
         .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image img {
           position: absolute;
           top: 50%;
