@@ -616,7 +616,7 @@ footer.footer {
         footer.footer .main_footer .list_menu_ft {
           margin: 15px 0px; } }
       footer.footer .main_footer .list_menu_ft li {
-        margin-bottom: 10px; }
+        margin-bottom: 0; }
         footer.footer .main_footer .list_menu_ft li a i.fa {
           margin-right: 10px; }
       footer.footer .main_footer .list_menu_ft.ngonngu img {
@@ -1088,14 +1088,15 @@ footer.footer {
       .wrap_QuyTrinhDatMuaHang .wrap_form .wrap_tiencong label.btn.active {
         background-color: #b5a161;
         color: #FFF; }
-      .nhanngay{background: #B5A161; color: #FFF; font-size: 16px; padding: 6px 15px; border: none;
+      .nhanngay{background: #B5A161; color: #FFF; font-size: 16px; padding: 7px 15px; border: none;
         margin-top:5px;}
-      .input_nhanngay{padding: 6px; outline-color: white}
-      .nhanngay_title{color: #000; font-weight: bold; font-size: 16px}
+      .input_nhanngay{padding: 6px; outline-color: white; margin-right: 10px}
+      .nhanngay_title{color: #000; font-weight: bold; font-size: 16px; padding-right: 10px}
       .mb15{margin-bottom: 15px}
-      .icontext{font-size: 16px; padding-left: 15px}
+      .icontext{font-size: 14px; padding-left: 15px}
 .list_menu_connect{padding-left: 0}
 .list_menu_connect li{list-style: none; float: left;overflow: hidden; padding: 0 5px}
+.list_menu_connect li:first-child{padding: 0}
 .tticon{margin-left: 30px}
 .modalinner{width: 600px;margin: 0 auto; margin-top: 15%; background: #2C2F3E; border: none; border-radius: 0}
 .modalinner h5{color: #2EE7BE}
