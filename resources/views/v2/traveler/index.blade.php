@@ -49,9 +49,9 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="item_post">
                         <div class="image_title">
-                            <a class="image" href="#">
+                            <span class="image" href="#">
                                 <img src="/v2/images/kiemthem1.png" alt="">
-                            </a>
+                            </span>
                             <h3 class="title">
                                 <a href="#">Tìm yêu cầu đặt hàng</a>
                             </h3>
@@ -64,9 +64,9 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="item_post">
                         <div class="image_title">
-                            <a class="image" href="#">
+                            <span class="image" href="#">
                                 <img src="/v2/images/kiemthem2.png" alt="">
-                            </a>
+                            </span>
                             <h3 class="title">
                                 <a href="#">Đề nghị mua hộ</a>
                             </h3>
@@ -79,9 +79,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-4">
                     <div class="item_post">
                         <div class="image_title">
-                            <a class="image" href="#">
+                            <span class="image" href="#">
                                 <img src="/v2/images/kiemthem3.png" alt="">
-                            </a>
+                            </span>
                             <h3 class="title">
                                 <a href="#">Vận chuyển và nhận tiền</a>
                             </h3>
@@ -98,9 +98,9 @@
     <div class="wrap_exhibition_home color_bg_sub">
         <div class="container">
             <h2 class="title_block">
-                <a href="#">
+
                     {{trans("index.nhungdonhanggannhat")}}
-                </a>
+
             </h2>
             <div class="slider_exhibition_u">
                 <div class="row">
