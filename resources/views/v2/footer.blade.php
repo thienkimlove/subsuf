@@ -89,7 +89,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
-                    <p>{{ trans('index.ketnoichungtoi') }}</p>
+                    <p class="pdl25">{{ trans('index.ketnoichungtoi') }}</p>
                     <ul class="list_menu_connect">
                         <li><a href="https://www.facebook.com/Subsuf.global/?ref=aymt_homepage_panel"><img src="/v2/images/fb.png"/> </a> </li>
                         <li><a href="#"><img src="/v2/images/ln.png"/> </a> </li>
