@@ -1,4 +1,4 @@
-@extends('v2.template')
+@extends('v2.template2')
 
 @section('content')
     <div class="wrap_language">
