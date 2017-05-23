@@ -19,7 +19,7 @@
                         </li>
                     @endforeach
 
-                    <li><a href="{{url('collections/featured-items')}}">Xem tất cả danh mục</a></li>
+                    {{--<li><a href="{{url('collections/featured-items')}}">Xem tất cả danh mục</a></li>--}}
                 </ul>
             </div>
             <div class="sliderBanner">
