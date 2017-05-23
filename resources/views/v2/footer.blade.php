@@ -97,7 +97,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                    <p>{{ trans('index.ngonngu') }}</p>
+                    <p class="pdl25">{{ trans('index.ngonngu') }}</p>
                     <ul class="list_menu_connect">
                         <li><a href="{{url('change-language?language=vi')}}"><img src="/v2/images/icon-lg-vn.png" alt=""></a></li>
                         <li><a href="{{url('change-language?language=en')}}"><img src="/v2/images/icon-lg-anh.png" alt=""></a></li>
