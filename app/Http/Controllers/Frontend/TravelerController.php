@@ -40,9 +40,9 @@ class TravelerController extends Controller
         $country = $this->location->getAll();
         $countrySelect = [];
 
-        $countrySelect[null] = trans('index.diemden_select');
+        $countrySelect[null] = trans('index.diemxuatphat_select');
         $proviceSelect = [];
-        $proviceSelect[null] = trans('index.diemxuatphat_select');
+        $proviceSelect[null] =  trans('index.diemden_select');
         foreach ($country as $item) {
             if ($item->type == 1)
                 $proviceSelect[$item->location_id] = $item->name;

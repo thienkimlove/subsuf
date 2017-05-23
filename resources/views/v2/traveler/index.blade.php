@@ -14,12 +14,12 @@
                 {{Form::open(['action' => 'Frontend\TravelerController@find', 'method' => 'GET', 'class' => 'form_select'])}}
 
                 <select class="selectpicker select" data-live-search="true" name="deliver_from" >
-                    @foreach($province as $key => $value)
+                    @foreach($country as $key => $value)
                     <option value="{{ $key }}">{{ $value }}</option>
                         @endforeach
                 </select>
                 <select class="selectpicker select select2" data-live-search="true" name="deliver_to">
-                    @foreach($country as $key1 => $value1)
+                    @foreach($province as $key1 => $value1)
                         <option value="{{ $key1 }}">{{ $value1 }}</option>
                     @endforeach
                 </select>
