@@ -19,7 +19,7 @@
             <div class="modal-footer text-center">
                 <p class="note" style="display: none; color: white" id="coupon_message"></p>
                 <p data-dismiss="modal" class="sayno">{{ trans('index.khongcamon') }}</p>
-                <p class="note">{{ trans('apdunglandautien') }}</p>
+                <p class="note">{{ trans('index.apdunglandautien') }}</p>
             </div>
         </div>
 
