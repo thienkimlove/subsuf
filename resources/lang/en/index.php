@@ -354,5 +354,5 @@ return [
     'apdunglandautien' => 'Apply for first success trading',
     'entermail' => 'Enter your email here',
 
-    'uudai50k' => 'Register To Receive Up To 50k Offers When Pay With Subsuf'
+    'uudai50k' => 'Receive Up To 50k Offers with Subsuf !'
 ];
