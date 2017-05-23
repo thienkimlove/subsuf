@@ -31,9 +31,9 @@
 
                     <button type="submit" class="btn btn_dathang">{{trans("index.timkiemdonhang")}}</button>
                 {{ Form::close() }}
-                <div class="text-center">
-                    <a class="btn_link" href="#">CÁCH NHẬN MUA HỘ</a>
-                </div>
+                {{--<div class="text-center">--}}
+                    {{--<a class="btn_link" href="#">CÁCH NHẬN MUA HỘ</a>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>
