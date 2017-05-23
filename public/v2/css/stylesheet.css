@@ -1094,10 +1094,10 @@ footer.footer {
       .nhanngay_title{color: #000; font-weight: bold; font-size: 16px; padding-right: 10px}
       .mb15{margin-bottom: 15px}
       .icontext{font-size: 14px; padding-left: 15px}
-.list_menu_connect{padding-left: 0}
-.list_menu_connect li{list-style: none; float: left;overflow: hidden; padding: 0 6px}
-.list_menu_connect li:first-child{  padding-left: 0}
-.pdl25{padding-left: 25px}
+.kn a{padding: 0 5px}
+.kn a:first-child{padding-left: 0}
+.nn a{padding: 0 5px}
+.nn a:first-child{padding-left: 0}
 .tticon{margin-left: 30px}
 .modalinner{width: 600px;margin: 0 auto; margin-top: 15%; background: #2C2F3E; border: none; border-radius: 0}
 .modalinner h5{color: #2EE7BE}

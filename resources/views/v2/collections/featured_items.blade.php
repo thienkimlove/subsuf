@@ -8,7 +8,7 @@
             <div class="menuVertical sidebar-nav">
                 <ul class="nav">
                     @foreach ($categories as $category)
-                        @if($category->name == 'Trung tâm mua sắm lớn')
+                        @if($category->category_id == 7)
                             @continue
                         @endif
                         <li>

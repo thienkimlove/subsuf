@@ -50,7 +50,7 @@
                     <div class="item_post">
                         <div class="image_title">
                             <a class="image" href="#">
-                                <img src="/v2/images/banner1.jpg" alt="">
+                                <img src="/v2/images/kiemthem1.png" alt="">
                             </a>
                             <h3 class="title">
                                 <a href="#">Tìm yêu cầu đặt hàng</a>
@@ -65,7 +65,7 @@
                     <div class="item_post">
                         <div class="image_title">
                             <a class="image" href="#">
-                                <img src="/v2/images/banner3.jpg" alt="">
+                                <img src="/v2/images/kiemthem2.png" alt="">
                             </a>
                             <h3 class="title">
                                 <a href="#">Đề nghị mua hộ</a>
@@ -80,7 +80,7 @@
                     <div class="item_post">
                         <div class="image_title">
                             <a class="image" href="#">
-                                <img src="/v2/images/banner2.jpg" alt="">
+                                <img src="/v2/images/kiemthem3.png" alt="">
                             </a>
                             <h3 class="title">
                                 <a href="#">Vận chuyển và nhận tiền</a>
