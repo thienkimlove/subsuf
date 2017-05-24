@@ -74,6 +74,7 @@
             <div class="form-dathang">
                 {{Form::open(['action' => 'Frontend\ShopperController@order', 'method' => 'GET'])}}
                 <span class="input-ndv"><input size="50" name="url" type="text" placeholder="{{trans("index.nhaplinksp")}}" /> </span>
+                <input type="hidden" name="start" value="1">
                 <span><button class="btn_dathang" type="submit">{{trans("index.batdaudathang")}}</button></span>
                 {{Form::close()}}
             </div>
