@@ -69,7 +69,7 @@
                                 </div>
                                 <hr>
                                 <button type="submit"
-                                        class="btn btn-lg btn-block red">{{trans("index.dathang2")}}</button>
+                                        class="btn_style">{{trans("index.dathang2")}}</button>
                             </div>
                         </div>
                     </div>
