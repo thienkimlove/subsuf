@@ -14,12 +14,12 @@
                 {{Form::open(['action' => 'Frontend\TravelerController@find', 'method' => 'GET', 'class' => 'form_select'])}}
 
                 <select class="selectpicker select" data-live-search="true" name="deliver_from" >
-                    @foreach($province as $key => $value)
+                    @foreach($country as $key => $value)
                     <option value="{{ $key }}">{{ $value }}</option>
                         @endforeach
                 </select>
                 <select class="selectpicker select select2" data-live-search="true" name="deliver_to">
-                    @foreach($country as $key1 => $value1)
+                    @foreach($province as $key1 => $value1)
                         <option value="{{ $key1 }}">{{ $value1 }}</option>
                     @endforeach
                 </select>
@@ -32,7 +32,7 @@
                     <button type="submit" class="btn btn_dathang">{{trans("index.timkiemdonhang")}}</button>
                 {{ Form::close() }}
                 <div class="text-center">
-                    <a class="btn_link" href="#">CÁCH NHẬN MUA HỘ</a>
+                    <a class="btn_link" href="#"></a>
                 </div>
             </div>
         </div>
@@ -133,10 +133,10 @@
                                         <a href="{{URL::action("Frontend\ShopperController@orderDetail",$order->order_id)}}">{{ \Illuminate\Support\Str::words($order->name, 10)}}</a>
                                     </h4>
                                     <div class="to_from">
-                                        <span class="to">{{$order->to_location->name}}</span>
-                                        đến
-                                        <span class="from">@if($order->from_location) {{$order->from_location->name}} @else
-                                                {{trans("index.batkydau")}} @endif</span>
+                                                <span class="to">@if($order->from_location) {{$order->from_location->name}} @else
+                                                        {{trans("index.batkydau")}} @endif</span>
+                                        {{ trans('index.den') }}
+                                        <span class="from">{{$order->to_location->name}}</span>
                                     </div>
                                 </div>
                                 <div class="wage">

@@ -259,7 +259,7 @@ header.header {
     position: relative; }
     @media (min-width: 992px) {
       .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image {
-        height: 570px; }
+        height: 440px; }
         .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image img {
           position: absolute;
           top: 50%;
@@ -1095,7 +1095,7 @@ footer.footer {
       .mb15{margin-bottom: 15px}
       .icontext{font-size: 14px; padding-left: 15px}
 .kn a{padding: 0 5px}
-.kn a:first-child{padding-left: 0}
+/*.kn a:first-child{padding-left: 0}*/
 .nn a{padding: 0 5px}
 .nn a:first-child{padding-left: 0}
 .tticon{margin-left: 30px}

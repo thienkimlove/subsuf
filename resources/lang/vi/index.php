@@ -360,5 +360,5 @@ return [
     'apdunglandautien' => 'Áp Dụng Cho Giao Dịch Thành Công Đầu Tiên',
     'entermail' => 'Nhập email của bạn tại đây',
 
-    'uudai50k' => 'Đăng Ký Để Nhận Ngay Ưu Đãi 50k Khi Thanh Toán Với Subsuf'
+    'uudai50k' => 'Nhận Ngay Ưu Đãi 50k Với Subsuf !'
 ];

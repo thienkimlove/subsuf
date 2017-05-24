@@ -349,10 +349,10 @@ return [
     'dathangngay' => 'Order now',
         'ketnoichungtoi' => 'Contact us',
 
-    'nhanuudai' => 'Get deals',
+    'nhanuudai' => 'Get now',
     'khongcamon' => 'No, Thanks',
     'apdunglandautien' => 'Apply for first success trading',
     'entermail' => 'Enter your email here',
 
-    'uudai50k' => 'Register To Receive Up To 50k Offers When Pay With Subsuf'
+    'uudai50k' => 'Get 50.000 VND coupon with Subsuf !'
 ];

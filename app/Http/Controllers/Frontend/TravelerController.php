@@ -40,9 +40,9 @@ class TravelerController extends Controller
         $country = $this->location->getAll();
         $countrySelect = [];
 
-        $countrySelect[null] = trans('index.diemden_select');
+        $countrySelect[null] = trans('index.diemxuatphat_select');
         $proviceSelect = [];
-        $proviceSelect[null] = trans('index.diemxuatphat_select');
+        $proviceSelect[null] =  trans('index.diemden_select');
         foreach ($country as $item) {
             if ($item->type == 1)
                 $proviceSelect[$item->location_id] = $item->name;
@@ -80,11 +80,13 @@ class TravelerController extends Controller
         $this->request->flash();
         $response = [
             'title' => 'Travel',
-            'orderList' => $order->paginate(20),
+            'orderList' => $order->paginate(21),
             "country" => $countrySelect,
             "province" => $proviceSelect,
         ];
-        return view('frontend.traveler.find', $response);
+      //  return view('frontend.traveler.find', $response);
+
+        return view('v2.traveler.find', $response);
     }
 
     public function offer($order_id)

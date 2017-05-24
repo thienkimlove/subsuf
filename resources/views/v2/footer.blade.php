@@ -61,7 +61,7 @@
             <div class="row">
 
 
-                <div class="col-xs-12 col-md-12 mb15">
+                <div class="col-xs-12 col-md-12 mb15 text-center">
                     <span class="nhanngay_title "> {{ trans('index.uudai50k') }}</span>
                     <span><input type="text" class="input_nhanngay" size="30"
                                  placeholder="{{trans('index.entermail')}}"/></span>
