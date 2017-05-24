@@ -140,9 +140,11 @@
         <div class="wrap_ChiTietDonHang">
 
             <div class="container">
+                @if(($offer->count()))
                 <h1 class="title_block">
                     {{trans("index.denghidangcho")}}
                 </h1>
+                @endif
                 @if(!($offer->count()))
                     <p class="text-center"><i>{{trans("index.chuacodenghinao")}}</i></p>
                     <br>

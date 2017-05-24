@@ -23,14 +23,17 @@
 
                         </a>
                     </div>
+
                     <div class="media-body">
                         <p class="media-heading">
-
+                            <a href="{{URL::action('Frontend\ShopperController@orderDetail', $notification->order_id)
+                        ."?notification=" . $notification->notification_id}}" style="color: inherit">
                             <b> {!! get_payment_success_message($notification, App::getLocale()) !!}</b>
-
+                            </a>
                         </p>
                         <p class="datetime">{{reltativeDate(date("H:i d-m-Y", strtotime($notification->sent_at)))}}</p>
                     </div>
+
                 </div>
 
                         @else
@@ -49,12 +52,14 @@
                                 </div>
                                 <div class="media-body">
                                     <p class="media-heading">
-
+                                        <a href="{{URL::action('Frontend\ShopperController@orderDetail', $notification->order_id)
+                        ."?notification=" . $notification->notification_id}}" style="color: inherit">
                                         <b> {{trim($notification->from_user->first_name . " " . $notification->from_user->last_name)}}</b>
                                         {{$notification["content_" . App::getLocale()]}}
                                         @if($notification->order)
                                         <b> {{$notification->order->name}}</b>
                                             @endif
+                                        </a>
                                     </p>
                                     <p class="datetime">{{reltativeDate(date("H:i d-m-Y", strtotime($notification->sent_at)))}}</p>
                                 </div>

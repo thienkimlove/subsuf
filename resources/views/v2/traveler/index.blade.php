@@ -133,10 +133,10 @@
                                         <a href="{{URL::action("Frontend\ShopperController@orderDetail",$order->order_id)}}">{{ \Illuminate\Support\Str::words($order->name, 10)}}</a>
                                     </h4>
                                     <div class="to_from">
-                                                <span class="to">@if($order->from_location) {{$order->from_location->name}} @else
-                                                        {{trans("index.batkydau")}} @endif</span>
+                                                <span class="to">{{$order->to_location->name}}</span>
                                         {{ trans('index.den') }}
-                                        <span class="from">{{$order->to_location->name}}</span>
+                                        <span class="from">@if($order->from_location) {{$order->from_location->name}} @else
+                                                {{trans("index.batkydau")}} @endif</span>
                                     </div>
                                 </div>
                                 <div class="wage">

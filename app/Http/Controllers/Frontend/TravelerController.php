@@ -123,7 +123,8 @@ class TravelerController extends Controller
             "banks" => PaymentCardInfo::where("account_id", $this->account_id)->get(),
             "paypals" => PayPalInfo::where("account_id", $this->account_id)->get(),
         ];
-        return view('frontend.traveler.offer', $response);
+       // return view('frontend.traveler.offer', $response);
+        return view('v2.traveler.offer', $response);
     }
 
     public function makeOffer($order_id)

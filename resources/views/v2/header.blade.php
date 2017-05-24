@@ -46,9 +46,9 @@
                                         <ul class="dropdown-menu">
                                             <li class="external">
                                                 @if((int)$unread>1)
-                                                    <p>{!! trans('index.bancotinnhan_n', ['number' => $unread]) !!}</p>
+                                                    <p><a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">{!! trans('index.bancotinnhan_n', ['number' => $unread]) !!}</a></p>
                                                 @else
-                                                    <p>{!! trans('index.bancotinnhan', ['number' => $unread]) !!}</p>
+                                                    <p><a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">{!! trans('index.bancotinnhan', ['number' => $unread]) !!}</a></p>
                                                 @endif
                                                 &nbsp;&nbsp;
                                                 <p> <a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">
