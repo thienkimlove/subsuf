@@ -135,7 +135,7 @@
                                     <div class="to_from">
                                         <span class="to">@if($order->from_location) {{$order->from_location->name}} @else
                                                 {{trans("index.batkydau")}}</span>
-                                        đến
+                                        {{ trans('index.den') }}
                                         <span class="from">{{$order->to_location->name}}</span>
                                     </div>
                                 </div>
