@@ -48,7 +48,9 @@ class ItemController extends Controller
             'title' => trans("index.sanpham"),
             'item' => $item
         ];
-        return view('frontend.item.item', $response);
+      //  return view('frontend.item.item', $response);
+
+        return view('v2.item.item', $response);
     }
 
     public function test()
