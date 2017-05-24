@@ -134,7 +134,7 @@
                                     </h4>
                                     <div class="to_from">
                                         <span class="to">@if($order->from_location) {{$order->from_location->name}} @else
-                                                {{trans("index.batkydau")}}</span>
+                                                {{trans("index.batkydau")}} @endif</span>
                                         {{ trans('index.den') }}
                                         <span class="from">{{$order->to_location->name}}</span>
                                     </div>
