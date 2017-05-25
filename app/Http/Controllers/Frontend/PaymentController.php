@@ -117,7 +117,10 @@ class PaymentController extends Controller
                 $url .= '&cancel_url=' . $cancel_url;
 //                $url .= '&option_payment=bank_online';
 
-                return \Redirect::to($url);
+                //return \Redirect::to($url);
+
+                return \Redirect::action('Frontend\ShopperController@saveAcceptOffer', [$account_id, $offer_id, $coupon_id]);
+
                 //&lang=en --> Ngôn ngữ hiển thị google translate
             }
         }
