@@ -385,6 +385,14 @@ class ShopperController extends Controller
     {
         $offer = Offer::find($offer_id);
 
+        $offer->offer_status = 2;
+        $offer->save();
+
+        $order = $offer->order;
+
+        $order->order_status = 2;
+        $order->save();
+
         return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id)->withSuccess(trans("index.nhanbofferthanhcong"));
         if ($this->request->has('payment_id')) {
 //        if (isset($this->request->input('payment_id'])) {
