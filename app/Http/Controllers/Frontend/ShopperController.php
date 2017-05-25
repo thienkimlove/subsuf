@@ -383,6 +383,9 @@ class ShopperController extends Controller
 
     public function saveAcceptOffer($account_id, $offer_id, $coupon_id)
     {
+        $offer = Offer::find($offer_id);
+
+        return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id)->withSuccess(trans("index.nhanbofferthanhcong"));
         if ($this->request->has('payment_id')) {
 //        if (isset($this->request->input('payment_id'])) {
             // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
