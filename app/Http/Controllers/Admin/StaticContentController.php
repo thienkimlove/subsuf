@@ -131,6 +131,11 @@ class StaticContentController extends Controller
         return view('admin.config-manage.terms.index', $response);
     }
 
+    public function banners()
+    {
+        return view('admin.config-manage.banners.index');
+    }
+
     public function terms_insert()
     {
         $languages = $this->languageRepository->getAll();

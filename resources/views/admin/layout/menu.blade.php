@@ -302,6 +302,14 @@
             </a>
             <ul class="sub-menu">
                 @if(havePermission('config-manage', 'about-me'))
+                    <li class="nav-item {{Request::is('admin/config-manage/banners*') ? 'active' : ''}}">
+                        <a href="{{URL::action('Admin\StaticContentController@banners')}}" class="nav-link ">
+                            <i class="fa fa-info"></i>
+                            <span class="title">Banners</span>
+                        </a>
+                    </li>
+                @endif
+                @if(havePermission('config-manage', 'about-me'))
                     <li class="nav-item {{Request::is('admin/config-manage/about-me*') ? 'active' : ''}}">
                         <a href="{{URL::action('Admin\StaticContentController@abouts')}}" class="nav-link ">
                             <i class="fa fa-info"></i>
