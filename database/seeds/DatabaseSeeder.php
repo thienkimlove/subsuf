@@ -12,5 +12,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+        for($i = 1; $i <= 3; $i++)
+        {
+            \App\Banner::create([
+                'order' => $i,
+                'image' => ''
+            ]);
+
+        }
     }
 }

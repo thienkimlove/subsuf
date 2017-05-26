@@ -60,13 +60,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($banners as $key => $about)
+                                @foreach($banners as $key => $banner)
                                     <tr>
                                         <td class="stt">{{$key + 1}}</td>
-                                        <td>{{$banner->image}}</td>
+                                        <td><img src="{{$banner->image}}" style="max-width: 1000px"></td>
                                         <td class="action">
                                             <a type="button" class="btn btn-xs yellow-gold tooltips m-r-0" title="Sửa"
-                                               href="{{URL::action('Admin\StaticContentController@banner_update', $about->language)}}">
+                                               href="{{URL::action('Admin\StaticContentController@banner_update', $banner->id)}}">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                         </td>

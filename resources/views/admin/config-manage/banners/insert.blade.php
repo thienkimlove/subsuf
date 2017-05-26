@@ -81,13 +81,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group form-group-sm last">
-                            <label class="control-label col-md-2">Thứ tự</label>
-                            <div class="col-md-10">
-                                <textarea name="content" class="summernote">{{old('content')}}</textarea>
-                            </div>
-                        </div>
                     </div>
                     <div class="form-actions">
                         <div class="row">

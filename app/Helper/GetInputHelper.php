@@ -466,3 +466,29 @@ function get_deal_form($request)
 
     return $data;
 }
+
+function get_banner_form($request)
+{
+    //store banner image
+    $image_path = get_deal_image_folder();
+    if (!is_dir($image_path)) {
+        mkdir($image_path);
+    }
+
+    if ($request->hasFile('image') && $request->file('image')->isValid()) {
+        try {
+            $path_info = pathinfo($request->file('image')->getClientOriginalName());
+            $file_name = $path_info['filename'] . '_' . date('ymdHis') . '.' . $path_info['extension'];
+
+            $avatar_img = Image::make($request->file('image'));
+            $avatar_img->save($image_path . $file_name);
+
+            $data['image'] = '/' . $image_path . $file_name;
+        } catch (Exception $e) {
+
+        }
+
+    }
+
+    return $data;
+}

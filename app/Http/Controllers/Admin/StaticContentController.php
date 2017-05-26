@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Banner;
 use App\Http\Controllers\Controller;
 use App\Repositories\LanguageRepository;
 use App\Repositories\StaticContentRepository;
@@ -133,7 +134,50 @@ class StaticContentController extends Controller
 
     public function banners()
     {
-        return view('admin.config-manage.banners.index');
+        $banners = Banner::orderBy('order')->get();
+        return view('admin.config-manage.banners.index', [
+
+            'title' => 'Quản lý banner',
+            'banners' => $banners
+        ]);
+    }
+
+    public function banner_insert()
+    {
+        return view('admin.config-manage.banners.insert');
+    }
+
+    public function banner_update($banner_id)
+    {
+        $banner = Banner::find($banner_id);
+        if ($banner != null) {
+            $response = [
+                'title' => 'Quản lý banner',
+                'banner' => $banner,
+            ];
+
+            if ($this->request->isMethod('post')) {
+                $validator = banner_validator($this->request);
+                if (is_error($validator)) {
+                    return_error($validator, $response);
+                    return \Redirect::back()->withError($response['message']);
+                } else {
+                    try {
+                        $data = get_banner_form($this->request);
+
+                        Banner::find($banner_id)->update($data);
+
+                        return \Redirect::action('Admin\StaticContentController@banners')->withSuccess(message_update());
+                    } catch (\Exception $exception) {
+                        return \Redirect::back()->withError(message_internal_error());
+                    }
+                }
+            }
+
+            return view('admin.config-manage.banners.update', $response);
+        } else {
+            return \Redirect::back()->withError(message_not_found());
+        }
     }
 
     public function terms_insert()

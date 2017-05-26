@@ -14,11 +14,8 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <a href="{{URL::action('Admin\StaticContentController@abouts')}}">About Me</a>
+            <a href="{{URL::action('Admin\StaticContentController@banners')}}">Banners</a>
             <i class="fa fa-angle-right"></i>
-        </li>
-        <li>
-            <span class="bold">Ngôn ngữ: {{$about->language_ref->name}}</span>
         </li>
     </ul>
 @endsection
@@ -39,50 +36,34 @@
     <div class="row">
         <div class="col-md-12">
             <div class="portlet light form-fit bordered">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="fa fa-info font-green"></i>
-                        <span class="caption-subject font-green bold uppercase">Ngôn ngữ: {{$about->language_ref->name}}</span>
-                    </div>
-
-                    <div class="actions">
-                        <a type="button" class="btn btn-xs default tooltips m-r-0" title="Về trang About Me"
-                           href="{{URL::action('Admin\StaticContentController@abouts')}}">
-                            <i class="fa fa-undo"></i>
-                        </a>
-                    </div>
-                </div>
 
                 <div class="portlet-body form">
-                    {{Form::open(['action' => ['Admin\StaticContentController@about_update', $about->language],
+                    {{Form::open(['action' => ['Admin\StaticContentController@banner_update', $banner->id],
                     'method' => 'POST', 'id' => 'about-form', 'class'=>'form-horizontal form-bordered','data-toggle'=>'validator',
                     'enctype'=>'multipart/form-data'])}}
                     <div class="form-body">
                         <div class="form-group form-group-sm">
-                            <label class="control-label col-md-2">
-                                Ngôn ngữ
-                            </label>
-                            <div class="col-md-10">
-                                <div class="form-control">{{$about->language_ref->name}}</div>
-                            </div>
-                        </div>
+                            <label class="control-label">Ảnh</label>
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
+                                    <img src="{{ $banner->image }}"/>
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail"
+                                     style="max-width: 200px; max-height: 200px;">
+                                </div>
 
-                        <div class="form-group form-group-sm">
-                            <label class="control-label col-md-2">
-                                Tiêu đề <span class="required" aria-required="true"> * </span>
-                            </label>
-                            <div class="col-md-10">
-                                <input required type="text" name="title" class="form-control"
-                                       value="{{$about->title}}">
+                                <div>
+                                            <span class="btn default btn-file">
+                                                <span class="fileinput-new"> Chọn ảnh </span>
+                                                <span class="fileinput-exists"> Đổi ảnh </span>
+                                                <input class="form-control" type="file" name="image" id="image">
+                                            </span>
+                                    <a href="javascript:;" class="btn default fileinput-exists"
+                                       data-dismiss="fileinput"> Xóa ảnh </a>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="form-group form-group-sm last">
-                            <label class="control-label col-md-2">Nội dung</label>
-                            <div class="col-md-10">
-                                <textarea name="content" class="summernote">{{$about->content}}</textarea>
-                            </div>
-                        </div>
+                        <input type="hidden" name="order" value="{{ $banner->order }}">
                     </div>
                     <div class="form-actions">
                         <div class="row">
@@ -91,7 +72,7 @@
                                     Lưu
                                 </button>
                                 <a role="button" class="btn btn-sm btn-default uppercase"
-                                   href="{{URL::action('Admin\StaticContentController@abouts')}}">
+                                   href="{{URL::action('Admin\StaticContentController@banners')}}">
                                     Hủy
                                 </a>
                             </div>
@@ -105,6 +86,6 @@
 @endsection
 
 @section('script')
-    {{Html::script('assets/global/plugins/bootstrap-summernote/summernote.min.js')}}
     {{Html::script('assets/pages/scripts/validator.min.js')}}
+    {{Html::script('/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}
 @endsection

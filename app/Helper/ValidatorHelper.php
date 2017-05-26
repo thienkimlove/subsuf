@@ -271,3 +271,14 @@ function deal_validator($request)
 
     return $validator;
 }
+
+function banner_validator($request)
+{
+    $validator = Validator::make($request->all(), [
+        'image' => "required",
+    ], [
+        'required' => "Vui lòng nhập đầy đủ dữ liệu",
+    ]);
+
+    return $validator;
+}

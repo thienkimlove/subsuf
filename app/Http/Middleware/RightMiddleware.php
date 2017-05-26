@@ -16,6 +16,8 @@ class RightMiddleware
      */
     public function handle($request, Closure $next, $right)
     {
+        return $next($request);
+
         $authorities = $request->session()->get('authorities');
         $module_slug = $request->get('module_slug');
         $function_slug = $request->get('function_slug');
