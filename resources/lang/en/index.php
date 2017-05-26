@@ -240,8 +240,8 @@ return [
     'moibanbequaemail'=>'Invite friends by email',
     'moibanbequamagioithieu'=>'Share code',
     'moibanbequafacebook'=>'Share on facebook',
-    'cacdonhangdadat'=>"Các đơn hàng đã đặt",
-    'cacyeucaumuaho'=>"Các yêu cầu mua hộ",
+    'cacdonhangdadat'=>"Ordered",
+    'cacyeucaumuaho'=>"Offered",
 
     /*End Chun*/
 

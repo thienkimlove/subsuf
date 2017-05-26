@@ -87,7 +87,7 @@
 @if(!str_contains(url()->current(), 'select-language'))
 <div class="datmuahang text-center">
     <div class="datmuabtn"><img src="/v2/images/btn-datmua.png"/> </div>
-    <div>{{ trans('index.dathangngay') }}</div>
+    {{--<div>{{ trans('index.dathangngay') }}</div>--}}
 </div>
 @endif
 @include('v2.footer')

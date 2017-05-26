@@ -150,7 +150,7 @@ class UrlHelper
             $key  = env('AW_US_KEY');
         }
 
-        if (preg_match('/\\/([A-Z0-9]{10})($|\/)/', $url, $matches)) {
+        if (preg_match('/\\/([A-Z0-9]{10})(|$|\/)/', $url, $matches)) {
 
             $extraParams = [
                 "AssociateTag" => $tag,
