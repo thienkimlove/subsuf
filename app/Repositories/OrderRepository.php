@@ -8,6 +8,7 @@ use App\Offer;
 use App\Order;
 use App\OrderImage;
 use Illuminate\Support\Facades\Validator;
+use Jenssegers\Optimus\Optimus;
 
 class OrderRepository
 {
@@ -72,7 +73,18 @@ class OrderRepository
         $order->quantity = (float)$order1["quantity"];
         $order->traveler_reward = (float)$order2["input-reward"];
         $order->additional_details = isset($order3["item_detail"]) ? $order3["item_detail"] : "";
+
+
         $order->save();
+
+        $optimus = new Optimus(1580030173, 59260789, 1163945558);
+
+        $id = $optimus->encode($order->order_id);
+
+        $order->code = $id;
+
+        $order->save();
+
 
         foreach ($order1["images"] as $item) {
             $orderImage = new OrderImage();
