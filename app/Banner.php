@@ -9,6 +9,7 @@ class Banner extends Model
     //
     protected $fillable = [
         'image',
-        'order'
+        'order',
+        'language'
     ];
 }

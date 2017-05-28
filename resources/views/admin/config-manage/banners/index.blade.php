@@ -56,6 +56,7 @@
                                 <tr>
                                     <th class="stt">STT</th>
                                     <th>Hình ảnh</th>
+                                    <th>Ngôn ngữ</th>
                                     <th class="action">Hành động</th>
                                 </tr>
                                 </thead>
@@ -64,6 +65,7 @@
                                     <tr>
                                         <td class="stt">{{$key + 1}}</td>
                                         <td><img src="{{$banner->image}}" style="max-width: 1000px"></td>
+                                        <td>{{$banner->language}}</td>
                                         <td class="action">
                                             <a type="button" class="btn btn-xs yellow-gold tooltips m-r-0" title="Sửa"
                                                href="{{URL::action('Admin\StaticContentController@banner_update', $banner->id)}}">

@@ -85,10 +85,18 @@
     </div>
 </div>
 @if(!str_contains(url()->current(), 'select-language'))
-<div class="datmuahang text-center">
-    <div class="datmuabtn"><img src="/v2/images/btn-datmua.png"/> </div>
-    {{--<div>{{ trans('index.dathangngay') }}</div>--}}
-</div>
+    <div class="datmuahang">
+
+        <div class="datmuabtn"></div>
+        <div class="datmuabtn"></div>
+        <div class="datmuabtn"></div>
+        <div class="datmuabtn">
+            <img src="/v2/images/btn-datmua.png"/>
+            {{--<br/>--}}
+            {{--<span style="">Đặt mua</span>--}}
+        </div>
+    </div>
+
 @endif
 @include('v2.footer')
 

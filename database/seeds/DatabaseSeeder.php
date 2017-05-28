@@ -13,13 +13,19 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
+        \App\Banner::truncate();
+
+        $langs = ['en', 'vi'];
+
         for($i = 1; $i <= 3; $i++)
         {
-            \App\Banner::create([
-                'order' => $i,
-                'image' => ''
-            ]);
-
+            foreach ($langs as $lang) {
+                \App\Banner::create([
+                    'order' => $i,
+                    'image' => '',
+                    'language' => $lang
+                ]);
+            }
         }
     }
 }

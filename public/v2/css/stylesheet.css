@@ -259,7 +259,7 @@ header.header {
     position: relative; }
     @media (min-width: 992px) {
       .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image {
-        height: 440px; }
+        height: 570px; }
         .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image img {
           position: absolute;
           top: 50%;
@@ -1095,7 +1095,7 @@ footer.footer {
       .mb15{margin-bottom: 15px}
       .icontext{font-size: 14px; padding-left: 15px}
 .kn a{padding: 0 5px}
-/*.kn a:first-child{padding-left: 0}*/
+.kn a:first-child{padding-left: 0}
 .nn a{padding: 0 5px}
 .nn a:first-child{padding-left: 0}
 .tticon{margin-left: 30px}
@@ -1116,9 +1116,7 @@ footer.footer {
 .modal-footer .note{color: #4B4E5D}
 .close{color: #4B4E5D; border: none}
 .datmuahang{
-  position: fixed;
-  bottom: 10%;
-  right: 5%;
+
 }
 .datmuabtn img{width: 60px}
 #md_dathang .modalinner{background: rgba(230,231,230,0.9);}
@@ -1190,3 +1188,47 @@ li.external a{display: inline-block}
 .item_pr h3.title a{ text-decoration: none; font-size: 18px; color: #3d3d58}
 .main-price{font-size: 28px; color: #B5A161}
 .old-price{font-size: 20px; color: gray; text-decoration: line-through}
+
+
+@keyframes pulse {
+  0%{transform:scale(.1);opacity: 0;}
+  50%{ opacity: .3;}
+  100%{transform: scale(.6); opacity: 0;}
+}
+div.datmuabtn {
+  background-color: #b5a161;
+  border-radius: 50%;
+  position: fixed;
+  margin: auto auto;
+  /*top: 0;*/
+  bottom: 0;
+  /*left: 0;*/
+  right: 0;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+div.datmuabtn:nth-child(1){
+  animation: pulse 2s infinite;
+}
+div.datmuabtn:nth-child(2){
+  animation: pulse 2s infinite .3s;
+}
+div.datmuabtn:nth-child(3){
+  animation: pulse 2s infinite .6s;
+}
+
+div.datmuabtn:nth-child(4){
+  text-align: center;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #22475E;
+  font-size: 14px;
+  line-height: 80px;
+  width: 200px;
+  height: 140px;
+  background: transparent;
+}
+div.datmuabtn:nth-child(4) span{
+  display: block;margin-top: -30px;
+}

@@ -64,6 +64,7 @@
                             </div>
                         </div>
                         <input type="hidden" name="order" value="{{ $banner->order }}">
+                        <input type="hidden" name="language" value="{{ $banner->language }}">
                     </div>
                     <div class="form-actions">
                         <div class="row">
