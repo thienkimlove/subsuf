@@ -84,7 +84,7 @@
         </div>
     </div>
 </div>
-@if(!str_contains(url()->current(), 'select-language'))
+@if(!str_contains(url()->current(), 'select-language') && !str_contains(url()->current(), '/shopper/order') && !str_contains(url()->current(), 'offer'))
     <div class="datmuahang">
 
         <div class="datmuabtn"></div>
