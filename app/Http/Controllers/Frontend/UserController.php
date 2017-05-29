@@ -51,6 +51,7 @@ class UserController extends Controller
             "offerList" => Offer::where("traveler_id", $this->account_id)->orderBy("offer_time", "DESC")->get(),
             "orderList" => Order::where("shopper_id", $this->account_id)->orderBy("request_time", "DESC")->get()
         ];
+       // return view('v2.user.profile', $response);
         return view('frontend.user.profile', $response);
     }
 
@@ -505,7 +506,8 @@ class UserController extends Controller
             'starShopper' => $starShopper,
             'starTraveler' => $starTraveler,
         ];
-        return view('frontend.user.rate_info', $response);
+        return view('v2.user.rate_info', $response);
+       // return view('frontend.user.rate_info', $response);
     }
 
     public function userRate($transaction_id)
