@@ -296,6 +296,8 @@ class ShopperController extends Controller
                 "transaction" => $transaction,
             ];
             return view('frontend.shopper.transaction_detail', $response);
+
+            //return view('v2.shopper.transaction_detail', $response);
         }
         $response = [
             "order" => $order,
@@ -378,7 +380,9 @@ class ShopperController extends Controller
             "fee" => $fee,
             "coupon" => $coupons // các coupon của user
         ];
-        return view('frontend.shopper.accept_offer', $response);
+
+        return view('v2.shopper.accept_offer', $response);
+       // return view('frontend.shopper.accept_offer', $response);
     }
 
     public function saveAcceptOffer($account_id, $offer_id, $coupon_id)

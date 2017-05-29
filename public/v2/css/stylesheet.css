@@ -259,7 +259,7 @@ header.header {
     position: relative; }
     @media (min-width: 992px) {
       .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image {
-        height: 440px; }
+        height: 570px; }
         .menuVertical_and_sliderBanner .sliderBanner .owl-sliderBanner .item .image img {
           position: absolute;
           top: 50%;
@@ -1095,7 +1095,7 @@ footer.footer {
       .mb15{margin-bottom: 15px}
       .icontext{font-size: 14px; padding-left: 15px}
 .kn a{padding: 0 5px}
-/*.kn a:first-child{padding-left: 0}*/
+.kn a:first-child{padding-left: 0}
 .nn a{padding: 0 5px}
 .nn a:first-child{padding-left: 0}
 .tticon{margin-left: 30px}
@@ -1144,8 +1144,8 @@ footer.footer {
 }
 .btn.red:not(.btn-outline) {
   color: #fff;
-  background-color: #e7505a;
-  border-color: #e7505a;
+  background-color: #b5a161;
+  border-color: #b5a161;
 }
 .btn.default:not(.btn-outline) {
   color: #666;
@@ -1208,7 +1208,7 @@ div.datmuabtn {
   height: 200px;
   cursor: pointer;
 }
-
+.mtb-40{margin: 40px 0}
 div.datmuabtn:nth-child(1){
   animation: pulse 2s infinite;
 }
@@ -1232,3 +1232,19 @@ div.datmuabtn:nth-child(4){
 div.datmuabtn:nth-child(4) span{
   display: block;margin-top: -30px;
 }
+.btn-muaho{color: #FFF !important; padding: 10px 15px !important; background: #b5a161}
+.btn-muaho:hover, .btn-muaho:focus{color: #FFF !important; padding: 10px 15px !important; background: #000 !important}
+h2.invoice-title{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #69717e;
+}
+#orderDetail h2{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #69717e;
+  text-transform: uppercase;
+}
+.btn-block{border: 1px solid #b5a161; color: #b5a161}

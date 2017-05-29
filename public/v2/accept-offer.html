@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Subsuf Quá trình nhận mua hộ</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic,300italic&subset=vietnamese' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='http://l-lin.github.io/font-awesome-animation/dist/font-awesome-animation.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/themify-icons.css">
+     
+    <link rel="stylesheet" href="css/dropdowns-hover.css">
+    <link rel="stylesheet" href="css/dropdowns-menu.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.css">
+
+    <link rel="stylesheet" href="css/old_style.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+</head>
+
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="Dwrap_Unavbar_C">
+                <div class="Dnavbar_Uwrap_C">
+
+                    <div class="logo_btn_nhanmuaho">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <img src="images/icon-menu-mobile.png" alt="icon-menu">
+                        </button>
+                        <a class="logo" href="#"><img src="images/logo.png" alt="logo Biz plus"></a>
+                        <a class="btn_link active" href="#">
+                            <i class="fa fa-plane" aria-hidden="true"></i> 
+                            <span>Nhận mua hộ</span>
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse Dnavbar_Ucollapse_C" id="bs-example-navbar-collapse-1">
+                        <nav class="wrap-nav">
+                            <ul id="nav" class="nav navbar-nav navigation">
+                                <li class="active">
+                                    <a href="#">Trở thành người mua hộ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Đăng ký</a>
+                                </li>
+                                <li>
+                                    <a href="#">Đăng nhập</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="wrap_container wrap_quytrinhnhanmuaho">
+        <div class="container white">
+            <div class="row mtb-40 ">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="portlet light">
+                        <div class="portlet-body form">
+
+                            <hr>
+
+                            <div class="row">
+                                <form method="POST" action="http://subsuf.thonghuyet.vn/shopper/order/accept-offer/166" accept-charset="UTF-8" id="addPlanDetail" data-toggle="validator" enctype="multipart/form-data"><input name="_token" type="hidden" value="HtrCJnRpwNbHDqSxaKyzLXE1sf9dJ2yJfsxq97Gy">
+                                    <div class="col-lg-12 margin-top-10">
+                                        <div class="clearfix margin-bottom-10"></div>
+                                        <div class="form-group">
+                                            <h4>Mã giảm giá</h4>
+                                            <a class="btn btn-block red btn-outline btn-lg" id="addCoupon" data-target="#couponModal" data-toggle="modal"><i class="fa fa-plus"></i> Thêm mã giảm giá</a>
+                                            <div id="couponAdded" style="display: none">
+                                        <span class="couponValue font-red">
+                                            $0
+                                        </span>
+                                                <div class="actions">
+                                                    <a class="btn  red btn-outline btn-lg" data-target="#couponModal" data-toggle="modal"> Sửa Coupon</a>
+                                                </div>
+                                            </div>
+
+                                            <div id="couponModal" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                                                            <h4 class="modal-title">Thêm Coupon</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="alert alert-warning" style="display: none">
+                                                                Mã coupon không đúng
+                                                            </div>
+
+                                                            <div class="input-group input-group-lg">
+                                                                <input class="form-control" id="couponCodeNew" type="text" name="text" placeholder="Add Coupon">
+                                                                <span class="input-group-btn">
+                                                                <button id="genpassword" onclick="addNewCoupon()" class="btn red" type="button">
+                                                                     Thêm Coupon</button>
+                                                            </span>
+                                                            </div>
+                                                            <hr>
+
+                                                            <h4>Chọn mã coupon có sẵn</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group" id="orderDetail">
+                                            <div class="col-xs-12">
+                                                <h2 class="uppercase"> tiền công</h2>
+                                                <a class="link-img" href="http://subsuf.thonghuyet.vn/user-rate/154">
+
+                                                    <img class="img-circle" src="https://lh6.googleusercontent.com/-ByOT_qubrPM/AAAAAAAAAAI/AAAAAAAAIG0/4EuEb1gaato/photo.jpg?sz=50" style="width: 50px; height: 50px; float: left;">
+                                                </a>
+                                                <div style="margin-left: 60px; height: 60px;">
+                                            <span style="float: right;  font-size: 22px; margin-top: 10px" class="font-red">
+                                                $17.9
+                                            </span>
+
+                                                    <a href="" class="bold">
+                                                        Nguyễn Huy
+                                                    </a>
+                                                    <p style="margin-top: 10px;" class="font-blue-oleo">
+                                                        <i class="fa fa-calendar font-grey-salt"></i>
+                                                        chuyển đến vào ngày  28-05-2017
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <h2 class="invoice-title uppercase">
+                                            <span class="content-right font-red">
+                                                <p>
+                                                    $179.99
+                                                </p>
+                                            </span>
+                                                    <div style="margin-right:100px">
+                                                        Amazon Echo - White
+                                                    </div>
+
+                                                </h2>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <h2 class="invoice-title uppercase">
+                                                    Phí dịch vụ
+                                                    <span class="content-right font-red">
+                                                <p>
+                                                    $13.85
+                                                </p>
+                                            </span>
+                                                </h2>
+                                            </div>
+                                            <div class="col-xs-12 discount-col" style="display: none">
+                                                <h2 class="invoice-title uppercase">
+                                            <span class="content-right font-red">
+                                                <p>
+
+                                                </p>
+                                            </span>
+                                                    <div style="margin-right:100px">
+                                                        Giảm giá
+                                                    </div>
+
+                                                </h2>
+                                            </div>
+
+                                            <div class="col-lg-12" style="border: none">
+                                                <h2 class="invoice-title uppercase">Tổng tiền
+                                                    <span class="content-right font-red text-right">
+                                                <b style="font-size: 20px">
+                                                    $<span id="totalMoney">211.74</span>
+                                                    <small><a class="font-blue popovers" data-container="body" data-original-title="$1 = 23200 VND" data-html="true" data-trigger="hover" data-placement="top" data-content="Tỉ giá quy đổi (cập nhật sát tỉ giá Paypal,nếu Người mua hộ chọn không nhận tiền qua Paypal,tổng số tiền chênh lệch của đơn hàng giữa tỷ giá đang áp dụng và tỷ giá của Vietcombank sẽ được trả lại cho Người mua hàng dưới hình thức Coupon,trừ vào lần mua tới )" aria-describedby="popover232814">
+                                                <i class="fa fa-question-circle fa-blue"></i></a>
+                                                        </small>
+                                                </b>
+                                                <br>
+                                                <br>
+                                                <b style="font-size: 16px">
+                                                     <span id="totalMoneyEx">4,912,368</span> VND
+
+                                                </b>
+                                            </span>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="alert alert-info">
+                                            Subsuf giữ tiền và chỉ chuyển đến người mua hộ khi bạn đã nhận món đồ
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="form-actions text-center">
+                                                <button type="submit" class="btn red btn-lg">Thanh toán
+                                                </button>
+                                                <a href="http://subsuf.thonghuyet.vn/order-detail/192" class="btn defaults btn-lg">Quay lại
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="main_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 mb15 text-center">
+                        <span class="nhanngay_title ">Đăng Ký Để Nhận Ngay Ưu Đãi 50k Khi Thanh Toán Với Subsuf &nbsp;</span>
+                        <span><input type="text" class="input_nhanngay" size="30" placeholder="Địa chỉ email"/></span>
+                        <span><button class="nhanngay">Nhận Ngay!</button></span>
+
+                        <span class="tticon hidden-xs"><a href="#"><img src="images/icon-thanhtoan1.png" alt=""></a></span>
+                        <span class="hidden-xs"><a href="#"><img src="images/icon-thanhtoan2.png" alt=""></a></span>
+                        <span class="hidden-xs"><a href="#"><img src="images/icon-thanhtoan3.png" alt=""></a></span>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+
+                        <p><span class="icon"><img src="images/icon_phone.png"/></span><span class="icontext">096 9412702</span></p>
+                        <p><span class="icon"><img src="images/icon_mail.png"/></span><span class="icontext">support@subsuf.com</span></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <ul class="list_menu_ft">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-2">
+
+                        <div class="text-center">
+                            <p>Kết nối với chúng tôi</p>
+                            <p class="kn">
+                                <a href="#"><img src="images/fb.png" alt="Facebook"/> </a>
+                                <a href="#"><img src="images/ln.png" alt="Linkedin"/> </a>
+                                <a href="#"><img src="images/yt.png" alt="Youtube"/> </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="text-center">
+                            <p>Ngôn ngữ</p>
+                            <p class="nn">
+                                <a href="#"><img class="pt2" src="images/icon-lg-vn.png" alt=""></a>
+                                <a href="#"><img class="pt2" src="images/icon-lg-anh.png" alt=""></a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="sub_footer">
+            <div class="container">
+                <p>Copyright © 2016 - Bản quyền thuộc về Công ty CP SubSuf Việt Nam</p>
+            </div>
+        </div>
+    </footer>
+   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+   
+    <script src="js/dropdownhover.min.js"></script>
+    <script src="js/dropdowns-menu.js"></script>
+    
+    
+    <script src="js/owl.carousel.min.js"></script>
+
+    
+    <script>
+    $('.owl-sliderBanner').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items:1,
+        margin:30,
+        stagePadding: 0,
+        smartSpeed:450
+    });
+        
+    $('.owl_slider_product').owlCarousel({
+        margin:30,
+        dots:false,
+        nav:true,
+        navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+        responsive:{
+            0:{
+                items:1,
+                margin:15
+            },
+            576:{
+                items:2,
+                margin:15
+            },
+            768:{
+                items:3,
+                margin:20
+            },
+            992:{
+                items:3
+            }
+        }
+    })
+    
+    $('.owl_exhibition_2u').owlCarousel({
+        margin:30,
+        dots:false,
+        nav:true,
+        navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+        responsive:{
+            0:{
+                items:1,
+                margin:15
+            },
+            576:{
+                items:2,
+                margin:15
+            },
+            768:{
+                items:3,
+                margin:20
+            },
+            992:{
+                items:3
+            }
+        }
+    })
+    </script>
+
+    
+</body>
+
+</html>
