@@ -200,9 +200,7 @@ class TravelerController extends Controller
                 $to_first_name = $notification_inserted->to_user->first_name;
                 $to_last_name = $notification_inserted->to_user->last_name;
 
-                $message = 'Chao ' . $to_first_name . ' ' . $to_last_name . ', don hang cua ban da duoc de nghi mua ho voi muc tien cong ' . $offer->others_fee . '$ ( so tien cong )
-             Vui long truy cap Subsuf.com de thanh toan va dat hang. 
-             Subsuf xin cam on!';
+                $message = 'Don hang '.$order->code.' cua ban duoc de nghi mua ho muc tien cong '. $offer->others_fee .'$. Vui long truy cap subsuf.com de hoan tat. Xin cam on!';
 
                 //dd($message);
                 MessageHelper::send_sms($to_phone, $message);
