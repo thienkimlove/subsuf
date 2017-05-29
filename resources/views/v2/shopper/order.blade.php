@@ -139,6 +139,16 @@
     {{Html::script('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}
     {{Html::script('assets/pages/scripts/validator.min.js')}}
 
+    <style>
+        .product-file-1 {
+            width: 180px !important;
+        }
+
+        .product-image-1 {
+            width: 180px !important;
+        }
+
+    </style>
 
     <script type="text/javascript">
         $('.datepicker').datepicker({
@@ -170,9 +180,17 @@
                             var fr = new FileReader();
                             fr.readAsDataURL(file);
                             fr.onload = function (event) {
+
+//                                <div class="image fileinput-new images-input">
+//                                    <div class="close-image" onclick="removeImg(this)"><i class="glyphicon glyphicon-remove"></i></div>
+//                                    <a href="#">
+//                                    <img src="http://i.ebayimg.com/00/s/MTI1MFgxMjUw/z/ITMAAOSwB-1Y3ks0/$_1.JPG?set_id=880000500F" alt="">
+//                                    </a>
+//                                    <input type="hidden" name="images-link[]" value="http://i.ebayimg.com/00/s/MTI1MFgxMjUw/z/ITMAAOSwB-1Y3ks0/$_1.JPG?set_id=880000500F">
+//                                    </div>
                                 $(".wrap_image_upload").append(
-                                    '<div class="image fileinput-new images-input">' +
-                                    '<img class="product-image-1" src="' + old_src + '" onclick="setImageFile(this)">' +
+                                    '<div class="image-upload fileinput-new images-input">' +
+                                    '<img class="product-image-1" style="width: 180px" src="' + old_src + '" onclick="setImageFile(this)">' +
                                     '<input type="file" name="images[]" class="" class="product-file-1" onchange="updateFileImage(this)">' +
                                     '</div>'
                                 );

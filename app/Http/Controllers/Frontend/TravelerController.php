@@ -197,8 +197,8 @@ class TravelerController extends Controller
 
 
             if ($to_phone) {
-                $to_first_name = $notification_inserted->to_user->first_name;
-                $to_last_name = $notification_inserted->to_user->last_name;
+//                $to_first_name = $notification_inserted->to_user->first_name;
+//                $to_last_name = $notification_inserted->to_user->last_name;
 
                 $message = 'Don hang '.$order->code.' cua ban duoc de nghi mua ho muc tien cong '. $offer->others_fee .'$. Vui long truy cap subsuf.com de hoan tat. Xin cam on!';
 
