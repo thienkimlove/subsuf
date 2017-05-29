@@ -1,6 +1,9 @@
 @extends('admin.layout.master')
 @section('style')
     {{Html::style('assets/global/plugins/bootstrap-summernote/summernote.css')}}
+
+    <link media="all" type="text/css" rel="stylesheet" href="/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css">
+
 @endsection
 
 @section('page-breadcrumb')
@@ -42,6 +45,9 @@
                     'method' => 'POST', 'id' => 'about-form', 'class'=>'form-horizontal form-bordered','data-toggle'=>'validator',
                     'enctype'=>'multipart/form-data'])}}
                     <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-2">
+
                         <div class="form-group form-group-sm">
                             <label class="control-label">Ảnh</label>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -63,6 +69,7 @@
                                 </div>
                             </div>
                         </div>
+                            </div> </div>
                         <input type="hidden" name="order" value="{{ $banner->order }}">
                         <input type="hidden" name="language" value="{{ $banner->language }}">
                     </div>

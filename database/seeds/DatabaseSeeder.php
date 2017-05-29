@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
 
         $langs = ['en', 'vi'];
 
-        for($i = 1; $i <= 3; $i++)
-        {
-            foreach ($langs as $lang) {
+
+        foreach ($langs as $lang) {
+            for ($i = 1; $i <= 3; $i++) {
                 \App\Banner::create([
                     'order' => $i,
                     'image' => '',

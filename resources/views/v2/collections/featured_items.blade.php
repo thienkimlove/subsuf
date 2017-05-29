@@ -24,37 +24,40 @@
             </div>
             <div class="sliderBanner">
                 <div class="owl-carousel owl-theme owl-sliderBanner">
-                    {{--@php $banners = \App\Banner::orderBy('order')->get()@endphp--}}
-                    {{--@foreach($banners as $banner)--}}
-                        {{--<div class="item">--}}
-                            {{--<div class="image">--}}
+                    @php
+                        $locale = \App::getLocale();
+                        $banners = \App\Banner::orderBy('order')->where('language', $locale)->get();
+                    @endphp
+                    @foreach($banners as $banner)
+                        <div class="item">
+                            <div class="image">
 
-                                {{--<img src="{{ $banner->image }}" alt="">--}}
+                                <img src="{{ $banner->image }}" alt="">
 
-                            {{--</div>--}}
+                            </div>
+                        </div>
+                    @endforeach
+                    {{--<div class="item">--}}
+                        {{--<div class="image">--}}
+
+                            {{--<img src="{{url('v2/images/banner1.jpg')}}" alt="">--}}
+
                         {{--</div>--}}
-                    {{--@endforeach--}}
-                    <div class="item">
-                        <div class="image">
+                    {{--</div>--}}
+                    {{--<div class="item">--}}
+                        {{--<div class="image">--}}
 
-                            <img src="{{url('v2/images/banner1.jpg')}}" alt="">
+                            {{--<img src="{{url('v2/images/banner3.jpg')}}" alt="">--}}
 
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="item">--}}
+                        {{--<div class="image">--}}
 
-                            <img src="{{url('v2/images/banner3.jpg')}}" alt="">
+                            {{--<img src="{{url('v2/images/banner2.jpg')}}" alt="">--}}
 
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-
-                            <img src="{{url('v2/images/banner2.jpg')}}" alt="">
-
-                        </div>
-                    </div>
+                        {{--</div>--}}
+                    {{--</div>--}}
 
                 </div>
             </div>

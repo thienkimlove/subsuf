@@ -19,15 +19,15 @@
 @endsection
 
 @section('page-toolbar')
-    <div class="page-toolbar">
-        <div class="pull-right">
-            <a type="button" class="btn green btn-sm uppercase"
-               href="{{URL::action('Admin\StaticContentController@banner_insert')}}">
-                <i class="fa fa-plus"></i>
-                Thêm
-            </a>
-        </div>
-    </div>
+    {{--<div class="page-toolbar">--}}
+        {{--<div class="pull-right">--}}
+            {{--<a type="button" class="btn green btn-sm uppercase"--}}
+               {{--href="{{URL::action('Admin\StaticContentController@banner_insert')}}">--}}
+                {{--<i class="fa fa-plus"></i>--}}
+                {{--Thêm--}}
+            {{--</a>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 @endsection
 
 @section('pagetitle')
@@ -63,7 +63,7 @@
                                 <tbody>
                                 @foreach($banners as $key => $banner)
                                     <tr>
-                                        <td class="stt">{{$key + 1}}</td>
+                                        <td class="stt">{{$banner->order}}</td>
                                         <td><img src="{{$banner->image}}" style="max-width: 1000px"></td>
                                         <td>{{$banner->language}}</td>
                                         <td class="action">
