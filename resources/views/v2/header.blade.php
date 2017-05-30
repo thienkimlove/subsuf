@@ -22,11 +22,11 @@
 
                                 @if(count(session()->get("userFrontend")->payment_cards) > 0 || count(session()->get("userFrontend")->paypals) > 0)
                                     <li class="active">
-                                        <a href="{{url('traveler')}}">{{trans('index.v2_trothanhnguoimuaho')}}</a>
+                                        <a href="{{url('traveler')}}" class="btn-muaho">{{trans('index.v2_trothanhnguoimuaho')}}</a>
                                     </li>
                                 @else
                                     <li class="active">
-                                        <a href="{{url('user/payment-info')}}">{{trans('index.v2_trothanhnguoimuaho')}}</a>
+                                        <a href="{{url('user/payment-info')}}" class="btn-muaho">{{trans('index.v2_trothanhnguoimuaho')}}</a>
                                     </li>
                                 @endif
                                     <?php
@@ -87,7 +87,7 @@
                             @else
 
                                 <li class="active">
-                                    <a href="{{url('register')}}">{{trans('index.v2_trothanhnguoimuaho')}}</a>
+                                    <a href="{{url('register')}}" class="btn-muaho">{{trans('index.v2_trothanhnguoimuaho')}}</a>
                                 </li>
 
                                 <li>

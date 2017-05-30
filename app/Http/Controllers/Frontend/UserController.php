@@ -51,8 +51,8 @@ class UserController extends Controller
             "offerList" => Offer::where("traveler_id", $this->account_id)->orderBy("offer_time", "DESC")->get(),
             "orderList" => Order::where("shopper_id", $this->account_id)->orderBy("request_time", "DESC")->get()
         ];
-       // return view('v2.user.profile', $response);
-        return view('frontend.user.profile', $response);
+        return view('v2.user.profile', $response);
+       // return view('frontend.user.profile', $response);
     }
 
     public function user_payment_info()

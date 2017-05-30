@@ -1,6 +1,14 @@
 @extends('v2.template')
 
+@section('style')
+
+<link rel="stylesheet" href="/v2/css/profile.css">
+<link rel="stylesheet" href="/v2/css/component.css">
+<link rel="stylesheet" href="/v2/css/custom.css">
+
+    @endsection
 @section('content')
+
     <div class="wrap_container wrap_quytrinhnhanmuaho">
 
     <div class="container margin-top-40">

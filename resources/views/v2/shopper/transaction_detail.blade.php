@@ -1,7 +1,13 @@
 @extends('v2.template')
+@section('style')
+    <link rel="stylesheet" href="/v2/css/profile.css">
+    <link rel="stylesheet" href="/v2/css/component.css">
+    <link rel="stylesheet" href="/v2/css/custom.css">
 
+@endsection
 @section('content')
 
+    <div class="wrap_container wrap_quytrinhnhanmuaho">
 
     <div class="container white">
         <div class="row margin-top-40">
@@ -221,5 +227,17 @@
             </div>
         </div>
     </div>
+
+    </div>
 @endsection
+
+@section('frontend_script')
+    {{Html::script('assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js')}}
+    {{Html::script('assets/pages/scripts/portfolio-1.min.js')}}
+    {{Html::script('assets/pages/scripts/convert-image-to-base64.js')}}
+    {{Html::script("https://www.google.com/recaptcha/api.js")}}
+
+
+@endsection
+
 

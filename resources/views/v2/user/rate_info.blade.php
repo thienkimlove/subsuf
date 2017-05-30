@@ -1,5 +1,10 @@
 @extends('v2.template')
 
+@section('style')
+    <link rel="stylesheet" href="/v2/css/rateit.css">
+
+@endsection
+
 @section('content')
     <div class="wrap_container wrap_quytrinhnhanmuaho">
     <div class="container white">

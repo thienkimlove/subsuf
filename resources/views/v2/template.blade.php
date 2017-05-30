@@ -42,8 +42,13 @@
 
     <link rel="stylesheet" href="/v2/css/Multi-Step-Indicator.css">
 
-    <link rel="stylesheet" href="{{url('v2/css/old_style.css')}}">
-    <link rel="stylesheet" href="{{url('v2/css/stylesheet.css')}}">
+
+    <link rel="stylesheet" href="/v2/css/old_style.css">
+
+    @yield('style', '')
+    <link rel="stylesheet" href="/v2/css/stylesheet.css">
+
+
 
     <style>
         .datmuahang {
