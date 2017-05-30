@@ -10,6 +10,22 @@ function getDomain($url)
     return $parts['scheme'] . '://' . $parts['host'];
 }
 
+function get_currency_text($currency=Null)
+{
+    if(!empty($currency))
+    {
+        if($currency == 'usd')
+        {
+            return '$';
+        } else if ($currency == 'vnd')
+        {
+            return 'VNĐ';
+        }
+    }
+
+    return '$';
+}
+
 function get_service_percent($total = 0)
 {
     if ($total < 250) {
