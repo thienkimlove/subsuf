@@ -295,7 +295,7 @@ class ShopperController extends Controller
                 "exchange" => $this->exchange->change("USD", "VND"),
                 "transaction" => $transaction,
             ];
-            return view('frontend.shopper.transaction_detail', $response);
+            return view('v2.shopper.transaction_detail', $response);
 
             //return view('v2.shopper.transaction_detail', $response);
         }
