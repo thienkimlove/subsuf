@@ -296,7 +296,7 @@ class LoginController extends Controller
     {
         if (Session::has("userFrontend"))
             return Redirect::action("Frontend\IndexController@index");
-        return view('frontend.user.forgot_password', []);
+        return view('v2.user.forgot_password', []);
     }
 
     public function sendEmailForgotPassword()
