@@ -1,40 +1,15 @@
 @extends('v2.template')
 
-{{Html::style('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}
-{{Html::style('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}
-{{Html::style('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}
-{{Html::style('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}
-{{Html::style('assets/global/css/components.min.css')}}
-{{Html::style('assets/global/css/plugins.min.css')}}
-@yield('style','')
-{{Html::style('assets/layouts/layout3/css/layout.css')}}
-{{Html::style('assets/layouts/layout3/css/themes/default.min.css')}}
-{{Html::style('assets/layouts/layout3/css/custom.css')}}
-{{Html::favicon('/assets/subsuf_img/logo.png')}}
-<style>
-    .header-menu a {
-        color: #666 !important;
-        text-transform: none !important;
-        font-size: 18px;
-        font-weight: 500;
-    }
+@section('style')
 
-    .page-header .page-header-top .top-menu .navbar-nav > li.dropdown {
-        font-size: 18px;
-    }
-</style>
+    <link rel="stylesheet" href="/v2/css/profile.css">
+    <link rel="stylesheet" href="/v2/css/component.css">
+    <link rel="stylesheet" href="/v2/css/custom.css">
 
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/pages/css/profile.min.css">
-    <style>
-        .user-order-list .portlet-body {
-            max-height: 610px;
-            overflow: hidden;
-
-        }
-    </style>
-
-
+@endsection
 @section('content')
+
+    <div class="wrap_container wrap_quytrinhnhanmuaho">
 
     <div class="container margin-top-40">
         <div class="col-md-12">
@@ -195,20 +170,10 @@
             </div>
         </div>
     </div>
+
+    </div>
 @endsection
-{{Html::script('assets/global/plugins/respond.min.js')}}
-{{Html::script('assets/global/plugins/excanvas.min.js')}}
-{{Html::script('assets/global/plugins/jquery.min.js')}}
-{{Html::script('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}
-{{Html::script('assets/global/plugins/js.cookie.min.js')}}
-{{Html::script('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}
-{{Html::script('assets/global/plugins/jquery.blockui.min.js')}}
-{{Html::script('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}
-{{Html::script('assets/global/scripts/app.min.js')}}
-{{Html::script('assets/layouts/layout3/scripts/layout.js')}}
-{{Html::script('assets/layouts/layout3/scripts/demo.min.js')}}
-{{Html::script('assets/layouts/global/scripts/quick-sidebar.min.js')}}
-{{Html::script('assets/apps/scripts/cookie.js')}}
+
 @section('frontend_script')
     <script type="text/javascript">
         $(".btn-show-all").click(function () {
