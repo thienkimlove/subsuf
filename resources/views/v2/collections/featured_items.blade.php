@@ -1,115 +1,114 @@
-
 @extends('v2.template')
 
+@section('style')
+
+    <link rel="stylesheet" href="/v2/css/profile.css">
+    <link rel="stylesheet" href="/v2/css/component.css">
+    <link rel="stylesheet" href="/v2/css/custom.css">
+    <link rel="stylesheet" href="/v2/css/about.min.css">
+
+@endsection
 @section('content')
-<div class="wrap_container">
-    <div class="menuVertical_and_sliderBanner">
-        <div class="container">
-            <div class="menuVertical sidebar-nav">
-                <ul class="nav">
-                    @foreach ($categories as $category)
-                        @if($category->category_id == 7)
-                            @continue
-                        @endif
-                        <li>
-                            <a href="{{URL::current().'?category='. $category->category_id}}">
-                                <img class="icon" src="{{url($category->image)}}" height="41" width="33" alt="">
-                                <span>{{$category->name}}</span>
-                            </a>
-                        </li>
-                    @endforeach
+    <div class="page-wrapper-row full-height">
+        <div class="page-wrapper-middle">
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper"><!-- BEGIN HEADER TOP -->
+                    <!-- BEGIN CONTENT BODY -->
 
-                    {{--<li><a href="{{url('collections/featured-items')}}">Xem tất cả danh mục</a></li>--}}
-                </ul>
-            </div>
-            <div class="sliderBanner">
-                <div class="owl-carousel owl-theme owl-sliderBanner">
-                    @php
-                        $locale = \App::getLocale();
-                        $banners = \App\Banner::orderBy('order')->where('language', $locale)->get();
-                    @endphp
-                    @foreach($banners as $banner)
-                        <div class="item">
-                            <div class="image">
+                    <!-- BEGIN PAGE CONTENT BODY -->
+                    <div class="page-content">
 
-                                <img src="{{ $banner->image }}" alt="">
-
+                        <div class="shopper-banner" style="height: 150px !important; background-position: top">
+                            <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                                <div class="nav-justified" style="margin-top: 50px;" id="tabIndex">
+                                    <div class="tab-content">
+                                        <h2 class="first-slogan">
+                                            {{$title}}
+                                        </h2>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    @endforeach
-                    {{--<div class="item">--}}
-                        {{--<div class="image">--}}
+                        <div class="container" style="padding-top: 20px">
+                            <div class="row">
+                                <div class="col-md-12 text-center margin-bottom-20">
+                                    @foreach($category_item as $cat)
+                                        <span class="btn btn-circle  red @if(!in_array($cat->category_id, $arr_category))  btn-outline  @endif btn-hanghot">
+                                <a class=" @if(in_array($cat->category_id, $arr_category)) font-white @endif"
+                                   href="@if($query_category == '') {{URL::current(). '?category=' . $cat->category_id}}
+                                   @elseif(!in_array($cat->category_id, $arr_category))
+                                   {{URL::current(). '?category=' . $query_category. ',' . $cat->category_id}}
+                                   @endif">
+                                    <span class="@if(in_array($cat->category_id, $arr_category)) bold @endif">
+                                        {{$categories[$cat->category_id]['name']}}
+                                    </span>
+                                </a>
+                                            @if(in_array($cat->category_id, $arr_category))
+                                                <?php
+                                                $new_query = str_replace("$cat->category_id", "", $query_category);
+                                                $new_query = str_replace(",,", ",", $new_query)
+                                                ?>
+                                                <a class="font-white"
+                                                   href="{{URL::current(). '?category=' . trim($new_query, ",")}}">
+                                        <i class="fa fa-close"></i>
+                                    </a>
+                                            @endif
+                        </span>
+                                    @endforeach
+                                </div>
+                            </div>
 
-                            {{--<img src="{{url('v2/images/banner1.jpg')}}" alt="">--}}
+                            <?php $i = 0 ?>
+                            @foreach($items as $key => $item)
+                                @if(!empty($arr_category) && !in_array($item['category_id'], $arr_category))
+                                    @continue
+                                @endif
+                                @if($i%4==0)
+                                    <div class="row search-content-3">
+                                        @endif
+                                        <div class="col-md-3">
+                                            <div class="tile-container  item-box">
+                                                <div class="tile-thumbnail">
+                                                    <a href="{{URL::action("Frontend\ItemController@item",$item["item_id"])}}">
+                                                        <img src="{{$item['image']}}"/>
+                                                    </a>
+                                                </div>
+                                                <div class="tile-title">
+                                                    <h3>
+                                                        <a href="{{URL::action("Frontend\ItemController@item",$item["item_id"])}}">
+                                                            {{$item['name']}}
+                                                        </a>
+                                                    </h3>
 
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="item">--}}
-                        {{--<div class="image">--}}
-
-                            {{--<img src="{{url('v2/images/banner3.jpg')}}" alt="">--}}
-
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="item">--}}
-                        {{--<div class="image">--}}
-
-                            {{--<img src="{{url('v2/images/banner2.jpg')}}" alt="">--}}
-
-                        {{--</div>--}}
-                    {{--</div>--}}
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="wrap_blog_home">
-        <div class="container">
-            <h2 class="title_block">
-
-                    {{$title}}
-
-            </h2>
-            <div class="list_products row">
-                @foreach($items as $key => $item)
-                    @if(!empty($arr_category) && !in_array($item['category_id'], $arr_category))
-                        @continue
-                    @endif
-                <div class="col-xs-12 col-sm-6 col-md-4" style="height: 496px">
-                    <div class="item_pr item">
-                        <div class="image_title">
-                            <a class="image" href="{{URL::action("Frontend\ItemController@item",$item["item_id"])}}">
-
-                                <div style="height: 288px; width: 360px; background-repeat: no-repeat; background-size: cover; background-position: center; background-image: url('{{$item['image']}}')"></div>
-
-
-                            </a>
-
-                        </div>
-                        <div class="summary">
-                            <h3 class="title">
-                                {{\Illuminate\Support\Str::words($item['name'], 8)}}
-                            </h3>
-                            <p class="site">{{get_host($item['link'])}}</p>
-                            @if($item->is_sale)
-
-                            <div><span class="main-price">${{number_format($item['price_sale'])}}</span> &nbsp;  @if($item->is_sale)<span class="old-price">${{number_format($item['price'])}}</span>@endif </div>
-
-                            @else
-                                <div><span class="main-price">${{number_format($item['price'])}}</span>
-                            @endif
+                                                    <div class="tile-desc">
+                                                        <p> {{get_host($item['link'])}}</p>
+                                                        <p>
+                                        <span @if($item->is_sale) style="text-decoration: line-through"
+                                              @else class="font-green bold" @endif> ${{number_format($item['price'])}}</span>
+                                                            @if($item->is_sale)
+                                                                <span class="font-red bold">${{number_format($item['price_sale'])}}</span>
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if($i%4==3 || $key == count($item->items) - 1)
+                                    </div>
+                                @endif
+                                <?php $i++; ?>
+                            @endforeach
                         </div>
                     </div>
                 </div>
-                    @endforeach
             </div>
         </div>
     </div>
+@endsection
 
-
-
-</div>
+@section('frontend_script')
+    {{Html::script('assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js')}}
+    {{Html::script('assets/pages/scripts/portfolio-1.min.js')}}
 @endsection

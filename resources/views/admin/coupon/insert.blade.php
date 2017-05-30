@@ -94,7 +94,8 @@
                                         <span id="primary_message"></span>
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
-                                    <input required type="number" name="primary_percent" id="primary_percent" class="form-control">
+                                    <input required type="number" name="primary_percent" id="primary_percent"
+                                           class="form-control">
                                 </div>
 
                                 <div id="secondary_percent_div" style="display:none" class="form-group form-group-sm">
@@ -102,7 +103,8 @@
                                         <span id="secondary_message"></span>
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
-                                    <input required type="number" name="secondary_percent" id="secondary_percent" class="form-control">
+                                    <input required type="number" name="secondary_percent" id="secondary_percent"
+                                           class="form-control">
                                 </div>
 
                             </div>
@@ -115,6 +117,21 @@
                                         <span class="required" aria-required="true"> * </span>
                                     </label>
                                     <input required type="number" name="total" id="money" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        Đơn vị tiền
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <select name="currency" id="currency" class="form-control input-sm">
+
+                                        <option value="usd">USD</option>
+                                        <option value="vnd">VNĐ</option>
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -198,7 +215,7 @@
 
             $('#money_message').text('Giảm một số tiền');
 
-            $('#coupon_type').on('change', function(){
+            $('#coupon_type').on('change', function () {
                 var coupon_type = $(this).find("option:selected").val().toString();
                 couponByType(coupon_type);
                 return false;
