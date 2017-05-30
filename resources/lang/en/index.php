@@ -2,6 +2,7 @@
 
 return [
 
+    'madonhang' => 'Order code',
     'muagiodau' => 'Where to buy',
     'dathang' => 'Post an order',
     'dathang2' => 'Order item',

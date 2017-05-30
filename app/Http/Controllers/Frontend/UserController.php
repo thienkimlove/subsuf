@@ -538,7 +538,9 @@ class UserController extends Controller
             'rate' => $rate,
             'user' => $user,
         ];
-        return view('frontend.user.rate', $response);
+      //  return view('frontend.user.rate', $response);
+
+        return view('v2.user.rate', $response);
     }
 
     public function userRateUpdate($transaction_id)

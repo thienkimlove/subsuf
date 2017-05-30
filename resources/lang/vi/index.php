@@ -2,7 +2,7 @@
 
 return [
 
-
+    'madonhang' => 'Mã đơn hàng',
     'muagiodau' => 'Mua gì ở đâu',
     'dathang' => 'Đặt hàng',
     'dathang2' => 'Đặt hàng',

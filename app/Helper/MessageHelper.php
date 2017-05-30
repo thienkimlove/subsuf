@@ -109,9 +109,9 @@ class MessageHelper
     public static function payment_success($locale = 'vi')
     {
         if ($locale == 'vi') {
-            return "{{payment_success}}{{order_name}} đã được thanh toán. {{traveler}} sẽ liên hệ với bạn trước khi giao hàng";
+            return "{{payment_success}}{{order_name}}, mã đơn: {{code}} đã được thanh toán. {{traveler}} sẽ liên hệ với bạn trước khi giao hàng";
         } else {
-            return "{{payment_success}}{{order_name}} successfully paid. {{traveler}} will contact you before delivering the item(s)";
+            return "{{payment_success}}{{order_name}}, order code: {{code}} successfully paid. {{traveler}} will contact you before delivering the item(s)";
         }
     }
 

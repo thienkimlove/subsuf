@@ -57,7 +57,7 @@
                                         <b> {{trim($notification->from_user->first_name . " " . $notification->from_user->last_name)}}</b>
                                         {{$notification["content_" . App::getLocale()]}}
                                         @if($notification->order)
-                                        <b> {{$notification->order->name}}</b>
+                                        <b> {{$notification->order->name}}, {{ trans('index.madonhang') }}: {{ $notification->order->code }}</b>
                                             @endif
                                         </a>
                                     </p>

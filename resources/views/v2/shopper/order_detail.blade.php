@@ -50,6 +50,10 @@
                             <table class="table">
                                 <tbody>
                                 <tr>
+                                    <td>{{trans("index.madonhang")}}:</td>
+                                    <td><span>{{ $order->code }}</span></td>
+                                </tr>
+                                <tr>
                                     @if($order->quantity>1)
                                         <td> {!! trans("index.giachonsanpham",["number"=>$order->quantity])!!}</td>
                                     @else
