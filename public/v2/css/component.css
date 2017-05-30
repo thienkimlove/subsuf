@@ -3607,8 +3607,8 @@ li [class*=" fa-"].icon-large, li [class*=" glyphicon-"].icon-large, li [class*=
 
 .btn.red:not(.btn-outline) {
     color: #fff;
-    background-color: #e7505a;
-    border-color: #e7505a
+    background-color: #b5a161;
+    border-color: #b5a161
 }
 
 .btn.red:not(.btn-outline).focus, .btn.red:not(.btn-outline):focus {
@@ -3634,29 +3634,34 @@ li [class*=" fa-"].icon-large, li [class*=" glyphicon-"].icon-large, li [class*=
 }
 
 .btn.red:not(.btn-outline).disabled.focus, .btn.red:not(.btn-outline).disabled:focus, .btn.red:not(.btn-outline).disabled:hover, .btn.red:not(.btn-outline)[disabled].focus, .btn.red:not(.btn-outline)[disabled]:focus, .btn.red:not(.btn-outline)[disabled]:hover, fieldset[disabled] .btn.red:not(.btn-outline).focus, fieldset[disabled] .btn.red:not(.btn-outline):focus, fieldset[disabled] .btn.red:not(.btn-outline):hover {
-    background-color: #e7505a;
-    border-color: #e7505a
+    background-color: #b5a161;
+    border-color: #b5a161
 }
 
 .btn.red:not(.btn-outline) .badge {
-    color: #e7505a;
+    color: #b5a161;
     background-color: #fff
 }
 
 .btn.btn-outline.red {
-    border-color: #e7505a;
-    color: #e7505a;
+    border-color: #b5a161;
+    color: #b5a161;
     background: 0 0
 }
 
+.btn.btn-outline.red:hover a{
+    color: #FFF;
+    text-decoration: none;
+}
+
 .btn.btn-outline.red.active, .btn.btn-outline.red:active, .btn.btn-outline.red:active:focus, .btn.btn-outline.red:active:hover, .btn.btn-outline.red:focus, .btn.btn-outline.red:hover {
-    border-color: #e7505a;
+    border-color: #b5a161;
     color: #fff;
-    background-color: #e7505a
+    background-color: #b5a161
 }
 
 .btn.red-stripe {
-    border-left: 4px solid #e7505a !important
+    border-left: 4px solid #b5a161 !important
 }
 
 .btn.red.btn-no-border:not(.active) {
@@ -6613,7 +6618,7 @@ td > .mt-checkbox.mt-checkbox-single, td > .mt-radio.mt-radio-single, th > .mt-c
 }
 
 .form-control.red {
-    border-color: #e7505a
+    border-color: #b5a161
 }
 
 .form-control.red:focus {
@@ -6621,7 +6626,7 @@ td > .mt-checkbox.mt-checkbox-single, td > .mt-radio.mt-radio-single, th > .mt-c
 }
 
 .form-control.focus-red:focus {
-    border-color: #e7505a
+    border-color: #b5a161
 }
 
 .form-control.red-pink {
@@ -10520,7 +10525,7 @@ body[ng-controller] .modal {
 }
 
 .portlet.box.red > .portlet-title, .portlet.red, .portlet > .portlet-body.red {
-    background-color: #e7505a
+    background-color: #b5a161
 }
 
 .portlet.box.grey-mint > .portlet-title > .actions .btn-default > i {
@@ -12353,7 +12358,7 @@ body[ng-controller] .modal {
 }
 
 .progress-bar.red {
-    background: #e7505a !important;
+    background: #b5a161 !important;
     color: #fff !important
 }
 
@@ -13506,7 +13511,7 @@ body[ng-controller] .modal {
 }
 
 .dashboard-stat.red {
-    background-color: #e7505a
+    background-color: #b5a161
 }
 
 .dashboard-stat.red.dashboard-stat-light:hover {
@@ -18183,11 +18188,11 @@ body[ng-controller] .modal {
 }
 
 .mt-element-step .step-default .error {
-    background-color: #E7505A !important
+    background-color: #b5a161 !important
 }
 
 .mt-element-step .step-default .error .mt-step-number {
-    color: #E7505A !important
+    color: #b5a161 !important
 }
 
 .mt-element-step .step-default .error .mt-step-content, .mt-element-step .step-default .error .mt-step-title {
@@ -18244,11 +18249,11 @@ body[ng-controller] .modal {
 }
 
 .mt-element-step .step-thin .error {
-    background-color: #E7505A !important
+    background-color: #b5a161 !important
 }
 
 .mt-element-step .step-thin .error .mt-step-number {
-    color: #E7505A !important
+    color: #b5a161 !important
 }
 
 .mt-element-step .step-thin .error .mt-step-content, .mt-element-step .step-thin .error .mt-step-title {
@@ -18309,7 +18314,7 @@ body[ng-controller] .modal {
 }
 
 .mt-element-step .step-background .error {
-    background-color: #E7505A !important
+    background-color: #b5a161 !important
 }
 
 .mt-element-step .step-background .error .mt-step-number {
@@ -18377,7 +18382,7 @@ body[ng-controller] .modal {
 }
 
 .mt-element-step .step-background-thin .error {
-    background-color: #E7505A !important
+    background-color: #b5a161 !important
 }
 
 .mt-element-step .step-background-thin .error .mt-step-number {
@@ -18431,13 +18436,13 @@ body[ng-controller] .modal {
 }
 
 .mt-element-step .step-no-background .error .mt-step-number {
-    color: #E7505A !important;
-    border-color: #E7505A !important;
+    color: #b5a161 !important;
+    border-color: #b5a161 !important;
     font-weight: 700
 }
 
 .mt-element-step .step-no-background .error .mt-step-content, .mt-element-step .step-no-background .error .mt-step-title {
-    color: #E7505A !important;
+    color: #b5a161 !important;
     font-weight: 700
 }
 
@@ -18490,13 +18495,13 @@ body[ng-controller] .modal {
 }
 
 .mt-element-step .step-no-background-thin .error .mt-step-number {
-    color: #E7505A !important;
-    border-color: #E7505A !important;
+    color: #b5a161 !important;
+    border-color: #b5a161 !important;
     font-weight: 700
 }
 
 .mt-element-step .step-no-background-thin .error .mt-step-content, .mt-element-step .step-no-background-thin .error .mt-step-title {
-    color: #E7505A !important;
+    color: #b5a161 !important;
     font-weight: 700
 }
 
@@ -18581,16 +18586,16 @@ body[ng-controller] .modal {
 }
 
 .mt-element-step .step-line .error .mt-step-number {
-    color: #E7505A !important;
-    border-color: #E7505A !important
+    color: #b5a161 !important;
+    border-color: #b5a161 !important
 }
 
 .mt-element-step .step-line .error .mt-step-content, .mt-element-step .step-line .error .mt-step-title {
-    color: #E7505A !important
+    color: #b5a161 !important
 }
 
 .mt-element-step .step-line .error .mt-step-title:after, .mt-element-step .step-line .error .mt-step-title:before {
-    background-color: #E7505A
+    background-color: #b5a161
 }
 
 @media (max-width: 991px) {
@@ -20754,7 +20759,7 @@ body[ng-controller] .modal {
 }
 
 .mt-element-list .list-default.mt-list-head.red {
-    background-color: #e7505a;
+    background-color: #b5a161;
     color: #fff
 }
 
@@ -20772,7 +20777,7 @@ body[ng-controller] .modal {
 }
 
 .mt-element-list .list-todo .list-count.red, .mt-element-list .list-todo.mt-list-head.red {
-    background-color: #e7505a;
+    background-color: #b5a161;
     color: #fff
 }
 
@@ -20781,20 +20786,20 @@ body[ng-controller] .modal {
 }
 
 .mt-element-list .list-todo .list-todo-line.red {
-    border-color: #e7505a
+    border-color: #b5a161
 }
 
 .mt-element-list .list-todo .list-todo-item.red:after {
-    border-right-color: #e7505a !important
+    border-right-color: #b5a161 !important
 }
 
 .mt-element-list .list-todo .list-todo-item.red .list-toggle {
-    background: #e7505a;
+    background: #b5a161;
     color: #fff !important
 }
 
 .mt-element-list .list-todo .list-todo-item.red .list-toggle > .badge {
-    color: #e7505a;
+    color: #b5a161;
     background: #fff
 }
 
@@ -22225,11 +22230,11 @@ body[ng-controller] .modal {
 }
 
 .mt-element-list .list-todo-item.red:after {
-    border-right-color: #e7505a
+    border-right-color: #b5a161
 }
 
 .mt-element-list .list-todo-item.red .list-toggle {
-    background: #e7505a
+    background: #b5a161
 }
 
 .mt-element-list .list-todo-item.red-pink:after {
@@ -24783,27 +24788,27 @@ body[ng-controller] .modal {
 }
 
 .border-after-red:after, .border-before-red:before, .border-red {
-    border-color: #e7505a !important
+    border-color: #b5a161 !important
 }
 
 .border-top-after-red:after, .border-top-before-red:before, .border-top-red {
-    border-top-color: #e7505a !important
+    border-top-color: #b5a161 !important
 }
 
 .border-bottom-after-red:after, .border-bottom-before-red:before, .border-bottom-red {
-    border-bottom-color: #e7505a !important
+    border-bottom-color: #b5a161 !important
 }
 
 .border-left-after-red:after, .border-left-before-red:before, .border-left-red {
-    border-left-color: #e7505a !important
+    border-left-color: #b5a161 !important
 }
 
 .border-right-after-red:after, .border-right-before-red:before, .border-right-red {
-    border-right-color: #e7505a !important
+    border-right-color: #b5a161 !important
 }
 
 .bg-red {
-    background: #e7505a !important
+    background: #b5a161 !important
 }
 
 .bg-red-opacity {
@@ -24811,11 +24816,11 @@ body[ng-controller] .modal {
 }
 
 .bg-after-red:after, .bg-before-red:before, .bg-hover-red:hover {
-    background: #e7505a !important
+    background: #b5a161 !important
 }
 
 .font-red {
-    color: #e7505a !important
+    color: #b5a161 !important
 }
 
 .bg-font-red {

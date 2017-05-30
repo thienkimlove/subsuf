@@ -1249,3 +1249,11 @@ h2.invoice-title{
 }
 .btn-block{border: 1px solid #b5a161; color: #b5a161}
 .order-thumbnail img{width: 200px}
+.wrap_container{
+  background: #f3f7fa;
+}
+.tile-thumbnail a img{max-width: 100%}
+ul.dropdown-menu li{
+  width: 300px;
+  padding: 5px 10px;
+}

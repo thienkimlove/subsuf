@@ -94,8 +94,13 @@
                                 {{\Illuminate\Support\Str::words($item['name'], 8)}}
                             </h3>
                             <p class="site">{{get_host($item['link'])}}</p>
+                            @if($item->is_sale)
 
-                            <div><span class="main-price">${{number_format($item['price'])}}</span> &nbsp;  @if($item->is_sale)<span class="old-price">${{number_format($item['price_sale'])}}</span>@endif </div>
+                            <div><span class="main-price">${{number_format($item['price_sale'])}}</span> &nbsp;  @if($item->is_sale)<span class="old-price">${{number_format($item['price'])}}</span>@endif </div>
+
+                            @else
+                                <div><span class="main-price">${{number_format($item['price'])}}</span>
+                            @endif
                         </div>
                     </div>
                 </div>

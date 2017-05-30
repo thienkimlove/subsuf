@@ -1,6 +1,6 @@
 /* here you can put your own css to customize and override the theme */
 a {
-    color: #e7505a;
+    color: #b5a161;
 }
 
 .tabbable-custom > .tab-content {
@@ -17,7 +17,7 @@ a {
 }
 
 .tabbable-custom > .nav-tabs > li > a {
-    background: #e7505a;
+    background: #b5a161;
     font-size: 25px;
     padding: 8px 15px;
     color: #fff;
@@ -37,11 +37,11 @@ a {
 }
 
 .header-menu a:hover {
-    color: #e7505a !important;
+    color: #b5a161 !important;
 }
 
 .header-menu a i {
-    color: #e7505a !important;
+    color: #b5a161 !important;
 }
 
 .page-logo {
@@ -80,7 +80,7 @@ a {
 .order-container > .order-thumbnail > .order-user > span {
     line-height: 40px;
     font-weight: 600;
-    color: #e7505a;
+    color: #b5a161;
 }
 
 .order-container > .order-title {
@@ -121,7 +121,7 @@ a {
 
 #tabIndex.tabbable-custom > .nav-tabs > li.active {
     margin-top: 1px !important;
-    border-top: 4px solid #e7505a;
+    border-top: 4px solid #b5a161;
 }
 
 #tabIndex.tabbable-custom > .nav-tabs > li.active a {
@@ -151,7 +151,7 @@ a {
 }
 
 .top-menu .nav > li > a:focus, .nav > li > a:hover {
-    color: #e7505a;
+    color: #b5a161;
 
 }
 
@@ -210,7 +210,7 @@ a {
 }
 
 .images-input {
-    border: 1px dashed #e7505a;
+    border: 1px dashed #b5a161;
     float: left;
     overflow: hidden;
     position: relative;
@@ -365,11 +365,11 @@ a {
     color: #666;
 }
 .order-full .order-content h3 a:hover{
-    color: #e7505a;
+    color: #b5a161;
     text-decoration: none;
 }
 .order-full a:hover{
-    color: #e7505a;
+    color: #b5a161;
 }
 .order-delive{
     padding: 10px 0;
@@ -385,7 +385,7 @@ a {
     margin-right: 10px;
 }
 .order-delive .order-location{
-    color: #e7505a;
+    color: #b5a161;
 }
 .order-off{
     color:#999;
@@ -432,6 +432,15 @@ a {
 {
     height: 42px;
     overflow: hidden;
+    font-size: 20px;
+}
+.search-content-3 .tile-container.item-box > .tile-title > h3 a{
+    color: #b5a161;
+}
+.search-content-3 .tile-container.item-box > .tile-title > h3 a:hover
+{
+    text-decoration: none;
+    color: #000;
 }
 #checkList .btn:hover a{
     color: #fff;
@@ -738,12 +747,12 @@ a {
     -moz-border-radius:50% !important;
     border-radius:50% !important;
     border: none;
-    color: #e7505a;
+    color: #b5a161;
 }
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
-    background-color: #e7505a;
+    background-color: #b5a161;
 }
 .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover{
-    background-color: #e7505a;
+    background-color: #b5a161;
     color: #fff;
 }
