@@ -118,7 +118,7 @@
                                     <i class="fa fa-usd font-red"></i>
                                     <input type="number" name="input-reward" class="form-control input-reward"
                                            step="any" min="5"
-                                           placeholder="" value="{{$reward[0]}}" required></div>
+                                           placeholder="" required></div>
                             </div>
                             <div class="form-actions">
                                 <div class="row">

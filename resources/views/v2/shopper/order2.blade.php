@@ -38,18 +38,28 @@
                                 <label for="tienCong">{{trans("index.nhaptienchonguoimuaho")}} <br><small>{{trans("index.tiencongbaogomthueneuco")}}</small></label>
                                 <div class="wrap_tiencong text-right" data-toggle="buttons">
                                     <span class="pull-left">{{trans("index.goiytiencong")}}</span>
-                                    <label class="btn btn-default">
-                                        <input type="radio" checked="checked" name="input-reward" value="{{$reward[0]}}">
+                                    <label class="btn btn-default reward" data-reward="{{$reward[0]}}">
+                                        <input  type="radio" checked="checked"  value="{{$reward[0]}}">
                                         ${{$reward[0]}}
                                     </label>
-                                    <label class="btn btn-default">     <input type="radio" name="input-reward" value="{{$reward[1]}}">
+                                    <label class="btn btn-default reward" data-reward="{{$reward[1]}}">     <input class="reward"  type="radio" value="{{$reward[1]}}">
                                         ${{$reward[1]}}
                                     </label>
-                                    <label class="btn btn-default">
-                                        <input type="radio" name="input-reward" value="{{$reward[2]}}">
+                                    <label class="btn btn-default reward" data-reward="{{$reward[2]}}" >
+                                        <input class="reward" type="radio"  name="input-reward" value="{{$reward[2]}}">
                                         ${{$reward[2]}}
                                     </label>
                                 </div>
+                                <br>
+
+                                <div class="input-group">
+                                     <span class="input-group-addon">
+                                    <i class="fa fa-usd"></i>
+                                     </span>
+                                <input type="text" class="form-control input-reward" id="tiencongphuhop"
+                                       placeholder="{{trans("index.hoactunhaptiencong")}}"
+                                       name="input-reward"
+                                       required></div>
                             </div>
                             <div class="form-actions">
                                 <div class="row">
@@ -125,6 +135,13 @@
             autoclose: true
         });
         $('.datepicker').datepicker('setStartDate', new Date());
+
+        $(document).ready(function() {
+            $(".reward").click(function () {
+                $(".input-reward").val($(this).data("reward"));
+            });
+        });
+
 
     </script>
 @endsection
