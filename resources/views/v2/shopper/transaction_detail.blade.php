@@ -49,6 +49,15 @@
 
                                 <div class="form-group" id="orderDetail">
                                     <div class="col-xs-12">
+                                        <h2 class="invoice-title uppercase">{{trans("index.madonhang")}}
+                                            <span class="content-right font-red">
+                                                <p>
+                                                    ${{$order->code}}
+                                                </p>
+                                            </span>
+                                        </h2>
+                                    </div>
+                                    <div class="col-xs-12">
                                         <h2 class="invoice-title uppercase">
                                             <span class="content-right font-red">
                                             <p>
