@@ -14,14 +14,16 @@
                     <p>{{trans("index.traveler_slogan2")}}</p>
                     {{Form::open(['action' => 'Frontend\TravelerController@find', 'method' => 'GET', 'class' => 'form_select'])}}
 
-                    <select class="selectpicker select" data-live-search="true" name="deliver_from" >
-                        @foreach($country as $key => $value)
-                            <option value="{{ $key }}">{{ $value }}</option>
+                    @php $from = request()->input('deliver_from'); $to =request()->input('deliver_to'); @endphp
+                    <select class="selectpicker select select2" data-live-search="true" name="deliver_from">
+                        @foreach($country as $key1 => $value1)
+                            <option @if($from == $key1) selected @endif value="{{ $key1 }}">{{ $value1 }}</option>
                         @endforeach
                     </select>
-                    <select class="selectpicker select select2" data-live-search="true" name="deliver_to">
-                        @foreach($province as $key1 => $value1)
-                            <option value="{{ $key1 }}">{{ $value1 }}</option>
+
+                    <select class="selectpicker select" data-live-search="true" name="deliver_to" >
+                        @foreach($province as $key => $value)
+                            <option @if($to == $key) selected @endif value="{{ $key }}">{{ $value }}</option>
                         @endforeach
                     </select>
 

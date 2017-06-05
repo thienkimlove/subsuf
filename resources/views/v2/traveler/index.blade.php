@@ -16,7 +16,7 @@
                 @php $from = request()->input('deliver_from'); $to =request()->input('deliver_to'); @endphp
                 <select class="selectpicker select select2" data-live-search="true" name="deliver_from">
                     @foreach($country as $key1 => $value1)
-                        <option @if($form == $key1) selected @endif value="{{ $key1 }}">{{ $value1 }}</option>
+                        <option @if($from == $key1) selected @endif value="{{ $key1 }}">{{ $value1 }}</option>
                     @endforeach
                 </select>
 
