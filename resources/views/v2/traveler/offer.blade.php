@@ -5,6 +5,7 @@
 
 
 @section('style')
+
     {{Html::style('assets/pages/css/about.min.css')}}
     {{Html::style('assets/pages/css/blog.min.css')}}
     {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
@@ -271,6 +272,8 @@
     {{Html::script('assets/global/plugins/ladda/ladda.min.js')}}
     {{Html::script('assets/pages/scripts/validator.min.js')}}
 
+    {{Html::script('assets/global/scripts/app.min.js')}}
+
 
     <script type="text/javascript">
         function checkVerifyEmail() {
@@ -315,6 +318,7 @@
         });
         $('.datepicker').datepicker('setStartDate', new Date());
         $(".icheck").on('ifChecked', function (event) {
+
             var inputText = $(this).parents(".form-group").find("input[type=number]");
             $(inputText).prop("disabled", false);
             updateTotal();
