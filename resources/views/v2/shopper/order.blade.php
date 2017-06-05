@@ -30,6 +30,7 @@
                         @include("frontend.message")
                         {!! Form::open(['action' => 'Frontend\ShopperController@order2', 'method' => 'POST','id'=>'addPlanDetail', 'files' => true,"data-toggle"=>"validator"]) !!}
                         <div class="form-group">
+                            <label for="url">{{trans("index.nhaplinksp")}}</label>
                             <div class="input-group">
                                 <input type="text" name="url" class="form-control" id="url"
                                        placeholder="{{trans('index.nhaplinksp')}}"
