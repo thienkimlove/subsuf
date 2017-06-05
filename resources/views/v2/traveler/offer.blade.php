@@ -4,7 +4,17 @@
 @extends('v2.template')
 
 
+@section('style')
+    {{Html::style('assets/pages/css/about.min.css')}}
+    {{Html::style('assets/pages/css/blog.min.css')}}
+    {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
+    {{Html::style('assets/pages/css/portfolio.min.css')}}
+    {{Html::style('assets/pages/css/search.min.css')}}
+    {{Html::style('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}
+    {{Html::style('assets/global/plugins/icheck/skins/all.css')}}
+    {{Html::style('assets/global/plugins/ladda/ladda-themeless.min.css')}}
 
+@endsection
 @section('content')
     @if(!Session::get("userFrontend")["phone_number"]||!Session::get("userFrontend")["email"])
 
