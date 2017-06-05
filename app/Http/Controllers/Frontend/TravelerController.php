@@ -63,10 +63,18 @@ class TravelerController extends Controller
     {
         $order = Order::where("order_status", 1)->orderBy("request_time", "DESC");
         if ($this->request->has("deliver_to")) {
-            $order->where("deliver_to", (int)$this->request->input("deliver_to"));
+            if($this->request->input("deliver_to") != 9) {
+
+                $order->where("deliver_to", (int)$this->request->input("deliver_to"));
+            }
         }
         if ($this->request->has("deliver_from")) {
-            $order->where("deliver_from", (int)$this->request->input("deliver_from"));
+
+            if($this->request->input("deliver_from") != 9) {
+
+                $order->where("deliver_from", (int)$this->request->input("deliver_from"));
+
+            }
         }
         $country = $this->location->getAll();
         $countrySelect = [];
