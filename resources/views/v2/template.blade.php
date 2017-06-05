@@ -54,6 +54,19 @@
         .datmuahang {
             z-index: 99999 !important;
         }
+
+        body > div.wrap_container > div:nth-child(4) > div > div.slider_product > div
+        {
+            z-index: 0 !important;
+        }
+
+        body > div.wrap_container > div.wrap_produc_home.color_bg_sub > div > div.slider_product > div {
+            z-index: 0 !important;
+        }
+        body > div.wrap_container > div.wrap_exhibition_home > div > div > div {
+            z-index: 0 !important;
+        }
+
     </style>
 
 </head>
