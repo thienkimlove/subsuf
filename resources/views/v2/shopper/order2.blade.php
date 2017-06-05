@@ -22,11 +22,11 @@
                             <div class="row">
                                 <div class="form-group col-xs-12 col-sm-6">
                                     <label for="diemXuanPhat">{{trans("index.tu")}}</label>
-                                    {{Form::select("deliver_from",$province,($order2["deliver_from"])?$order2["deliver_from"]:"",["class"=>"form-control select2"])}}
+                                    {{Form::select("deliver_from",$country,($order2["deliver_from"])?$order2["deliver_from"]:"",["class"=>"form-control select2"])}}
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-6">
                                     <label for="diemDen">{{trans("index.den")}}</label>
-                                    {{Form::select("deliver_to",$country,($order2["deliver_to"])?$order2["deliver_to"]:"",["id"=>"deliverTo","class"=>"form-control select21","required"=>"required"])}}
+                                    {{Form::select("deliver_to",$province,($order2["deliver_to"])?$order2["deliver_to"]:"",["id"=>"deliverTo","class"=>"form-control select21","required"=>"required"])}}
                                 </div>
                             </div>
 

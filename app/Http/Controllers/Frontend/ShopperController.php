@@ -203,17 +203,20 @@ class ShopperController extends Controller
         $response["reward"] = [$reward1, $reward2, $reward3];
         $response["order2"] = $order2;
         $response["order"] = $order;
-        $location = $this->location->getAll();
-        $countrySelect = [null => "Điểm xuất phát"];
-        $provinceSelect = [null => "Điểm đến"];
-        foreach ($location as $item) {
+        $country = $this->location->getAll();
+        $countrySelect = [];
+
+        $countrySelect[null] = trans('index.diemxuatphat_select');
+        $proviceSelect = [];
+        $proviceSelect[null] =  trans('index.diemden_select');
+        foreach ($country as $item) {
             if ($item->type == 1)
-                $countrySelect[$item->location_id] = $item->name;
+                $proviceSelect[$item->location_id] = $item->name;
             else
-                $provinceSelect[$item->location_id] = $item->name;
+                $countrySelect[$item->location_id] = $item->name;
         }
         $response["country"] = $countrySelect;
-        $response["province"] = $provinceSelect;
+        $response["province"] = $proviceSelect;
 
         //return view('frontend.shopper.order2', $response);
 
