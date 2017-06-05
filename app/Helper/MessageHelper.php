@@ -17,18 +17,7 @@ class MessageHelper
 
     public static function send_sms_vt($to_phone, $message, $locale = 'vi')
     {
-        $opts = array(
-            'http'=>array(
-                'user_agent' => 'PHPSoapClient'
-            )
-        );
-
-        $context = stream_context_create($opts);
-        $client = new \SoapClient('203.190.170.42:8998?wsdl',
-            array('stream_context' => $context,
-                'cache_wsdl' => WSDL_CACHE_NONE));
-
-
+        $client = new \SoapClient('http://203.190.170.41:8998/wscpmt?wsdl');
         $response = $client->__soapCall('wsCpMt', []);
 
         dd($response);
