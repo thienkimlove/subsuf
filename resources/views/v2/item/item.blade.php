@@ -13,6 +13,12 @@
                         <div class="wrap_product">
                             <div class="slider_image">
                                 <div class="owl-carousel owl-theme owl-slider_image_chitietdonhang">
+                                    <div class="item">
+
+                                        <a href="#">
+                                            <img src="{{$item->image}}" alt="">
+                                        </a>
+                                    </div>
                                     @foreach($item->item_images as $image)
                                         <div class="item">
 
@@ -71,6 +77,7 @@
                                 <button type="submit"
                                         class="btn_style">{{trans("index.dathang2")}}</button>
                             </div>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

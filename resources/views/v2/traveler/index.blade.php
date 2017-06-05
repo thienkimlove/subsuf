@@ -106,7 +106,7 @@
                 <div class="row">
                     @foreach($orderList as $order)
                     <div class="item col-xs-12 col-sm-6 col-md-4">
-                        <div class="box_exhibition" style="height: 544px">
+                        <div class="box_exhibition" style="height: 570px">
                             <a href="{{URL::action("Frontend\ShopperController@orderDetail",$order->order_id)}}">
                             <div class="image_exhibition" style="height: 240px; width: 360px; background-repeat: no-repeat; background-size: cover; background-position: center; @if(count($order->order_images))background-image: url('{{URL::to($order->order_images[0]->image)}}' @endif)">
                                 {{--<a href="{{URL::action("Frontend\ShopperController@orderDetail",$order->order_id)}}">--}}
