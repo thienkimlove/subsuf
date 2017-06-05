@@ -32,6 +32,6 @@ class Inspire extends Command
     {
         //$this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
 
-        dump(MessageHelper::send_sms('01679263615', 'Test nha'));
+        dump(MessageHelper::send_sms_vt('01679263615', 'Test nha'));
     }
 }

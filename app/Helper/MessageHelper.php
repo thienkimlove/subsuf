@@ -15,6 +15,18 @@ class MessageHelper
         }
     }
 
+    public static function send_sms_vt($to_phone, $message, $locale = 'vi')
+    {
+        $client = new \SoapClient('203.190.170.41:8998');
+
+        $response = $client->__soapCall('wsCpMt', []);
+
+        dd($response);
+
+
+
+    }
+
     public static function send_sms($to_phone, $message, $locale = 'vi')
     {
         $url = 'http://rest.esms.vn/MainService.svc/json/SendMultipleMessage_V4_get';
