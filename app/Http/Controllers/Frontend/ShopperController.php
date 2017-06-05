@@ -780,7 +780,7 @@ class ShopperController extends Controller
         $response["province"] = $proviceSelect;
         $response["exchangeArr"] = Exchange::all();
 
-        return view('frontend.shopper.edit_order', $response);
+        return view('v2.shopper.edit_order', $response);
 
     }
 

@@ -1,5 +1,19 @@
 @extends('v2.template')
-
+@section('style')
+    {{Html::style('assets/pages/css/about.min.css')}}
+    {{Html::style('assets/pages/css/blog.min.css')}}
+    {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
+    {{Html::style('assets/pages/css/portfolio.min.css')}}
+    {{Html::style('assets/pages/css/search.min.css')}}
+    {{Html::style('assets/global/plugins/select2/css/select2.min.css')}}
+    {{Html::style('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}
+    {{Html::style('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}
+    {{Html::style('assets/global/css/components.min.css')}}
+    {{Html::style('assets/layouts/layout3/css/layout.css')}}
+    {{Html::style('assets/layouts/layout3/css/themes/default.min.css')}}
+    {{Html::style('assets/layouts/layout3/css/custom.css')}}
+    {{Html::favicon('/assets/subsuf_img/logo.png')}}
+@endsection
 @section('content')
     <div class="wrap_container wrap_quytrinhnhanmuaho">
 
@@ -13,8 +27,9 @@
                         {!! Form::open(['action' => ['Frontend\ShopperController@doEditOrder',$order->order_id], 'method' => 'POST','id'=>'addPlanDetail', 'files' => true,"data-toggle"=>"validator"]) !!}
                         <div class="col-lg-12 margin-top-10">
 
+                            <br>
                             <div id="imageAdd">
-                                <p>{{trans("index.anhsanphamchon1")}}</p>
+                                <label>{{trans("index.anhsanphamchon1")}}</label>
                                 <div class="image-block">
                                     @if($order->order_images)
                                         @foreach($order->order_images as $key=>$image)
@@ -45,6 +60,7 @@
                                 </div>
                             </div>
                             <div class="clearfix margin-bottom-10"></div>
+                            <br>
                             <div class="form-group">
                                 <label>{{trans("index.tensanpham")}}</label>
                                 <textarea name="name" class="form-control" placeholder="{{trans("index.tensanpham")}}"
@@ -400,11 +416,11 @@
 
         }();
 
-        if (App.isAngularJsApp() === false) {
-            jQuery(document).ready(function () {
-                ComponentsSelect2.init();
-            });
-        }
+//        if (App.isAngularJsApp() === false) {
+//            jQuery(document).ready(function () {
+//                ComponentsSelect2.init();
+//            });
+//        }
         function showHiw(id) {
 //            $(".how-it-work").hide();
 //            $("#"+id).show();
