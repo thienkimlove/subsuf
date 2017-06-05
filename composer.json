@@ -16,7 +16,8 @@
         "mews/captcha": "~2.0",
         "dimsav/laravel-translatable": "^6.0",
         "dts/ebay-sdk-php": "^11.0",
-        "jenssegers/optimus": "^0.2.3"
+        "jenssegers/optimus": "^0.2.3",
+        "artisaninweb/laravel-soap": "0.3.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
