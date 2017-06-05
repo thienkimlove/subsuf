@@ -6,6 +6,33 @@
     <link rel="stylesheet" href="/v2/css/component.css">
     <link rel="stylesheet" href="/v2/css/custom.css">
 
+    {{Html::style('assets/pages/css/about.min.css')}}
+    {{Html::style('assets/pages/css/blog.min.css')}}
+    {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
+    {{Html::style('assets/global/plugins/rateit/rateit.css')}}
+    {{Html::style('assets/pages/css/portfolio.min.css')}}
+    {{Html::style('assets/pages/css/search.min.css')}}
+    <style type="text/css">
+        #orderDetail h2 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #69717e;
+        }
+
+        .content-right {
+            font-size: 14px;
+            float: right;
+            text-transform: none;
+        }
+
+        #orderDetail .col-xs-12 h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+    </style>
+
+
 @endsection
 @section('content')
     <div class="wrap_container wrap_quytrinhnhanmuaho">
@@ -71,6 +98,7 @@
 
 @section('frontend_script')
     {{Html::script('assets/global/plugins/rateit/jquery.rateit.js')}}
+    {{Html::script('assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js')}}
     {{Html::script('assets/pages/scripts/portfolio-1.min.js')}}
     {{Html::script('assets/pages/scripts/convert-image-to-base64.js')}}
 

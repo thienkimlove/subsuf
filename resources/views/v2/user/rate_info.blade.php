@@ -3,6 +3,71 @@
 @section('style')
     <link rel="stylesheet" href="/v2/css/rateit.css">
 
+    {{Html::style('assets/pages/css/about.min.css')}}
+    {{Html::style('assets/pages/css/blog.min.css')}}
+    {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
+    {{Html::style('assets/global/plugins/rateit/rateit.css')}}
+    {{Html::style('assets/pages/css/portfolio.min.css')}}
+    {{Html::style('assets/pages/css/search.min.css')}}
+    <style type="text/css">
+        #orderDetail h2 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #69717e;
+        }
+
+        .content-right {
+            font-size: 14px;
+            float: right;
+            text-transform: none;
+        }
+
+        #orderDetail .col-xs-12 h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .shopperclick, .travelerclick {
+            cursor: pointer !important;
+            font-weight: bold;
+        }
+        .shopperclick .badge .fa-caret-up,.travelerclick .fa-caret-up{
+            position: absolute;
+            bottom:0;
+        }
+
+        .shopperclick .badge, .travelerclick .badge {
+            float: left;
+            margin-top: 5px;
+        }
+
+        .shopperclick:hover, .travelerclick:hover {
+            text-decoration: none;
+            color: #d90700;
+
+        }
+        .box{
+            border:solid 1px black;
+            position:relative;
+            display:block;
+            height:100px;
+            width:100px;
+            margin-left:5px;
+            background: #fff;
+        }
+        .box:before{
+            content:"";
+            display:inline-block;
+            position:absolute;
+            border:10px solid black;
+            border-color:transparent transparent black transparent ;
+            bottom:0;
+            left: 50%;
+        }
+
+    </style>
+
 @endsection
 
 @section('content')
