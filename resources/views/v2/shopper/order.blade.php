@@ -1,5 +1,13 @@
 @extends('v2.template')
+@section('style')
+    {{Html::style('assets/pages/css/about.min.css')}}
+    {{Html::style('assets/pages/css/blog.min.css')}}
+    {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
+    {{Html::style('assets/pages/css/portfolio.min.css')}}
+    {{Html::style('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}
 
+    {{Html::style('assets/pages/css/search.min.css')}}
+    @endsection
 @section('content')
 <div class="wrap_container">
 
@@ -21,9 +29,16 @@
                     <div class="col-xs-12 col-md-10 col-md-offset-1">
                         @include("frontend.message")
                         {!! Form::open(['action' => 'Frontend\ShopperController@order2', 'method' => 'POST','id'=>'addPlanDetail', 'files' => true,"data-toggle"=>"validator"]) !!}
-                            <div class="form-group">
-                                <label for="nhapLinkSanPham">{{trans('index.nhaplinksp')}}</label>
-                                <input type="text" class="form-control" id="nhapLinkSanPham" name="url" value="@if(old("url")) {{old("url")}} @elseif(isset($order["link"])) {{$order['link']}} @endif" placeholder="{{trans('index.nhaplinksp')}}">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="url" class="form-control" id="url"
+                                       placeholder="{{trans('index.nhaplinksp')}}"
+                                       value="@if(old("url")) {{old("url")}} @elseif(isset($order["link"])) {{$order['link']}} @endif">
+                                <span class="input-group-btn">
+                                        <button class="btn green" type="button"
+                                                id="upload_url" style="height: 50px;">{{trans("index.tailen")}}</button>
+                                    </span>
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="tenSanPham">{{trans("index.tensanpham")}}</label>
