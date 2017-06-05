@@ -72,7 +72,8 @@
                                             <div class="tile-container  item-box">
                                                 <div class="tile-thumbnail">
                                                     <a href="{{URL::action("Frontend\ItemController@item",$item["item_id"])}}">
-                                                        <img src="{{$item['image']}}"/>
+                                                        <div style="height: 280px; background-repeat: no-repeat; background-size: cover; background-position: center; @if($item['image'])background-image: url('{{$item['image']}}') @endif"></div>
+
                                                     </a>
                                                 </div>
                                                 <div class="tile-title">
