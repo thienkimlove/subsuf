@@ -109,6 +109,7 @@ class ShopperController extends Controller
         } else {
             $data = [];
             if ($this->request->has("item")) {
+
                 $item = $this->item->find($this->request->input("item"));
                 if ($item) {
                     $data = [
@@ -116,8 +117,10 @@ class ShopperController extends Controller
                         "link" => $item->link,
                         "price" => ($item->is_sale) ? $item->price_sale : $item->price,
                         "description" => $item->description,
-                        "quantity" => $this->request->input("quantity", 1)
+                        "quantity" => $this->request->input("quantity", 1),
+                        "display_price" => ($item->is_sale) ? $item->price_sale : $item->price,
                     ];
+
                     $data['images'] = [];
                     if ($item->image) {
                         array_push($data['images'], $item->image);
