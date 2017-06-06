@@ -13,6 +13,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $fillable = [
+        'category_type',
+        'name',
+        'image',
+        'category_order',
+        'is_showed'
+    ];
+    
     use Translatable;
 
     public $translatedAttributes = ['name'];
