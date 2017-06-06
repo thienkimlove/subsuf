@@ -6,7 +6,6 @@
 @section('breadcrumb')
 
 @endsection
-
 @section('content')
     <div class="container">
         <div class="row margin-top-40 stories-header" data-auto-height="true">

@@ -17,6 +17,7 @@ class Order extends Model
     protected $primaryKey = 'order_id';
     public $timestamps = false;
 
+    protected $fillable = [];
     /**
      * Get images of Order
      */

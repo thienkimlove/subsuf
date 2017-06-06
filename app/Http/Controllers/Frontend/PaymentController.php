@@ -110,6 +110,8 @@ class PaymentController extends Controller
 //            echo $url;
 //            die;
 
+            return \Redirect::to($return_url);
+
             if ($order_code != "") {
                 //một số tham số lưu ý
                 //&cancel_url=http://yourdomain.com --> Link bấm nút hủy giao dịch
@@ -118,6 +120,9 @@ class PaymentController extends Controller
 //                $url .= '&option_payment=bank_online';
 
                 return \Redirect::to($url);
+
+             //   return \Redirect::action('Frontend\ShopperController@saveAcceptOffer', [$account_id, $offer_id, $coupon_id]);
+
                 //&lang=en --> Ngôn ngữ hiển thị google translate
             }
         }

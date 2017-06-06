@@ -219,6 +219,15 @@ Route::group(['middleware' => 'admin.login'], function () {
         //MENU CONFIG
         Route::group(['middleware' => 'module:config-manage', 'prefix' => 'config-manage'], function () {
             //MENU ABOUT ME
+            Route::group(['middleware' => 'function:banner', 'prefix' => 'banners'], function () {
+                Route::get('/', 'Admin\StaticContentController@banners')->middleware('right:is_read');
+                Route::get('/insert', 'Admin\StaticContentController@banner_insert')->middleware('right:is_inserted');
+                Route::post('/insert', 'Admin\StaticContentController@banner_insert')->middleware('right:is_inserted');
+                Route::get('/update/{language_code}', 'Admin\StaticContentController@banner_update')->middleware('right:is_updated');
+                Route::post('/update/{language_code}', 'Admin\StaticContentController@banner_update')->middleware('right:is_updated');
+                Route::get('/check-about-me', 'Admin\StaticContentController@check_about')->middleware('right:is_read');
+            });
+
             Route::group(['middleware' => 'function:about-me', 'prefix' => 'about-me'], function () {
                 Route::get('/', 'Admin\StaticContentController@abouts')->middleware('right:is_read');
                 Route::get('/insert', 'Admin\StaticContentController@about_insert')->middleware('right:is_inserted');

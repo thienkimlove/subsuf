@@ -51,7 +51,8 @@ class UserController extends Controller
             "offerList" => Offer::where("traveler_id", $this->account_id)->orderBy("offer_time", "DESC")->get(),
             "orderList" => Order::where("shopper_id", $this->account_id)->orderBy("request_time", "DESC")->get()
         ];
-        return view('frontend.user.profile', $response);
+        return view('v2.user.profile', $response);
+       // return view('frontend.user.profile', $response);
     }
 
     public function user_payment_info()
@@ -65,7 +66,9 @@ class UserController extends Controller
             "user" => $user,
         ];
 
-        return view('frontend.user.user_payment_info', $response);
+        return view('v2.user.user_payment_info', $response);
+
+        //return view('frontend.user.user_payment_info', $response);
     }
 
     public function inviteFriend()
@@ -78,7 +81,9 @@ class UserController extends Controller
             'title' => trans("index.moibanbe"),
             "user" => $user,
         ];
-        return view('frontend.user.invite_friend', $response);
+
+        return view('v2.user.invite_friend', $response);
+       // return view('frontend.user.invite_friend', $response);
     }
 
 
@@ -417,7 +422,7 @@ class UserController extends Controller
             $selectLocation[$item->location_id] = $item->name;
         }
         $response["location"] = $selectLocation;
-        return view('frontend.user.payment', $response);
+        return view('v2.user.payment', $response);
     }
 
     public function updatepaymentInfo()
@@ -505,6 +510,7 @@ class UserController extends Controller
             'starShopper' => $starShopper,
             'starTraveler' => $starTraveler,
         ];
+        return view('v2.user.rate_info', $response);
         return view('frontend.user.rate_info', $response);
     }
 
@@ -532,7 +538,9 @@ class UserController extends Controller
             'rate' => $rate,
             'user' => $user,
         ];
-        return view('frontend.user.rate', $response);
+       //return view('frontend.user.rate', $response);
+
+        return view('v2.user.rate', $response);
     }
 
     public function userRateUpdate($transaction_id)
@@ -621,7 +629,8 @@ class UserController extends Controller
             "offerList" => Offer::where("traveler_id", $this->account_id)->orderBy("offer_time", "DESC")->get(),
             "orderList" => Order::where("shopper_id", $this->account_id)->orderBy("request_time", "DESC")->get()
         ];
-        return view('frontend.user.offered', $response);
+        return view('v2.user.offered', $response);
+       // return view('frontend.user.offered', $response);
     }
 
     public function ordered()
@@ -635,6 +644,8 @@ class UserController extends Controller
             "offerList" => Offer::where("traveler_id", $this->account_id)->orderBy("offer_time", "DESC")->get(),
             "orderList" => Order::where("shopper_id", $this->account_id)->orderBy("request_time", "DESC")->get()
         ];
-        return view('frontend.user.ordered', $response);
+
+        return view('v2.user.ordered', $response);
+       // return view('frontend.user.ordered', $response);
     }
 }

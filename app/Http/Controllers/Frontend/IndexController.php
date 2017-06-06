@@ -41,9 +41,9 @@ class IndexController extends Controller
             "country" => $countrySelect,
             "province" => $proviceSelect,
             "categories" => Category::orderBy("category_id", "ASC")->get(),
-            "saleItems" => Item::where('is_sale', 1)->limit(4)->get(),
-            "featureItems" => Item::where('featured', 1)->limit(4)->get(),
-            "finishOrders" => Transaction::where("transaction_status", 3)->limit(4)->orderBy("received_time","DESC")->get()
+            "saleItems" => Item::where('is_sale', 1)->get(),
+            "featureItems" => Item::where('featured', 1)->get(),
+            "finishOrders" => Transaction::where("transaction_status", 3)->limit(20)->orderBy("received_time","DESC")->get()
         ];
         return view('v2.index', $data);
     }
@@ -76,7 +76,8 @@ class IndexController extends Controller
         $response = [
 
         ];
-        return view('frontend.select_language', $response);
+       // return view('frontend.select_language', $response);
+        return view('v2.language', $response);
     }
 
     public function change_language()

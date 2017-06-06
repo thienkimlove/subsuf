@@ -174,11 +174,14 @@ class CollectionsController extends Controller
             'items' => $items
         ];
 
-        return view('frontend.collections.featured_items', $response);
+       // return view('frontend.collections.featured_items', $response);
+
+        return view('v2.collections.featured_items', $response);
     }
 
     public function sale_items()
     {
+
         $items = $this->item->getAll(["is_sale = 1"]);
         $category_item = $this->item->distinctSale();
         $product_type = category_item();
@@ -202,6 +205,8 @@ class CollectionsController extends Controller
             'items' => $items
         ];
 
-        return view('frontend.collections.featured_items', $response);
+        //return view('frontend.collections.featured_items', $response);
+
+        return view('v2.collections.featured_items', $response);
     }
 }

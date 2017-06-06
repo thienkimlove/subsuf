@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Profile</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic,300italic&subset=vietnamese' rel='stylesheet' type='text/css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='http://l-lin.github.io/font-awesome-animation/dist/font-awesome-animation.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/themify-icons.css">
+     
+    <link rel="stylesheet" href="css/dropdowns-hover.css">
+    <link rel="stylesheet" href="css/dropdowns-menu.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.css">
+
+    <link rel="stylesheet" href="css/old_style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+</head>
+
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="Dwrap_Unavbar_C">
+                <div class="Dnavbar_Uwrap_C">
+
+                    <div class="logo_btn_nhanmuaho">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <img src="images/icon-menu-mobile.png" alt="icon-menu">
+                        </button>
+                        <a class="logo" href="#"><img src="images/logo.png" alt="logo Biz plus"></a>
+                        <a class="btn_link active" href="#">
+                            <i class="fa fa-plane" aria-hidden="true"></i> 
+                            <span>Nhận mua hộ</span>
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse Dnavbar_Ucollapse_C" id="bs-example-navbar-collapse-1">
+                        <nav class="wrap-nav">
+                            <ul id="nav" class="nav navbar-nav navigation">
+                                <li class="active">
+                                    <a href="#" class="btn-muaho">Trở thành người mua hộ</a>
+                                </li>
+                                <li class="dropdown dropdown-extended dropdown-notification " id="header_notification_bar">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                        <i class="ti-bell"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="">
+                                            <span>Bạn có <strong>0 tin nhắn chưa đọc </strong></span>
+                                        </li>
+                                        <li>
+                                            <span> <a href="web_subsuf_ThongBao.html">Xem tất cả</a></span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Đăng ký</a>
+                                </li>
+                                <li>
+                                    <a href="#">Đăng nhập</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrap_container wrap_quytrinhnhanmuaho">
+        <div class="container white">
+            <div class="row mtb-40 ">
+                <div class="page-container">
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper"><!-- BEGIN HEADER TOP -->
+                        <!-- BEGIN CONTENT BODY -->
+
+                        <!-- BEGIN PAGE CONTENT BODY -->
+                        <div class="page-content">
+
+
+
+                            <div class="container margin-top-40">
+                                <div class="col-md-3">
+                                    <div class="profile-sidebar">
+                                        <div class="portlet light profile-sidebar-portlet ">
+                                            <div class="profile-userpic text-center">
+
+                                                <img src="https://lh3.googleusercontent.com/--U1Ds2Ni6FM/AAAAAAAAAAI/AAAAAAAAKFs/sbuIGitlGIY/photo.jpg?sz=50" class="img-responsive" alt="">
+                                                <br>
+                                                <a data-toggle="modal" href="#basic" class="btn btn-sm red"><i class="fa fa-pencil"></i> Sửa ảnh đại diện</a>
+                                                <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <form method="POST" action="http://subsuf.thonghuyet.vn/user/update-image" accept-charset="UTF-8" data-toggle="validator" enctype="multipart/form-data"><input name="_token" type="hidden" value="meJLhO2W67xxZSLTup6M7TFyhRTiAo2CvWnW3ZKb">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                    <h4 class="modal-title">Sửa ảnh đại diện</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <input class="form-control" type="file" name="image" required="">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close
+                                                                    </button>
+                                                                    <button class="btn red" type="submit">Sửa ảnh đại diện</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                            </div>
+                                            <div class="profile-usertitle">
+                                                <div class="profile-usertitle-name">Studio Tony</div>
+                                            </div>
+
+                                            <div class="profile-userbuttons">
+
+                                            </div>
+                                            <div class="profile-usermenu">
+                                                <ul class="nav">
+                                                    <li class="active">
+                                                        <a href="http://subsuf.thonghuyet.vn/user/profile">
+                                                            <i class="ti-user"></i>  Thông tin cá nhân </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="http://subsuf.thonghuyet.vn/user/ordered">
+                                                            <i class="ti-bag"></i> Các đơn hàng đã đặt </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="http://subsuf.thonghuyet.vn/user/offered">
+                                                            <i class="ti-bag"></i> Các yêu cầu mua hộ </a>
+                                                    </li>
+
+                                                    <li class="">
+                                                        <a href="http://subsuf.thonghuyet.vn/user/user-payment-info">
+                                                            <i class="ti-credit-card"></i> Thông tin thanh toán
+                                                        </a>
+                                                    </li>
+                                                    <li class="">
+                                                        <a href="http://subsuf.thonghuyet.vn/user/invite-friend">
+                                                            <i class="ti-share"></i> Mời bạn bè </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="ti-tag"></i> Mã giảm giá </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i class="ti-info-alt"></i> Trợ giúp </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>            </div>
+                                </div>
+
+                               <div class="col-md-9">
+                                   <div class="profile-content">
+                                       <div class="row">
+                                           <div class="col-md-12">
+                                               <div class="portlet light">
+                                                   <div class="portlet-title tabbable-line">
+                                                       <div class="caption caption-md">
+                                                           <i class="ti-user"></i>
+                                                           <span class="caption-subject font-blue-madison bold uppercase"> Thông tin cá nhân</span>
+                                                       </div>
+                                                       <div class="actions">
+                                                           <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                                       </div>
+                                                   </div>
+                                                   <div class="portlet-body">
+                                                       <form method="POST" action="http://subsuf.thonghuyet.vn/user/update-all-info" accept-charset="UTF-8" id="addPlanDetail" data-toggle="validator"><input name="_token" type="hidden" value="meJLhO2W67xxZSLTup6M7TFyhRTiAo2CvWnW3ZKb">
+
+
+                                                           <div class="form-group">
+                                                               <label class="control-label">Email</label>
+                                                               <input type="email" placeholder="Email" class="form-control" name="email" value="phucit.net@gmail.com" required="">
+                                                           </div>
+                                                           <div class="form-group">
+                                                               <label class="control-label">Họ Tên</label>
+                                                               <input type="text" placeholder="Họ Tên" class="form-control" name="name" value="Studio Tony" required="">
+                                                           </div>
+
+                                                           <div class="form-group">
+                                                               <label class="control-label">Điện thoại</label>
+                                                               <input type="text" placeholder="" class="form-control" name="phone_number" value="0909802998" required=""></div>
+
+                                                           <div class="margiv-top-10 text-right">
+                                                               <button type="submit" class="btn green"> Lưu lại </button>
+                                                           </div>
+                                                       </form>
+
+                                                   </div>
+                                               </div>
+                                               <div class="portlet light user-order-list">
+                                                   <div class="portlet-title tabbable-line">
+                                                       <div class="caption caption-md">
+                                                           <i class="icon-globe theme-font hide"></i>
+                                                           <span class="caption-subject font-blue-madison bold uppercase">Các đơn hàng đang hoạt động(đã thanh toán và đang chờ nhận hàng)</span>
+                                                       </div>
+                                                       <div class="actions">
+                                                           <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                                       </div>
+                                                   </div>
+                                                   <div class="portlet-body">
+                                                   </div>
+                                               </div>
+
+                                               <div class="portlet light user-order-list">
+                                                   <div class="portlet-title tabbable-line">
+                                                       <div class="caption caption-md">
+                                                           <i class="icon-globe theme-font hide"></i>
+                                                           <span class="caption-subject font-blue-madison bold uppercase">Các đơn hàng đang chờ đề nghị nhận mua</span>
+                                                       </div>
+                                                       <div class="actions">
+                                                           <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                                       </div>
+                                                   </div>
+                                                   <div class="portlet-body">
+                                                       <div class=" order-full">
+                                                           <div class="order-thumbnail">
+                                                               <a href="http://subsuf.thonghuyet.vn/order-detail/192">
+                                                                   <img src=" https://images-na.ssl-images-amazon.com/images/I/418eqDifQZL.jpg ">
+                                                               </a>
+
+                                                           </div>
+                                                           <div class="order-title">
+                                                               <div class="order-user">
+                                                                   <a href="#">
+                                                                       <img alt="" class="img-circle" src="https://lh3.googleusercontent.com/--U1Ds2Ni6FM/AAAAAAAAAAI/AAAAAAAAKFs/sbuIGitlGIY/photo.jpg?sz=50">
+                                                                       <b>Studio Tony</b>
+                                                                   </a>
+                                                                   <span class="order-time">28-05-2017</span>
+                                                               </div>
+                                                               <div class="order-content">
+                                                                   <h3>
+                                                                       <a href="http://subsuf.thonghuyet.vn/order-detail/192">Amazon Echo - White</a>
+                                                                   </h3>
+                                                                   <div class="order-delive" style="border-bottom: 1px solid #eee">
+                                                    <span class="title">
+                                                        <span class="title">
+                                                            <span class="btn btn-sm red btn-circle">
+                                                                <i class="fa fa-map-marker"></i>
+                                                            </span>
+                                                            Đến
+                                                        </span>
+                                                    </span>
+                                                                       <span class="order-location">Anh</span>
+                                                                   </div>
+                                                                   <div class="order-delive">
+                                                                       <span class="title"><span class="btn btn-sm red btn-circle"><i class="fa fa-location-arrow"></i></span> Từ</span>
+                                                                       <span class="order-location"> Hà Nội </span>
+                                                                   </div>
+                                                               </div>
+                                                               <div class="order-off">
+                                                                   Offered 1
+
+                                                                   <div class="action">
+                                                                       <a href="http://subsuf.thonghuyet.vn/order-detail/192"> Chi tiết
+                                                                           <i class="fa fa-arrow-right"></i></a>
+                                                                   </div>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       <hr>
+
+                                                   </div>
+                                               </div>
+                                               <div class="portlet light user-order-list">
+                                                   <div class="portlet-title tabbable-line">
+                                                       <div class="caption caption-md">
+                                                           <i class="icon-globe theme-font hide"></i>
+                                                           <span class="caption-subject font-blue-madison bold uppercase">Các đơn hàng đang tắt</span>
+                                                       </div>
+                                                       <div class="actions">
+                                                           <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                                       </div>
+                                                   </div>
+                                                   <div class="portlet-body">
+                                                   </div>
+                                               </div>
+
+                                               <div class="portlet light user-order-list">
+                                                   <div class="portlet-title tabbable-line">
+                                                       <div class="caption caption-md">
+                                                           <i class="icon-globe theme-font hide"></i>
+                                                           <span class="caption-subject font-blue-madison bold uppercase">Các đơn hàng đã hoàn thành</span>
+                                                       </div>
+                                                       <div class="actions">
+                                                           <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                                       </div>
+                                                   </div>
+                                                   <div class="portlet-body">
+                                                   </div>
+                                               </div>
+
+                                               <div class="portlet light user-order-list">
+                                                   <div class="portlet-title tabbable-line">
+                                                       <div class="caption caption-md">
+                                                           <i class="icon-globe theme-font hide"></i>
+                                                           <span class="caption-subject font-blue-madison bold uppercase">Các đề nghị đang hoạt động(Người mua đã thanh toán,chưa nhận hàng)</span>
+                                                       </div>
+                                                       <div class="actions">
+                                                           <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                                       </div>
+                                                   </div>
+                                                   <div class="portlet-body">
+                                                   </div>
+                                               </div>
+
+                                               <div class="portlet light user-order-list">
+                                                   <div class="portlet-title tabbable-line">
+                                                       <div class="caption caption-md">
+                                                           <i class="icon-globe theme-font hide"></i>
+                                                           <span class="caption-subject font-blue-madison bold uppercase">Các đề nghị đang chờ chấp nhận</span>
+                                                       </div>
+                                                       <div class="actions">
+                                                           <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;" data-original-title="" title=""> </a>
+                                                       </div>
+                                                   </div>
+                                                   <div class="portlet-body">
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                        <!-- END PAGE CONTENT BODY -->
+                        <!-- END CONTENT BODY -->
+                    </div>
+                    <!-- END CONTENT -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="main_footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 mb15 text-center">
+                        <span class="nhanngay_title ">Đăng Ký Để Nhận Ngay Ưu Đãi 50k Khi Thanh Toán Với Subsuf &nbsp;</span>
+                        <span><input type="text" class="input_nhanngay" size="30" placeholder="Địa chỉ email"/></span>
+                        <span><button class="nhanngay">Nhận Ngay!</button></span>
+
+                        <span class="tticon hidden-xs"><a href="#"><img src="images/icon-thanhtoan1.png" alt=""></a></span>
+                        <span class="hidden-xs"><a href="#"><img src="images/icon-thanhtoan2.png" alt=""></a></span>
+                        <span class="hidden-xs"><a href="#"><img src="images/icon-thanhtoan3.png" alt=""></a></span>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+
+                        <p><span class="icon"><img src="images/icon_phone.png"/></span><span class="icontext">096 9412702</span></p>
+                        <p><span class="icon"><img src="images/icon_mail.png"/></span><span class="icontext">support@subsuf.com</span></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <ul class="list_menu_ft">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-2">
+
+                        <div class="text-center">
+                            <p>Kết nối với chúng tôi</p>
+                            <p class="kn">
+                                <a href="#"><img src="images/fb.png" alt="Facebook"/> </a>
+                                <a href="#"><img src="images/ln.png" alt="Linkedin"/> </a>
+                                <a href="#"><img src="images/yt.png" alt="Youtube"/> </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="text-center">
+                            <p>Ngôn ngữ</p>
+                            <p class="nn">
+                                <a href="#"><img class="pt2" src="images/icon-lg-vn.png" alt=""></a>
+                                <a href="#"><img class="pt2" src="images/icon-lg-anh.png" alt=""></a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="sub_footer">
+            <div class="container">
+                <p>Copyright © 2016 - Bản quyền thuộc về Công ty CP SubSuf Việt Nam</p>
+            </div>
+        </div>
+    </footer>
+   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+   
+    <script src="js/dropdownhover.min.js"></script>
+    <script src="js/dropdowns-menu.js"></script>
+    
+    
+    <script src="js/owl.carousel.min.js"></script>
+
+    
+    <script>
+    $('.owl-sliderBanner').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items:1,
+        margin:30,
+        stagePadding: 0,
+        smartSpeed:450
+    });
+        
+    $('.owl_slider_product').owlCarousel({
+        margin:30,
+        dots:false,
+        nav:true,
+        navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+        responsive:{
+            0:{
+                items:1,
+                margin:15
+            },
+            576:{
+                items:2,
+                margin:15
+            },
+            768:{
+                items:3,
+                margin:20
+            },
+            992:{
+                items:3
+            }
+        }
+    })
+    
+    $('.owl_exhibition_2u').owlCarousel({
+        margin:30,
+        dots:false,
+        nav:true,
+        navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+        responsive:{
+            0:{
+                items:1,
+                margin:15
+            },
+            576:{
+                items:2,
+                margin:15
+            },
+            768:{
+                items:3,
+                margin:20
+            },
+            992:{
+                items:3
+            }
+        }
+    })
+    </script>
+
+    
+</body>
+
+</html>

@@ -39,32 +39,49 @@ class TravelerController extends Controller
         ];
         $country = $this->location->getAll();
         $countrySelect = [];
+
+        $countrySelect[null] = trans('index.diemxuatphat_select');
         $proviceSelect = [];
+        $proviceSelect[null] =  trans('index.diemden_select');
         foreach ($country as $item) {
             if ($item->type == 1)
                 $proviceSelect[$item->location_id] = $item->name;
             else
                 $countrySelect[$item->location_id] = $item->name;
         }
+
+
         $response["country"] = $countrySelect;
         $response["province"] = $proviceSelect;
 //        $response['orderList'] = Order::where("order_status", 1)->where("request_time", ">=", date("Y-m-d H:i:s", strtotime("-30 days")))->orderBy("request_time", "DESC")->paginate(30);
         $response['orderList'] = Order::where("order_status", 1)->orderBy("request_time", "DESC")->paginate(30);
-        return view('frontend.traveler.index', $response);
+        //return view('frontend.traveler.index', $response);
+        return view('v2.traveler.index', $response);
     }
 
     public function find()
     {
         $order = Order::where("order_status", 1)->orderBy("request_time", "DESC");
         if ($this->request->has("deliver_to")) {
-            $order->where("deliver_to", (int)$this->request->input("deliver_to"));
+            if($this->request->input("deliver_to") != 9) {
+
+                $order->where("deliver_to", (int)$this->request->input("deliver_to"));
+            }
         }
         if ($this->request->has("deliver_from")) {
-            $order->where("deliver_from", (int)$this->request->input("deliver_from"));
+
+            if($this->request->input("deliver_from") != 9) {
+
+                $order->where("deliver_from", (int)$this->request->input("deliver_from"));
+
+            }
         }
         $country = $this->location->getAll();
         $countrySelect = [];
+
+        $countrySelect[null] = trans('index.diemxuatphat_select');
         $proviceSelect = [];
+        $proviceSelect[null] =  trans('index.diemden_select');
         foreach ($country as $item) {
             if ($item->type == 1)
                 $proviceSelect[$item->location_id] = $item->name;
@@ -74,11 +91,13 @@ class TravelerController extends Controller
         $this->request->flash();
         $response = [
             'title' => 'Travel',
-            'orderList' => $order->paginate(20),
+            'orderList' => $order->paginate(21),
             "country" => $countrySelect,
             "province" => $proviceSelect,
         ];
-        return view('frontend.traveler.find', $response);
+      //  return view('frontend.traveler.find', $response);
+
+        return view('v2.traveler.find', $response);
     }
 
     public function offer($order_id)
@@ -115,7 +134,8 @@ class TravelerController extends Controller
             "banks" => PaymentCardInfo::where("account_id", $this->account_id)->get(),
             "paypals" => PayPalInfo::where("account_id", $this->account_id)->get(),
         ];
-        return view('frontend.traveler.offer', $response);
+        //return view('frontend.traveler.offer', $response);
+        return view('v2.traveler.offer', $response);
     }
 
     public function makeOffer($order_id)
@@ -182,7 +202,23 @@ class TravelerController extends Controller
             $notification = $this->notification->find($notification_id);
             //send mail
             send_mail($notification);
+
+            $notification_inserted = $this->notification->find($notification_id);
+            $to_phone = $notification_inserted->to_user->phone_number;
+
+
+            if ($to_phone) {
+//                $to_first_name = $notification_inserted->to_user->first_name;
+//                $to_last_name = $notification_inserted->to_user->last_name;
+
+                $message = 'Don hang '.$order->code.' cua ban duoc de nghi mua ho muc tien cong '. $offer->others_fee .'$. Vui long truy cap subsuf.com de hoan tat. Xin cam on!';
+
+                //dd($message);
+                MessageHelper::send_sms($to_phone, $message);
+            }
+
         } catch (\Exception $e) {
+          //  dd($e->getMessage());
         }
 
         return Redirect::action("Frontend\ShopperController@orderDetail", $order_id)->withSuccess(trans("index.taoofferthanhcong"));

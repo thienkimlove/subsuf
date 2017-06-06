@@ -2,6 +2,7 @@
 
 return [
 
+    'madonhang' => 'Order code',
     'muagiodau' => 'Where to buy',
     'dathang' => 'Post an order',
     'dathang2' => 'Order item',
@@ -240,8 +241,8 @@ return [
     'moibanbequaemail'=>'Invite friends by email',
     'moibanbequamagioithieu'=>'Share code',
     'moibanbequafacebook'=>'Share on facebook',
-    'cacdonhangdadat'=>"Các đơn hàng đã đặt",
-    'cacyeucaumuaho'=>"Các yêu cầu mua hộ",
+    'cacdonhangdadat'=>"Ordered",
+    'cacyeucaumuaho'=>"Offered",
 
     /*End Chun*/
 
@@ -294,7 +295,7 @@ return [
     'shopper_faq' => 'Shopper Questions',
     'traveler_faq' => 'Traveler Questions',
     'other_faq' => 'Other Questions',
-    'number_phone' => '+84904534902',
+    'number_phone' => '+84969412702',
 
     'danhgiathanhvien' => 'Review',
     'shopper' => 'Shopper',
@@ -318,13 +319,13 @@ return [
     'loikhitaocode' => 'Error when generate code! Please try again!',
     'dacomacode' => 'You already get the code!',
 
-    'v2_muabatcuthugi' => 'MUA BẤT CỨ THỨ GÌ, TỪ BẤT KỲ ĐÂU',
-    'v2_muabatcuthugilower' => 'Mua bất cứ thứ gì, từ bất kỳ đâu',
-    'v2_chiphivanchuyenthap' => 'Chi phí vận chuyển thấp',
+    'v2_muabatcuthugi' => 'SHOP ANYTHING, FROM ANYWHERE',
+    'v2_muabatcuthugilower' => 'Shop anything, from anywhere',
+    'v2_chiphivanchuyenthap' => 'Low shipping fee',
     'v2_chiphitietkiem' => 'Bạn trực tiếp thương lượng và trả công, chi phí sẽ được tiếp kiệm...',
-    'v2_nguongocminhbach' => 'Nguồn gốc minh bạch, rõ ràng',
+    'v2_nguongocminhbach' => 'Items with transparent origin',
     'v2_duakemhoadon' => 'Người mua hộ có trách nhiệm đưa kèm hóa đơn khi giao hàng, món...',
-    'v2_boihoandaydu' => 'Bồi hoàn đầy đủ',
+    'v2_boihoandaydu' => 'Full refund',
     'v2_giutienbanchuyen' => 'SubSuf giữ tiền bạn chuyển cho người mua hộ, bạn nhận lại tiền',
     'v2_xemthem' => 'Xem thêm',
     'v2_quytrinhnhanhang' => 'Quy trình nhận hàng',
@@ -336,13 +337,23 @@ return [
     'v2_xacnhantratien' => 'Bạn xác nhận đã có món đề SubSuf sẽ chuyển tiền cho người mua hộ.',
     'v2_hanghotgiamgia' => 'Hàng hot giảm giá',
     'v2_sanphamnoibat' => 'Sản phẩm nổi bật',
-    'v2_xemtatca' => 'XEM TẤT CẢ',
-    'v2_donhangthanhcong' => 'Những đơn hàng thành công gần đây',
-    'v2_tiencong' => 'Tiền công',
-    'v2_nhanmuaho' => 'Nhận mua hộ',
-    'v2_trothanhnguoimuaho' => 'Trở thành người mua hộ',
-    'v2_dangky' => 'Đăng ký',
-    'v2_dangnhap' => 'Đăng nhập',
+    'v2_xemtatca' => 'VIEW ALL',
+    'v2_donhangthanhcong' => 'Recently completed orders',
+    'v2_tiencong' => 'reward',
+    'v2_nhanmuaho' => 'Make an offer',
+    'v2_trothanhnguoimuaho' => 'Become a traveler',
+    'v2_dangky' => 'Sign up',
+    'v2_dangnhap' => 'Sign in',
     'v2_dedangmua' => 'Dễ dàng kiếm thêm thu nhập bằng cách chuyển vài món đồ đến nơi bạn đang đi tới.',
-    'v2_lienhe' => 'Liên hệ',
+    'v2_lienhe' => 'Contact',
+
+    'dathangngay' => 'Order now',
+        'ketnoichungtoi' => 'Contact us',
+
+    'nhanuudai' => 'Get now',
+    'khongcamon' => 'No, Thanks',
+    'apdunglandautien' => 'Apply for first success trading',
+    'entermail' => 'Enter your email here',
+
+    'uudai50k' => 'Get 50.000 VND coupon with Subsuf !'
 ];

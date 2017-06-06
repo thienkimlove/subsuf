@@ -164,6 +164,7 @@ return [
         LaravelCaptcha\Providers\LaravelCaptchaServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        Artisaninweb\SoapWrapper\ServiceProvider::class
     ],
 
     /*
@@ -216,6 +217,7 @@ return [
         'Curl' => Ixudra\Curl\Facades\Curl::class,
         'Facebook' => SammyK\LaravelFacebookSdk\FacebookFacade::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'SoapWrapper' => Artisaninweb\SoapWrapper\Facade::class
     ],
 
     'NGANLUONG_URL' => env('NGANLUONG_URL'),

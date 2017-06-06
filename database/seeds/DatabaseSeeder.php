@@ -12,5 +12,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+        \App\Banner::truncate();
+
+        $langs = ['en', 'vi'];
+
+
+        foreach ($langs as $lang) {
+            for ($i = 1; $i <= 3; $i++) {
+                \App\Banner::create([
+                    'order' => $i,
+                    'image' => '',
+                    'language' => $lang
+                ]);
+            }
+        }
     }
 }

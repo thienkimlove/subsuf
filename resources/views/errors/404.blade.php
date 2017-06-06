@@ -1,4 +1,4 @@
-@extends('frontend.layout.template')
+@extends('v2.template')
 @section('style')
 
     <style type="text/css">

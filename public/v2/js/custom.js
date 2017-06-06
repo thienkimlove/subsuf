@@ -12,10 +12,17 @@
     }
 })();
 
-var url = '{{ url('/') }}';
+
 
 function couponSubmit() {
     var email = $('#coupon_email').val();
+
+    if (email == '')
+    {
+        alert('Bạn không được bỏ trống email');
+        return false;
+    }
+
     $('#coupon_submit').hide();
     $('#coupon_message').show().text('Loading..');
     $.get(url +'/promotion_coupon',{ email : email },function(response){
@@ -23,9 +30,26 @@ function couponSubmit() {
     });
 }
 
+
+function couponSubmitFooter() {
+    var email = $('.input_nhanngay').val();
+
+    if (email == '')
+    {
+        alert('Bạn không được bỏ trống email');
+        return false;
+    }
+    $('.nhanngay').text('Loading..');
+    $.get(url +'/promotion_coupon',{ email : email },function(response){
+        $('#footer_mess').html('<h4>'+response.msg+'</h4>');
+        $('.nhanngay').text('Nhận Ngay!');
+    });
+}
+
 $(function(){
 
     $('.owl-sliderBanner').owlCarousel({
+        autoHeight:true,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         items:1,
@@ -34,7 +58,21 @@ $(function(){
         smartSpeed:450
     });
 
+
+    $('.owl-slider_image_chitietdonhang').owlCarousel({
+        autoHeight:true,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items:1,
+        margin:0,
+        stagePadding: 0,
+        smartSpeed:450,
+        nav:true,
+        navText: ["<i class='fa fa-angle-double-left' aria-hidden='true'></i>","<i class='fa fa-angle-double-right' aria-hidden='true'></i>"]
+    });
+
     $('.owl_slider_product').owlCarousel({
+        autoHeight:true,
         margin:30,
         dots:false,
         nav:true,
@@ -59,6 +97,7 @@ $(function(){
     })
 
     $('.owl_exhibition_2u').owlCarousel({
+        autoHeight:true,
         margin:30,
         dots:false,
         nav:true,
@@ -83,18 +122,19 @@ $(function(){
     })
 
 
-    var isShowing = Cookies.get('show_popup_secure_4nd', { domain : document.domain });
-
-    if (!isShowing || isShowing === '0') {
-        $('#coupon_popup').modal();
-        Cookies.set('show_popup_secure_4nd', '1', { expires: 7, domain: document.domain });
-
-    }
-
+    $('.nhanngay').click(function(){
+        couponSubmitFooter();
+        return false;
+    });
 
     $('#coupon_submit').click(function(){
         couponSubmit();
         return false;
     });
+
+    $('.datmuahang').click(function () {
+        $('#md_dathang').modal('show');
+    })
+
 
 });

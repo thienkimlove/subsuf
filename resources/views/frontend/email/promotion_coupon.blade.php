@@ -9,7 +9,7 @@
 
             <div class="portlet-body form">
                 <div class="form-body">
-                    <p> Hello!,</p>
+                    <p> Xin chào!,</p>
                     <p>
 
                         Mã Code : <b>{{$code}}</b>
@@ -17,6 +17,18 @@
                     </p>
 
                     <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</p>
+
+                    <hr>
+
+                    <p> Hello!,</p>
+                    <p>
+
+                        Your Code : <b>{{$code}}</b>
+
+                    </p>
+
+                    <p>Thanks for using our service!</p>
+
                 </div>
             </div>
         </div>

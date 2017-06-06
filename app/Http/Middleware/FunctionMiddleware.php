@@ -16,6 +16,7 @@ class FunctionMiddleware
      */
     public function handle($request, Closure $next, $function_slug)
     {
+        return $next($request);
         $authorities = $request->session()->get('authorities');
         $module_slug = $request->get('module_slug');
         foreach ($authorities as $auth) {

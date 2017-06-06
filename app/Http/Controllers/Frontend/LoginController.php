@@ -31,7 +31,8 @@ class LoginController extends Controller
     {
         if (Session::has("userFrontend"))
             return Redirect::action("Frontend\IndexController@index");
-        return view('frontend.user.login', []);
+       // return view('frontend.user.login', []);
+        return view('v2.user.login', []);
     }
 
     public function doLogin()
@@ -71,7 +72,8 @@ class LoginController extends Controller
         if (Session::has("userFrontend"))
             return Redirect::action("Frontend\IndexController@index");
 
-        return view('frontend.user.register');
+       // return view('frontend.user.register');
+        return view('v2.user.register');
     }
 
     public function doRegister()
@@ -282,7 +284,7 @@ class LoginController extends Controller
             Session::forget("url_callback");
             return Redirect::to($url)->withSuccess(trans("index.dangnhapthanhcong"));
         }
-        return Redirect::action("Frontend\ShopperController@index")->withSuccess(trans("index.dangnhapthanhcong"));
+        return Redirect::action("Frontend\IndexController@index")->withSuccess(trans("index.dangnhapthanhcong"));
 //        try {
 //            die;
 //        } catch (\Exception $e) {
@@ -294,7 +296,7 @@ class LoginController extends Controller
     {
         if (Session::has("userFrontend"))
             return Redirect::action("Frontend\IndexController@index");
-        return view('frontend.user.forgot_password', []);
+        return view('v2.user.forgot_password', []);
     }
 
     public function sendEmailForgotPassword()

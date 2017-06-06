@@ -2,6 +2,7 @@
 
 return [
 
+    'madonhang' => 'Mã đơn hàng',
     'muagiodau' => 'Mua gì ở đâu',
     'dathang' => 'Đặt hàng',
     'dathang2' => 'Đặt hàng',
@@ -74,7 +75,7 @@ return [
     'tigia' => ' Tỉ giá',
     'hinhanhvuotqua1Mb' => ' Hình ảnh vượt quá dung lượng 1Mb cho phép',
     'chonanhdinhdangjpg' => ' Hãy chọn ảnh có định dạng .jpg hoặc .png',
-    'diemxuatphat_select' => ' Điểm xuất phát \(có thể bỏ trống)',
+    'diemxuatphat_select' => ' Điểm xuất phát (có thể bỏ trống)',
     'diemden_select' => 'Điểm đến (Thành phố)',
     'shopper_slogan' => 'Chia sẻ va li còn trống, mua đồ từ nước ngoài chưa bao giờ dễ dàng và tiết kiệm đến vậy',
     'shopper_slogan2' => 'Món đồ của bạn sẽ được mua và chuyển đến bởi những người sắp tới Việt Nam',
@@ -305,7 +306,7 @@ return [
     'shopperreview' => 'Đánh giá mua hàng',
     'travelerreview' => 'Đánh giá mua hộ',
     'chuacoreviewnao' => 'Chưa có đánh giá',
-    'number_phone' => '0904645593 - 0904534902',
+    'number_phone' => '096 9412702',
 
     'price_min' => 'Giá sản phẩm > 0',
     'reward_min' => 'Tiền công > 5',
@@ -350,4 +351,14 @@ return [
     'v2_dangnhap' => 'Đăng nhập',
     'v2_dedangmua' => 'Dễ dàng kiếm thêm thu nhập bằng cách chuyển vài món đồ đến nơi bạn đang đi tới.',
     'v2_lienhe' => 'Liên hệ',
+
+    'dathangngay' => 'Đặt hàng ngay',
+    'ketnoichungtoi' => 'Kết nối với chúng tôi',
+
+    'nhanuudai' => 'Nhận ưu đãi',
+    'khongcamon' => 'Không, mình cám ơn',
+    'apdunglandautien' => 'Áp Dụng Cho Giao Dịch Thành Công Đầu Tiên',
+    'entermail' => 'Nhập email của bạn tại đây',
+
+    'uudai50k' => 'Nhận Ngay Ưu Đãi 50k Với Subsuf !'
 ];

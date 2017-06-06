@@ -43,6 +43,8 @@ class NotificationController extends Controller
             'notifications' => $notifications
         ];
 
-        return view('frontend.notification.user_notification', $response);
+     //   return view('frontend.notification.user_notification', $response);
+
+        return view('v2.notification.user_notification', $response);
     }
 }

@@ -23,6 +23,9 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{url('v2/css/bootstrap.min.css')}}" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.css">
+
+
     <!-- Optional theme -->
     <link rel="stylesheet" href="{{url('v2/css/bootstrap-theme.min.css')}}" />
 
@@ -37,7 +40,34 @@
     <link rel="stylesheet" href="{{url('v2/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('v2/css/owl.theme.default.css')}}">
 
-    <link rel="stylesheet" href="{{url('v2/css/stylesheet.css')}}">
+    <link rel="stylesheet" href="/v2/css/Multi-Step-Indicator.css">
+
+
+    <link rel="stylesheet" href="/v2/css/old_style.css">
+
+    @yield('style', '')
+    <link rel="stylesheet" href="/v2/css/stylesheet.css">
+
+
+
+    <style>
+        .datmuahang {
+            z-index: 99999 !important;
+        }
+
+        body > div.wrap_container > div:nth-child(4) > div > div.slider_product > div
+        {
+            z-index: 0 !important;
+        }
+
+        body > div.wrap_container > div.wrap_produc_home.color_bg_sub > div > div.slider_product > div {
+            z-index: 0 !important;
+        }
+        body > div.wrap_container > div.wrap_exhibition_home > div > div > div {
+            z-index: 0 !important;
+        }
+
+    </style>
 
 </head>
 
@@ -48,19 +78,63 @@
 
 @yield('content')
 
+@include('v2.coupon_get')
+<div class="modal fade" id="md_dathang">
+    <div class="modalinner">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">⛌</a>
 
+        </div>
+        <div class="modal-body text-center">
+            <h4 class="text-center">  {{trans("index.shopper_slogan")}}
+            </h4>
+            <h5>{{trans("index.shopper_slogan2")}}</h5>
+            <div class="form-dathang">
+                {{Form::open(['action' => 'Frontend\ShopperController@order', 'method' => 'GET'])}}
+                <span class="input-ndv"><input size="50" name="url" type="text" placeholder="{{trans("index.nhaplinksp")}}" /> </span>
+                <input type="hidden" name="start" value="1">
+                <span><button class="btn_dathang" type="submit">{{trans("index.batdaudathang")}}</button></span>
+                {{Form::close()}}
+            </div>
+        </div>
+        <div class="modal-footer text-center">
+            &nbsp;
+        </div>
+    </div>
+</div>
+@if(!str_contains(url()->current(), 'select-language') && !str_contains(url()->current(), '/shopper/order') && !str_contains(url()->current(), 'offer'))
+    <div class="datmuahang">
+
+        <div class="datmuabtn"></div>
+        <div class="datmuabtn"></div>
+        <div class="datmuabtn"></div>
+        <div class="datmuabtn">
+            <img src="/v2/images/btn-datmua.png"/>
+            {{--<br/>--}}
+            {{--<span style="">Đặt mua</span>--}}
+        </div>
+    </div>
+
+@endif
 @include('v2.footer')
 
-
+<script>
+    var url = '{{ url('/') }}';
+</script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{url('v2/js/jquery.min.js')}}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- Latest compiled and minified JavaScript -->
 <script src="{{url('v2/js/bootstrap.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.js"></script>
 <script src="{{url('v2/js/dropdownhover.min.js')}}"></script>
-<script src="{{url('v2/js/dropdowns-menu.js')}}"></script>
+{{--<script src="{{url('v2/js/dropdowns-menu.js')}}"></script>--}}
 <script src="{{url('v2/js/owl.carousel.min.js')}}"></script>
+{{Html::script('assets/apps/scripts/cookie.js')}}
 <script src="{{url('v2/js/custom.js')}}"></script>
+
+
+
 @yield('frontend_script')
 
 </body>

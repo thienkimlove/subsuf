@@ -22,46 +22,50 @@
 
                                 @if(count(session()->get("userFrontend")->payment_cards) > 0 || count(session()->get("userFrontend")->paypals) > 0)
                                     <li class="active">
-                                        <a href="{{url('traveler')}}">{{trans('index.v2_trothanhnguoimuaho')}}</a>
+                                        <a href="{{url('traveler')}}" class="btn-muaho">{{trans('index.v2_trothanhnguoimuaho')}}</a>
                                     </li>
                                 @else
                                     <li class="active">
-                                        <a href="{{url('user/payment-info')}}">{{trans('index.v2_trothanhnguoimuaho')}}</a>
+                                        <a href="{{url('user/payment-info')}}" class="btn-muaho">{{trans('index.v2_trothanhnguoimuaho')}}</a>
                                     </li>
                                 @endif
                                     <?php
                                     $notifications = session()->get("userFrontend")->notifications()->unread()->get();
                                     $unread = count($notifications);
                                     ?>
-                                    <li class="dropdown dropdown-extended dropdown-notification "
-                                        id="header_notification_bar">
-                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
-                                           data-hover="dropdown" data-close-others="true">
-                                            <i class="icon-bell"></i>
+                                    <li class="dropdown dropdown-extended dropdown-notification " id="header_notification_bar">
+                                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="ti-bell"></i>
                                             @if($unread > 0)
                                                 <span class="badge badge-default">
                                                     {{$unread}}
                                                 </span>
                                             @endif
+
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li class="external">
                                                 @if((int)$unread>1)
-                                                    <h3>{!! trans('index.bancotinnhan_n', ['number' => $unread]) !!}</h3>
+                                                    <p><a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">{!! trans('index.bancotinnhan_n', ['number' => $unread]) !!}</a></p>
                                                 @else
-                                                    <h3>{!! trans('index.bancotinnhan', ['number' => $unread]) !!}</h3>
+                                                    <p><a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">{!! trans('index.bancotinnhan', ['number' => $unread]) !!}</a></p>
                                                 @endif
-                                                <a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">
-                                                    {{trans("index.xemtatca")}}
-                                                </a>
+                                                &nbsp;&nbsp;
+                                                <p> <a href="{{url('notifications', session()->get('userFrontend')->account_id)}}">
+                                                        {{trans("index.xemtatca")}}
+                                                    </a>
+                                                </p>
                                             </li>
+
                                         </ul>
                                     </li>
+
 
                                     <li class="dropdown dropdown-user">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
                                            data-hover="dropdown" data-close-others="true">
-                                            <img alt="" class="img-circle"
+
+                                            <img style="max-height: 40px" alt="" class="img-circle"
                                                  src="{{url(session()->get('userFrontend')->avatar)}}">
                                             <span class="username font-dark username-hide-mobile">
                                                 <b>{{session()->get("userFrontend")->first_name." ".session()->get("userFrontend")->last_name}}</b>
@@ -83,7 +87,7 @@
                             @else
 
                                 <li class="active">
-                                    <a href="{{url('register')}}">{{trans('index.v2_trothanhnguoimuaho')}}</a>
+                                    <a href="{{url('register')}}" class="btn-muaho">{{trans('index.v2_trothanhnguoimuaho')}}</a>
                                 </li>
 
                                 <li>

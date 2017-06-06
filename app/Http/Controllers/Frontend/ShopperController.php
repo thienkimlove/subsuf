@@ -139,7 +139,9 @@ class ShopperController extends Controller
         }
 
         $response = ["order" => $order];
-        return view('frontend.shopper.order', $response);
+       // return view('frontend.shopper.order', $response);
+
+        return view('v2.shopper.order', $response);
     }
 
     public function order2()
@@ -201,19 +203,24 @@ class ShopperController extends Controller
         $response["reward"] = [$reward1, $reward2, $reward3];
         $response["order2"] = $order2;
         $response["order"] = $order;
-        $location = $this->location->getAll();
-        $countrySelect = [null => "Điểm xuất phát"];
-        $provinceSelect = [null => "Điểm đến"];
-        foreach ($location as $item) {
+        $country = $this->location->getAll();
+        $countrySelect = [];
+
+        $countrySelect[null] = trans('index.diemxuatphat_select');
+        $proviceSelect = [];
+        $proviceSelect[null] =  trans('index.diemden_select');
+        foreach ($country as $item) {
             if ($item->type == 1)
-                $provinceSelect[$item->location_id] = $item->name;
+                $proviceSelect[$item->location_id] = $item->name;
             else
-                $provinceSelect[$item->location_id] = $item->name;
+                $countrySelect[$item->location_id] = $item->name;
         }
         $response["country"] = $countrySelect;
-        $response["province"] = $provinceSelect;
+        $response["province"] = $proviceSelect;
 
-        return view('frontend.shopper.order2', $response);
+        //return view('frontend.shopper.order2', $response);
+
+        return view('v2.shopper.order2', $response);
     }
 
     public function order3()
@@ -222,6 +229,12 @@ class ShopperController extends Controller
         session()->put("order2", $data);
         $order = session()->get("order");
         $order2 = session()->get("order2");
+
+        if(!isset($order2['input-reward']))
+        {
+            return redirect()->back()->withError('Bạn không được bỏ trống tiền công');
+        }
+
         $response["order"] = $order;
         $response["order2"] = $order2;
         $response["deliver_from"] = null;
@@ -232,7 +245,9 @@ class ShopperController extends Controller
         $total = round((float)$order["price"] * (int)$order["quantity"] + (float)$order2["input-reward"], 2);
         $response["fee"] = round($total * get_service_percent($total), 2);
         $response["total"] = $total + $response["fee"];
-        return view('frontend.shopper.order3', $response);
+        //return view('frontend.shopper.order3', $response);
+
+        return view('v2.shopper.order3', $response);
 
     }
 
@@ -283,7 +298,9 @@ class ShopperController extends Controller
                 "exchange" => $this->exchange->change("USD", "VND"),
                 "transaction" => $transaction,
             ];
-            return view('frontend.shopper.transaction_detail', $response);
+            return view('v2.shopper.transaction_detail', $response);
+
+            //return view('v2.shopper.transaction_detail', $response);
         }
         $response = [
             "order" => $order,
@@ -292,7 +309,9 @@ class ShopperController extends Controller
             "isOffer" => (session()->has("userFrontend")) ? Offer::where("order_id", $id)->where("traveler_id", session()->get("userFrontend")["account_id"])->count() : false
         ];
 
-        return view('frontend.shopper.order_detail', $response);
+        //return view('frontend.shopper.order_detail', $response);
+
+        return view('v2.shopper.order_detail', $response);
     }
 
 
@@ -364,11 +383,77 @@ class ShopperController extends Controller
             "fee" => $fee,
             "coupon" => $coupons // các coupon của user
         ];
-        return view('frontend.shopper.accept_offer', $response);
+
+        return view('v2.shopper.accept_offer', $response);
+       // return view('frontend.shopper.accept_offer', $response);
     }
 
     public function saveAcceptOffer($account_id, $offer_id, $coupon_id)
     {
+        $exchange = $this->exchange->change("USD", "VND");
+        $offer = Offer::find($offer_id);
+
+        $date = date("Y-m-d H:i:s");
+        $offer->offer_status = 2;
+        $offer->save();
+
+        $order = $offer->order;
+
+        $order->order_status = 2;
+        $order->save();
+
+        $transaction = new Transaction();
+        $transaction->offer_id = $offer->offer_id;
+        $transaction->coupon_id = 0;
+
+        if ($offer->payment_type == "bank")
+            $payment_id = $offer->payment_info_id;
+        else {
+            $payment_id = $offer->payment_info_id;
+        }
+        $total_order = (float)$order->price * $order->quantity +
+            $offer->shipping_fee + $offer->tax + $offer->others_fee;
+
+        $transaction->service_fee = round($total_order * get_service_percent($total_order), 2);
+
+        //new way to process with coupon.
+        $amount_be_coupon = 0;
+        $absoluteTotal = $total_order * (1 + get_service_percent($total_order));
+
+        $coupon = Coupon::whereIn("account_id", [$account_id, 0])
+            ->where("amount", ">", 0)
+            ->where("coupon_id", $coupon_id)->where("status", 1)->get();
+
+        if ($coupon->count() > 0) {
+            $coupon = $coupon->first();
+            $transaction->coupon_id = $coupon_id;
+            $coupon->amount = (int)$coupon->amount - 1;
+            if (!$coupon->amount) {
+                $coupon->status = -1; // đã dùng
+            } else {
+                $coupon->used_at = $date;
+                $coupon_money = $coupon->money;
+                $coupon_type = $coupon->type;
+                $coupon_primary_percent = $coupon->primary_percent;
+                $coupon_secondary_percent = $coupon->secondary_percent;
+
+                $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon_money, $coupon_type, $coupon_primary_percent, $coupon_secondary_percent);
+                $coupon->real_money = $amount_be_coupon;
+            }
+            $coupon->save();
+        }
+
+        $transaction->total = round($absoluteTotal - $amount_be_coupon, 2);
+        $transaction->transaction_time = $date;
+        $transaction->transaction_date = $date;
+        $transaction->transaction_date = $date;
+        $transaction->payment_type = $offer->payment_type;
+        $transaction->payment_id = $payment_id;
+        $transaction->exchange = $exchange;
+        $transaction->transaction_status = 2; // đang giao dịch
+        $transaction->save();
+
+        return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id)->withSuccess(trans("index.nhanbofferthanhcong"));
         if ($this->request->has('payment_id')) {
 //        if (isset($this->request->input('payment_id'])) {
             // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
@@ -695,7 +780,7 @@ class ShopperController extends Controller
         $response["province"] = $proviceSelect;
         $response["exchangeArr"] = Exchange::all();
 
-        return view('frontend.shopper.edit_order', $response);
+        return view('v2.shopper.edit_order', $response);
 
     }
 
