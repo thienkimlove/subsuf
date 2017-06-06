@@ -90,3 +90,37 @@
 
 
 @endsection
+
+@section('frontend_script')
+    {{Html::script('assets/global/plugins/owlcarousel/owl.carousel.min.js')}}
+    <script type="text/javascript">
+        $("#olwcarousel").owlCarousel({
+            loop: true,
+            nav: true,
+            margin: 30,
+            items: 1
+        });
+        $("#quantityPlus").click(function () {
+            var quantity = parseInt($("#quantity").val());
+            if (quantity < 9) {
+                $("#quantity").val(quantity + 1);
+            }
+        });
+        $("#quantityMinus").click(function () {
+            var quantity = parseInt($("#quantity").val());
+            if (quantity > 1) {
+                $("#quantity").val(quantity - 1);
+            }
+        })
+    </script>
+    <style>
+
+        .owl-theme .owl-dots .owl-dot span {
+            border-radius: 5px !important;
+        }
+
+        .owl-theme .owl-dots .owl-dot.active span {
+            background: rgba(231, 30, 41, 0.72) !important;
+        }
+    </style>
+    @endsection
