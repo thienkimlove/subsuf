@@ -3,6 +3,9 @@
 @section('style')
     <link rel="stylesheet" href="/v2/css/rateit.css">
 
+    {{Html::style('assets/global/css/components.min.css')}}
+    {{Html::style('assets/layouts/layout3/css/custom.css')}}
+
     {{Html::style('assets/pages/css/about.min.css')}}
     {{Html::style('assets/pages/css/blog.min.css')}}
     {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}

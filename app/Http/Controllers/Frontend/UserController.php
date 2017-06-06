@@ -511,7 +511,7 @@ class UserController extends Controller
             'starTraveler' => $starTraveler,
         ];
         return view('v2.user.rate_info', $response);
-       // return view('frontend.user.rate_info', $response);
+        return view('frontend.user.rate_info', $response);
     }
 
     public function userRate($transaction_id)
