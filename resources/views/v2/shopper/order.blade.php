@@ -64,7 +64,7 @@
                                    step=any
                                    min="1"
                                    data-error="{{trans("index.price_min")}}"
-                                   value="{{isset($order["price"])? $order["price"]: 0}}" required="">
+                                   value="{{isset($order["display_price"])? $order["display_price"]: 0}}" required="">
                             <div class="help-block with-errors"></div>
 
 
