@@ -422,7 +422,7 @@ class UserController extends Controller
             $selectLocation[$item->location_id] = $item->name;
         }
         $response["location"] = $selectLocation;
-        return view('frontend.user.payment', $response);
+        return view('v2.user.payment', $response);
     }
 
     public function updatepaymentInfo()
