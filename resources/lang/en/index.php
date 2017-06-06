@@ -352,7 +352,7 @@ return [
 
     'nhanuudai' => 'Get now',
     'khongcamon' => 'No, Thanks',
-    'apdunglandautien' => 'Apply for first success trading',
+    'apdunglandautien' => 'Only for first transaction',
     'entermail' => 'Enter your email here',
 
     'uudai50k' => 'Get 50.000 VND coupon with Subsuf !'

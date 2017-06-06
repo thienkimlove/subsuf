@@ -20,7 +20,7 @@ class Category extends Model
         'category_order',
         'is_showed'
     ];
-    
+
     use Translatable;
 
     public $translatedAttributes = ['name'];
