@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Coupon;
+use App\Helper\CouponHelper;
 use App\Helper\NL_Checkout;
 use App\Http\Controllers\Controller;
 use App\Offer;
 use App\Repositories\ExchangeRepository;
-use CouponHelper;
 use Symfony\Component\HttpFoundation\Request;
 
 class PaymentController extends Controller

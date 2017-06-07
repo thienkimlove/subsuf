@@ -1,11 +1,7 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: quandm
- * Date: 5/6/2017
- * Time: 5:15 PM
- */
+namespace App\Helper;
+
 class CouponHelper
 {
     /**

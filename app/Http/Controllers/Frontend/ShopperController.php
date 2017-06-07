@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Coupon;
 use App\Exchange;
+use App\Helper\CouponHelper;
 use App\Helper\MessageHelper;
 use App\Helper\NL_Checkout;
 use App\Helper\UrlHelper;
@@ -22,7 +23,6 @@ use App\Repositories\NotificationRepository;
 use App\Repositories\OfferRepository;
 use App\Repositories\OrderRepository;
 use App\Transaction;
-use CouponHelper;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
