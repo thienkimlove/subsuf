@@ -1980,13 +1980,14 @@ ul.dropdown-menu li {
 }
 
 .menuVertical_and_sliderBanner .menuVertical {
-    position: absolute;
+    /*position: absolute;*/
     max-width: 330px;
     height: 440px;
     overflow-y: scroll;
     top: 0;
     z-index: 2;
     background: #3d3d58;
+    float: left;
 }
 
 .menuVertical_and_sliderBanner .menuVertical::-webkit-scrollbar-track {
