@@ -2002,3 +2002,9 @@ ul.dropdown-menu li {
 .menuVertical_and_sliderBanner .menuVertical::-webkit-scrollbar-thumb {
     background-color: #000000;
 }
+
+.owl-carousel {
+    display: none;
+    width: 100%;
+    z-index: 0;
+}
