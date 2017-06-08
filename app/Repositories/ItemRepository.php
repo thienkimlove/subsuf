@@ -108,14 +108,14 @@ class ItemRepository
 
     public function distinctFeatured()
     {
-        $statement = $this->item->select('category_id')->groupBy('category_id')->where('featured', 1);
+        $statement = $this->item->select('category_id')->groupBy('category_id');
 
         return $statement->get();
     }
 
     public function distinctSale()
     {
-        $statement = $this->item->select('category_id')->groupBy('category_id')->where('is_sale', 1);
+        $statement = $this->item->select('category_id')->groupBy('category_id');
 
         return $statement->get();
     }
