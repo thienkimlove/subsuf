@@ -152,7 +152,7 @@ class CollectionsController extends Controller
     public function featured_items()
     {
         $items = $this->item->getAll(["featured = 1"]);
-        $category_item = $this->item->distinctFeatured();
+        $category_item = $this->item->distinctCategory();
         $product_type = category_item();
         $raw_categories = $this->category->getAll();
         $categories = CategoryHelper::group_by_id($raw_categories);
