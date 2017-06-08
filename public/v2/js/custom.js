@@ -49,6 +49,8 @@ function couponSubmitFooter() {
 $(function(){
 
     $('.owl-sliderBanner').owlCarousel({
+        autoplay:true,
+        autoplayTimeout:4000,
         autoHeight:true,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
@@ -60,6 +62,8 @@ $(function(){
 
 
     $('.owl-slider_image_chitietdonhang').owlCarousel({
+        autoplay:true,
+        autoplayTimeout:4000,
         autoHeight:true,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
@@ -72,6 +76,8 @@ $(function(){
     });
 
     $('.owl_slider_product').owlCarousel({
+        autoplay:true,
+        autoplayTimeout:4000,
         autoHeight:true,
         margin:30,
         dots:false,
@@ -97,6 +103,8 @@ $(function(){
     })
 
     $('.owl_exhibition_2u').owlCarousel({
+        autoplay:true,
+        autoplayTimeout:4000,
         autoHeight:true,
         margin:30,
         dots:false,
