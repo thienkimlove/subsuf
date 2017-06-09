@@ -1,5 +1,30 @@
 @extends('v2.template')
+@section('style')
+    {{Html::style('assets/pages/css/about.min.css')}}
+    {{Html::style('assets/pages/css/blog.min.css')}}
+    {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
+    {{Html::style('assets/pages/css/portfolio.min.css')}}
+    {{Html::style('assets/pages/css/search.min.css')}}
+    <style type="text/css">
+        #orderDetail h2 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #69717e;
+        }
 
+        .content-right {
+            font-size: 14px;
+            float: right;
+            text-transform: none;
+        }
+
+        #orderDetail .col-xs-12 h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+    </style>
+@endsection
 @section('content')
 <div class="wrap_container wrap_quytrinhnhanmuaho">
     <div class="container white">
@@ -30,13 +55,12 @@
                                         </div>
                                     </div>
 
-                                    <div id="couponModal" class="modal fade" tabindex="-1" data-backdrop="static"
-                                         data-keyboard="false">
+                                    <div id="couponModal" class="modal fade" tabindex="-1">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal"
-                                                            aria-hidden="true"></button>
+                                                            aria-hidden="true">&times;</button>
                                                     <h4 class="modal-title">{{trans("index.themcoupon")}}</h4>
                                                 </div>
                                                 <div class="modal-body">
