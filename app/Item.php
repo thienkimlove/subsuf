@@ -13,6 +13,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+
+
+    use Translatable;
+    public $translatedAttributes = ['name'];
+    public $translationModel = 'App\ItemTranslation';
+
+    protected $connection = 'mysql';
+    protected $table = 'item';
+    protected $primaryKey = 'item_id';
+    public $timestamps = false;
+
     protected $fillable = [
         'category_id',
         'brand_id',
@@ -28,31 +39,6 @@ class Item extends Model
         'is_showed',
         'is_sale',
         'price_sale'
-    ];
-
-    use Translatable;
-    public $translatedAttributes = ['name'];
-    public $translationModel = 'App\ItemTranslation';
-
-    protected $connection = 'mysql';
-    protected $table = 'item';
-    protected $primaryKey = 'item_id';
-    public $timestamps = false;
-
-    protected $fillable = [
-        'item_id',
-        'category_id',
-        'brand_id',
-        'price',
-        'label',
-        'link',
-        'image',
-        'featured',
-        'status',
-        'item_order',
-        'is_showed',
-        'is_sale',
-        'price_sale',
     ];
 
     public function category()
