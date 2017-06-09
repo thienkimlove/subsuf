@@ -13,6 +13,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+    protected $fillable = [
+        'category_id',
+        'brand_id',
+        'price',
+        'name',
+        'label',
+        'link',
+        'image',
+        'featured',
+        'description',
+        'status',
+        'item_order',
+        'is_showed',
+        'is_sale',
+        'price_sale'
+    ];
 
     use Translatable;
     public $translatedAttributes = ['name'];

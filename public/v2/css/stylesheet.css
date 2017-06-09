@@ -1980,7 +1980,7 @@ ul.dropdown-menu li {
 }
 
 .menuVertical_and_sliderBanner .menuVertical {
-    /*position: absolute;*/
+    position: relative;
     max-width: 330px;
     height: 440px;
     overflow-y: scroll;
