@@ -174,50 +174,48 @@
     {{Html::script('assets/global/plugins/select2/js/select2.full.min.js')}}
     <script>
 
-        function couponByType(coupon_type) {
+        function couponByType() {
+            var coupon_type = $('#coupon_type').find("option:selected").val().toString();
             if (coupon_type === '0') {
                 $('#primary_message').text('');
                 $('#secondary_message').text('');
 
-                $('#primary_percent').val(0);
-                $('#secondary_percent').val(0);
+                $('#primary_percent').val(0).removeAttr('required');
+                $('#secondary_percent').val(0).removeAttr('required');
 
                 $('#primary_percent_div').hide();
                 $('#secondary_percent_div').hide();
-
                 $('#money_message').text('Giảm một số tiền');
             } else if (coupon_type === '1') {
                 $('#primary_message').text('Phần trăm được giảm');
                 $('#secondary_message').text('');
 
-                $('#primary_percent').val(0);
-                $('#secondary_percent').val(0);
+                $('#primary_percent').val(0).attr('required', 'true');
+                $('#secondary_percent').val(0).removeAttr('required');
 
                 $('#primary_percent_div').show();
                 $('#secondary_percent_div').hide();
-
                 $('#money_message').text('Nếu số tiền được giảm không quá');
             } else {
                 $('#primary_message').text('Phần trăm được giảm khi số tiền nhỏ hơn hoặc bằng');
                 $('#secondary_message').text('Phần trăm được giảm khi số tiền lớn hơn');
 
-                $('#primary_percent').val(0);
-                $('#secondary_percent').val(0);
+                $('#primary_percent').val(0).attr('required', 'true');;
+                $('#secondary_percent').val(0).attr('required', 'true');;
 
                 $('#primary_percent_div').show();
                 $('#secondary_percent_div').show();
+
 
                 $('#money_message').text('Số tiền');
             }
         }
 
         $(function () {
-
+            couponByType();
             $('#money_message').text('Giảm một số tiền');
-
             $('#coupon_type').on('change', function () {
-                var coupon_type = $(this).find("option:selected").val().toString();
-                couponByType(coupon_type);
+                couponByType();
                 return false;
             });
 

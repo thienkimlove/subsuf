@@ -758,29 +758,38 @@ class ShopperController extends Controller
             ->where("amount", ">", 0)
             ->where("status", 1)
             ->first();
+
+        \Log::info($code);
         if ($code) {
             if ($code->promotion_email && session()->get("userFrontend")["email"] != $code->promotion_email) {
                 $data = [
                     "status" => 0,
                     "message" => "Mã coupon không đúng email!",
                 ];
-            } else if ($code->money <= $total) {
-
-                $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($total, $code->money, $code->type, $code->primary_percent, $code->secondary_percent);
-                $responseData = $code->toArray();
-                $responseData['amount_be_coupon'] = $amount_be_coupon;
-
-                $data = [
-                    "status" => 1,
-                    "data" => $responseData,
-                ];
             } else {
-                $data = [
-                    "status" => 0,
-                    "message" => "Mã coupon đã hết hạn",
-                ];
+                if ($code->money > $total && $code->type == 0) {
+                    $data = [
+                        "status" => 0,
+                        "message" => "Mã coupon có số tiền khuyến mại lớn hơn tổng tiền đơn hàng nên không thể áp dụng!",
+                    ];
+
+                } else {
+                    $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($total, $code->money, $code->type, $code->primary_percent, $code->secondary_percent);
+                    $responseData = $code->toArray();
+                    $responseData['amount_be_coupon'] = $amount_be_coupon;
+
+                    $data = [
+                        "status" => 1,
+                        "data" => $responseData,
+                    ];
+                }
             }
 
+        } else {
+            $data = [
+                "status" => 0,
+                "message" => "Mã coupon đã hết hạn",
+            ];
         }
         return response($data);
     }
