@@ -10,4 +10,7 @@ class Deal extends Model
     use Translatable;
     public $translatedAttributes = ['title', 'desc'];
     public $translationModel = 'App\DealTranslation';
+    protected $fillable = [
+        'image',
+    ];
 }

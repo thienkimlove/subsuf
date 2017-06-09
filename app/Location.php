@@ -22,6 +22,15 @@ class Location extends Model
     protected $primaryKey = 'location_id';
     public $timestamps = false;
 
+    protected $fillable = [
+        'location_id',
+        'name',
+        'type',
+        'image',
+        'location_order',
+        'is_showed',
+    ];
+
     public function websites()
     {
         return $this->hasMany('App\Website', 'location_id');

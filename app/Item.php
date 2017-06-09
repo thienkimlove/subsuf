@@ -23,6 +23,22 @@ class Item extends Model
     protected $primaryKey = 'item_id';
     public $timestamps = false;
 
+    protected $fillable = [
+        'item_id',
+        'category_id',
+        'brand_id',
+        'price',
+        'label',
+        'link',
+        'image',
+        'featured',
+        'status',
+        'item_order',
+        'is_showed',
+        'is_sale',
+        'price_sale',
+    ];
+
     public function category()
     {
         return $this->belongsTo('App\Category', 'category_id')

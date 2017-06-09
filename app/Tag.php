@@ -17,6 +17,11 @@ class Tag extends Model
     protected $primaryKey = 'tag_id';
     public $timestamps = false;
 
+    protected $fillable = [
+        'tag_id',
+        'tag_picture',
+    ];
+
     public function translations()
     {
         return $this->hasMany('App\TagTranslations', 'tag_id');

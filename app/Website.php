@@ -23,6 +23,17 @@ class Website extends Model
     protected $primaryKey = 'website_id';
     public $timestamps = false;
 
+    protected $fillable = [
+        'website_id',
+        'name',
+        'image',
+        'location_id',
+        'category_id',
+        'website_order',
+        'is_showed',
+        'description',
+    ];
+
     public function nation()
     {
         return $this->belongsTo('App\Location', 'location_id')
