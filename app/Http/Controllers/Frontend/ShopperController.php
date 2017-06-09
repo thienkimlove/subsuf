@@ -759,7 +759,6 @@ class ShopperController extends Controller
             ->where("status", 1)
             ->first();
 
-        \Log::info($code);
         if ($code) {
             if ($code->promotion_email && session()->get("userFrontend")["email"] != $code->promotion_email) {
                 $data = [
