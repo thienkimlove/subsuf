@@ -1982,6 +1982,7 @@ ul.dropdown-menu li {
     position: relative;
     max-width: 330px;
     height: 440px;
+    width: 345px;
     overflow-y: scroll;
     top: 0;
     z-index: 2;
