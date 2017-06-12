@@ -754,7 +754,6 @@ class ShopperController extends Controller
         $couponCode = $this->request->input("coupon");
         $total = (float)$this->request->input("total");
         $code = Coupon::where("coupon_code", $couponCode)
-            ->where("account_id", 0)
             ->where("amount", ">", 0)
             ->where("status", 1)
             ->first();
@@ -765,7 +764,12 @@ class ShopperController extends Controller
                     "status" => 0,
                     "message" => "Mã coupon không đúng email!",
                 ];
-            } else {
+            } else if ($code->account_id != 0 && session()->get("userFrontend")["account_id"] != $code->account_id) {
+                $data = [
+                    "status" => 0,
+                    "message" => "Mã coupon đã xác định dùng cho user khác!",
+                ];
+            } else  {
                 if ($code->money > $total && $code->type == 0) {
                     $data = [
                         "status" => 0,
