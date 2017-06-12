@@ -192,8 +192,8 @@
                 $('#primary_message').text('');
                 $('#secondary_message').text('');
 
-                $('#primary_percent').val(0).removeAttr('required');
-                $('#secondary_percent').val(0).removeAttr('required');
+                $('#primary_percent').removeAttr('required');
+                $('#secondary_percent').removeAttr('required');
 
                 $('#primary_percent_div').hide();
                 $('#secondary_percent_div').hide();
@@ -202,8 +202,8 @@
                 $('#primary_message').text('Phần trăm được giảm');
                 $('#secondary_message').text('');
 
-                $('#primary_percent').val(0).attr('required', 'true');
-                $('#secondary_percent').val(0).removeAttr('required');
+                $('#primary_percent').attr('required', 'true');
+                $('#secondary_percent').removeAttr('required');
 
                 $('#primary_percent_div').show();
                 $('#secondary_percent_div').hide();
@@ -212,8 +212,8 @@
                 $('#primary_message').text('Phần trăm được giảm khi số tiền nhỏ hơn hoặc bằng');
                 $('#secondary_message').text('Phần trăm được giảm khi số tiền lớn hơn');
 
-                $('#primary_percent').val(0).attr('required', 'true');;
-                $('#secondary_percent').val(0).attr('required', 'true');;
+                $('#primary_percent').attr('required', 'true');;
+                $('#secondary_percent').attr('required', 'true');;
 
                 $('#primary_percent_div').show();
                 $('#secondary_percent_div').show();
