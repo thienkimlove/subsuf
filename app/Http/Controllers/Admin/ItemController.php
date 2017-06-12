@@ -138,6 +138,7 @@ class ItemController extends Controller
 
                         return \Redirect::action('Admin\ItemController@index')->withSuccess(message_update());
                     } catch (\Exception $exception) {
+                       // dd($exception->getTraceAsString());
                         return \Redirect::back()->withError(message_internal_error());
                     }
                 }

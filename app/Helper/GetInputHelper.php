@@ -259,6 +259,7 @@ function get_item_form($request)
         try {
             $data['image'] = store_image($request, $image_path);
         } catch (Exception $e) {
+            dd($e->getMessage());
         }
     }
 

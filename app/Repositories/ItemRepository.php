@@ -34,7 +34,7 @@ class ItemRepository
 
     public function getLimit($limit, $query = [])
     {
-        return $this->select($query)->paginate($limit);
+        return $this->select($query)->orderBy('item_id', 'desc')->paginate($limit);
     }
 
     public function find($item_id)
