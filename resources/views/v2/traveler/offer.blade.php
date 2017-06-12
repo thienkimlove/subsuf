@@ -1,11 +1,9 @@
-
-
-
 @extends('v2.template')
 
 
 @section('style')
-
+    {{Html::style('assets/global/css/components.min.css')}}
+    {{Html::style('assets/global/css/plugins.min.css')}}
     {{Html::style('assets/pages/css/about.min.css')}}
     {{Html::style('assets/pages/css/blog.min.css')}}
     {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
@@ -14,6 +12,9 @@
     {{Html::style('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}
     {{Html::style('assets/global/plugins/icheck/skins/all.css')}}
     {{Html::style('assets/global/plugins/ladda/ladda-themeless.min.css')}}
+    {{Html::style('assets/layouts/layout3/css/layout.css')}}
+    {{Html::style('assets/layouts/layout3/css/themes/default.min.css')}}
+    {{Html::style('assets/layouts/layout3/css/custom.css')}}
 
 @endsection
 @section('content')
