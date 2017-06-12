@@ -20,7 +20,7 @@
 @section('content')
     @if(!Session::get("userFrontend")["phone_number"]||!Session::get("userFrontend")["email"])
 
-        <div id="updateInfoModal" class="modal fade" tabindex="-1" data-backdrop="static"
+        <div id="updateInfoModal" class="modal fade" tabindex="-1"
              data-keyboard="false">
             <div class="modal-dialog">
                 <div class="modal-content">
