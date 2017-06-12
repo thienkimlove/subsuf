@@ -52,7 +52,8 @@
                 </div>
             </div>
         </div>
-    @endif
+        @endif
+
     <div class="wrap_container wrap_quytrinhnhanmuaho">
     <div class="container white">
         <div class="row margin-top-40">
@@ -263,6 +264,20 @@
 @endsection
 
 @section('frontend_script')
+    {{Html::script('assets/global/plugins/respond.min.js')}}
+    {{Html::script('assets/global/plugins/excanvas.min.js')}}
+    {{Html::script('assets/global/plugins/jquery.min.js')}}
+    {{Html::script('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}
+    {{Html::script('assets/global/plugins/js.cookie.min.js')}}
+    {{Html::script('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}
+    {{Html::script('assets/global/plugins/jquery.blockui.min.js')}}
+    {{Html::script('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}
+    {{Html::script('assets/global/scripts/app.min.js')}}
+    {{Html::script('assets/layouts/layout3/scripts/layout.js')}}
+    {{Html::script('assets/layouts/layout3/scripts/demo.min.js')}}
+    {{Html::script('assets/layouts/global/scripts/quick-sidebar.min.js')}}
+    {{Html::script('assets/apps/scripts/cookie.js')}}
+
     {{Html::script('assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js')}}
     {{Html::script('assets/pages/scripts/portfolio-1.min.js')}}
     {{Html::script('assets/pages/scripts/convert-image-to-base64.js')}}
@@ -311,7 +326,7 @@
                 }
             })
         }
-        $("#updateInfoModal").modal();
+        $("#updateInfoModal").modal('show');
         $('.datepicker').datepicker({
             format: 'dd-mm-yyyy',
             todayHighlight: true,
