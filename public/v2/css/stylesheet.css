@@ -365,7 +365,6 @@ header.header .logo_btn_nhanmuaho .btn_link.active:hover i.fa {
     .menuVertical_and_sliderBanner .menuVertical ul li a span {
         width: 0px;
         overflow: hidden;
-        display: none;
     }
 }
 
@@ -384,7 +383,7 @@ header.header .logo_btn_nhanmuaho .btn_link.active:hover i.fa {
     }
 
     .menuVertical_and_sliderBanner .menuVertical ul li a img.icon {
-        width: 25px;
+        width: 41px;
     }
 }
 
@@ -393,7 +392,7 @@ header.header .logo_btn_nhanmuaho .btn_link.active:hover i.fa {
         font-size: 14px;
         padding: 15px !important;
         line-height: 18px;
-        text-align: center;
+        text-align: left;
     }
 }
 

@@ -238,7 +238,7 @@ header.header .logo_btn_nhanmuaho .btn_link.active:hover i.fa {
     .menuVertical_and_sliderBanner .menuVertical ul li a span {
         width: 0px;
         overflow: hidden;
-        display: none; } }
+         } }
 .menuVertical_and_sliderBanner .menuVertical ul li.active a {
     background: #b5a161; }
 @media (max-width: 991px) {
