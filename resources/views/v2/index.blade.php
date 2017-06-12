@@ -4,60 +4,67 @@
     <div class="wrap_container">
         <div class="menuVertical_and_sliderBanner">
             <div class="container">
-                <div class="menuVertical sidebar-nav">
-                    <ul class="nav">
-                        @foreach ($categories as $category)
-                            @if($category->category_id == 7)
-                                @continue
-                            @endif
-                            <li>
-                                <a href="{{url('collections/featured-items?category='. $category->category_id)}}">
-                                    <img class="icon" src="{{url($category->image)}}" height="41" width="33" alt="">
-                                    <span>{{$category->name}}</span>
-                                </a>
-                            </li>
-                        @endforeach
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="menuVertical sidebar-nav">
+                            <ul class="nav">
+                                @foreach ($categories as $category)
+                                    @if($category->category_id == 7)
+                                        @continue
+                                    @endif
+                                    <li>
+                                        <a href="{{url('collections/featured-items?category='. $category->category_id)}}">
+                                            <img class="icon" src="{{url($category->image)}}" height="41" width="33"
+                                                 alt="">
+                                            <span>{{$category->name}}</span>
+                                        </a>
+                                    </li>
+                                @endforeach
 
-                        {{--<li><a href="{{url('collections/featured-items')}}">Xem tất cả danh mục</a></li>--}}
-                    </ul>
-                </div>
-                <div class="sliderBanner">
-                    <div class="owl-carousel owl-theme owl-sliderBanner">
-                        @php
-                            $locale = \App::getLocale();
-                            $banners = \App\Banner::orderBy('order')->where('language', $locale)->get();
-                        @endphp
-                        @foreach($banners as $banner)
-                        <div class="item">
-                            <div class="image">
-
-                                    <img src="{{ $banner->image }}" alt="">
-
-                            </div>
+                                {{--<li><a href="{{url('collections/featured-items')}}">Xem tất cả danh mục</a></li>--}}
+                            </ul>
                         </div>
-                            @endforeach
-                        {{--<div class="item">--}}
-                            {{--<div class="image">--}}
+                    </div>
+                    <div class="col-md-9" style="padding-right: 0">
+                        <div class="sliderBanner">
+                            <div class="owl-carousel owl-theme owl-sliderBanner">
+                                @php
+                                    $locale = \App::getLocale();
+                                    $banners = \App\Banner::orderBy('order')->where('language', $locale)->get();
+                                @endphp
+                                @foreach($banners as $banner)
+                                    <div class="item">
+                                        <div class="image">
+
+                                            <img src="{{ $banner->image }}" alt="">
+
+                                        </div>
+                                    </div>
+                                @endforeach
+                                {{--<div class="item">--}}
+                                {{--<div class="image">--}}
 
                                 {{--<img src="{{url('v2/images/banner1.jpg')}}" alt="">--}}
 
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="item">--}}
-                            {{--<div class="image">--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="item">--}}
+                                {{--<div class="image">--}}
 
                                 {{--<img src="{{url('v2/images/banner3.jpg')}}" alt="">--}}
 
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="item">--}}
-                            {{--<div class="image">--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="item">--}}
+                                {{--<div class="image">--}}
 
                                 {{--<img src="{{url('v2/images/banner2.jpg')}}" alt="">--}}
 
-                            {{--</div>--}}
-                        {{--</div>--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,7 +79,7 @@
                     <div class="item col-xs-12 col-sm-6 col-md-4">
                         <div class="image">
 
-                                <img src="{{url('v2/images/icon1_blook_3service.png')}}" alt="">
+                            <img src="{{url('v2/images/icon1_blook_3service.png')}}" alt="">
 
                         </div>
                         <h3 class="title">
@@ -86,7 +93,7 @@
                     <div class="item col-xs-12 col-sm-6 col-md-4">
                         <div class="image">
 
-                                <img src="{{url('v2/images/icon2_blook_3service.png')}}" alt="">
+                            <img src="{{url('v2/images/icon2_blook_3service.png')}}" alt="">
 
                         </div>
                         <h3 class="title">
@@ -100,7 +107,7 @@
                     <div class="item col-xs-12 col-sm-12 col-md-4">
                         <div class="image">
 
-                                <img src="{{url('v2/images/icon3_blook_3service.png')}}" alt="">
+                            <img src="{{url('v2/images/icon3_blook_3service.png')}}" alt="">
 
                         </div>
                         <h3 class="title">
@@ -119,7 +126,7 @@
             <div class="container">
                 <h2 class="title_block">
 
-                        {{trans("index.quytrinhdathang")}}
+                    {{trans("index.quytrinhdathang")}}
 
                 </h2>
                 <div class="list_post_blog row">
@@ -176,7 +183,7 @@
             <div class="container">
                 <h2 class="title_block">
 
-                        {{trans('index.sanphamgiamgiamoingay')}}
+                    {{trans('index.sanphamgiamgiamoingay')}}
 
                 </h2>
                 <div class="slider_product">
@@ -221,7 +228,7 @@
             <div class="container">
                 <h2 class="title_block">
 
-                        {{trans('index.sanphamdanghot')}}
+                    {{trans('index.sanphamdanghot')}}
 
                 </h2>
                 <div class="slider_product">
@@ -272,7 +279,7 @@
             <div class="container">
                 <h2 class="title_block">
 
-                        {{trans('index.donhangdahoanthanh')}}
+                    {{trans('index.donhangdahoanthanh')}}
 
                 </h2>
                 <div class="slider_exhibition_2u">
