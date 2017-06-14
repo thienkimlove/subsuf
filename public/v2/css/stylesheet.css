@@ -412,6 +412,7 @@ header.header .logo_btn_nhanmuaho .btn_link.active:hover i.fa {
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
+        height: 440px;
     }
 }
 
