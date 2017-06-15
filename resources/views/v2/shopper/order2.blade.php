@@ -1,5 +1,16 @@
 @extends('v2.template')
+@section('style')
+    {{Html::style('assets/pages/css/about.min.css')}}
+    {{Html::style('assets/pages/css/blog.min.css')}}
+    {{Html::style('assets/global/plugins/cubeportfolio/css/cubeportfolio.css')}}
+    {{Html::style('assets/pages/css/portfolio.min.css')}}
+    {{Html::style('assets/pages/css/search.min.css')}}
+    {{Html::style('assets/global/plugins/icheck/skins/all.css')}}
+    {{Html::style('assets/global/plugins/select2/css/select2.min.css')}}
+    {{Html::style('assets/global/plugins/select2/css/select2-bootstrap.min.css')}}
+    {{Html::style('assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}
 
+@endsection
 @section('content')
 <div class="wrap_container">
 
@@ -124,7 +135,15 @@
 
 @section('frontend_script')
 
+    {{Html::script('assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js')}}
     {{Html::script('assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}
+
+    {{Html::script('assets/pages/scripts/portfolio-1.min.js')}}
+    {{Html::script('assets/pages/scripts/convert-image-to-base64.js')}}
+    {{Html::script('assets/global/plugins/icheck/icheck.min.js')}}
+    {{Html::script('assets/global/plugins/select2/js/select2.full.min.js')}}
+
+    {{Html::script('assets/pages/scripts/validator.min.js')}}
 
 
 

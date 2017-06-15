@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="{{url('v2/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{url('v2/css/owl.theme.default.css')}}">
 
+
+
+
     <link rel="stylesheet" href="/v2/css/Multi-Step-Indicator.css">
 
 
