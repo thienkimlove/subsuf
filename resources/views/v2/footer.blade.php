@@ -85,11 +85,11 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <ul class="list_menu_ft">
-                        <li><a href="{{url('blog')}}">{{trans("index.blog")}}</a></li>
-                        <li><a href="{{url('about')}}">{{trans("index.vechungtoi")}}</a></li>
-                        <li><a href="{{url('faq')}}">{{trans("index.cauhoithuonggap")}}</a></li>
-                        <li><a href="{{url('term')}}">{{trans("index.dieukhoansudung")}}</a></li>
-                        <li><a href="{{url('policy')}}">{{trans("index.chinhsachbaomat")}}</a></li>
+                        <li><a href="{{url('blog')}}" target="_blank">{{trans("index.blog")}}</a></li>
+                        <li><a href="{{url('about')}}" target="_blank">{{trans("index.vechungtoi")}}</a></li>
+                        <li><a href="{{url('faq')}}" target="_blank">{{trans("index.cauhoithuonggap")}}</a></li>
+                        <li><a href="{{url('term')}}" target="_blank">{{trans("index.dieukhoansudung")}}</a></li>
+                        <li><a href="{{url('policy')}}" target="_blank">{{trans("index.chinhsachbaomat")}}</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-2">
@@ -97,10 +97,10 @@
 
                         <p>{{ trans('index.ketnoichungtoi') }}</p>
                         <p class="kn">
-                            <a href="https://www.facebook.com/Subsuf.global/?ref=aymt_homepage_panel"><img
+                            <a target="_blank" href="https://www.facebook.com/Subsuf.global/?ref=aymt_homepage_panel"><img
                                         src="/v2/images/fb.png"/> </a>
-                            <a href="#"><img src="/v2/images/ln.png"/> </a>
-                            <a href="https://www.youtube.com/channel/UCDNkaXLEvRmS1i1_JLAhSIw"><img
+                            <a target="_blank" href="#"><img src="/v2/images/ln.png"/> </a>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCDNkaXLEvRmS1i1_JLAhSIw"><img
                                         src="/v2/images/yt.png"/> </a>
                         </p>
                     </div>
