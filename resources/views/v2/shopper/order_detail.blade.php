@@ -178,6 +178,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
+                                                    @if($item->shipping_fee || $item->tax)
                                                     <small>{{trans("index.tongtiencongnhanduocdabaogom")}}
 
                                                         @if($item->shipping_fee)
@@ -190,6 +191,7 @@
                                                          {{trans("index.thue")}}
                                                         @endif
                                                     </small>
+                                                        @endif
                                                 </td>
                                             </tr>
                                             </tbody>
