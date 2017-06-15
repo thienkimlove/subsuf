@@ -2,6 +2,7 @@
 
 return [
 
+    'tongtiencong' => 'Tổng tiền công',
     'madonhang' => 'Mã đơn hàng',
     'muagiodau' => 'Mua gì ở đâu',
     'dathang' => 'Đặt hàng',

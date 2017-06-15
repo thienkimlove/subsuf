@@ -137,7 +137,7 @@
                                 <label>{{trans("index.tongtiencongcuoicung")}}</label>
 
 
-                                <input type="text" id="feeTotal" class="form-control" placeholder="Tổng tiền công"
+                                <input type="text" id="feeTotal" class="form-control" placeholder="{{ trans('index.tongtiencong') }}"
                                        value="{{$order->traveler_reward}}"
                                        disabled>
                             </div>

@@ -2,6 +2,7 @@
 
 return [
 
+    'tongtiencong' => 'Total reward',
     'madonhang' => 'Order code',
     'muagiodau' => 'Where to buy',
     'dathang' => 'Post an order',

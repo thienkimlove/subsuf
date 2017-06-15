@@ -173,7 +173,7 @@
                                         <table class="table">
                                             <tbody>
                                             <tr>
-                                                <td>Tổng tiền công</td>
+                                                <td>{{ trans('index.tongtiencong') }}</td>
                                                 <td><span>${{$item->shipping_fee+$item->tax+$item->others_fee}}</span></td>
                                             </tr>
                                             <tr>
