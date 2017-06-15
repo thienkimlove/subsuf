@@ -56,7 +56,7 @@
                                 <img src="/v2/images/kiemthem1.png" alt="">
                             </span>
                             <h3 class="title">
-                                <a href="#"> {{ trans('index.timycdathang') }}</a>
+                                <a href="#" onclick="return false;" > {{ trans('index.timycdathang') }}</a>
                             </h3>
                         </div>
                         <div class="summary">
@@ -71,7 +71,7 @@
                                 <img src="/v2/images/kiemthem2.png" alt="">
                             </span>
                             <h3 class="title">
-                                <a href="#">{{ trans('index.denghimuaho') }}</a>
+                                <a href="#" onclick="return false;">{{ trans('index.denghimuaho') }}</a>
                             </h3>
                         </div>
                         <div class="summary">
@@ -86,7 +86,7 @@
                                 <img src="/v2/images/kiemthem3.png" alt="">
                             </span>
                             <h3 class="title">
-                                <a href="#">{{ trans('index.vanchuyenvanhantien') }}</a>
+                                <a href="#" onclick="return false;"> {{ trans('index.vanchuyenvanhantien') }}</a>
                             </h3>
                         </div>
                         <div class="summary">

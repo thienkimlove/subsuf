@@ -67,10 +67,10 @@
                                  placeholder="{{trans('index.entermail')}}"/></span>
                     <span><button class="nhanngay">{{trans('index.nhanuudai')}}</button></span>
 
-                    <span class="tticon hidden-xs"><a href="#"><img src="/v2/images/icon-thanhtoan1.png"
+                    <span class="tticon hidden-xs"><a href="#" onclick="return false;"><img src="/v2/images/icon-thanhtoan1.png"
                                                                     alt=""></a></span>
-                    <span class="hidden-xs"><a href="#"><img src="/v2/images/icon-thanhtoan2.png" alt=""></a></span>
-                    <span class="hidden-xs"><a href="#"><img src="/v2/images/icon-thanhtoan3.png" alt=""></a></span>
+                    <span class="hidden-xs"><a href="#" onclick="return false;"><img src="/v2/images/icon-thanhtoan2.png" alt=""></a></span>
+                    <span class="hidden-xs"><a href="#" onclick="return false;"><img src="/v2/images/icon-thanhtoan3.png" alt=""></a></span>
                 </div>
                 <div class="col-xs-12 col-md-12 mb15" id="footer_mess">
 
