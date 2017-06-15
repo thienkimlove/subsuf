@@ -327,10 +327,10 @@
                                                     {{trans('index.tiencong')}}:
                                                     <span>${{$offer->others_fee+$offer->shipping_fee+$offer->tax}}</span>
                                                 </div>
-                                                <div class="wage">
-                                                    {{trans('index.madonhang')}}:
-                                                    <span>{{$order->code}}</span>
-                                                </div>
+                                                {{--<div class="wage">--}}
+                                                    {{--{{trans('index.madonhang')}}:--}}
+                                                    {{--<span>{{$order->code}}</span>--}}
+                                                {{--</div>--}}
                                             </div>
                                         </div>
                                     </div>

@@ -57,6 +57,15 @@ class OrderRepository
             ->find($order_id);
     }
 
+    public function findByCode($code)
+    {
+        return $this->order->with('order_images')
+            ->with('account')
+            ->with('to_location')
+            ->with('from_location')
+            ->where('order.code', 'LIKE', '%'.$code.'%');
+    }
+
     public function saveOrder($user_id, $order1, $order2, $order3)
     {
 

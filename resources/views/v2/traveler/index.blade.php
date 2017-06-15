@@ -173,9 +173,9 @@
 
                                     @endif
                                 </div>
-                                <div class="wage">
-                                    {{ trans('index.madonhang') }}: <span>{{ $order->code }}</span>
-                                </div>
+                                {{--<div class="wage">--}}
+                                    {{--{{ trans('index.madonhang') }}: <span>{{ $order->code }}</span>--}}
+                                {{--</div>--}}
                                 <div class="text-center">
                                     <a href="{{URL::action("Frontend\ShopperController@orderDetail",$order->order_id)}}" class="btn_style">{{trans("index.nhanmuaho")}}</a>
                                 </div>
