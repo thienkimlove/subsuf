@@ -53,6 +53,11 @@ class OrderController extends Controller
             $query['order_id'] = "order_id = $order_id";
         }
 
+        if ($this->request->has('code')) {
+            $code = (int)trim($this->request->input('code'));
+            $query['code'] = "code = $code";
+        }
+
         if ($this->request->has('deliver_from')) {
             $deliver_from = (int)trim($this->request->input('deliver_from'));
             if ($deliver_from != -1) {

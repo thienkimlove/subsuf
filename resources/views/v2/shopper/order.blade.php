@@ -91,7 +91,7 @@
                             </div>
                         </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">Ảnh sản phẩm <br><small>(Chọn ít nhất 1 ảnh)</small></label>
+                                <label for="exampleInputFile">{{ trans('index.anhsanphamchon1') }}</label>
                                 <div class="wrap_image_upload">
                                     @if(isset($order["images"]))
                                         @foreach($order["images"] as $key=>$image)
