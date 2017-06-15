@@ -127,6 +127,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="{{url('v2/js/bootstrap.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.js"></script>
+<script src="{{url('v2/js/owl.carousel.min.js')}}"></script>
 <script src="{{url('v2/js/dropdownhover.min.js')}}"></script>
 {{--<script src="{{url('v2/js/dropdowns-menu.js')}}"></script>--}}
 <script src="{{url('v2/js/owl.carousel.min.js')}}"></script>

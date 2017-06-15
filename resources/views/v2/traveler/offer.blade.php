@@ -264,6 +264,7 @@
 @endsection
 
 @section('frontend_script')
+
     {{Html::script('assets/global/plugins/respond.min.js')}}
     {{Html::script('assets/global/plugins/excanvas.min.js')}}
     {{Html::script('assets/global/plugins/jquery.min.js')}}
@@ -276,7 +277,6 @@
     {{Html::script('assets/layouts/layout3/scripts/layout.js')}}
     {{Html::script('assets/layouts/layout3/scripts/demo.min.js')}}
     {{Html::script('assets/layouts/global/scripts/quick-sidebar.min.js')}}
-    {{Html::script('assets/apps/scripts/cookie.js')}}
 
     {{Html::script('assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js')}}
     {{Html::script('assets/pages/scripts/portfolio-1.min.js')}}
@@ -287,8 +287,6 @@
     {{Html::script('assets/global/plugins/ladda/spin.min.js')}}
     {{Html::script('assets/global/plugins/ladda/ladda.min.js')}}
     {{Html::script('assets/pages/scripts/validator.min.js')}}
-
-    {{Html::script('assets/global/scripts/app.min.js')}}
 
 
     <script type="text/javascript">
@@ -326,7 +324,7 @@
                 }
             })
         }
-        $("#updateInfoModal").modal('show');
+        $("#updateInfoModal").modal();
         $('.datepicker').datepicker({
             format: 'dd-mm-yyyy',
             todayHighlight: true,
@@ -334,7 +332,6 @@
         });
         $('.datepicker').datepicker('setStartDate', new Date());
         $(".icheck").on('ifChecked', function (event) {
-
             var inputText = $(this).parents(".form-group").find("input[type=number]");
             $(inputText).prop("disabled", false);
             updateTotal();
