@@ -137,7 +137,7 @@
                                     <img src="{{url('v2/images/quytrinh1.jpg')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    <a href="#">{{trans("index.taoyeucau")}}</a>
+                                    <a href="#" onclick="return false;">{{trans("index.taoyeucau")}}</a>
                                 </h3>
                             </div>
                             <div class="summary">
@@ -152,7 +152,7 @@
                                     <img src="{{url('v2/images/quytrinh2.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    <a href="#">{{trans("index.chondenghiphuhop")}}</a>
+                                    <a onclick="return false;" href="#">{{trans("index.chondenghiphuhop")}}</a>
                                 </h3>
                             </div>
                             <div class="summary">
@@ -167,7 +167,7 @@
                                     <img src="{{url('v2/images/quytrinh3.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
-                                    <a href="#">{{trans("index.gapnguoimuahodenhanhang")}}</a>
+                                    <a href="#" onclick="return false;">{{trans("index.gapnguoimuahodenhanhang")}}</a>
                                 </h3>
                             </div>
                             <div class="summary">
