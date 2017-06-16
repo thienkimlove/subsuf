@@ -173,7 +173,7 @@ class PaymentController extends Controller
 //            echo $url;
 //            die;
 
-          //  return \Redirect::to($url);
+            return \Redirect::to($url);
             if ($order_code != "") {
                 //một số tham số lưu ý
                 //&cancel_url=http://yourdomain.com --> Link bấm nút hủy giao dịch
