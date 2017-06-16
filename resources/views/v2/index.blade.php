@@ -133,7 +133,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="item_post">
                             <div class="image_title">
-                                <a class="image" href="#">
+                                <a class="image" href="#" onclick="return false;">
                                     <img src="{{url('v2/images/quytrinh1.jpg')}}" alt="">
                                 </a>
                                 <h3 class="title">
@@ -148,7 +148,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="item_post">
                             <div class="image_title">
-                                <a class="image" href="#">
+                                <a class="image" href="#" onclick="return false;">
                                     <img src="{{url('v2/images/quytrinh2.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
@@ -163,7 +163,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-4">
                         <div class="item_post">
                             <div class="image_title">
-                                <a class="image" href="#">
+                                <a class="image" href="#" onclick="return false;">
                                     <img src="{{url('v2/images/quytrinh3.png')}}" alt="">
                                 </a>
                                 <h3 class="title">
