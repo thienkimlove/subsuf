@@ -180,8 +180,11 @@
                             <div class="input-group">
                                 <div class="input-icon">
                                     <i class="fa fa-search" style="margin-top: 8px"></i>
-                                    <input class="form-control input-sm clearable" type="number" name="order_id"
-                                           id="order_id" value="{{old('order_id')}}" placeholder="Mã Order...">
+                                    {{--<input class="form-control input-sm clearable" type="number" name="order_id"--}}
+                                           {{--id="order_id" value="{{old('order_id')}}" placeholder="Mã Order...">--}}
+
+                                    <input class="form-control input-sm clearable" type="number" name="code"
+                                           id="code" value="{{old('code')}}" placeholder="Mã Order...">
                                 </div>
                                 <span class="input-group-btn">
                                     <a role="button" class="btn btn-sm default block-button" id="reset">
@@ -281,7 +284,7 @@
                                                 <td class="text-center">{{$key + 1}}</td>
                                                 <td class="text-center bold">
                                                     <a href="{{URL::action('Admin\OrderController@info', $order->order_id)}}">
-                                                        #{{$order->order_id}} <br>
+                                                        #{{$order->code}} <br>
                                                         <a type="button" title="Xem"
                                                            class="btn btn-xs btn-primary tooltips m-r-0"
                                                            href="{{URL::action('Admin\OrderController@info', $order->order_id)}}">
