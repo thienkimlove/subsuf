@@ -290,7 +290,7 @@
                                     <div class="item">
                                         <div class="box_exhibition">
                                             <div class="image_exhibition">
-                                                <a href="#">
+                                                <a href="#" onclick="return false;">
                                                     <img src="{{url($order->order_images[0]->image)}}" height="236"
                                                          width="354" alt="">
                                                 </a>
