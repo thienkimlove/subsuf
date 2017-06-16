@@ -34,7 +34,7 @@
             <i class="fa fa-angle-right"></i>
         </li>
         <li>
-            <span class="bold">Thông tin: Order #{{$order->order_id}}</span>
+            <span class="bold">Thông tin: Order #{{$order->code}}</span>
         </li>
     </ul>
 @endsection
@@ -95,7 +95,7 @@
                     <div class="caption">
                         <i class="fa fa-shopping-cart font-green"></i>
                         <span class="caption-subject font-green bold uppercase">
-                            Order #{{$order->order_id}}
+                            Order #{{$order->code}}
                         </span>
                     </div>
 
