@@ -393,70 +393,70 @@ class ShopperController extends Controller
 
     public function saveAcceptOffer($account_id, $offer_id, $coupon_id)
     {
-        $exchange = $this->exchange->change("USD", "VND");
-        $offer = Offer::find($offer_id);
-
-        $date = date("Y-m-d H:i:s");
-        $offer->offer_status = 2;
-        $offer->save();
-
-        $order = $offer->order;
-
-        $order->order_status = 2;
-        $order->save();
-
-        $transaction = new Transaction();
-        $transaction->offer_id = $offer->offer_id;
-        $transaction->coupon_id = 0;
-
-        if ($offer->payment_type == "bank")
-            $payment_id = $offer->payment_info_id;
-        else {
-            $payment_id = $offer->payment_info_id;
-        }
-        $total_order = (float)$order->price * $order->quantity +
-            $offer->shipping_fee + $offer->tax + $offer->others_fee;
-
-        $transaction->service_fee = round($total_order * get_service_percent($total_order), 2);
-
-        //new way to process with coupon.
-        $amount_be_coupon = 0;
-        $absoluteTotal = $total_order * (1 + get_service_percent($total_order));
-
-        $coupon = Coupon::whereIn("account_id", [$account_id, 0])
-            ->where("amount", ">", 0)
-            ->where("coupon_id", $coupon_id)->where("status", 1)->get();
-
-        if ($coupon->count() > 0) {
-            $coupon = $coupon->first();
-            $transaction->coupon_id = $coupon_id;
-            $coupon->amount = (int)$coupon->amount - 1;
-            if (!$coupon->amount) {
-                $coupon->status = -1; // đã dùng
-            } else {
-                $coupon->used_at = $date;
-                $coupon_money = $coupon->money;
-                $coupon_type = $coupon->type;
-                $coupon_primary_percent = $coupon->primary_percent;
-                $coupon_secondary_percent = $coupon->secondary_percent;
-
-                $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon_money, $coupon_type, $coupon_primary_percent, $coupon_secondary_percent);
-                $coupon->real_money = $amount_be_coupon;
-            }
-            $coupon->save();
-        }
-
-        $transaction->total = round($absoluteTotal - $amount_be_coupon, 2);
-        $transaction->transaction_time = $date;
-        $transaction->transaction_date = $date;
-        $transaction->transaction_date = $date;
-        $transaction->payment_type = $offer->payment_type;
-        $transaction->payment_id = $payment_id;
-        $transaction->exchange = $exchange;
-        $transaction->transaction_status = 2; // đang giao dịch
-        $transaction->save();
-
-        return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id)->withSuccess(trans("index.nhanbofferthanhcong"));
+//        $exchange = $this->exchange->change("USD", "VND");
+//        $offer = Offer::find($offer_id);
+//
+//        $date = date("Y-m-d H:i:s");
+//        $offer->offer_status = 2;
+//        $offer->save();
+//
+//        $order = $offer->order;
+//
+//        $order->order_status = 2;
+//        $order->save();
+//
+//        $transaction = new Transaction();
+//        $transaction->offer_id = $offer->offer_id;
+//        $transaction->coupon_id = 0;
+//
+//        if ($offer->payment_type == "bank")
+//            $payment_id = $offer->payment_info_id;
+//        else {
+//            $payment_id = $offer->payment_info_id;
+//        }
+//        $total_order = (float)$order->price * $order->quantity +
+//            $offer->shipping_fee + $offer->tax + $offer->others_fee;
+//
+//        $transaction->service_fee = round($total_order * get_service_percent($total_order), 2);
+//
+//        //new way to process with coupon.
+//        $amount_be_coupon = 0;
+//        $absoluteTotal = $total_order * (1 + get_service_percent($total_order));
+//
+//        $coupon = Coupon::whereIn("account_id", [$account_id, 0])
+//            ->where("amount", ">", 0)
+//            ->where("coupon_id", $coupon_id)->where("status", 1)->get();
+//
+//        if ($coupon->count() > 0) {
+//            $coupon = $coupon->first();
+//            $transaction->coupon_id = $coupon_id;
+//            $coupon->amount = (int)$coupon->amount - 1;
+//            if (!$coupon->amount) {
+//                $coupon->status = -1; // đã dùng
+//            } else {
+//                $coupon->used_at = $date;
+//                $coupon_money = $coupon->money;
+//                $coupon_type = $coupon->type;
+//                $coupon_primary_percent = $coupon->primary_percent;
+//                $coupon_secondary_percent = $coupon->secondary_percent;
+//
+//                $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon_money, $coupon_type, $coupon_primary_percent, $coupon_secondary_percent);
+//                $coupon->real_money = $amount_be_coupon;
+//            }
+//            $coupon->save();
+//        }
+//
+//        $transaction->total = round($absoluteTotal - $amount_be_coupon, 2);
+//        $transaction->transaction_time = $date;
+//        $transaction->transaction_date = $date;
+//        $transaction->transaction_date = $date;
+//        $transaction->payment_type = $offer->payment_type;
+//        $transaction->payment_id = $payment_id;
+//        $transaction->exchange = $exchange;
+//        $transaction->transaction_status = 2; // đang giao dịch
+//        $transaction->save();
+//
+//        return redirect()->action("Frontend\ShopperController@orderDetail", $offer->order_id)->withSuccess(trans("index.nhanbofferthanhcong"));
         if ($this->request->has('payment_id')) {
 //        if (isset($this->request->input('payment_id'])) {
             // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
