@@ -52,7 +52,7 @@ $(function(){
         autoplay:true,
         autoplayTimeout:4000,
         autoHeight:true,
-        loop:true,
+        loop: $('.owl-sliderBanner').children().length > 1,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         items:1,
@@ -62,7 +62,7 @@ $(function(){
     });
 
     var owl_ctdh = $('.owl-slider_image_chitietdonhang');
-    
+
     $('.owl-slider_image_chitietdonhang').owlCarousel({
             autoplay: true,
             autoplayTimeout: 4000,
@@ -84,7 +84,7 @@ $(function(){
         autoplayTimeout:4000,
         autoHeight:true,
         margin:30,
-        loop:true,
+        loop:$('.owl_slider_product').children().length > 1,
         dots:false,
         nav:true,
         navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
@@ -112,7 +112,7 @@ $(function(){
         autoplayTimeout:4000,
         autoHeight:true,
         margin:30,
-        loop:true,
+        loop:$('.owl_exhibition_2u').children().length > 1,
         dots:false,
         nav:true,
         navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
