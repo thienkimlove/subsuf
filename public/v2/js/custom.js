@@ -61,24 +61,23 @@ $(function(){
         smartSpeed:450
     });
 
-    var owl_ctdh = $('.slider_image_chitietdonhang');
-
-    if (owl_ctdh.children().length > 1) {
-        $('.owl-slider_image_chitietdonhang').owlCarousel({
+    var owl_ctdh = $('.owl-slider_image_chitietdonhang');
+    
+    $('.owl-slider_image_chitietdonhang').owlCarousel({
             autoplay: true,
             autoplayTimeout: 4000,
             autoHeight: true,
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             items: 1,
-            loop: true,
+            loop: owl_ctdh.children().length > 1,
             margin: 0,
             stagePadding: 0,
             smartSpeed: 450,
             nav: true,
             navText: ["<i class='fa fa-angle-double-left' aria-hidden='true'></i>", "<i class='fa fa-angle-double-right' aria-hidden='true'></i>"]
         });
-    }
+
 
     $('.owl_slider_product').owlCarousel({
         autoplay:true,
