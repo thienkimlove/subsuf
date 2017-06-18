@@ -110,6 +110,8 @@ class PaymentController extends Controller
 //            echo $url;
 //            die;
 
+	        return \Redirect::action('Frontend\ShopperController@saveAcceptOffer', [$account_id, $offer_id, $coupon_id]);
+
             if ($order_code != "") {
                 //một số tham số lưu ý
                 //&cancel_url=http://yourdomain.com --> Link bấm nút hủy giao dịch
