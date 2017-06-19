@@ -31,10 +31,10 @@
                             </div>
                             <div class="info_product">
                                 <h3 class="name_product">
-                                    <a href="#">{{$item->name}}</a>
+                                    <a href="#" onclick="return false;">{{$item->name}}</a>
                                 </h3>
                                 <p>
-                                    {!! $item->description !!}
+                                    {!! $item->translate(App::getLocale())->description !!}
                                 </p>
                             </div>
                         </div>

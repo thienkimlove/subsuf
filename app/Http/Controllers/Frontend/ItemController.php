@@ -50,6 +50,7 @@ class ItemController extends Controller
         ];
         //return view('frontend.item.item', $response);
 
+
         return view('v2.item.item', $response);
     }
 

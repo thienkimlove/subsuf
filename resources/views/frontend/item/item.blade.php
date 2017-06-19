@@ -40,7 +40,9 @@
                             <div class="col-lg-12">
                                 <h2>{{$item->name}}</h2>
                                 <p>
-                                    {!! $item->description !!}
+
+                                        {!! $item->translate(App::getLocale())->description !!}
+
                                 </p>
                             </div>
                         </div>
