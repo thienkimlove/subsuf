@@ -308,6 +308,7 @@ function get_coupon_form($request)
         'total' => (int)trim($request->input('total')),
         'status' => (int)trim($request->input('status')),
         'type' => (int)trim($request->input('type')),
+	    'currency' => trim($request->input('currency', 'vnd')),
     ];
     if ($request->has('amount')) {
         $data['amount'] = (int)trim($request->input('amount'));
