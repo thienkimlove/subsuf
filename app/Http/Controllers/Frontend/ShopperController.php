@@ -367,14 +367,23 @@ class ShopperController extends Controller
 
 
         $coupons = Coupon::where("account_id", session()->get("userFrontend")["account_id"])
-            ->where("money", "<=", $total)
+           // ->where("money", "<=", $total)
             ->where("status", 1)
             ->get();
 
         $absoluteTotal = $total+$fee;
 
-        foreach ($coupons as &$coupon) {
-            $coupon->amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon->money, $coupon->type, $coupon->primary_percent, $coupon->secondary_percent);
+        $couponDisplay = [];
+
+        foreach ($coupons as $coupon) {
+            $checkData = CouponHelper::checkCouponForUser(session()->get('userFrontend'), $coupon, $absoluteTotal);
+
+            if ($checkData['status'] == 1) {
+                $temp = $coupon;
+                $temp->amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon->money, $coupon->type, $coupon->primary_percent, $coupon->secondary_percent);
+                $couponDisplay[] = $temp;
+            }
+
         }
 
 
@@ -384,7 +393,7 @@ class ShopperController extends Controller
             "total" => $total,
             "exchange" => $this->exchange->change("USD", "VND"),
             "fee" => $fee,
-            "coupon" => $coupons // các coupon của user
+            "coupon" => $couponDisplay // các coupon của user
         ];
 
         return view('v2.shopper.accept_offer', $response);
@@ -823,35 +832,7 @@ class ShopperController extends Controller
             ->first();
 
         if ($code) {
-            if ($code->promotion_email && session()->get("userFrontend")["email"] != $code->promotion_email) {
-                $data = [
-                    "status" => 0,
-                    "message" => "Mã coupon không đúng email!",
-                ];
-            } else if ($code->account_id != 0 && session()->get("userFrontend")["account_id"] != $code->account_id) {
-                $data = [
-                    "status" => 0,
-                    "message" => "Mã coupon đã xác định dùng cho user khác!",
-                ];
-            } else  {
-                if ($code->money > $total && $code->type == 0) {
-                    $data = [
-                        "status" => 0,
-                        "message" => "Mã coupon có số tiền khuyến mại lớn hơn tổng tiền đơn hàng nên không thể áp dụng!",
-                    ];
-
-                } else {
-                    $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($total, $code->money, $code->type, $code->primary_percent, $code->secondary_percent);
-                    $responseData = $code->toArray();
-                    $responseData['amount_be_coupon'] = $amount_be_coupon;
-
-                    $data = [
-                        "status" => 1,
-                        "data" => $responseData,
-                    ];
-                }
-            }
-
+            $data = CouponHelper::checkCouponForUser(session()->get("userFrontend"), $code, $total);
         } else {
             $data = [
                 "status" => 0,

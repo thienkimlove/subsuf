@@ -30,4 +30,39 @@ class CouponHelper
         }
         return $amount_be_coupon;
     }
+
+    public static function checkCouponForUser($sessionUser, $coupon, $total)
+    {
+
+        if ($coupon->promotion_email && $sessionUser["email"] != $coupon->promotion_email) {
+            $data = [
+                "status" => 0,
+                "message" => "Mã coupon không đúng email!",
+            ];
+        } else if ($coupon->account_id != 0 && $sessionUser["account_id"] != $coupon->account_id) {
+            $data = [
+                "status" => 0,
+                "message" => "Mã coupon đã xác định dùng cho user khác!",
+            ];
+        } else  {
+            if ($coupon->money > $total && $coupon->type == 0) {
+                $data = [
+                    "status" => 0,
+                    "message" => "Mã coupon có số tiền khuyến mại lớn hơn tổng tiền đơn hàng nên không thể áp dụng!",
+                ];
+
+            } else {
+                $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($total, $coupon->money, $coupon->type, $coupon->primary_percent, $coupon->secondary_percent);
+                $responseData = $coupon->toArray();
+                $responseData['amount_be_coupon'] = $amount_be_coupon;
+
+                $data = [
+                    "status" => 1,
+                    "data" => $responseData,
+                ];
+            }
+        }
+
+        return $data;
+    }
 }
