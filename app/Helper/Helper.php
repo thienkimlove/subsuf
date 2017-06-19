@@ -23,7 +23,7 @@ function get_currency_text($currency=Null)
         }
     }
 
-    return '$';
+    return 'VNĐ';
 }
 
 function get_service_percent($total = 0)
