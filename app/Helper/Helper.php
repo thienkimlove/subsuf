@@ -335,7 +335,9 @@ function havePermission($module, $function)
 
 function get_host($link)
 {
-    return parse_url($link)['host'];
+    if(isset(parse_url($link)['host'])) {
+        return parse_url($link)['host'];
+    }
 }
 
 function send_mail($notification, $type = "", $param = null)
