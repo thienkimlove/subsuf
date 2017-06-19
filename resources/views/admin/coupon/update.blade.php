@@ -140,6 +140,21 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+
+                                <div class="form-group form-group-sm">
+                                    <label class="control-label">
+                                        Đơn vị tiền
+                                        <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <select name="currency" id="currency" class="form-control input-sm">
+
+                                        <option @if($coupon->currency=='usd') selected @endif value="usd">USD</option>
+                                        <option @if($coupon->currency=='vnd') selected @endif value="vnd">VNĐ</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group form-group-sm">
                                     <label class="control-label">
                                         Còn lại

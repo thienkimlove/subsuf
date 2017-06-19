@@ -129,7 +129,7 @@
                                     <select name="currency" id="currency" class="form-control input-sm">
 
                                         <option value="usd">USD</option>
-                                        <option value="vnd">VNĐ</option>
+                                        <option value="vnd" selected>VNĐ</option>
 
                                     </select>
                                 </div>
