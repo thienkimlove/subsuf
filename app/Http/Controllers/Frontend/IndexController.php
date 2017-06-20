@@ -108,6 +108,7 @@ class IndexController extends Controller
                DB::table('coupon')->insertGetId([
                     'coupon_code' => $code,
                     'money' => (float) $promotionMoney['coupon_promotion'],
+                    'currency' => 'vnd',
                     'promotion_email' => $email,
                     'status' => 1,
                     'used_at' => ''
