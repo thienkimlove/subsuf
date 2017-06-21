@@ -48,7 +48,7 @@ class CouponHelper
             ];
         } else  {
 
-            $exchange = Exchange::wherer('from_currency', 'USD')->where('to_currency', 'VND')->first();
+            $exchange = Exchange::where('from_currency', 'USD')->where('to_currency', 'VND')->first();
 
             $exchangeRatio = $exchange->money;
 
