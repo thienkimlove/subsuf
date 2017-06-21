@@ -238,15 +238,22 @@
 
         totalMoney = parseFloat({{round($total+$fee,2)}});
         exchange = parseFloat({{$exchange}});
-        function addCoupon(counpon, id) {
+        function addCoupon(currency, counpon, id) {
             $("#couponAdded").show();
             $(".discount-col").show();
             $("#addCoupon").hide();
 
-            $("#couponAdded .couponValue").html(
-                "$" + counpon +
-                '<input type="hidden" name="coupon" value="' + id + '">'
-            );
+            if(currency == 'usd') {
+                $("#couponAdded .couponValue").html(
+                    "$" + counpon +
+                    '<input type="hidden" name="coupon" value="' + id + '">'
+                );
+            } else {
+                $("#couponAdded .couponValue").html(
+                     counpon + 'VND' +
+                    '<input type="hidden" name="coupon" value="' + id + '">'
+                );
+            }
             $(".discount-col p").html("-$" + counpon);
             var total1 = addCommas(parseFloat(totalMoney - counpon).toFixed(2));
             var total2 = addCommas(parseInt((totalMoney - counpon) * exchange));
