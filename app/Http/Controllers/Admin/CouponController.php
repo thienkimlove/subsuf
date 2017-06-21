@@ -41,15 +41,15 @@ class CouponController extends Controller
             $query['account_id'] = "account_id = $account_id";
         }
 
-        if ($this->request->has('promotion')) {
-            $promotion = (int)trim($this->request->input('promotion'));
-            if ($promotion == 1) {
-                $query['promotion_email'] = "promotion_email is not null";
-            } else {
-                $query['promotion_email'] = "promotion_email is null";
-            }
-
-        }
+//        if ($this->request->has('promotion')) {
+//            $promotion = (int)trim($this->request->input('promotion'));
+//            if ($promotion == 1) {
+//                $query['promotion_email'] = "promotion_email is not null";
+//            } else {
+//                $query['promotion_email'] = "promotion_email is null";
+//            }
+//
+//        }
 
         $coupons = $this->couponRepository->getLimit(30, $query);
         $accounts = $this->accountRepository->getAll();
