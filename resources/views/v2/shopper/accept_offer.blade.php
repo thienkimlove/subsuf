@@ -248,17 +248,26 @@
                     "$" + counpon +
                     '<input type="hidden" name="coupon" value="' + id + '">'
                 );
+
+                $(".discount-col p").html("-$" + counpon);
+                var total1 = addCommas(parseFloat(totalMoney - counpon).toFixed(2));
+                var total2 = addCommas(parseInt((totalMoney - counpon) * exchange));
+                $("#totalMoney").html(total1);
+                $("#totalMoneyEx").html(total2);
             } else {
                 $("#couponAdded .couponValue").html(
                      counpon + ' VND' +
                     '<input type="hidden" name="coupon" value="' + id + '">'
                 );
+
+                $(".discount-col p").html("-" + counpon + ' VND');
+
+                var total1 = addCommas(parseFloat(totalMoney - counpon / exchange).toFixed(2));
+                var total2 = addCommas(parseInt((totalMoney  * exchange - counpon));
+                $("#totalMoney").html(total1);
+                $("#totalMoneyEx").html(total2);
             }
-            $(".discount-col p").html("-$" + counpon);
-            var total1 = addCommas(parseFloat(totalMoney - counpon).toFixed(2));
-            var total2 = addCommas(parseInt((totalMoney - counpon) * exchange));
-            $("#totalMoney").html(total1);
-            $("#totalMoneyEx").html(total2);
+
             $("#resetCoupon").show();
             $("#couponModal .alert").hide();
         }
