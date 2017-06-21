@@ -270,7 +270,7 @@
                     $("#couponModal .alert").html(msg.message);
                     $("#couponModal .alert").show();
                 } else {
-                    addCoupon(msg.data.amount_be_coupon, msg.data.coupon_id);
+                    addCoupon(msg.data.coupon_currency, msg.data.amount_be_coupon, msg.data.coupon_id);
                     $("#couponModal").modal('hide');
                 }
             });

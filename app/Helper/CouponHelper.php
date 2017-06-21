@@ -67,6 +67,7 @@ class CouponHelper
                 $amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($total, $coupon->money, $coupon->type, $coupon->primary_percent, $coupon->secondary_percent);
                 $responseData = $coupon->toArray();
                 $responseData['amount_be_coupon'] = $amount_be_coupon;
+                $responseData['coupon_currency'] = $coupon->currency;
 
                 $data = [
                     "status" => 1,
