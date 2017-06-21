@@ -2,6 +2,8 @@
 
 namespace App\Helper;
 
+use App\Exchange;
+
 class CouponHelper
 {
     /**
@@ -45,6 +47,16 @@ class CouponHelper
                 "message" => "Mã coupon đã xác định dùng cho user khác!",
             ];
         } else  {
+
+            $exchange = Exchange::wherer('from_currency', 'USD')->where('to_currency', 'VND')->first();
+
+            $exchangeRatio = $exchange->money;
+
+            if(str_contains($coupon->coupon_code, 'PROMO'))
+            {
+                $total = $total * $exchangeRatio;
+            }
+
             if ($coupon->money > $total && $coupon->type == 0) {
                 $data = [
                     "status" => 0,
