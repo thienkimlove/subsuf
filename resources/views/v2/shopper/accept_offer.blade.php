@@ -250,7 +250,7 @@
                 );
             } else {
                 $("#couponAdded .couponValue").html(
-                     counpon + 'VND' +
+                     counpon + ' VND' +
                     '<input type="hidden" name="coupon" value="' + id + '">'
                 );
             }
