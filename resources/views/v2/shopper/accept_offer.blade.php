@@ -263,7 +263,7 @@
                 $(".discount-col p").html("-" + counpon + ' VND');
 
                 var total1 = addCommas(parseFloat(totalMoney - counpon / exchange).toFixed(2));
-                var total2 = addCommas(parseInt((totalMoney  * exchange - counpon);
+                var total2 = addCommas(parseInt((totalMoney  * exchange - counpon)));
                 $("#totalMoney").html(total1);
                 $("#totalMoneyEx").html(total2);
             }
