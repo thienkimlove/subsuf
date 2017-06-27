@@ -76,15 +76,15 @@
 
                 </div>
 
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-12 col-md-4 col-xs-6">
 
                     <p><span class="icon"><img src="/v2/images/icon_phone.png"/></span><span
                                 class="icontext">{{trans("index.number_phone")}}</span></p>
                     <p><span class="icon"><img src="/v2/images/icon_mail.png"/></span><span
                                 class="icontext">support@subsuf.com</span></p>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <ul class="list_menu_ft">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-xs-6">
+                    <ul class="list_menu_ft mtb0">
                         <li><a href="{{url('blog')}}" target="_blank">{{trans("index.blog")}}</a></li>
                         <li><a href="{{url('about')}}" target="_blank">{{trans("index.vechungtoi")}}</a></li>
                         <li><a href="{{url('faq')}}" target="_blank">{{trans("index.cauhoithuonggap")}}</a></li>

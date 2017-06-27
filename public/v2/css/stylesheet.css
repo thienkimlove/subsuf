@@ -2023,4 +2023,26 @@ ul.dropdown-menu li {
         float: left;
     }
     .no-pad{padding-left: 0; padding-right: 0}
+    .icon img{width: 16px}
+    .icontext, .list_menu_ft li a{font-size: 12px}
+    .mtb0{margin: 0 !important;}
+    .cd-multi-steps li{width: 115px; padding: 0 10px; text-align: center }
+    .cd-multi-steps li a, .cd-multi-steps li em{
+        font-size: 12px;
+        padding-top: 15px !important;
+        text-align: center;
+    }
+    .cd-multi-steps{padding: 0 15px }
+    .cd-multi-steps li:after{display: none}
+    .cd-breadcrumb, .cd-multi-steps{width: 100%; margin: 0 auto}
+    .cd-multi-steps li a:after, .cd-multi-steps li em:after{display: none}
+
+    header.header .logo_btn_nhanmuaho .btn_link.active{
+        font-size: 14px;
+    }
+    .wrap_dathang_NhanMuaHo .wrap-fomr form.form_select div.select{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .wrap_dathang_NhanMuaHo .wrap-fomr .title_block{font-size:28px}
 }
