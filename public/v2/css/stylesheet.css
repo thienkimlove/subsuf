@@ -2045,4 +2045,10 @@ ul.dropdown-menu li {
         margin-bottom: 10px;
     }
     .wrap_dathang_NhanMuaHo .wrap-fomr .title_block{font-size:28px}
+    .wrap_QuyTrinhDatMuaHang .wrap_form .wrap_image_upload .image-upload{height: 50px}
+    #addImageBtn{width: 40px !important;}
+    .input-lg {
+        width: 91% !important;
+        margin-left: 15px;
+    }
 }
