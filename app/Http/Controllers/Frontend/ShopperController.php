@@ -381,6 +381,7 @@ class ShopperController extends Controller
             if ($checkData['status'] == 1) {
                 $temp = $coupon;
                 $temp->amount_be_coupon = CouponHelper::getRealCouponAmountByTotal($absoluteTotal, $coupon->money, $coupon->type, $coupon->primary_percent, $coupon->secondary_percent);
+                $temp->coupon_currency = $coupon->currency;
                 $couponDisplay[] = $temp;
             }
 
