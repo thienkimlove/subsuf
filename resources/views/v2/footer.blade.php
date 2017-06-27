@@ -64,7 +64,7 @@
                 <div class="col-xs-12 col-md-12 mb15 text-center">
                     <span class="nhanngay_title "> {{ trans('index.uudai50k') }}</span>
                     <span><input type="text" class="input_nhanngay" size="30"
-                                 placeholder="{{trans('index.entermail')}}"/></span>
+                                 placeholder="{{trans('index.entermail')}}" style="margin-top: 5px"/></span>
                     <span><button class="nhanngay">{{trans('index.nhanuudai')}}</button></span>
 
                     <span class="tticon hidden-xs"><a href="#" onclick="return false;"><img src="/v2/images/icon-thanhtoan1.png"
