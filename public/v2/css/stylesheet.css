@@ -2051,4 +2051,9 @@ ul.dropdown-menu li {
         width: 91% !important;
         margin-left: 15px;
     }
+    .item-box{border-bottom: 1px dashed #ddd; margin-top: 30px}
+    .search-content-3 .tile-container.item-box > .tile-title > h3{
+        font-size: 16px;
+        height: 32px;
+    }
 }
