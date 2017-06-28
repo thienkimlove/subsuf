@@ -2067,9 +2067,16 @@ ul.dropdown-menu li {
     }
 
 
-    .mlfr {
-        float: right;
-        width: 50%;
+    .li-user {
+        float: left;
+        width: 80%;
         
     }
+
+    .li-noti{
+        float: left;
+        width: 20%
+    }
+
+
 }
