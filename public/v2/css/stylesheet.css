@@ -2068,15 +2068,19 @@ ul.dropdown-menu li {
 
 
     .li-user {
-        float: left !important;
+        float: right !important;
         width: 80%;
         
     }
 
     .li-noti{
-        float: left;
-        width: 20%
+        float: right !important;
+        width: 20%;
+        margin-bottom: 30px;
     }
+
+    .li-noti ul{position: absolute; left: -227px}
+
 
 
 }
