@@ -83,6 +83,7 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <div class="clearfix"></div>
                                     @foreach (\App\Category::orderBy("category_id", "ASC")->get() as $category)
                                         @if($category->category_id == 7)
                                             @continue

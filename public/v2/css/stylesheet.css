@@ -2068,7 +2068,7 @@ ul.dropdown-menu li {
 
 
     .li-user {
-        float: left;
+        float: left !important;
         width: 80%;
         
     }
