@@ -33,7 +33,7 @@
                                     $notifications = session()->get("userFrontend")->notifications()->unread()->get();
                                     $unread = count($notifications);
                                     ?>
-                                    <li class="dropdown dropdown-extended dropdown-notification " id="header_notification_bar">
+                                    <li class="dropdown dropdown-extended dropdown-notification mlfr" id="header_notification_bar">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                             <i class="ti-bell"></i>
                                             @if($unread > 0)
@@ -61,7 +61,7 @@
                                     </li>
 
 
-                                    <li class="dropdown dropdown-user">
+                                    <li class="dropdown dropdown-user mlfr">
                                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
                                            data-hover="dropdown" data-close-others="true">
 

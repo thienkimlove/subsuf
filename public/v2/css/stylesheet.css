@@ -2065,4 +2065,11 @@ ul.dropdown-menu li {
         font-size: 18px;
         line-height: 24px;
     }
+
+
+    .mlfr {
+        float: right;
+        width: 50%;
+        
+    }
 }
