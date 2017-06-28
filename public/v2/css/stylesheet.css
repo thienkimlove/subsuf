@@ -2090,14 +2090,16 @@ ul.dropdown-menu li {
         padding-bottom: 12px !important;
     }
     .cd-multi-steps li a:after, .cd-multi-steps li em:after,.cd-breadcrumb li::after, .cd-multi-steps li::after{display: none;}
-}
-@media screen and (max-width: 375px){
-    .name_product{font-size: 18px}
-    .wrap_QuyTrinhDatMuaHang .wrap_form .image-upload img{
-        width: 50px !important;
+    .order-full .order-content h3, .order-full  .order-delive{
+        margin-left: 0 !important
+    }
+    .order-full .order-thumbnail{
+        display: block !important;
+        float: none !important;
     }
 }
-@media screen and (max-width: 360px){
+
+@media screen and (max-width: 375px){
      .btn_style{font-size: 14px}
    .goiytiencong{
     width: 100% 
@@ -2119,4 +2121,17 @@ ul.dropdown-menu li {
     line-height: 80px;
     }
     .wrap_QuyTrinhDatMuaHang .wrap_form .form-group label{font-size: 18px}
+    .order-full .order-content h3, .order-full  .order-delive{
+        margin-left: 0 !important
+    }
+    .order-full .order-thumbnail{
+        display: block !important;
+        float: none !important;
+    }
 }
+ @media screen and (max-width: 320px){
+        .order-full .order-thumbnail{
+            width: 221px;
+            height: 221px;
+        }
+    }
