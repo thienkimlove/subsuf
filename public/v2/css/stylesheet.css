@@ -2085,9 +2085,17 @@ ul.dropdown-menu li {
     .li-noti a {
         padding-bottom: 12px !important;
     }
+    .cd-multi-steps li a:after, .cd-multi-steps li em:after,.cd-breadcrumb li::after, .cd-multi-steps li::after{display: none;}
 }
 @media screen and (max-width: 360px){
    .goiytiencong{
     width: 100% 
-} 
+    } 
+    .wrap_tiencong {text-align: center;}
+    .cd-multi-steps li a:after, .cd-multi-steps li em:after,.cd-breadcrumb li::after, .cd-multi-steps li::after{display: none;}
+    .cd-multi-steps li {
+        width: 96px;
+        padding: 0 5px;
+        text-align: center;
+    }
 }
