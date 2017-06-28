@@ -2085,11 +2085,8 @@ ul.dropdown-menu li {
     .li-noti a {
         padding-bottom: 12px !important;
     }
-
-
 }
-@media screen and (max-width: 320px){
+@media screen and (max-width: 360px){
    .wrap_QuyTrinhDatMuaHang .wrap_form .wrap_tiencong span.wrap_QuyTrinhDatMuaHang .wrap_form .wrap_tiencong span{
     width: 100%
 } 
-}
