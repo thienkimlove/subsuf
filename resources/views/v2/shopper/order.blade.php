@@ -43,11 +43,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="tenSanPham">{{trans("index.tensanpham")}}</label>
-                                <input type="text" class="form-control" id="tenSanPham" name="name" placeholder="Tên sản phẩm" value="{{isset($order["name"])?$order["name"]:""}}">
+                                <input type="text" class="form-control" id="tenSanPham" name="name" required placeholder="Tên sản phẩm" value="{{isset($order["name"])?$order["name"]:""}}">
                             </div>
                             <div class="form-group">
                                 <label for="moTaSanPham">{{trans("index.motasanpham")}}</label>
-                                <input type="text" class="form-control" id="moTaSanPham" name="description" placeholder="{{trans("index.mausackichco")}}" value="{{isset($order["description"])?$order["description"]:""}}">
+                                <input type="text" class="form-control" id="moTaSanPham" name="description" required placeholder="{{trans("index.mausackichco")}}" value="{{isset($order["description"])?$order["description"]:""}}">
                             </div>
                         <div class="form-group">
                             <label>{{trans("index.giasanpham")}} <select id="currency_select">
@@ -85,7 +85,7 @@
                                 </button>
 
                                 <input type="text" name="quantity" maxlength="3" id="quantity" class="btn  border-red"
-                                       value="{{isset($order["quantity"])?$order["quantity"]:"1"}}"
+                                       required   value="{{isset($order["quantity"])?$order["quantity"]:"1"}}"
                                        style="width: 40px">
                                 <button type="button" class="btn btn-outline red bold" id="quantityPlus">+</button>
                             </div>

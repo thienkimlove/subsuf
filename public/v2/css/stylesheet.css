@@ -2101,6 +2101,7 @@ ul.dropdown-menu li {
         display: block !important;
         float: none !important;
     }
+     .btn_style{font-size: 18px}
 }
 
 @media screen and (max-width: 375px){
