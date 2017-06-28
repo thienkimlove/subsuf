@@ -2082,6 +2082,9 @@ ul.dropdown-menu li {
 
     .li-noti ul{position: absolute !important; left: -227px !important}
 
+    .li-noti a {
+        padding-bottom: 12px !important;
+    }
 
 
 }
