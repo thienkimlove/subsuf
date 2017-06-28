@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 <label for="tienCong">{{trans("index.nhaptienchonguoimuaho")}} <br><small>{{trans("index.tiencongbaogomthueneuco")}}</small></label>
                                 <div class="wrap_tiencong text-right" data-toggle="buttons">
-                                    <span class="pull-left">{{trans("index.goiytiencong")}}</span>
+                                    <span class="pull-left goiytiencong">{{trans("index.goiytiencong")}}</span>
                                     <label class="btn btn-default reward" data-reward="{{$reward[0]}}">
                                         <input  type="radio" checked="checked"  value="{{$reward[0]}}">
                                         ${{$reward[0]}}
