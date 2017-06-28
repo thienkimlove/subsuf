@@ -43,7 +43,7 @@ return [
     'themmagiamgia' => 'Thêm mã giảm giá',
     'suacoupon' => 'Sửa Coupon',
     'themcoupon' => 'Thêm Coupon',
-    'macouponkhongdung' => 'Mã coupon không đúng',
+    'macouponkhongdung' => 'Mã coupon không hợp lệ',
     'chonmacoupon' => 'Chọn mã coupon có sẵn',
     'xoacoupon' => 'Xóa coupon',
     'tiencong' => 'tiền công',

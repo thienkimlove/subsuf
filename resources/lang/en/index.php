@@ -43,7 +43,7 @@ return [
     'themmagiamgia' => 'Add coupon',
     'suacoupon' => 'Edit coupon',
     'themcoupon' => 'Add coupon',
-    'macouponkhongdung' => 'Coupon not available',
+    'macouponkhongdung' => 'Invalid Coupon',
     'chonmacoupon' => 'Choose available coupon',
     'xoacoupon' => 'Delete coupon',
     'tiencong' => 'reward',
