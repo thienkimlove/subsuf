@@ -2056,4 +2056,8 @@ ul.dropdown-menu li {
         font-size: 16px;
         height: 32px;
     }
+    .wrap_QuyTrinhDatMuaHang .wrap_form .wrap_image_upload .image{
+        width: calc(50% - 20px);
+        margin: 10px;
+    }
 }
