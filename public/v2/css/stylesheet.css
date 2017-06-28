@@ -2091,7 +2091,14 @@ ul.dropdown-menu li {
     }
     .cd-multi-steps li a:after, .cd-multi-steps li em:after,.cd-breadcrumb li::after, .cd-multi-steps li::after{display: none;}
 }
+@media screen and (max-width: 375px){
+    .name_product{font-size: 18px}
+    .wrap_QuyTrinhDatMuaHang .wrap_form .image-upload img{
+        width: 50px !important;
+    }
+}
 @media screen and (max-width: 360px){
+     .btn_style{font-size: 14px}
    .goiytiencong{
     width: 100% 
     } 
@@ -2102,4 +2109,14 @@ ul.dropdown-menu li {
         padding: 0 5px;
         text-align: center;
     }
+    .name_product{font-size: 18px}
+     .wrap_QuyTrinhDatMuaHang .wrap_form .image-upload img{
+        width: 50px !important;
+    }
+    .wrap_QuyTrinhDatMuaHang .wrap_form .wrap_tiencong label.btn{
+        width: 80px;
+    height: 80px;
+    line-height: 80px;
+    }
+    .wrap_QuyTrinhDatMuaHang .wrap_form .form-group label{font-size: 18px}
 }
