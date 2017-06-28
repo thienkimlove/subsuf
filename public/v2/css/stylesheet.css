@@ -2013,14 +2013,15 @@ ul.dropdown-menu li {
 
 @media screen and (max-width: 768px){
     .menuVertical_and_sliderBanner .menuVertical {
-        position: relative;
+        /*position: relative;
         height: 440px;
         width: 100%;
         overflow-y: scroll;
         top: 0;
         z-index: 2;
         background: #3d3d58;
-        float: left;
+        float: left;*/
+        display: none;
     }
     .no-pad{padding-left: 0; padding-right: 0}
     .icon img{width: 16px}
