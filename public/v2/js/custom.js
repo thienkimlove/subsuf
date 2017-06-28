@@ -105,7 +105,7 @@ $(function(){
                 items:3
             }
         }
-    })
+    });
 
     $('.owl_exhibition_2u').owlCarousel({
         autoplay:true,
@@ -149,9 +149,11 @@ $(function(){
     $('.datmuahang').click(function () {
         $('#md_dathang').modal('show');
     });
+    if( $( window ).width() < 500  ) {
+        $('.modalinner').css('width', $( window ).width() - 30);
+    }
 
-    $('.modalinner').css('width', $( window ).width() - 30);
-    $('.input-ndv input').attr('size', 34);
+    $('.input-ndv input').attr('size', 32);
 
 
 });
