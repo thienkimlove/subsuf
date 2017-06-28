@@ -2012,6 +2012,10 @@ ul.dropdown-menu li {
 }
 
 @media screen and (max-width: 768px){
+    footer.footer .main_footer .list_menu_ft li {
+    margin-bottom: 0;
+    padding: 5px 0;
+}
     .menuVertical_and_sliderBanner .menuVertical {
         /*position: relative;
         height: 440px;
