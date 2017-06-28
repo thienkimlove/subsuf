@@ -5,7 +5,7 @@
         <div class="menuVertical_and_sliderBanner">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-xs-12 no-pad" style="padding-right: 0">
+                    <div class="col-md-3 col-xs-12 no-pad hidden-xs" style="padding-right: 0">
                         <div class="menuVertical sidebar-nav">
                             <ul class="nav">
                                 @foreach ($categories as $category)
@@ -25,7 +25,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-9 col-xs-12" style="padding-left: 0">
+                    <div class="col-md-9 col-xs-12 no-pad" style="padding-left: 0">
                         <div class="sliderBanner">
                             <div class="owl-carousel owl-theme owl-sliderBanner">
                                 @php

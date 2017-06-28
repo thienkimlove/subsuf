@@ -97,6 +97,21 @@
                                     <a href="{{url('login')}}">{{trans('index.v2_dangnhap')}}</a>
                                 </li>
 
+
+                                @foreach (\App\Category::orderBy("category_id", "ASC")->get() as $category)
+                                    @if($category->category_id == 7)
+                                        @continue
+                                    @endif
+                                    <li class="hidden-lg">
+                                        <a href="{{url('collections/featured-items?category='. $category->category_id)}}">
+                                            <img class="icon" src="{{url($category->image)}}" height="41" width="33"
+                                                 alt="">
+                                            <span>{{$category->name}}</span>
+                                        </a>
+                                    </li>
+                                @endforeach
+
+
                             @endif
                         </ul>
                     </nav>
