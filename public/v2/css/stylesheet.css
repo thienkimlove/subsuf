@@ -2079,7 +2079,7 @@ ul.dropdown-menu li {
         margin-bottom: 30px;
     }
 
-    .li-noti ul{position: absolute; left: -227px}
+    .li-noti ul{position: absolute !important; left: -227px !important}
 
 
 
