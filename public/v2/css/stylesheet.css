@@ -2060,4 +2060,10 @@ ul.dropdown-menu li {
         width: calc(50% - 20px);
         margin: 10px;
     }
+    .modal-body h3{font-size: 18px}
+    #coupon_submit{margin-top: 10px}
+    #md_dathang h4 {
+        font-size: 18px;
+        line-height: 24px;
+    }
 }

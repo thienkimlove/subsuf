@@ -148,7 +148,10 @@ $(function(){
 
     $('.datmuahang').click(function () {
         $('#md_dathang').modal('show');
-    })
+    });
+
+    $('.modalinner').css('width', $( window ).width() - 30);
+    $('.input-ndv input').attr('size', 34);
 
 
 });
