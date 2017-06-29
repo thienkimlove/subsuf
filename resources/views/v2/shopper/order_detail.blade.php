@@ -79,7 +79,7 @@
                                     </td>
                                     <td> {{$order->to_location->name}}</td>
                                 </tr>
-                                @if(!empty(trim($order->deliver_date)) || $order->deliver_date != '0000-00-00')
+                                @if(!empty(trim($order->deliver_date)) && $order->deliver_date != '0000-00-00')
                                     <tr>
                                         <td>
                                             <small>{{trans("index.ngaygiaohang")}}</small>
