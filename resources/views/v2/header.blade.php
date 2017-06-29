@@ -100,7 +100,7 @@
 
                             @else
 
-                                <li class="active">
+                                <li class="active hidden-xs">
                                     <a href="{{url('register')}}" class="btn-muaho">{{trans('index.v2_trothanhnguoimuaho')}}</a>
                                 </li>
 
