@@ -62,10 +62,12 @@
                                 <td><small>{{trans("index.den")}}</small></td>
                                 <td>{{($deliver_to)?$deliver_to->name:""}}</td>
                             </tr>
+                            @if(!empty(trim($order->deliver_date)) && $order->deliver_date != '0000-00-00')
                             <tr>
                                 <td><small>{{trans("index.ngaygiaohang")}}</small></td>
                                 <td>{{date("d-m-Y", strtotime($order2["deliver_date"]))}}</td>
                             </tr>
+                            @endif
                             {{--<tr>--}}
                                 {{--<td><small>Mua từ</small></td>--}}
                                 {{--<td>www.amazon.com</td>--}}
