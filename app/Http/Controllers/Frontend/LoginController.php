@@ -368,7 +368,7 @@ class LoginController extends Controller
             "code" => $code,
 //            "user" => $user
         ];
-        return view('frontend.user.change_new_password', $data);
+        return view('v2.user.change_new_password', $data);
 
     }
 
