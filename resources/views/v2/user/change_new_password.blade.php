@@ -16,7 +16,9 @@
 @endsection
 
 @section('content')
-
+    <div class="wrap_container wrap_quytrinhnhanmuaho">
+        <div class="container margin-top-40">
+            <div class="col-md-4 col-md-offset-4">
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
         {{Form::open(['action' => 'Frontend\LoginController@doChangeNewPassword', 'method' => 'POST',  'id' => 'insert-admin', 'data-toggle'=>'validator'])}}
@@ -40,9 +42,13 @@
             <button type="submit" class="btn btn-lg green uppercase">{{trans("index.doimatkhau")}}</button>
 
         </div>
+        {{Form::close()}}
 
     </div>
-    {{Form::close()}}
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('script')
