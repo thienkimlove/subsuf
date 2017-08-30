@@ -49,7 +49,7 @@ class BlogController extends Controller
             'blog_list' => $blog_list
         ];
 
-        return view('frontend.blog.index', $response);
+        return view('v2.blog.index', $response);
     }
 
     public function blog_details($blog_slug)
@@ -61,7 +61,7 @@ class BlogController extends Controller
                 'chose_blog' => $chose_blog
             ];
 
-            return view('frontend.blog.details', $response);
+            return view('v2.blog.details', $response);
         } else {
             return \Redirect::action('Frontend\BlogController@index');
         }
@@ -84,7 +84,7 @@ class BlogController extends Controller
                 'chose_category' => $chose_category
             ];
 
-            return view('frontend.blog.index', $response);
+            return view('v2.blog.index', $response);
         } else {
             return \Redirect::action('Frontend\BlogController@index');
         }
